@@ -13,7 +13,14 @@ class EmpresasViewController: UIViewController {
 
     @IBOutlet weak var empresaTableView: UITableView!
     
-    let empresas = [Empresa(nome: "Mackenzie", localizacao: "São Paulo, SP", nota: 3.6, recomendacao: 77)]
+    let empresas = [Empresa(nome: "Mackenzie",
+                            localizacao: "São Paulo, SP",
+                            nota: 3.6,
+                            recomendacao: 77,
+                            acessibilidade: [Acessibilidade.deficienciaMotora,
+                                             Acessibilidade.deficienciaVisual,
+                                             Acessibilidade.deficienciaAuditiva]
+        )]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,15 +42,25 @@ class EmpresasViewController: UIViewController {
 }
 
 class Empresa {
-    init(nome: String, localizacao: String, nota: Float, recomendacao: Int) {
+    init(nome: String, localizacao: String, nota: Float, recomendacao: Int, acessibilidade: [Acessibilidade]) {
         self.nome = nome
         self.localizacao = localizacao
         self.nota = nota
         self.recomendacao = recomendacao
+        self.acessibilidade = acessibilidade
     }
     
     var nome: String
     var localizacao: String
     var nota: Float
     var recomendacao: Int
+    var acessibilidade: [Acessibilidade]
+}
+
+enum Acessibilidade {
+    case deficienciaMotora
+    case deficienciaVisual
+    case deficienciaAuditiva
+    case deficienciaIntelectual
+    case nanismo
 }

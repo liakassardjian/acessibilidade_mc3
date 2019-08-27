@@ -30,6 +30,21 @@ class EmpresasController: NSObject, UITableViewDataSource, UITableViewDelegate {
         cell.notaLabel.text = String(empresas[indexPath.row].nota)
         cell.recomendacaoLabel.text = String("\(empresas[indexPath.row].recomendacao)%")
         
+//        for a in empresas[indexPath.row].acessibilidade {
+//            switch a {
+//            case Acessibilidade.deficienciaVisual:
+//
+//            case Acessibilidade.deficienciaMotora:
+//
+//            case Acessibilidade.deficienciaAuditiva:
+//
+//            case Acessibilidade.deficienciaAuditiva:
+//
+//
+//
+//            }
+//        }
+        
         return cell
         
     }
