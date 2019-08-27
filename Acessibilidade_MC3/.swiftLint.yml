@@ -6,6 +6,7 @@ disabled_rules:
   - dynamic_inline
   - for_where
   - unused_closure_parameter
+  - trailing_whitespace
 
 
 # rule identifiers to opt in
