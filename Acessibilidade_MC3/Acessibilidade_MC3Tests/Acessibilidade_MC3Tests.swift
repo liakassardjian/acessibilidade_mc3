@@ -9,7 +9,7 @@
 import XCTest
 @testable import Acessibilidade_MC3
 
-class Acessibilidade_MC3Tests: XCTestCase {
+class Tests: XCTestCase {
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
