@@ -56,10 +56,28 @@
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
+                                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oPS-bM-ezN" customClass="BarraProgressoView" customModule="Acessibilidade_MC3" customModuleProvider="target">
+                                                                            <rect key="frame" x="15" y="65" width="70" height="15"/>
+                                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                            <userDefinedRuntimeAttributes>
+                                                                                <userDefinedRuntimeAttribute type="number" keyPath="valorProgresso">
+                                                                                    <real key="value" value="1"/>
+                                                                                </userDefinedRuntimeAttribute>
+                                                                                <userDefinedRuntimeAttribute type="number" keyPath="comprimentoLinha">
+                                                                                    <real key="value" value="15"/>
+                                                                                </userDefinedRuntimeAttribute>
+                                                                                <userDefinedRuntimeAttribute type="color" keyPath="corLinha">
+                                                                                    <color key="value" red="0.53333333329999999" green="0.56078431370000004" blue="0.58823529409999997" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                                                                </userDefinedRuntimeAttribute>
+                                                                                <userDefinedRuntimeAttribute type="color" keyPath="corProgresso">
+                                                                                    <color key="value" red="0.99809223413467407" green="0.74864566326141357" blue="0.34990906715393066" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                                </userDefinedRuntimeAttribute>
+                                                                            </userDefinedRuntimeAttributes>
+                                                                        </view>
                                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Estrelas" highlightedImage="Estrelas" translatesAutoresizingMaskIntoConstraints="NO" id="wV1-Pc-Qgm">
                                                                             <rect key="frame" x="15" y="65" width="70" height="15"/>
                                                                             <constraints>
-                                                                                <constraint firstAttribute="width" constant="70" id="2xN-LI-6W3"/>
+                                                                                <constraint firstAttribute="width" constant="70" id="ZUQ-U4-DJi"/>
                                                                                 <constraint firstAttribute="height" constant="15" id="mLv-LP-ioL"/>
                                                                             </constraints>
                                                                         </imageView>
@@ -75,8 +93,12 @@
                                                                         <constraint firstItem="iUO-NZ-3QF" firstAttribute="leading" secondItem="y4F-gx-be9" secondAttribute="leading" constant="15" id="4mi-Mx-o6B"/>
                                                                         <constraint firstAttribute="trailing" secondItem="KiM-YC-A1c" secondAttribute="trailing" constant="15" id="5OR-t6-iLW"/>
                                                                         <constraint firstAttribute="bottom" secondItem="wV1-Pc-Qgm" secondAttribute="bottom" constant="20" id="A6h-EZ-qx4"/>
+                                                                        <constraint firstItem="oPS-bM-ezN" firstAttribute="height" secondItem="wV1-Pc-Qgm" secondAttribute="height" id="ASC-rJ-aTT"/>
+                                                                        <constraint firstItem="oPS-bM-ezN" firstAttribute="centerX" secondItem="wV1-Pc-Qgm" secondAttribute="centerX" id="B2g-uh-kN8"/>
+                                                                        <constraint firstItem="oPS-bM-ezN" firstAttribute="centerY" secondItem="wV1-Pc-Qgm" secondAttribute="centerY" id="Cf3-Td-8Yi"/>
                                                                         <constraint firstItem="KiM-YC-A1c" firstAttribute="bottom" secondItem="iUO-NZ-3QF" secondAttribute="bottom" id="EGb-xm-9QV"/>
                                                                         <constraint firstItem="KiM-YC-A1c" firstAttribute="leading" secondItem="iUO-NZ-3QF" secondAttribute="trailing" id="VAe-2E-gvm"/>
+                                                                        <constraint firstItem="oPS-bM-ezN" firstAttribute="width" secondItem="wV1-Pc-Qgm" secondAttribute="width" id="cIO-eQ-A21"/>
                                                                         <constraint firstItem="iUO-NZ-3QF" firstAttribute="top" secondItem="y4F-gx-be9" secondAttribute="top" constant="20" id="dJx-Pe-P64"/>
                                                                         <constraint firstItem="wV1-Pc-Qgm" firstAttribute="leading" secondItem="y4F-gx-be9" secondAttribute="leading" constant="15" id="lWU-wE-ocI"/>
                                                                         <constraint firstAttribute="trailing" secondItem="wV1-Pc-Qgm" secondAttribute="trailing" constant="15" id="u4c-bS-QEw"/>
@@ -254,6 +276,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="avaliacaoCard" destination="y4F-gx-be9" id="DKy-K5-whM"/>
+                                            <outlet property="barraProgressoView" destination="oPS-bM-ezN" id="kTn-D4-xjv"/>
                                             <outlet property="localizacaoEmpresaLabel" destination="aQ4-w4-eu1" id="SZm-4G-WUc"/>
                                             <outlet property="nomeEmpresaLabel" destination="58d-Xq-U8h" id="qGv-ef-H28"/>
                                             <outlet property="notaLabel" destination="iUO-NZ-3QF" id="YIi-cI-QQ9"/>
@@ -310,7 +333,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Estrelas" width="1665" height="333"/>
+        <image name="Estrelas" width="1665" height="356"/>
     </resources>
     <color key="tintColor" red="0.29019607843137252" green="0.53725490196078429" blue="0.76078431372549016" alpha="1" colorSpace="calibratedRGB"/>
 </document>

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E40E5EE823170DC100915B21 /* BarraProgressoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40E5EE723170DC100915B21 /* BarraProgressoView.swift */; };
 		E4EDBF512314271F002936C7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4EDBF502314271F002936C7 /* AppDelegate.swift */; };
 		E4EDBF562314271F002936C7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E4EDBF542314271F002936C7 /* Main.storyboard */; };
 		E4EDBF592314271F002936C7 /* Acessibilidade_MC3.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E4EDBF572314271F002936C7 /* Acessibilidade_MC3.xcdatamodeld */; };
@@ -37,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E40E5EE723170DC100915B21 /* BarraProgressoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarraProgressoView.swift; sourceTree = "<group>"; };
 		E4EDBF4D2314271F002936C7 /* Acessibilidade_MC3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Acessibilidade_MC3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4EDBF502314271F002936C7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E4EDBF552314271F002936C7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -94,6 +96,7 @@
 				E4EDBF542314271F002936C7 /* Main.storyboard */,
 				E4EDBF5C23142721002936C7 /* LaunchScreen.storyboard */,
 				E4F330EC2315C60D006106E2 /* EmpresaTableViewCell.swift */,
+				E40E5EE723170DC100915B21 /* BarraProgressoView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -310,6 +313,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E40E5EE823170DC100915B21 /* BarraProgressoView.swift in Sources */,
 				E4F330ED2315C60D006106E2 /* EmpresaTableViewCell.swift in Sources */,
 				E4F330E92315C311006106E2 /* EmpresasViewController.swift in Sources */,
 				E4EDBF592314271F002936C7 /* Acessibilidade_MC3.xcdatamodeld in Sources */,

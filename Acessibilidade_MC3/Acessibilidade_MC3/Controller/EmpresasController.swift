@@ -14,9 +14,9 @@ class EmpresasController: NSObject, UITableViewDataSource, UITableViewDelegate {
     // dados provisorios para teste
     var empresas = [Empresa(nome: "Mackenzie",
                             localizacao: "São Paulo, SP",
-                            nota: 4.5,
+                            nota: 2.5,
                             recomendacao: 45,
-                            acessibilidade: []),
+                            acessibilidade: [.deficienciaMotora, .deficienciaVisual, .deficienciaAuditiva, .nanismo, .deficienciaIntelectual]),
                     Empresa(nome: "Itau",
                              localizacao: "São Paulo, SP",
                              nota: 3.6,
@@ -56,14 +56,14 @@ class EmpresasController: NSObject, UITableViewDataSource, UITableViewDelegate {
         cell.nomeEmpresaLabel.text = dados[indexPath.row].nome
         cell.localizacaoEmpresaLabel.text = dados[indexPath.row].localizacao
         cell.notaLabel.text = String(dados[indexPath.row].nota)
+        cell.barraProgressoView.valorProgresso = CGFloat(dados[indexPath.row].nota / 5)
         cell.recomendacaoLabel.text = String("\(dados[indexPath.row].recomendacao)%")
-        
-        var contador: Int = 0
         
         guard let imagens = cell.acessibilidades else {
             return UITableViewCell()
         }
         
+        var contador: Int = 0
         for acessivel in dados[indexPath.row].acessibilidade {
             imagens[contador].image = UIImage(named: acessivel.rawValue)
             contador += 1

@@ -14,6 +14,7 @@ class EmpresaTableViewCell: UITableViewCell {
     @IBOutlet weak var localizacaoEmpresaLabel: UILabel!
     @IBOutlet weak var notaLabel: UILabel!
     @IBOutlet weak var recomendacaoLabel: UILabel!
+    @IBOutlet weak var barraProgressoView: BarraProgressoView!
     
     @IBOutlet weak var primeiraAcessibilidade: UIImageView! {
         didSet {
