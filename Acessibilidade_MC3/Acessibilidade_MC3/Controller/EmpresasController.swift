@@ -26,7 +26,7 @@ class EmpresasController: NSObject, UITableViewDataSource, UITableViewDelegate {
     var resultadosBusca = [Empresa]()
     var buscando = false
     
-    var tableView: UITableView
+    weak var tableView: UITableView?
     
     init(tableView: UITableView) {
         self.tableView = tableView
@@ -66,6 +66,7 @@ class EmpresasController: NSObject, UITableViewDataSource, UITableViewDelegate {
         var contador: Int = 0
         for acessivel in dados[indexPath.row].acessibilidade {
             imagens[contador].image = UIImage(named: acessivel.rawValue)
+            imagens[contador].layer.cornerRadius = 8
             contador += 1
         }
         for cont in contador..<5 {
@@ -82,7 +83,7 @@ extension EmpresasController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         resultadosBusca = empresas.filter({$0.nome.prefix(searchText.count) == searchText})
         buscando = true
-        tableView.reloadData()
+        tableView?.reloadData()
     }
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
@@ -92,6 +93,6 @@ extension EmpresasController: UISearchBarDelegate {
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         buscando = false
-        tableView.reloadData()
+        tableView?.reloadData()
     }
 }
