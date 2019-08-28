@@ -1,7 +1,9 @@
 const mongoose = require('mongoose')
 
 
-require('./User')
+require('./Usuario')
+require('./Empresa')
+require('./Avaliacao')
 
 const options = {
   autoIndex: false, // Don't build indexes
@@ -17,12 +19,13 @@ const options = {
 };
 
 
-urlDataBase = "mongodb://tests:tests123@ds149806.mlab.com:49806/tests" // Set your Data Base URL here
+urlDataBase = "mongodb://admin:admin123@ds149806.mlab.com:49806/tests" // Set your Data Base URL here
 //Production
 mongoose.connect(urlDataBase, options)
 
 
 const db = mongoose.connection
 db.on('error', () => {
+  console.log(db)
   throw new Error('unable to connect to database at ' + db)
 })

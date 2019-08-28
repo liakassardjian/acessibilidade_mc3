@@ -1,4 +1,5 @@
 const mongoose = require('mongoose')
+const Schema = mongoose.Schema
 const md5 = require('md5')
 const autopopulate = require('mongoose-autopopulate');
 

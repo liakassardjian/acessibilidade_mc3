@@ -1,4 +1,5 @@
 const mongoose = require('mongoose')
+const Schema = mongoose.Schema
 const md5 = require('md5')
 
 
@@ -25,74 +26,74 @@ const Avaliacao = new Schema({
   },
   pros: {
     type: String,
-    require: true,
+    required: true,
     unique: false
   },
   contras: {
     type: String,
-    require: true,
+    required: true,
     unique: false
   },
   melhorias: {
     type: String,
-    require: false,
+    required: false,
     unique: false
   },
   ultimoAno: {
     type: Number,
-    require: true,
+    required: true,
     unique: false
   },
   recomenda: {
     type: Boolean,
-    require: true,
+    required: true,
     unique: false
   },
   //Categoria
   integracaoEquipe: {
     type: Number,
-    require: true,
+    required: true,
     unique: false
   },
   culturaValores: {
     type: Number,
-    require: true,
+    required: true,
     unique: false
   },
   renumeracaoBeneficios: {
     type: Number,
-    require: true,
+    required: true,
     unique: false
   },
   oportunidadeCrescimento: {
     type: Number,
-    require: true,
+    required: true,
     unique: false
   },
   //Acessibilidade
   deficienciaMotora: {
     type: Boolean,
-    require: false,
+    required: false,
     unique: false
   },
   deficienciaVisual: {
     type: Boolean,
-    require: false,
+    required: false,
     unique: false
   },
   deficienciaAuditiva: {
     type: Boolean,
-    require: false,
+    required: false,
     unique: false
   },
   deficienciaIntelectual: {
     type: Boolean,
-    require: false,
+    required: false,
     unique: false
   },
   nanismo: {
     type: Boolean,
-    require: false,
+    required: false,
     unique: false
   }
 

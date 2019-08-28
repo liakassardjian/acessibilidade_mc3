@@ -30,16 +30,16 @@ const Usuario = new Schema({
   }
 })
 
-User.methods.checkPassword = function (password) {
+Usuario.methods.checkPassword = function (password) {
   let resut = this.password === md5(password)
   return resut
 }
 
-User.methods.hashPassword = function (password) {
+Usuario.methods.hashPassword = function (password) {
   return md5(password)
 }
 
-User.plugin(autopopulate)
+Usuario.plugin(autopopulate)
 
 
 mongoose.model('Usuario', Usuario)
