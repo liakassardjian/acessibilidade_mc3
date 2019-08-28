@@ -44,40 +44,58 @@ router.post('/login', async function (req, res, next) {
 
 //Empresas
 router.post('/createEmpresa', async (req, res) => {
-
+    try {
+        await Empresa.create(req.body)
+        res.json(true)
+    }
+    catch (err) {
+        console.log('Error: ', err)
+        res.json(false)
+    }
 })
 router.get('/empresas', async (req, res) => {
-
+    let empresas = await Empresa.find({})
+    res.json(empresas)
 })
-router.get('/empresaNome/: id', async (req, res) => {
-
+router.get('/empresaNome/:id', async (req, res) => {
+    try {
+        let empresa = await Empresa.findById(req.body._id)
+        res.json(empresa)
+    }
+    catch (err){
+        console.log('Error ', err)
+        res.json(false)
+    }
+})
+router.delete('/deleteEmpresa/:id', async (req, res) =>{
+    
 })
 
 //Avaliacao
-router.post('createAvaliacao', async (req, res) => {
+router.post('/createAvaliacao', async (req, res) => {
 
 })
-router.get('avaliacao', async (req, res) =>{
+router.get('/avaliacao', async (req, res) =>{
 
 })
-router.put('updateAvaliacao/: id', async (req, res) => {
+router.put('/updateAvaliacao/:id', async (req, res) => {
 
 })
-router.delete('deleteAvaliacao/: id', async (req, res) =>{
+router.delete('/deleteAvaliacao/:id', async (req, res) =>{
 
 })
 
 //Usuario
-router.post('createUsuario', async (req, res) =>{
+router.post('/createUsuario', async (req, res) =>{
 
 })
-router.get('usuario/: id', async(req, res) =>{
+router.get('/usuario/: id', async(req, res) =>{
 
 })
-router.put('updateUsuario/: id', async(req, res) =>{
+router.put('/updateUsuario/: id', async(req, res) =>{
 
 })
-router.delete('deleteUsuario/: id', async (req, res)=>{
+router.delete('/deleteUsuario/: id', async (req, res)=>{
     
 })
 

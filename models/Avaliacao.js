@@ -1,6 +1,7 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 const md5 = require('md5')
+const autopopulate = require('mongoose-autopopulate')
 
 
 const Avaliacao = new Schema({
@@ -95,9 +96,14 @@ const Avaliacao = new Schema({
     type: Boolean,
     required: false,
     unique: false
+  },
+  usuarioDaAvaliacao: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Usuario',
+    autopopulate: true
   }
 
 })
 
-
+Avaliacao.plugin(autopopulate)
 mongoose.model('Avaliacao', Avaliacao)
