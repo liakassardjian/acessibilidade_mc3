@@ -3,7 +3,8 @@ const md5 = require('md5')
 const Schema = mongoose.Schema
 const autopopulate = require('mongoose-autopopulate')
 
-const User = new Schema({
+
+const Usuario = new Schema({
   nome: {
     type: String,
     required: true
@@ -14,6 +15,16 @@ const User = new Schema({
   },
   email: {
     type: String,
+    required: true,
+    unique: true
+  },
+  salario: {
+    type: Number,
+    required: true,
+    unique: true
+  },
+  cargo: {
+    type: Number,
     required: true,
     unique: true
   }
@@ -29,4 +40,6 @@ User.methods.hashPassword = function (password) {
 }
 
 User.plugin(autopopulate)
-mongoose.model('User', User)
+
+
+mongoose.model('Usuario', Usuario)
