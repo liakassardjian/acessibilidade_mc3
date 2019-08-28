@@ -13,23 +13,24 @@ class EmpresasViewController: UIViewController {
 
     @IBOutlet weak var empresaTableView: UITableView!
     
+    let searchController = UISearchController(searchResultsController: nil)
+    
+    var empresasDataSourceDelegate: EmpresasController?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        let empresasDataSourceDelegate = EmpresasController()
+        empresasDataSourceDelegate = EmpresasController(tableView: empresaTableView)
         empresaTableView.delegate = empresasDataSourceDelegate
         empresaTableView.dataSource = empresasDataSourceDelegate
         empresaTableView.rowHeight = 217
+        
+        self.searchController.obscuresBackgroundDuringPresentation = false
+        self.searchController.searchBar.placeholder = "Busca"
+        self.searchController.searchBar.delegate = empresasDataSourceDelegate
+        self.searchController.searchBar.isTranslucent = false
+        self.definesPresentationContext = true
+        self.navigationItem.searchController = searchController
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
 
 class Empresa {
