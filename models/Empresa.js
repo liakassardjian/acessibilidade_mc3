@@ -40,11 +40,11 @@ const Empresa = new Schema({
     required: true,
     unique: false
   }, 
-  avaliacao: {
+  avaliacao: [{
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Avaliacao',
     autopopulate: true
-  }
+  }]
 })
 
 
