@@ -22,7 +22,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="722"/>
                                 <color key="backgroundColor" red="0.96862745098039216" green="0.97647058823529409" blue="0.9882352941176471" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="empresaCell" rowHeight="217" id="HIK-p5-GDn" customClass="EmpresaTableViewCell" customModule="Acessibilidade_MC3" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="empresaCell" rowHeight="217" id="HIK-p5-GDn" customClass="EmpresaTableViewCell" customModule="Acessibilidade_MC3" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="217"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="HIK-p5-GDn" id="SY2-nA-TtM">
@@ -36,7 +36,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="São Paulo, SP" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aQ4-w4-eu1">
-                                                    <rect key="frame" x="20" y="62.5" width="374" height="20.5"/>
+                                                    <rect key="frame" x="20" y="57.5" width="374" height="25.5"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                     <color key="textColor" red="0.53333333329999999" green="0.56078431370000004" blue="0.58823529409999997" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -327,6 +327,13 @@
                                                         <constraint firstAttribute="bottom" secondItem="cCd-nt-oG5" secondAttribute="bottom" id="rf4-TH-ktw"/>
                                                     </constraints>
                                                 </stackView>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Disclosure" translatesAutoresizingMaskIntoConstraints="NO" id="pSO-Tb-ZQq">
+                                                    <rect key="frame" x="354" y="25" width="45" height="45"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="45" id="Qsi-PY-MOl"/>
+                                                        <constraint firstAttribute="height" constant="45" id="ubX-Z7-c8Y"/>
+                                                    </constraints>
+                                                </imageView>
                                             </subviews>
                                             <color key="backgroundColor" red="0.96862745098039216" green="0.97647058823529409" blue="0.9882352941176471" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             <constraints>
@@ -336,8 +343,10 @@
                                                 <constraint firstItem="EQa-kl-dfI" firstAttribute="leading" secondItem="SY2-nA-TtM" secondAttribute="leadingMargin" id="TMZ-Gl-4jX"/>
                                                 <constraint firstItem="EQa-kl-dfI" firstAttribute="top" secondItem="aQ4-w4-eu1" secondAttribute="bottom" constant="8" id="ZUA-aw-nYN"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="58d-Xq-U8h" secondAttribute="trailing" id="fc6-pn-3I4"/>
-                                                <constraint firstItem="aQ4-w4-eu1" firstAttribute="top" secondItem="58d-Xq-U8h" secondAttribute="bottom" constant="5" id="nja-2X-mUA"/>
+                                                <constraint firstAttribute="trailing" secondItem="pSO-Tb-ZQq" secondAttribute="trailing" constant="15" id="kbx-jJ-HiX"/>
+                                                <constraint firstItem="aQ4-w4-eu1" firstAttribute="top" secondItem="58d-Xq-U8h" secondAttribute="bottom" id="nja-2X-mUA"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="aQ4-w4-eu1" secondAttribute="trailing" id="t8T-VQ-3jQ"/>
+                                                <constraint firstItem="pSO-Tb-ZQq" firstAttribute="top" secondItem="SY2-nA-TtM" secondAttribute="top" constant="25" id="uth-IS-jgv"/>
                                                 <constraint firstItem="aQ4-w4-eu1" firstAttribute="leading" secondItem="SY2-nA-TtM" secondAttribute="leadingMargin" id="xyj-ra-b3s"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="EQa-kl-dfI" secondAttribute="bottom" constant="15" id="z0P-F8-oug"/>
                                             </constraints>
@@ -407,6 +416,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Disclosure" width="200" height="200"/>
         <image name="Estrelas" width="1665" height="356"/>
     </resources>
     <color key="tintColor" red="0.29019607843137252" green="0.53725490196078429" blue="0.76078431372549016" alpha="1" colorSpace="calibratedRGB"/>
