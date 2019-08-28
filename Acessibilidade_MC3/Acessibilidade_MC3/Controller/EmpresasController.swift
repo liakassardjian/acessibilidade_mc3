@@ -10,11 +10,16 @@ import Foundation
 import UIKit
 
 class EmpresasController: NSObject, UITableViewDataSource, UITableViewDelegate {
-    var empresas: [Empresa]
-    
-    init(empresas: [Empresa]) {
-        self.empresas = empresas
-    }
+    var empresas = [Empresa(nome: "Mackenzie",
+                            localizacao: "São Paulo, SP",
+                            nota: 3.6,
+                            recomendacao: 77,
+                            acessibilidade: []),
+                    Empresa(nome: "Mackenzie",
+                             localizacao: "São Paulo, SP",
+                             nota: 3.6,
+                             recomendacao: 77,
+                             acessibilidade: [.deficienciaAuditiva, .nanismo])]
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return empresas.count
@@ -30,20 +35,33 @@ class EmpresasController: NSObject, UITableViewDataSource, UITableViewDelegate {
         cell.notaLabel.text = String(empresas[indexPath.row].nota)
         cell.recomendacaoLabel.text = String("\(empresas[indexPath.row].recomendacao)%")
         
-//        for a in empresas[indexPath.row].acessibilidade {
-//            switch a {
-//            case Acessibilidade.deficienciaVisual:
-//
-//            case Acessibilidade.deficienciaMotora:
-//
-//            case Acessibilidade.deficienciaAuditiva:
-//
-//            case Acessibilidade.deficienciaAuditiva:
-//
-//
-//
-//            }
-//        }
+        var contador: Int = 0
+        
+        guard let imagens = cell.acessibilidades else {
+            return UITableViewCell()
+        }
+        
+        for acessivel in empresas[indexPath.row].acessibilidade {
+            switch acessivel {
+            case .deficienciaMotora:
+                imagens[contador].image = UIImage(named: Acessibilidade.deficienciaMotora.rawValue)
+                
+            case .deficienciaVisual:
+                imagens[contador].image = UIImage(named: Acessibilidade.deficienciaVisual.rawValue)
+                
+            case .deficienciaAuditiva:
+                imagens[contador].image = UIImage(named: Acessibilidade.deficienciaAuditiva.rawValue)
+                
+            case .deficienciaIntelectual:
+                imagens[contador].image = UIImage(named: Acessibilidade.deficienciaIntelectual.rawValue)
+
+            case .nanismo:
+                imagens[contador].image = UIImage(named: Acessibilidade.nanismo.rawValue)
+                
+            }
+            
+            contador += 1
+        }
         
         return cell
         

@@ -15,11 +15,11 @@
             <objects>
                 <viewController id="Mw3-2I-Yv3" customClass="EmpresasViewController" customModule="Acessibilidade_MC3" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PJF-qW-Cwg">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="756"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="L9m-gF-ijD">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="756"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="0.96862745098039216" green="0.97647058823529409" blue="0.9882352941176471" alpha="1" colorSpace="calibratedRGB"/>
                                 <searchBar key="tableHeaderView" contentMode="redraw" text="" id="4sU-9y-KiQ">
@@ -148,7 +148,7 @@
                                                                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BLH-wR-CxE">
                                                                             <rect key="frame" x="0.0" y="0.0" width="45" height="45"/>
                                                                             <subviews>
-                                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SIA" translatesAutoresizingMaskIntoConstraints="NO" id="XUu-tF-Aor">
+                                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XUu-tF-Aor">
                                                                                     <rect key="frame" x="0.0" y="0.0" width="45" height="45"/>
                                                                                 </imageView>
                                                                             </subviews>
@@ -160,7 +160,7 @@
                                                                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1sb-PH-Ukz">
                                                                             <rect key="frame" x="50" y="0.0" width="45" height="45"/>
                                                                             <subviews>
-                                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SIDV" translatesAutoresizingMaskIntoConstraints="NO" id="yMc-vk-CVP">
+                                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yMc-vk-CVP">
                                                                                     <rect key="frame" x="0.0" y="0.0" width="45" height="45"/>
                                                                                 </imageView>
                                                                             </subviews>
@@ -172,7 +172,7 @@
                                                                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C1S-3Q-wlH">
                                                                             <rect key="frame" x="100" y="0.0" width="45" height="45"/>
                                                                             <subviews>
-                                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SIDA" translatesAutoresizingMaskIntoConstraints="NO" id="W9g-uB-Ea6">
+                                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="W9g-uB-Ea6">
                                                                                     <rect key="frame" x="0.0" y="0.0" width="45" height="45"/>
                                                                                 </imageView>
                                                                             </subviews>
@@ -194,7 +194,7 @@
                                                                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6HU-HC-7fh">
                                                                             <rect key="frame" x="0.0" y="0.0" width="45" height="45"/>
                                                                             <subviews>
-                                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SDI" translatesAutoresizingMaskIntoConstraints="NO" id="H5D-hh-8Wq">
+                                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="H5D-hh-8Wq">
                                                                                     <rect key="frame" x="0.0" y="0.0" width="45" height="45"/>
                                                                                 </imageView>
                                                                             </subviews>
@@ -206,7 +206,7 @@
                                                                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SQZ-mf-pRj">
                                                                             <rect key="frame" x="50" y="0.0" width="45" height="45"/>
                                                                             <subviews>
-                                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SPN" translatesAutoresizingMaskIntoConstraints="NO" id="gE2-z6-YS4">
+                                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gE2-z6-YS4">
                                                                                     <rect key="frame" x="0.0" y="0.0" width="45" height="45"/>
                                                                                 </imageView>
                                                                             </subviews>
@@ -245,6 +245,7 @@
                                                     </constraints>
                                                 </stackView>
                                             </subviews>
+                                            <color key="backgroundColor" red="0.96862745098039216" green="0.97647058823529409" blue="0.9882352941176471" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             <constraints>
                                                 <constraint firstItem="58d-Xq-U8h" firstAttribute="top" secondItem="SY2-nA-TtM" secondAttribute="topMargin" constant="15" id="Ea4-BJ-mTz"/>
                                                 <constraint firstItem="58d-Xq-U8h" firstAttribute="leading" secondItem="SY2-nA-TtM" secondAttribute="leadingMargin" id="Jc4-D9-kgF"/>
@@ -263,8 +264,13 @@
                                             <outlet property="localizacaoEmpresaLabel" destination="aQ4-w4-eu1" id="SZm-4G-WUc"/>
                                             <outlet property="nomeEmpresaLabel" destination="58d-Xq-U8h" id="qGv-ef-H28"/>
                                             <outlet property="notaLabel" destination="iUO-NZ-3QF" id="YIi-cI-QQ9"/>
+                                            <outlet property="primeiraAcessibilidade" destination="XUu-tF-Aor" id="Qlk-Gr-czs"/>
+                                            <outlet property="quartaAcessibilidade" destination="H5D-hh-8Wq" id="8do-If-zBQ"/>
+                                            <outlet property="quitaAcessibilidade" destination="gE2-z6-YS4" id="Hda-3W-iN9"/>
                                             <outlet property="recomendacaoCard" destination="KWl-bn-NYS" id="KFf-Cg-qmg"/>
                                             <outlet property="recomendacaoLabel" destination="WVH-zc-noI" id="N7Z-Oq-8KC"/>
+                                            <outlet property="segundaAcessibilidade" destination="yMc-vk-CVP" id="QTD-h1-9S2"/>
+                                            <outlet property="terceiraAcessibilidade" destination="W9g-uB-Ea6" id="e9U-P7-wli"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -288,10 +294,12 @@
         <scene sceneID="SgI-lR-5Uo">
             <objects>
                 <navigationController id="Cwa-TM-w0s" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="S2T-eU-roQ">
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" largeTitles="YES" id="S2T-eU-roQ">
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.96862745100000003" green="0.97647058819999999" blue="0.98823529409999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.96862745100000003" green="0.97647058819999999" blue="0.98823529409999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="barTintColor" red="0.96862745100000003" green="0.97647058819999999" blue="0.98823529409999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </navigationBar>
                     <connections>
                         <segue destination="Mw3-2I-Yv3" kind="relationship" relationship="rootViewController" id="X8g-OW-J75"/>
@@ -304,11 +312,6 @@
     </scenes>
     <resources>
         <image name="Estrelas" width="1665" height="333"/>
-        <image name="SDI" width="204" height="204"/>
-        <image name="SIA" width="204" height="204"/>
-        <image name="SIDA" width="204" height="204"/>
-        <image name="SIDV" width="204" height="204"/>
-        <image name="SPN" width="204" height="204"/>
     </resources>
     <color key="tintColor" red="0.29019607843137252" green="0.53725490196078429" blue="0.76078431372549016" alpha="1" colorSpace="calibratedRGB"/>
 </document>

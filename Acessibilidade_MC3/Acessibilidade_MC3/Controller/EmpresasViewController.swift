@@ -13,18 +13,9 @@ class EmpresasViewController: UIViewController {
 
     @IBOutlet weak var empresaTableView: UITableView!
     
-    let empresas = [Empresa(nome: "Mackenzie",
-                            localizacao: "São Paulo, SP",
-                            nota: 3.6,
-                            recomendacao: 77,
-                            acessibilidade: [Acessibilidade.deficienciaMotora,
-                                             Acessibilidade.deficienciaVisual,
-                                             Acessibilidade.deficienciaAuditiva]
-        )]
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        let empresasDataSourceDelegate = EmpresasController(empresas: empresas)
+        let empresasDataSourceDelegate = EmpresasController()
         empresaTableView.delegate = empresasDataSourceDelegate
         empresaTableView.dataSource = empresasDataSourceDelegate
         empresaTableView.rowHeight = 217
@@ -57,10 +48,10 @@ class Empresa {
     var acessibilidade: [Acessibilidade]
 }
 
-enum Acessibilidade {
-    case deficienciaMotora
-    case deficienciaVisual
-    case deficienciaAuditiva
-    case deficienciaIntelectual
-    case nanismo
+enum Acessibilidade: String {
+    case deficienciaMotora = "SIA"
+    case deficienciaVisual = "SIDV"
+    case deficienciaAuditiva = "SIDA"
+    case deficienciaIntelectual = "SDI"
+    case nanismo = "SPN"
 }
