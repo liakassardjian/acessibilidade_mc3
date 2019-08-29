@@ -384,7 +384,7 @@
                         <viewLayoutGuide key="safeArea" id="0Fa-Db-4ee"/>
                     </view>
                     <navigationItem key="navigationItem" title="Empresas" id="kjk-tv-Ax9">
-                        <barButtonItem key="leftBarButtonItem" title="Perfil" id="Nub-lF-r3a"/>
+                        <barButtonItem key="leftBarButtonItem" title="Perfil" image="Perfil" id="Nub-lF-r3a"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="w9f-Pm-d0U"/>
                     </navigationItem>
                     <connections>
@@ -418,6 +418,7 @@
     <resources>
         <image name="Disclosure" width="200" height="200"/>
         <image name="Estrelas" width="1665" height="356"/>
+        <image name="Perfil" width="25" height="25"/>
     </resources>
     <color key="tintColor" red="0.29019607843137252" green="0.53725490196078429" blue="0.76078431372549016" alpha="1" colorSpace="calibratedRGB"/>
 </document>
