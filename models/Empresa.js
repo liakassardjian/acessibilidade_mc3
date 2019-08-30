@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 const md5 = require('md5')
-const autopopulate = require('mongoose-autopopulate');
+const autopopulate = require('mongoose-autopopulate')
 
 
 const Empresa = new Schema({
@@ -12,34 +12,26 @@ const Empresa = new Schema({
   },
   site: {
     type: String,
-    required: false,
     unique: true
   },
   telefone: {
     type: String,
-    required: false,
     unique: true
   },
   media: {
     type: Number,
-    required: false,
-    unique: false
   },
   mediaRecomendacao: {
-    type: Number,
-    required: false,
-    unique: false
+    type: Number
   },
   //localizacao
   cidade: {
     type: String,
     required: true,
-    unique: false
   },
   estado: {
     type: String,
     required: true,
-    unique: false
   }, 
   avaliacao: [{
     type: mongoose.Schema.Types.ObjectId,

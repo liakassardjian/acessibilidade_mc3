@@ -5,29 +5,29 @@ const autopopulate = require('mongoose-autopopulate')
 
 
 const Usuario = new Schema({
-  nome: {
+  uuid: {
     type: String,
     required: true
   },
-  password: {
-    type: String,
-    required: true
-  },
-  email: {
-    type: String,
-    required: true,
-    unique: true
-  },
-  salario: {
-    type: Number,
-    required: true,
-    unique: true
-  },
-  cargo: {
-    type: Number,
-    required: true,
-    unique: true
-  },
+  //   nome: {
+  //   type: String,
+  //    required: true
+  //  },
+  // email: {
+  //   type: String,
+  //   required: true,
+  //   unique: true
+  // },
+  // salario: {
+  //   type: Number,
+  //   required: true,
+  //   unique: true
+  // },
+  // cargo: {
+  //   type: Number,
+  //   required: true,
+  //   unique: true
+  // },
   avaliacaoDoUsuario: [{
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Avaliacao',
@@ -35,14 +35,14 @@ const Usuario = new Schema({
   }]
 })
 
-Usuario.methods.checkPassword = function (password) {
-  let resut = this.password === md5(password)
-  return resut
-}
+// Usuario.methods.checkPassword = function (password) {
+//   let resut = this.password === md5(password)
+//   return resut
+// }
 
-Usuario.methods.hashPassword = function (password) {
-  return md5(password)
-}
+// Usuario.methods.hashPassword = function (password) {
+//   return md5(password)
+// }
 
 Usuario.plugin(autopopulate)
 mongoose.model('Usuario', Usuario)

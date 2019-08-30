@@ -7,95 +7,71 @@ const autopopulate = require('mongoose-autopopulate')
 const Avaliacao = new Schema({
   titulo: {
     type: String,
-    required: true,
-    unique: false
+    required: true
   },
   data: {
     type: Date,
-    required: true,
-    unique: false
+    required: true
   },
   cargo: {
     type: String,
-    required: true,
-    unique: false
+    required: true
   },
   tempoServico: {
     type: Number,
-    required: true,
-    unique: false
+    required: true
   },
   pros: {
     type: String,
-    required: true,
-    unique: false
+    required: true
   },
   contras: {
     type: String,
-    required: true,
-    unique: false
+    required: true
   },
   melhorias: {
-    type: String,
-    required: false,
-    unique: false
+    type: String
   },
   ultimoAno: {
     type: Number,
-    required: true,
-    unique: false
+    required: true
   },
   recomenda: {
     type: Boolean,
-    required: true,
-    unique: false
+    required: true
   },
   //Categoria
   integracaoEquipe: {
     type: Number,
-    required: true,
-    unique: false
+    required: true
   },
   culturaValores: {
     type: Number,
-    required: true,
-    unique: false
+    required: true
   },
   renumeracaoBeneficios: {
     type: Number,
-    required: true,
-    unique: false
+    required: true
   },
   oportunidadeCrescimento: {
     type: Number,
-    required: true,
-    unique: false
+    required: true
   },
   //Acessibilidade
   deficienciaMotora: {
-    type: Boolean,
-    required: false,
-    unique: false
+    type: Boolean
   },
   deficienciaVisual: {
-    type: Boolean,
-    required: false,
-    unique: false
+    type: Boolean
   },
   deficienciaAuditiva: {
-    type: Boolean,
-    required: false,
-    unique: false
+    type: Boolean
   },
   deficienciaIntelectual: {
-    type: Boolean,
-    required: false,
-    unique: false
+    type: Boolean
   },
   nanismo: {
-    type: Boolean,
-    required: false,
-    unique: false
+    type: Boolean
   },
   usuarioDaAvaliacao: {
     type: mongoose.Schema.Types.ObjectId,
