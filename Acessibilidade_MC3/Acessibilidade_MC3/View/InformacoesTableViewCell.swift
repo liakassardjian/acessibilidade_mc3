@@ -33,7 +33,7 @@ class InformacoesTableViewCell: UITableViewCell {
     var imagensAcessibilidade: [UIImageView]?
     var sombrasImagens: [UIView]?
     
-    @IBOutlet weak var primeiraLinha: UIStackView!
+    @IBOutlet weak var siteLinha: UIStackView!
     
     override func awakeFromNib() {
         super.awakeFromNib()

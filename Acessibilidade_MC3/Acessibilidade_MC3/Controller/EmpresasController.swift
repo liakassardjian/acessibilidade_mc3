@@ -16,12 +16,14 @@ class EmpresasController: NSObject, UITableViewDataSource, UITableViewDelegate {
                             localizacao: "São Paulo, SP",
                             nota: 2.5,
                             recomendacao: 45,
-                            acessibilidade: [.deficienciaMotora, .deficienciaVisual, .deficienciaAuditiva, .nanismo, .deficienciaIntelectual]),
+                            acessibilidade: [.deficienciaMotora, .deficienciaVisual, .deficienciaAuditiva, .nanismo, .deficienciaIntelectual],
+                            site: nil),
                     Empresa(nome: "Itau",
                              localizacao: "São Paulo, SP",
                              nota: 3.6,
                              recomendacao: 77,
-                             acessibilidade: [.deficienciaAuditiva, .nanismo])]
+                             acessibilidade: [.deficienciaAuditiva, .nanismo],
+                             site: "www.itau.com.br")]
     
     var resultadosBusca = [Empresa]()
     var buscando = false

@@ -498,6 +498,23 @@
                                                                                 <constraint firstItem="feu-q0-IsS" firstAttribute="width" secondItem="s3V-Me-UUT" secondAttribute="width" id="hR1-Pd-2XO"/>
                                                                             </constraints>
                                                                         </view>
+                                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KnG-gK-eOy">
+                                                                            <rect key="frame" x="161.5" y="11" width="30" height="30"/>
+                                                                            <subviews>
+                                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SIDA" translatesAutoresizingMaskIntoConstraints="NO" id="64b-tc-cWD">
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                                                                </imageView>
+                                                                            </subviews>
+                                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                            <constraints>
+                                                                                <constraint firstAttribute="width" constant="30" id="1bx-go-SPu"/>
+                                                                                <constraint firstItem="64b-tc-cWD" firstAttribute="centerY" secondItem="KnG-gK-eOy" secondAttribute="centerY" id="7Nr-bz-3hn"/>
+                                                                                <constraint firstItem="64b-tc-cWD" firstAttribute="height" secondItem="KnG-gK-eOy" secondAttribute="height" id="EHF-ir-88M"/>
+                                                                                <constraint firstItem="64b-tc-cWD" firstAttribute="width" secondItem="KnG-gK-eOy" secondAttribute="width" id="Zfr-WI-Q0c"/>
+                                                                                <constraint firstItem="64b-tc-cWD" firstAttribute="centerX" secondItem="KnG-gK-eOy" secondAttribute="centerXWithinMargins" id="tKt-Je-tKq"/>
+                                                                                <constraint firstAttribute="height" constant="30" id="vxT-OC-pIR"/>
+                                                                            </constraints>
+                                                                        </view>
                                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VNH-nI-hZD">
                                                                             <rect key="frame" x="199.5" y="11" width="30" height="30"/>
                                                                             <subviews>
@@ -530,23 +547,6 @@
                                                                                 <constraint firstItem="s5e-ci-TDs" firstAttribute="width" secondItem="ivL-Ot-A3y" secondAttribute="width" id="V1G-f3-e5d"/>
                                                                                 <constraint firstItem="s5e-ci-TDs" firstAttribute="height" secondItem="ivL-Ot-A3y" secondAttribute="height" id="eXq-NZ-xxn"/>
                                                                                 <constraint firstItem="s5e-ci-TDs" firstAttribute="centerY" secondItem="ivL-Ot-A3y" secondAttribute="centerY" id="hlb-5k-281"/>
-                                                                            </constraints>
-                                                                        </view>
-                                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KnG-gK-eOy">
-                                                                            <rect key="frame" x="161.5" y="11" width="30" height="30"/>
-                                                                            <subviews>
-                                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SIDA" translatesAutoresizingMaskIntoConstraints="NO" id="64b-tc-cWD">
-                                                                                    <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
-                                                                                </imageView>
-                                                                            </subviews>
-                                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                            <constraints>
-                                                                                <constraint firstAttribute="width" constant="30" id="1bx-go-SPu"/>
-                                                                                <constraint firstItem="64b-tc-cWD" firstAttribute="centerY" secondItem="KnG-gK-eOy" secondAttribute="centerY" id="7Nr-bz-3hn"/>
-                                                                                <constraint firstItem="64b-tc-cWD" firstAttribute="height" secondItem="KnG-gK-eOy" secondAttribute="height" id="EHF-ir-88M"/>
-                                                                                <constraint firstItem="64b-tc-cWD" firstAttribute="width" secondItem="KnG-gK-eOy" secondAttribute="width" id="Zfr-WI-Q0c"/>
-                                                                                <constraint firstItem="64b-tc-cWD" firstAttribute="centerX" secondItem="KnG-gK-eOy" secondAttribute="centerXWithinMargins" id="tKt-Je-tKq"/>
-                                                                                <constraint firstAttribute="height" constant="30" id="vxT-OC-pIR"/>
                                                                             </constraints>
                                                                         </view>
                                                                     </subviews>
@@ -688,19 +688,19 @@
                                             <outlet property="avaliacaoLabel" destination="rMU-hl-BKx" id="9m6-kN-VrH"/>
                                             <outlet property="barraProgressoView" destination="Gut-h3-Nub" id="amk-82-cwI"/>
                                             <outlet property="localizacaoLabel" destination="g3S-T0-5uV" id="k6m-pj-YLy"/>
-                                            <outlet property="primeiraImagem" destination="64b-tc-cWD" id="S7n-Dv-8ek"/>
-                                            <outlet property="primeiraLinha" destination="bK9-UG-JDW" id="4yN-ab-oox"/>
-                                            <outlet property="primeiraView" destination="KnG-gK-eOy" id="0TJ-mA-JZX"/>
+                                            <outlet property="primeiraImagem" destination="s5e-ci-TDs" id="7eQ-dh-rzn"/>
+                                            <outlet property="primeiraView" destination="ivL-Ot-A3y" id="uxc-hq-7vv"/>
                                             <outlet property="quartaImagem" destination="feu-q0-IsS" id="Dvg-fB-6Ri"/>
                                             <outlet property="quartaView" destination="s3V-Me-UUT" id="30c-jy-I1V"/>
                                             <outlet property="quintaImagem" destination="wXi-Ny-4ER" id="DXH-Tw-Tvm"/>
                                             <outlet property="quintaView" destination="pkZ-Hz-A8W" id="oma-FM-nou"/>
                                             <outlet property="recomendacaoLabel" destination="Vdf-HI-0gt" id="FRM-S4-1Wp"/>
-                                            <outlet property="segundaImagem" destination="s5e-ci-TDs" id="cEM-Ga-zAu"/>
-                                            <outlet property="segundaView" destination="ivL-Ot-A3y" id="DS2-pr-bCT"/>
+                                            <outlet property="segundaImagem" destination="SbP-jX-kJs" id="fDl-v5-GL1"/>
+                                            <outlet property="segundaView" destination="VNH-nI-hZD" id="Y3v-Ld-sEv"/>
                                             <outlet property="siteLabel" destination="eIG-Oc-443" id="4hy-96-L3H"/>
-                                            <outlet property="terceiraImagem" destination="SbP-jX-kJs" id="8xJ-Cc-sDS"/>
-                                            <outlet property="terceiraView" destination="VNH-nI-hZD" id="DRG-4x-x0s"/>
+                                            <outlet property="siteLinha" destination="xON-Pc-Lhd" id="xka-YU-mtl"/>
+                                            <outlet property="terceiraImagem" destination="64b-tc-cWD" id="bCQ-H1-gkO"/>
+                                            <outlet property="terceiraView" destination="KnG-gK-eOy" id="j2g-Ue-elx"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

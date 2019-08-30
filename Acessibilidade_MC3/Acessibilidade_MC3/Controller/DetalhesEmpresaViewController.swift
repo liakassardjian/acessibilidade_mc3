@@ -14,6 +14,8 @@ class DetalhesEmpresaViewController: UIViewController {
     
     var detalhesDataSourceDelegate: DetalhesEmpresaController?
     
+    var empresa: Empresa?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         detalhesDataSourceDelegate = DetalhesEmpresaController()
@@ -22,6 +24,10 @@ class DetalhesEmpresaViewController: UIViewController {
         
         detalhesTableView.rowHeight = UITableView.automaticDimension
         detalhesTableView.estimatedRowHeight = 220
+        
+        detalhesDataSourceDelegate?.empresa = self.empresa
+        
+        navigationItem.title = empresa?.nome
     }
 
 }

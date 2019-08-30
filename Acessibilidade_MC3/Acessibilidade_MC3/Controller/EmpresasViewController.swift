@@ -31,19 +31,32 @@ class EmpresasViewController: UIViewController {
         self.definesPresentationContext = true
         self.navigationItem.searchController = searchController
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let empresaInfo = segue.destination as? DetalhesEmpresaViewController {
+            if let selecionada = empresaTableView.indexPathForSelectedRow {
+                empresaInfo.empresa = empresasDataSourceDelegate?.empresas[selecionada.row]
+            }
+        }
+    }
 }
 
 class Empresa {
-    init(nome: String, localizacao: String, nota: Float, recomendacao: Int, acessibilidade: [Acessibilidade]) {
+    init(nome: String, localizacao: String, nota: Float, recomendacao: Int, acessibilidade: [Acessibilidade], site: String?) {
         self.nome = nome
         self.localizacao = localizacao
         self.nota = nota
         self.recomendacao = recomendacao
         self.acessibilidade = acessibilidade
+        
+        if let site = site {
+            self.site = site
+        }
     }
     
     var nome: String
     var localizacao: String
+    var site: String?
     var nota: Float
     var recomendacao: Int
     var acessibilidade: [Acessibilidade]
