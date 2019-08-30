@@ -9,11 +9,6 @@
 import UIKit
 
 class InformacoesTableViewCell: UITableViewCell {
-//    
-//    @IBOutlet weak var localizacaoTituloLabel: UILabel!
-//    @IBOutlet weak var siteTituloLabel: UILabel!
-//    @IBOutlet weak var acessibilidadeLabel: UILabel!
-//    @IBOutlet weak var funcionariosRecomendamLabel: UILabel!
     
     @IBOutlet weak var localizacaoLabel: UILabel!
     @IBOutlet weak var siteLabel: UILabel!
@@ -37,6 +32,8 @@ class InformacoesTableViewCell: UITableViewCell {
     
     var imagensAcessibilidade: [UIImageView]?
     var sombrasImagens: [UIView]?
+    
+    @IBOutlet weak var primeiraLinha: UIStackView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -68,6 +65,7 @@ class InformacoesTableViewCell: UITableViewCell {
                 sombra.layer.shadowOffset = CGSize(width: 2, height: 2)
             }
         }
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

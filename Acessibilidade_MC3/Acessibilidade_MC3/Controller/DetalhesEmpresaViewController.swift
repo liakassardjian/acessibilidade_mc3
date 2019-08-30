@@ -19,6 +19,9 @@ class DetalhesEmpresaViewController: UIViewController {
         detalhesDataSourceDelegate = DetalhesEmpresaController()
         detalhesTableView.delegate = detalhesDataSourceDelegate
         detalhesTableView.dataSource = detalhesDataSourceDelegate
+        
+        detalhesTableView.rowHeight = UITableView.automaticDimension
+        detalhesTableView.estimatedRowHeight = 220
     }
 
 }
