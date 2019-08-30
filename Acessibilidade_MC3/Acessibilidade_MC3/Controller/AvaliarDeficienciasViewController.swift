@@ -10,6 +10,12 @@ import UIKit
 
 class AvaliarDeficienciasViewController: UIViewController {
 
+    @IBOutlet weak var fisicoAcessivelUIButton: UIButton!
+    @IBOutlet weak var visualAcessivelUIButton: UIButton!
+    @IBOutlet weak var auditivoAcessivelUIButton: UIButton!
+    @IBOutlet weak var intelectualAcessivelUIButton: UIButton!
+    @IBOutlet weak var nanismoAcessivelUIButton: UIButton!
+
     override func viewDidLoad() {
         super.viewDidLoad()
 

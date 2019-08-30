@@ -8,8 +8,32 @@
 
 import UIKit
 
-class AvaliarNotas: UITableViewController {
+class AvaliarNotasViewController: UITableViewController {
 
+    @IBOutlet weak var primeiraEstrelaIntegracaoUIButton: UIButton!
+    @IBOutlet weak var segundaEstrelaIntegracaoUIButton: UIButton!
+    @IBOutlet weak var terceiraEstrelaIntegracaoUIButton: UIButton!
+    @IBOutlet weak var quartaEstrelaIntegracaoUIButton: UIButton!
+    @IBOutlet weak var quintaEstrelaIntegracaoUIButton: UIButton!
+    
+    @IBOutlet weak var primeiraEstrelaCultura: UIButton!
+    @IBOutlet weak var segundaEstrelaCultura: UIButton!
+    @IBOutlet weak var terceiraEstrelaCultura: UIButton!
+    @IBOutlet weak var quartaEstrelaCultura: UIButton!
+    @IBOutlet weak var quintaEstrelaCultura: UIButton!
+    
+    @IBOutlet weak var primeiraEstrelaRemuneracao: UIButton!
+    @IBOutlet weak var segundaEstrelaRemuneracao: UIButton!
+    @IBOutlet weak var terceiraEstrelaRemuneracao: UIButton!
+    @IBOutlet weak var quartaEstrelaRemuneracao: UIButton!
+    @IBOutlet weak var quintaEstrelaRemuneracao: UIButton!
+    
+    @IBOutlet weak var primeiraEstrelaOportunidades: UIButton!
+    @IBOutlet weak var segundaEstrelaOportunidades: UIButton!
+    @IBOutlet weak var terceiraEstrelaOportunidades: UIButton!
+    @IBOutlet weak var quartaEstrelaOportunidades: UIButton!
+    @IBOutlet weak var quintaEstrelaOportunidades: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -22,15 +46,6 @@ class AvaliarNotas: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
-    }
 
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

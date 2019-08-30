@@ -8,30 +8,47 @@
 
 import UIKit
 
-class AvaliarCargo: UITableViewController {
+class AvaliarCargoViewController: UITableViewController {
+    @IBOutlet weak var cargoTextField: UITextField!
     
+    @IBOutlet weak var funcionarioAtualmenteSwitch: UISwitch!
+    @IBOutlet weak var desligadoEmPickerView: UIPickerView!
+    @IBOutlet weak var trabalhouDurantePickerView: UIPickerView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        let trabalhouDuranteDelegateDataSource = PickerController(componentes: ["Menos de 3 meses",
+                                                                                "Menos de 1 ano",
+                                                                                "1 a 5 anos",
+                                                                                "5 a 10 anos",
+                                                                                "Mais de 10 anos"])
+        trabalhouDurantePickerView.delegate = trabalhouDuranteDelegateDataSource
+        trabalhouDurantePickerView.dataSource = trabalhouDuranteDelegateDataSource
+        
+        let desligadoEmDelegateDataSource = PickerController(componentes: ["2019",
+                                                                           "2018",
+                                                                           "2017",
+                                                                           "2016",
+                                                                           "2015 ou anteriormente"])
+        desligadoEmPickerView.dataSource = desligadoEmDelegateDataSource
+        desligadoEmPickerView.delegate = desligadoEmDelegateDataSource
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
-
+    
+    @IBAction func switchAlterado(_ sender: Any) {
+        let indexPath = IndexPath(indexes: [4,1])
+        if funcionarioAtualmenteSwitch.isOn {
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+        } else {
+            tableView.insertRows(at: [indexPath], with: .automatic)
+        }
+    }
+    
     // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
-    }
 
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

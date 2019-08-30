@@ -8,8 +8,15 @@
 
 import UIKit
 
-class AvaliarPros: UITableViewController {
+class AvaliarProsViewController: UITableViewController {
 
+    @IBOutlet weak var tituloTextField: UITextField!
+    @IBOutlet weak var prosTextField: UITextField!
+    @IBOutlet weak var contrasTextField: UITextField!
+    @IBOutlet weak var melhorarTextField: UITextField!
+    @IBOutlet weak var recomendaUIButton: UIButton!
+    @IBOutlet weak var naoRecomendaUIButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -22,15 +29,6 @@ class AvaliarPros: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
-    }
 
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
