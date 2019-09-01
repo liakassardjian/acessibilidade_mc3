@@ -12,18 +12,7 @@ import UIKit
 class EmpresasController: NSObject, UITableViewDataSource, UITableViewDelegate {
     
     // dados provisorios para teste
-    var empresas = [Empresa(nome: "Mackenzie",
-                            localizacao: "São Paulo, SP",
-                            nota: 2.5,
-                            recomendacao: 45,
-                            acessibilidade: [.deficienciaMotora, .deficienciaVisual, .deficienciaAuditiva, .nanismo, .deficienciaIntelectual],
-                            site: nil),
-                    Empresa(nome: "Itau",
-                             localizacao: "São Paulo, SP",
-                             nota: 3.6,
-                             recomendacao: 77,
-                             acessibilidade: [.deficienciaAuditiva, .nanismo],
-                             site: "www.itau.com.br")]
+    var empresas: [Empresa] = []
     
     var resultadosBusca = [Empresa]()
     var buscando = false

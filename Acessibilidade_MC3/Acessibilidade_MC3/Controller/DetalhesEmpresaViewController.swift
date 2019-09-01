@@ -22,12 +22,10 @@ class DetalhesEmpresaViewController: UIViewController {
         detalhesTableView.delegate = detalhesDataSourceDelegate
         detalhesTableView.dataSource = detalhesDataSourceDelegate
         
-        detalhesTableView.rowHeight = UITableView.automaticDimension
-        detalhesTableView.estimatedRowHeight = 220
-        
         detalhesDataSourceDelegate?.empresa = self.empresa
         
         navigationItem.title = empresa?.nome
+        
     }
 
 }
