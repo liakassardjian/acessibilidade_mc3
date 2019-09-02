@@ -72,12 +72,12 @@ const Avaliacao = new Schema({
   },
   nanismo: {
     type: Boolean
-  },
-  usuarioDaAvaliacao: {
+  }
+  /*usuarioDaAvaliacao: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Usuario',
     autopopulate: true
-  }
+  }*/
 
 })
 

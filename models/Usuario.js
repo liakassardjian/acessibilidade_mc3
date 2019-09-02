@@ -28,6 +28,8 @@ const Usuario = new Schema({
   //   required: true,
   //   unique: true
   // },
+  
+  //relacionamento com usuario
   avaliacaoDoUsuario: [{
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Avaliacao',

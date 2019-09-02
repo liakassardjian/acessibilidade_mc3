@@ -155,7 +155,7 @@ router.get('/usuario/:uuid', async(req, res) =>{//funcionando
     }
 })
 //faz um UPDATE do usuario quando algo for mudado
-router.post('/updateUsuario/:uuid', async(req, res) =>{//
+router.post('/updateUsuario/:uuid', async(req, res) =>{//funciona
     try {
         await Usuario.findOneAndUpdate({uuid: req.params.uuid}, req.body)
         res.json(true)
