@@ -10,6 +10,9 @@ import UIKit
 
 class AvaliarDeficienciasViewController: UIViewController {
     
+    var avaliacao: Avaliacao?
+    var empresa: Empresa?
+    
     var acessibilidadeFisica: Bool = false
     @IBAction func alteraFisico(_ sender: UIButton) {
         if let falseImage = UIImage(named: "SIA"), let trueImage = UIImage(named: "SIACheck") {
@@ -81,6 +84,33 @@ class AvaliarDeficienciasViewController: UIViewController {
             sender.setImage(imagemFalse, for: .normal)
             sender.alpha = 0.5
             return false
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if self.acessibilidadeFisica {
+            avaliacao?.acessibilidade.append(.deficienciaMotora)
+        }
+        
+        if self.acessibilidadeVisual {
+            avaliacao?.acessibilidade.append(.deficienciaVisual)
+        }
+        
+        if self.acessibilidadeAuditiva {
+            avaliacao?.acessibilidade.append(.deficienciaAuditiva)
+        }
+        
+        if self.acessibilidadeIntelectual {
+            avaliacao?.acessibilidade.append(.deficienciaIntelectual)
+        }
+        
+        if self.acessibilidadeNanismo {
+            avaliacao?.acessibilidade.append(.nanismo)
+        }
+        
+        if let avaliarTextos = segue.destination as? AvaliarProsViewController {
+            avaliarTextos.avaliacao = self.avaliacao
+            avaliarTextos.empresa = self.empresa
         }
     }
 }

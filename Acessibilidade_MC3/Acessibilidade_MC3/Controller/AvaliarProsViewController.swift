@@ -20,6 +20,9 @@ class AvaliarProsViewController: UITableViewController {
     
     var recomendaEmpresa: Bool = true
     
+    var avaliacao: Avaliacao?
+    var empresa: Empresa?
+    
     @IBAction func apertaRecomenda(_ sender: UIButton) {
         if recomendaEmpresa == false {
             recomendaEmpresa = true
@@ -47,7 +50,23 @@ class AvaliarProsViewController: UITableViewController {
     }
     
     @IBAction func concluiAvaliacao(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+        
+        avaliacao?.titulo = recuperaTextoTextField(textField: tituloTextField)
+        avaliacao?.vantagens = recuperaTextoTextField(textField: prosTextField)
+        avaliacao?.desvantagens = recuperaTextoTextField(textField: contrasTextField)
+        
+        if recuperaTextoTextField(textField: melhorarTextField) != "" {
+            avaliacao?.sugestoes = recuperaTextoTextField(textField: melhorarTextField)
+        }
+        
+        avaliacao?.recomendacao = self.recomendaEmpresa
+    }
+    
+    private func recuperaTextoTextField(textField: UITextField) -> String {
+        if let texto = textField.text {
+            return texto
+        }
+        return ""
     }
     
 }

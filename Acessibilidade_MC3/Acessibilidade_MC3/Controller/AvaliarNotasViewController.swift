@@ -10,6 +10,9 @@ import UIKit
 
 class AvaliarNotasViewController: UITableViewController {
     
+    var avaliacao: Avaliacao?
+    var empresa: Empresa?
+    
     @IBOutlet var integracaoBotoes: [UIButton]!
     var notaIntegracao: Int = 0
     
@@ -27,10 +30,10 @@ class AvaliarNotasViewController: UITableViewController {
         ajustarUI()
        
     }
+    
     func ajustarUI() {
         tableView.tableFooterView = UIView()
         navigationController?.navigationBar.tintColor = .rioCristalino
-        
     }
     
     @IBAction func tocaIntegracao(_ sender: UIButton) {
@@ -59,5 +62,13 @@ class AvaliarNotasViewController: UITableViewController {
         }
         return sender.tag
     }
-
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        avaliacao?.nota = Float((notaIntegracao + notaCultura + notaRemuneracao + notaOportunidade) / 4)
+        
+        if let avaliarEmpresa = segue.destination as? AvaliarDeficienciasViewController {
+            avaliarEmpresa.avaliacao = self.avaliacao
+            avaliarEmpresa.empresa = self.empresa
+        }
+    }
 }

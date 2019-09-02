@@ -69,6 +69,7 @@ class DetalhesEmpresaController: NSObject, UITableViewDelegate, UITableViewDataS
                 cell.notaLabel.text = String(avaliacao.nota)
                 cell.vantagensLabel.text = avaliacao.vantagens
                 cell.desvantagensLabel.text = avaliacao.desvantagens
+                cell.barraProgressoView.valorProgresso = CGFloat(avaliacao.nota / 5)
                 
                 if let sugestoes = avaliacao.sugestoes {
                     cell.sugestoesLabel.text = sugestoes

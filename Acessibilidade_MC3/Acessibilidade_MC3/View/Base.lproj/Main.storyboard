@@ -1017,8 +1017,8 @@
         <!--avaliarTVC-->
         <scene sceneID="0xQ-e3-p4k">
             <objects>
-                <viewControllerPlaceholder storyboardName="Avaliar" referencedIdentifier="avaliarTVC" id="DNT-iT-9b8" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a89-GQ-1eq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardName="Avaliar" referencedIdentifier="avaliarTVC" id="DNT-iT-9b8" sceneMemberID="viewController"/>
             </objects>
             <point key="canvasLocation" x="2193" y="-567"/>
         </scene>

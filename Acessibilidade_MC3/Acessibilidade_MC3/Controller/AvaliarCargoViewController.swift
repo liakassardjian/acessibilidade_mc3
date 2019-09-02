@@ -10,27 +10,27 @@ import UIKit
 
 class AvaliarCargoViewController: UITableViewController {
     
+    var empresa: Empresa?
+    
+    let tempoServico = ["Menos de 3 meses", "Menos de 1 ano", "1 a 5 anos", "5 a 10 anos", "Mais de 10 anos"]
+    let ultimoAno = ["2019", "2018", "2017", "2016", "2015 ou anteriormente"]
+    
     @IBOutlet weak var cargoTextField: UITextField!
     @IBOutlet weak var funcionarioAtualmenteSwitch: UISwitch!
     @IBOutlet weak var desligadoEmPickerView: UIPickerView!
     @IBOutlet weak var trabalhouDurantePickerView: UIPickerView!
 
-    let trabalhouDelegateDataSource = PickerController(componentes: ["Menos de 3 meses",
-                                                                            "Menos de 1 ano",
-                                                                            "1 a 5 anos",
-                                                                            "5 a 10 anos",
-                                                                            "Mais de 10 anos"])
-    let desligadoDelegateDataSource = PickerController(componentes: ["2019",
-                                                                       "2018",
-                                                                       "2017",
-                                                                       "2016",
-                                                                       "2015 ou anteriormente"])
+    var trabalhouDelegateDataSource: PickerController?
+    var desligadoDelegateDataSource: PickerController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         ajustarUI()
    
+        trabalhouDelegateDataSource = PickerController(componentes: self.tempoServico)
+        desligadoDelegateDataSource = PickerController(componentes: self.ultimoAno)
+        
         trabalhouDurantePickerView.dataSource = trabalhouDelegateDataSource
         trabalhouDurantePickerView.delegate = trabalhouDelegateDataSource
         
@@ -69,6 +69,38 @@ class AvaliarCargoViewController: UITableViewController {
     
     @IBAction func cancelaAvaliacao(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let avaliacao = Avaliacao()
+        
+        if funcionarioAtualmenteSwitch.isOn {
+            avaliacao.cargo = .atual
+        } else {
+            avaliacao.cargo = .exFunc
+            
+            switch desligadoEmPickerView.selectedRow(inComponent: 0) {
+            case 0:
+                avaliacao.ultimoAno = 2019
+            case 1:
+                avaliacao.ultimoAno = 2018
+            case 2:
+                avaliacao.ultimoAno = 2017
+            case 3:
+                avaliacao.ultimoAno = 2016
+            case 4:
+                avaliacao.ultimoAno = 2015
+            default:
+                avaliacao.ultimoAno = 2019
+            }
+        }
+
+        avaliacao.tempoServico = tempoServico[trabalhouDurantePickerView.selectedRow(inComponent: 0)]
+        
+        if let avaliarNotas = segue.destination as? AvaliarNotasViewController {
+            avaliarNotas.avaliacao = avaliacao
+            avaliarNotas.empresa = self.empresa
+        }
     }
     
 }
