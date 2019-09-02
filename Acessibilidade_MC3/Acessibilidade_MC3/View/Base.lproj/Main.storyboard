@@ -1000,7 +1000,11 @@
                         <viewLayoutGuide key="safeArea" id="6Im-R9-Fau"/>
                     </view>
                     <navigationItem key="navigationItem" title="Nome da empresa" id="Ne3-8T-5AU">
-                        <barButtonItem key="rightBarButtonItem" title="Avaliar empresa" id="dzf-tS-Skb"/>
+                        <barButtonItem key="rightBarButtonItem" title="Avaliar empresa" id="dzf-tS-Skb">
+                            <connections>
+                                <segue destination="DNT-iT-9b8" kind="presentation" id="Et3-WF-OYZ"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="detalhesTableView" destination="8DH-JH-IPG" id="nW7-Zv-64R"/>
@@ -1009,6 +1013,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DTq-PL-Shv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1221.7391304347827" y="-567.1875"/>
+        </scene>
+        <!--avaliarTVC-->
+        <scene sceneID="0xQ-e3-p4k">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Avaliar" referencedIdentifier="avaliarTVC" id="DNT-iT-9b8" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="a89-GQ-1eq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2193" y="-567"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="SgI-lR-5Uo">

@@ -30,5 +30,5 @@ class DetalhesEmpresaViewController: UIViewController {
         navigationItem.title = empresa?.nome
         
     }
-
+    
 }

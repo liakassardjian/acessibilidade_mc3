@@ -9,6 +9,7 @@
 import UIKit
 
 class AvaliarCargoViewController: UITableViewController {
+    
     @IBOutlet weak var cargoTextField: UITextField!
     @IBOutlet weak var funcionarioAtualmenteSwitch: UISwitch!
     @IBOutlet weak var desligadoEmPickerView: UIPickerView!
@@ -36,6 +37,9 @@ class AvaliarCargoViewController: UITableViewController {
         desligadoEmPickerView.dataSource = desligadoDelegateDataSource
         desligadoEmPickerView.delegate = desligadoDelegateDataSource
         
+        self.navigationController?.navigationBar.prefersLargeTitles = false
+        self.navigationController?.navigationItem.largeTitleDisplayMode = .never
+        
     }
     
     func ajustarUI() {
@@ -62,4 +66,9 @@ class AvaliarCargoViewController: UITableViewController {
             return 0
         }
     }
+    
+    @IBAction func cancelaAvaliacao(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
 }

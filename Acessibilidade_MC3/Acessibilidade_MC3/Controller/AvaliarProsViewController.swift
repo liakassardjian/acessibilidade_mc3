@@ -45,4 +45,9 @@ class AvaliarProsViewController: UITableViewController {
         tableView.tableFooterView = UIView()
         navigationController?.navigationBar.tintColor = .rioCristalino
     }
+    
+    @IBAction func concluiAvaliacao(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
 }

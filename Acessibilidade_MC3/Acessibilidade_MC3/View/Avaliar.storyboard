@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="OvP-Ah-fPU">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -13,9 +13,9 @@
         <!--Avaliar Empresa-->
         <scene sceneID="UbG-u8-w0J">
             <objects>
-                <tableViewController id="dO1-NU-e4I" customClass="AvaliarCargoViewController" customModule="Acessibilidade_MC3" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController useStoryboardIdentifierAsRestorationIdentifier="YES" id="dO1-NU-e4I" customClass="AvaliarCargoViewController" customModule="Acessibilidade_MC3" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="BU2-TV-N0F">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.96862745100000003" green="0.97647058819999999" blue="0.98823529409999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -195,7 +195,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Avaliar Empresa" id="hDZ-ww-6Da">
-                        <barButtonItem key="leftBarButtonItem" title="Cancelar" id="Njn-Bj-okS"/>
+                        <barButtonItem key="leftBarButtonItem" title="Cancelar" id="Njn-Bj-okS">
+                            <connections>
+                                <action selector="cancelaAvaliacao:" destination="dO1-NU-e4I" id="Sa3-07-LM1"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Próximo" id="Qc4-Q4-pv9">
                             <connections>
                                 <segue destination="pPd-x8-mdP" kind="show" id="dpf-cY-Kcf"/>
@@ -211,32 +215,14 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f2J-ri-n7i" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="764" y="-121"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="DtG-7v-wev">
-            <objects>
-                <navigationController id="OvP-Ah-fPU" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="dUs-IH-Fbu">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" red="0.96862745100000003" green="0.97647058819999999" blue="0.98823529409999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <color key="barTintColor" red="0.96862745100000003" green="0.97647058819999999" blue="0.98823529409999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="dO1-NU-e4I" kind="relationship" relationship="rootViewController" id="RiH-eX-cAF"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="0uI-Er-9nd" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-17" y="-121"/>
+            <point key="canvasLocation" x="1606" y="-121"/>
         </scene>
         <!--Avaliar Empresa-->
         <scene sceneID="thj-j9-KhP">
             <objects>
                 <tableViewController id="pPd-x8-mdP" customClass="AvaliarNotasViewController" customModule="Acessibilidade_MC3" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="t06-W0-vld">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.96862745100000003" green="0.97647058819999999" blue="0.98823529409999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <sections>
@@ -646,18 +632,18 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nEG-Cl-bWH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1561" y="-121"/>
+            <point key="canvasLocation" x="2471.0144927536235" y="-121.20535714285714"/>
         </scene>
         <!--Avaliar Empresa-->
         <scene sceneID="s5Z-e4-0dy">
             <objects>
                 <viewController id="Mku-f9-f7Q" customClass="AvaliarDeficienciasViewController" customModule="Acessibilidade_MC3" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="HLU-o3-jSj">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Esta empresa é acessível para:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="14M-zo-LSv">
-                                <rect key="frame" x="70" y="118" width="274" height="25"/>
+                                <rect key="frame" x="70" y="30" width="274" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="JxA-dw-DgX"/>
                                 </constraints>
@@ -666,7 +652,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" alpha="0.5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IFs-vD-n0A">
-                                <rect key="frame" x="234" y="203" width="125" height="125"/>
+                                <rect key="frame" x="234" y="115" width="125" height="125"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="125" id="RQ5-wf-O70"/>
                                     <constraint firstAttribute="height" constant="125" id="lQH-9s-6He"/>
@@ -677,7 +663,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" alpha="0.5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YFL-Ey-qqY">
-                                <rect key="frame" x="55" y="203" width="125" height="125"/>
+                                <rect key="frame" x="55" y="115" width="125" height="125"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="125" id="QEY-OE-nIe"/>
                                     <constraint firstAttribute="height" constant="125" id="UNZ-gX-zuY"/>
@@ -688,7 +674,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" alpha="0.5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wgg-gg-FZg">
-                                <rect key="frame" x="55" y="388" width="125" height="125"/>
+                                <rect key="frame" x="55" y="300" width="125" height="125"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="125" id="1wG-eo-BeQ"/>
                                     <constraint firstAttribute="height" constant="125" id="Orm-HM-G7n"/>
@@ -699,7 +685,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" alpha="0.5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WiW-yy-zek">
-                                <rect key="frame" x="234" y="388" width="125" height="125"/>
+                                <rect key="frame" x="234" y="300" width="125" height="125"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="125" id="70e-Rx-302"/>
                                     <constraint firstAttribute="height" constant="125" id="UlG-hr-Xa4"/>
@@ -710,7 +696,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" alpha="0.5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Idp-Le-3TA">
-                                <rect key="frame" x="145" y="573" width="125" height="125"/>
+                                <rect key="frame" x="145" y="485" width="125" height="125"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="125" id="9pz-nb-uri"/>
                                     <constraint firstAttribute="width" constant="125" id="xRI-ZP-70a"/>
@@ -749,14 +735,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dgB-OH-2Oe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2307.2463768115945" y="-121.20535714285714"/>
+            <point key="canvasLocation" x="3217.3913043478265" y="-121.20535714285714"/>
         </scene>
         <!--Avaliar Empresa-->
         <scene sceneID="lC3-aq-FML">
             <objects>
                 <tableViewController id="tD4-Sq-1pU" customClass="AvaliarProsViewController" customModule="Acessibilidade_MC3" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="ZZ7-JY-ZdG">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.96862745100000003" green="0.97647058819999999" blue="0.98823529409999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <sections>
@@ -994,7 +980,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Avaliar Empresa" id="dsv-rd-9S3">
-                        <barButtonItem key="rightBarButtonItem" title="Concluir" id="p8Z-hO-LtH"/>
+                        <barButtonItem key="rightBarButtonItem" title="Concluir" id="p8Z-hO-LtH">
+                            <connections>
+                                <action selector="concluiAvaliacao:" destination="tD4-Sq-1pU" id="4UW-gI-Su7"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="contrasTextField" destination="AE7-6n-LOG" id="uBP-cJ-UDB"/>
@@ -1007,7 +997,28 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9eg-7J-2Qu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3042" y="-121"/>
+            <point key="canvasLocation" x="3950.7246376811599" y="-121.20535714285714"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="PRF-OU-mby">
+            <objects>
+                <navigationController storyboardIdentifier="avaliarTVC" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Yal-eM-3ph" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="WQX-J4-QIn">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="0.96862745100000003" green="0.97647058819999999" blue="0.98823529409999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="barTintColor" red="0.96862745100000003" green="0.97647058819999999" blue="0.98823529409999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="dO1-NU-e4I" kind="relationship" relationship="rootViewController" id="F7H-bU-EN1"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2T3-TR-3Kk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="763.768115942029" y="-121.20535714285714"/>
         </scene>
     </scenes>
     <resources>
