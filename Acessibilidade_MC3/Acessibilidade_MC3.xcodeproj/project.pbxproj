@@ -22,6 +22,10 @@
 		E4F330ED2315C60D006106E2 /* EmpresaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F330EC2315C60D006106E2 /* EmpresaTableViewCell.swift */; };
 		E4F40F7F2319855900DF4143 /* InformacoesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F40F7E2319855900DF4143 /* InformacoesTableViewCell.swift */; };
 		E4F40F812319ADCA00DF4143 /* AvaliacaoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F40F802319ADCA00DF4143 /* AvaliacaoTableViewCell.swift */; };
+		E4FA82A9231D7E2300BD6BFA /* Empresa.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FA82A8231D7E2300BD6BFA /* Empresa.swift */; };
+		E4FA82AB231D7E5300BD6BFA /* Avaliacao.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FA82AA231D7E5300BD6BFA /* Avaliacao.swift */; };
+		E4FA82B1231D898700BD6BFA /* AvaliacaoHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4FA82B0231D898700BD6BFA /* AvaliacaoHeaderView.xib */; };
+		E4FA82B3231D89FB00BD6BFA /* AvaliacaoHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FA82B2231D89FB00BD6BFA /* AvaliacaoHeaderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +67,10 @@
 		E4F330EC2315C60D006106E2 /* EmpresaTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmpresaTableViewCell.swift; sourceTree = "<group>"; };
 		E4F40F7E2319855900DF4143 /* InformacoesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformacoesTableViewCell.swift; sourceTree = "<group>"; };
 		E4F40F802319ADCA00DF4143 /* AvaliacaoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvaliacaoTableViewCell.swift; sourceTree = "<group>"; };
+		E4FA82A8231D7E2300BD6BFA /* Empresa.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Empresa.swift; sourceTree = "<group>"; };
+		E4FA82AA231D7E5300BD6BFA /* Avaliacao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Avaliacao.swift; sourceTree = "<group>"; };
+		E4FA82B0231D898700BD6BFA /* AvaliacaoHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AvaliacaoHeaderView.xib; sourceTree = "<group>"; };
+		E4FA82B2231D89FB00BD6BFA /* AvaliacaoHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvaliacaoHeaderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +102,8 @@
 			isa = PBXGroup;
 			children = (
 				E4EDBF572314271F002936C7 /* Acessibilidade_MC3.xcdatamodeld */,
+				E4FA82A8231D7E2300BD6BFA /* Empresa.swift */,
+				E4FA82AA231D7E5300BD6BFA /* Avaliacao.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -103,10 +113,12 @@
 			children = (
 				E4EDBF542314271F002936C7 /* Main.storyboard */,
 				E4EDBF5C23142721002936C7 /* LaunchScreen.storyboard */,
+				E4FA82B0231D898700BD6BFA /* AvaliacaoHeaderView.xib */,
 				E4F330EC2315C60D006106E2 /* EmpresaTableViewCell.swift */,
 				E40E5EE723170DC100915B21 /* BarraProgressoView.swift */,
 				E4F40F7E2319855900DF4143 /* InformacoesTableViewCell.swift */,
 				E4F40F802319ADCA00DF4143 /* AvaliacaoTableViewCell.swift */,
+				E4FA82B2231D89FB00BD6BFA /* AvaliacaoHeaderView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -279,6 +291,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E4EDBF5E23142721002936C7 /* LaunchScreen.storyboard in Resources */,
+				E4FA82B1231D898700BD6BFA /* AvaliacaoHeaderView.xib in Resources */,
 				E4EDBF5B23142721002936C7 /* Assets.xcassets in Resources */,
 				E4EDBF562314271F002936C7 /* Main.storyboard in Resources */,
 			);
@@ -325,12 +338,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4FA82B3231D89FB00BD6BFA /* AvaliacaoHeaderView.swift in Sources */,
+				E4FA82A9231D7E2300BD6BFA /* Empresa.swift in Sources */,
 				E4F40F7F2319855900DF4143 /* InformacoesTableViewCell.swift in Sources */,
 				E40E5EE823170DC100915B21 /* BarraProgressoView.swift in Sources */,
 				E4F330ED2315C60D006106E2 /* EmpresaTableViewCell.swift in Sources */,
 				E4F330E92315C311006106E2 /* EmpresasViewController.swift in Sources */,
 				E4EDBF592314271F002936C7 /* Acessibilidade_MC3.xcdatamodeld in Sources */,
 				E4F40F812319ADCA00DF4143 /* AvaliacaoTableViewCell.swift in Sources */,
+				E4FA82AB231D7E5300BD6BFA /* Avaliacao.swift in Sources */,
 				E4EDBF512314271F002936C7 /* AppDelegate.swift in Sources */,
 				E4E9C3AB2318AB6C004963D4 /* DetalhesEmpresaController.swift in Sources */,
 				E4F330EB2315C34D006106E2 /* EmpresasController.swift in Sources */,

@@ -24,6 +24,9 @@ class DetalhesEmpresaViewController: UIViewController {
         
         detalhesDataSourceDelegate?.empresa = self.empresa
         
+        let headerNib = UINib.init(nibName: "AvaliacaoHeaderView", bundle: Bundle.main)
+        detalhesTableView.register(headerNib, forHeaderFooterViewReuseIdentifier: "AvaliacaoHeaderView")
+        
         navigationItem.title = empresa?.nome
         
     }

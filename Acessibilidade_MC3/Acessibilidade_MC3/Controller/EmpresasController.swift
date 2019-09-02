@@ -46,7 +46,7 @@ class EmpresasController: NSObject, UITableViewDataSource, UITableViewDelegate {
        
         cell.nomeEmpresaLabel.text = dados[indexPath.row].nome
         cell.localizacaoEmpresaLabel.text = dados[indexPath.row].localizacao
-        cell.notaLabel.text = String(dados[indexPath.row].nota)
+        cell.notaLabel.text = String(format: "%.1f", dados[indexPath.row].nota)
         cell.barraProgressoView.valorProgresso = CGFloat(dados[indexPath.row].nota / 5)
         cell.recomendacaoLabel.text = String("\(dados[indexPath.row].recomendacao)%")
         

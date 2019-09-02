@@ -11,15 +11,11 @@ import UIKit
 
 class DetalhesEmpresaController: NSObject, UITableViewDelegate, UITableViewDataSource {
     
-    let titles = ["Informações da empresa", "Avaliações (0)"]
+    let titulos = ["Informações da empresa", "Avaliações (0)"]
     var empresa: Empresa?
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return titles.count
-    }
-    
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return titles[section]
+        return titulos.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -41,7 +37,7 @@ class DetalhesEmpresaController: NSObject, UITableViewDelegate, UITableViewDataS
             
             if let empresa = empresa {
                 cell.localizacaoLabel.text = empresa.localizacao
-                cell.avaliacaoLabel.text = String(empresa.nota)
+                cell.avaliacaoLabel.text = String(format: "%.1f", empresa.nota)
                 cell.barraProgressoView.valorProgresso = CGFloat(empresa.nota / 5)
                 cell.recomendacaoLabel.text = String("\(empresa.recomendacao)%")
                 
@@ -56,17 +52,7 @@ class DetalhesEmpresaController: NSObject, UITableViewDelegate, UITableViewDataS
                     return UITableViewCell()
                 }
                 
-                var contador: Int = 0
-            
-                for acessivel in empresa.acessibilidade {
-                    imagens[contador].image = UIImage(named: acessivel.rawValue)
-                    imagens[contador].layer.cornerRadius = 8
-                    contador += 1
-                }
-                
-                for cont in contador..<5 {
-                    imagens[cont].image = nil
-                }
+                exibeSimbolosAcessibilidade(imagens: imagens, acessibilidade: empresa.acessibilidade)
             }
             
             return cell
@@ -78,7 +64,6 @@ class DetalhesEmpresaController: NSObject, UITableViewDelegate, UITableViewDataS
             
             if let avaliacoes = empresa?.avaliacoes {
                 let avaliacao = avaliacoes[indexPath.row]
-//                cell.clipsToBounds = false
                 cell.dataLabel.text = retornaDataString(data: avaliacao.data)
                 cell.tituloLabel.text = avaliacao.titulo
                 cell.notaLabel.text = String(avaliacao.nota)
@@ -94,6 +79,12 @@ class DetalhesEmpresaController: NSObject, UITableViewDelegate, UITableViewDataS
                     cell.sugestoesLabel.isHidden = true
                 }
                 
+                guard let imagens = cell.imagensAcessibilidade else {
+                    return UITableViewCell()
+                }
+                
+                exibeSimbolosAcessibilidade(imagens: imagens, acessibilidade: avaliacao.acessibilidade)
+                
             }
             
             return cell
@@ -105,12 +96,19 @@ class DetalhesEmpresaController: NSObject, UITableViewDelegate, UITableViewDataS
         return UITableView.automaticDimension
     }
     
-    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.section == 0 {
-            return 220
-        } else {
-            return 440
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        guard let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "AvaliacaoHeaderView") as? AvaliacaoHeaderView else {
+            return UITableViewHeaderFooterView()
         }
+        
+        headerView.tituloLabel.text = titulos[section]
+        
+        return headerView
+        
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 60
     }
     
     private func retornaDataString(data: Date) -> String {
@@ -120,7 +118,21 @@ class DetalhesEmpresaController: NSObject, UITableViewDelegate, UITableViewDataS
         
         let meses = ["janeiro", "fevereiro", "março", "abril", "maio", "junho", "julho", "agosto", "setembro", "outubro", "novembro", "dezembro"]
         
-        return "\(dia) de \(meses[mes]) de \(ano)"
+        return "\(dia) de \(meses[mes-1]) de \(ano)"
+    }
+    
+    private func exibeSimbolosAcessibilidade(imagens: [UIImageView], acessibilidade: [Acessibilidade]) {
+        var contador: Int = 0
+        
+        for acessivel in acessibilidade {
+            imagens[contador].image = UIImage(named: acessivel.rawValue)
+            imagens[contador].layer.cornerRadius = 8
+            contador += 1
+        }
+        
+        for cont in contador..<5 {
+            imagens[cont].image = nil
+        }
     }
 
 }
