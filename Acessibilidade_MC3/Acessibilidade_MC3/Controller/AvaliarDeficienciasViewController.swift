@@ -9,28 +9,62 @@
 import UIKit
 
 class AvaliarDeficienciasViewController: UIViewController {
-
-    @IBOutlet weak var fisicoAcessivelUIButton: UIButton!
-    @IBOutlet weak var visualAcessivelUIButton: UIButton!
-    @IBOutlet weak var auditivoAcessivelUIButton: UIButton!
-    @IBOutlet weak var intelectualAcessivelUIButton: UIButton!
-    @IBOutlet weak var nanismoAcessivelUIButton: UIButton!
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    
+    var acessibilidadeFisica: Bool = false
+    @IBAction func alteraFisico(_ sender: UIButton) {
+        acessibilidadeFisica = alteraAcessibilidade(acessivel: acessibilidadeFisica,
+                                                    imagemFalse: (UIImage(named: "SIA"))!,
+                                                    imagemTrue: (UIImage(named: "SIACheck"))!,
+                                                    sender: sender)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    var acessibilidadeVisual: Bool = false
+    @IBAction func alteraVisual(_ sender: UIButton) {
+        acessibilidadeVisual = alteraAcessibilidade(acessivel: acessibilidadeVisual,
+                                                    imagemFalse: (UIImage(named: "SIDV"))!,
+                                                    imagemTrue: (UIImage(named: "SIDVCheck"))!,
+                                                    sender: sender)
     }
-    */
+    
+    var acessibilidadeAuditiva: Bool = false
+    @IBAction func alteraAuditiva(_ sender: UIButton) {
+        acessibilidadeAuditiva = alteraAcessibilidade(acessivel: acessibilidadeAuditiva,
+                                                      imagemFalse: UIImage(named: "SIDA")!,
+                                                      imagemTrue: UIImage(named: "SIDACheck")!,
+                                                      sender: sender)
+    }
+    
+    var acessibilidadeIntelectual: Bool = false
+    @IBAction func alteraIntelectual(_ sender: UIButton) {
+        acessibilidadeIntelectual = alteraAcessibilidade(acessivel: acessibilidadeIntelectual,
+                                                         imagemFalse: UIImage(named: "SDI")!,
+                                                         imagemTrue: UIImage(named: "SDICheck")!,
+                                                         sender: sender)
+    }
+    
+    var acessibilidadeNanismo :Bool = false
+    @IBAction func alteraNanismo(_ sender: UIButton) {
+        acessibilidadeNanismo = alteraAcessibilidade(acessivel: acessibilidadeNanismo, imagemFalse: UIImage(named: "SPN")!, imagemTrue: UIImage(named: "SPNCheck")!, sender: sender)
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        ajustarUI()
 
+    }
+    func ajustarUI() {
+        navigationController?.navigationBar.tintColor = .rioCristalino
+
+    }
+    func alteraAcessibilidade(acessivel: Bool, imagemFalse: UIImage, imagemTrue: UIImage, sender: UIButton) -> Bool {
+        if acessivel == false {
+            sender.setImage(imagemTrue, for: .normal)
+            sender.alpha = 1
+            return true
+        } else {
+            sender.setImage(imagemFalse, for: .normal)
+            sender.alpha = 0.5
+            return false
+        }
+    }
 }

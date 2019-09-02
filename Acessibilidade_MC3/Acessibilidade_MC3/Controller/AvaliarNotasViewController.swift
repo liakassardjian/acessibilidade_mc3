@@ -9,97 +9,55 @@
 import UIKit
 
 class AvaliarNotasViewController: UITableViewController {
-
-    @IBOutlet weak var primeiraEstrelaIntegracaoUIButton: UIButton!
-    @IBOutlet weak var segundaEstrelaIntegracaoUIButton: UIButton!
-    @IBOutlet weak var terceiraEstrelaIntegracaoUIButton: UIButton!
-    @IBOutlet weak var quartaEstrelaIntegracaoUIButton: UIButton!
-    @IBOutlet weak var quintaEstrelaIntegracaoUIButton: UIButton!
     
-    @IBOutlet weak var primeiraEstrelaCultura: UIButton!
-    @IBOutlet weak var segundaEstrelaCultura: UIButton!
-    @IBOutlet weak var terceiraEstrelaCultura: UIButton!
-    @IBOutlet weak var quartaEstrelaCultura: UIButton!
-    @IBOutlet weak var quintaEstrelaCultura: UIButton!
+    @IBOutlet var integracaoBotoes: [UIButton]!
+    var notaIntegracao: Int = 0
     
-    @IBOutlet weak var primeiraEstrelaRemuneracao: UIButton!
-    @IBOutlet weak var segundaEstrelaRemuneracao: UIButton!
-    @IBOutlet weak var terceiraEstrelaRemuneracao: UIButton!
-    @IBOutlet weak var quartaEstrelaRemuneracao: UIButton!
-    @IBOutlet weak var quintaEstrelaRemuneracao: UIButton!
+    @IBOutlet var culturaBotoes: [UIButton]!
+    var notaCultura: Int = 0
     
-    @IBOutlet weak var primeiraEstrelaOportunidades: UIButton!
-    @IBOutlet weak var segundaEstrelaOportunidades: UIButton!
-    @IBOutlet weak var terceiraEstrelaOportunidades: UIButton!
-    @IBOutlet weak var quartaEstrelaOportunidades: UIButton!
-    @IBOutlet weak var quintaEstrelaOportunidades: UIButton!
+    @IBOutlet var remuneracaoBotoes: [UIButton]!
+    var notaRemuneracao: Int = 0
+    
+    @IBOutlet var oportunidadeBotoes: [UIButton]!
+    var notaOportunidade: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        ajustarUI()
+       
     }
-
-    // MARK: - Table view data source
-
-
-    /*
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
-        return cell
+    func ajustarUI() {
+        tableView.tableFooterView = UIView()
+        navigationController?.navigationBar.tintColor = .rioCristalino
+        
     }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    
+    @IBAction func tocaIntegracao(_ sender: UIButton) {
+        notaIntegracao = apertaBotao(conjuntoDeBotoes: integracaoBotoes, sender: sender)
     }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+    
+    @IBAction func tocaCultura(_ sender: UIButton) {
+        notaCultura = apertaBotao(conjuntoDeBotoes: culturaBotoes, sender: sender)
     }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
+    
+    @IBAction func tocaRemuneracao(_ sender: UIButton) {
+        notaRemuneracao = apertaBotao(conjuntoDeBotoes: remuneracaoBotoes, sender: sender)
     }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
+    
+    @IBAction func tocaOportunidade(_ sender: UIButton) {
+        notaOportunidade = apertaBotao(conjuntoDeBotoes: oportunidadeBotoes, sender: sender)
     }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    func apertaBotao(conjuntoDeBotoes: [UIButton], sender: UIButton) -> Int {
+        for button in conjuntoDeBotoes {
+            if button.tag <= sender.tag {
+                button.setImage(UIImage(named: "GoldenStar"), for: .normal)
+            } else {
+                button.setImage(UIImage(named: "Star"), for: .normal)
+            }
+        }
+        return sender.tag
     }
-    */
 
 }
