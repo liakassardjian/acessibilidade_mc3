@@ -11,7 +11,7 @@ import UIKit
 
 class DetalhesEmpresaController: NSObject, UITableViewDelegate, UITableViewDataSource {
     
-    let titulos = ["Informações da empresa", "Avaliações (0)"]
+    let titulos = ["Informações da empresa", "Avaliações"]
     var empresa: Empresa?
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -101,8 +101,14 @@ class DetalhesEmpresaController: NSObject, UITableViewDelegate, UITableViewDataS
             return UITableViewHeaderFooterView()
         }
         
-        headerView.tituloLabel.text = titulos[section]
-        
+        var titulo = titulos[section]
+        if section != 0 {
+            if let empresa = empresa {
+                titulo = "\(titulo) (\(String(describing: empresa.avaliacoes.count)))"                
+            }
+        }
+        headerView.tituloLabel.text = titulo
+
         return headerView
         
     }
