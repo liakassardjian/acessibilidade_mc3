@@ -14,36 +14,23 @@ class EmpresaTableViewCell: UITableViewCell {
     @IBOutlet weak var localizacaoEmpresaLabel: UILabel!
     @IBOutlet weak var notaLabel: UILabel!
     @IBOutlet weak var recomendacaoLabel: UILabel!
+    @IBOutlet weak var barraProgressoView: BarraProgressoView!
     
-    @IBOutlet weak var primeiraAcessibilidade: UIImageView! {
-        didSet {
-            self.primeiraAcessibilidade.layer.cornerRadius = 8
-        }
-    }
+    @IBOutlet weak var primeiraAcessibilidade: UIImageView!
+    @IBOutlet weak var segundaAcessibilidade: UIImageView!
+    @IBOutlet weak var terceiraAcessibilidade: UIImageView!
+    @IBOutlet weak var quartaAcessibilidade: UIImageView!
+    @IBOutlet weak var quitaAcessibilidade: UIImageView!
     
-    @IBOutlet weak var segundaAcessibilidade: UIImageView! {
-        didSet {
-            self.segundaAcessibilidade.layer.cornerRadius = 8
-        }
-    }
+    @IBOutlet weak var primeiraView: UIView!
     
-    @IBOutlet weak var terceiraAcessibilidade: UIImageView! {
-        didSet {
-            self.terceiraAcessibilidade.layer.cornerRadius = 8
-        }
-    }
+    @IBOutlet weak var segundaView: UIView!
     
-    @IBOutlet weak var quartaAcessibilidade: UIImageView! {
-        didSet {
-            self.quartaAcessibilidade.layer.cornerRadius = 8
-        }
-    }
+    @IBOutlet weak var terceiraView: UIView!
     
-    @IBOutlet weak var quitaAcessibilidade: UIImageView! {
-        didSet {
-            self.quitaAcessibilidade.layer.cornerRadius = 8
-        }
-    }
+    @IBOutlet weak var quartaView: UIView!
+    
+    @IBOutlet weak var quintaView: UIView!
     
     @IBOutlet weak var avaliacaoCard: UIView! {
         didSet {
@@ -66,6 +53,7 @@ class EmpresaTableViewCell: UITableViewCell {
     }
     
     var acessibilidades: [UIImageView]?
+    var simbolosViews: [UIView]?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -74,6 +62,22 @@ class EmpresaTableViewCell: UITableViewCell {
                            self.terceiraAcessibilidade,
                            self.quartaAcessibilidade,
                            self.quitaAcessibilidade]
+        
+        simbolosViews = [self.primeiraView,
+                        self.segundaView,
+                        self.terceiraView,
+                        self.quartaView,
+                        self.quintaView]
+        
+        if let simbolos = simbolosViews {
+            for simbolo in simbolos {
+                simbolo.clipsToBounds = false
+                simbolo.layer.shadowColor = #colorLiteral(red: 0.0804778561, green: 0.1687734723, blue: 0.2325027883, alpha: 1)
+                simbolo.layer.shadowOpacity = 0.15
+                simbolo.layer.shadowRadius = 8
+                simbolo.layer.shadowOffset = CGSize(width: 2, height: 2)
+            }
+        }
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
