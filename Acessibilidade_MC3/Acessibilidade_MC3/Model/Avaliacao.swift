@@ -9,17 +9,19 @@
 import Foundation
 
 class Avaliacao {
-    init(data: Date, titulo: String, vantagens: String, desvantagens: String, sugestoes: String?, cargo: Cargo, nota: Float, recomendacao: Bool, acessibilidade: [Acessibilidade]) {
-        self.data = data
-        self.titulo = titulo
-        self.vantagens = vantagens
-        self.desvantagens = desvantagens
-        self.sugestoes = sugestoes
-        self.cargo = cargo
-        self.nota = nota
-        self.recomendacao = recomendacao
-        self.acessibilidade = acessibilidade
-        
+    
+    init() {
+        self.data = Date()
+        self.titulo = ""
+        self.vantagens = ""
+        self.desvantagens = ""
+        self.cargo = .atual
+        self.nota = 0
+        self.recomendacao = false
+        self.acessibilidade = []
+        self.ultimoAno = Calendar.current.component(.year, from: Date())
+        self.tempoServico = ""
+        self.posicao = ""
     }
     
     var data: Date
@@ -31,5 +33,8 @@ class Avaliacao {
     var nota: Float
     var recomendacao: Bool
     var acessibilidade: [Acessibilidade]
+    var ultimoAno: Int
+    var tempoServico: String
+    var posicao: String
     
 }

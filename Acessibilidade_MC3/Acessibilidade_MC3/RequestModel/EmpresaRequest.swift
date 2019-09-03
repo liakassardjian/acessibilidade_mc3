@@ -12,17 +12,17 @@
 import Foundation
 
 class EmpresaRequest {
-    func empresaCreate(uuid: String, empresa:EmpresaCodable, completion: @escaping ([String: Any]?, Error?) -> Void) {
+    func empresaCreate(uuid: String, empresa: EmpresaCodable, completion: @escaping ([String: Any]?, Error?) -> Void) {
         let group = DispatchGroup()
         group.enter()
-        let empresaParams = ["nome": empresa.nome,
-                             "site": empresa.site,
-                             "telefone": empresa.telefone,
-                             "media": empresa.media,
-                             "mediaRecomendacao": empresa.mediaRecomendacao,
-                             "cidade": empresa.cidade,
-                             "estado": empresa.estado] as [String : Any]
-        let parameters = ["uuid": uuid, "Empresas": empresaParams] as [String : Any]
+        let empresaParams = ["nome": empresa.nome as Any,
+                             "site": empresa.site as Any,
+                             "telefone": empresa.telefone as Any,
+                             "media": empresa.media as Any,
+                             "mediaRecomendacao": empresa.mediaRecomendacao as Any,
+                             "cidade": empresa.cidade as Any,
+                             "estado": empresa.estado as Any] as [String: Any]
+        let parameters = ["uuid": uuid, "Empresas": empresaParams] as [String: Any]
         guard let url = URL(string: RequestConstants.POSTEMPRESA) else {
             return
         }
@@ -49,14 +49,14 @@ class EmpresaRequest {
                     return
                 }
                 do {
-                    print(data)
+                    print(data as Any)
                     if let file = data {
                         let json = try JSONSerialization.jsonObject(with: file, options: [])
-                        if let safeJson = json as? [String:Any]{
+                        if let safeJson = json as? [String: Any] {
                             print(safeJson)
                             for (key, value) in safeJson {
-                                if (key == "result"){
-                                    if(value as? Int == 0){
+                                if key == "result" {
+                                    if value as? Int == 0 {
                                         completion(nil, nil)
                                     } else {
                                         completion(safeJson, nil)

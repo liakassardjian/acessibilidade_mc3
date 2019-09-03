@@ -50,7 +50,7 @@ struct AvaliacaoCodable: Codable {
 
 class InternEmpresaAcessivel: NSObject {
     //retorna todas as empresas
-    static func getAllEmpresas(complete: @escaping() -> (Void)) -> [EmpresaCodable] {
+    static func getAllEmpresas(complete: @escaping() -> Void) -> [EmpresaCodable] {
         //retorno de todas as empresas
         var empresas: [EmpresaCodable] = []
         do {

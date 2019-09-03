@@ -12,25 +12,25 @@ class AvaliacaoRequest {
     func sendAvaliacao(uuid: String, avaliacao: AvaliacaoCodable, completion: @escaping ([String: Any]?, Error?) -> Void) {
         let group = DispatchGroup()
         group.enter()
-        let avaliacaoParams = ["titulo": avaliacao.titulo,
-                               "data": avaliacao.data,
-                               "cargo": avaliacao.cargo,
-                               "cempoServico": avaliacao.tempoServico,
-                               "pros": avaliacao.pros,
-                               "contras": avaliacao.contras,
-                               "melhorias": avaliacao.melhorias,
-                               "ultimoAno": avaliacao.ultimoAno,
-                               "recomenda": avaliacao.recomenda,
-                               "integracaoEquipe": avaliacao.integracaEquipe,
-                               "culturaValores": avaliacao.culturaValores,
-                               "renumeracaoBeneficios": avaliacao.renumeracaoBeneficios,
-                               "oportunidadeCrescimento": avaliacao.oportunidadeCrescimento,
-                               "deficienciaMotora": avaliacao.deficienciaMotora,
-                               "deficienciasVisual": avaliacao.deficienciaVisual,
-                               "deficienciaAuditiva": avaliacao.deficienciaAuditiva,
-                               "deficienciaIntelectual": avaliacao.deficienciaIntelectual,
-                               "nanismo": avaliacao.nanismo] as [String : Any]
-        let parameters = ["uuid": uuid, "Avaliacoes": avaliacaoParams] as [String : Any]
+        let avaliacaoParams = ["titulo": avaliacao.titulo as Any,
+                               "data": avaliacao.data as Any,
+                               "cargo": avaliacao.cargo as Any,
+                               "cempoServico": avaliacao.tempoServico as Any,
+                               "pros": avaliacao.pros as Any,
+                               "contras": avaliacao.contras as Any,
+                               "melhorias": avaliacao.melhorias as Any,
+                               "ultimoAno": avaliacao.ultimoAno as Any,
+                               "recomenda": avaliacao.recomenda as Any,
+                               "integracaoEquipe": avaliacao.integracaEquipe as Any,
+                               "culturaValores": avaliacao.culturaValores as Any,
+                               "renumeracaoBeneficios": avaliacao.renumeracaoBeneficios as Any,
+                               "oportunidadeCrescimento": avaliacao.oportunidadeCrescimento as Any,
+                               "deficienciaMotora": avaliacao.deficienciaMotora as Any,
+                               "deficienciasVisual": avaliacao.deficienciaVisual as Any,
+                               "deficienciaAuditiva": avaliacao.deficienciaAuditiva as Any,
+                               "deficienciaIntelectual": avaliacao.deficienciaIntelectual as Any,
+                               "nanismo": avaliacao.nanismo as Any] as [String: Any]
+        let parameters = ["uuid": uuid, "Avaliacoes": avaliacaoParams] as [String: Any]
         guard let url = URL(string: RequestConstants.POSTAVALIACAO) else {
             return
         }
@@ -58,14 +58,14 @@ class AvaliacaoRequest {
                     return
                 }
                 do {
-                    print(data)
+                    print(data as Any)
                     if let file = data {
                         let json = try JSONSerialization.jsonObject(with: file, options: [])
-                        if let safeJson = json as? [String:Any]{
+                        if let safeJson = json as? [String: Any] {
                             print(safeJson)
                             for (key, value) in safeJson {
-                                if (key == "result"){
-                                    if(value as? Int == 0){
+                                if key == "result" {
+                                    if value as? Int == 0 {
                                         completion(nil, nil)
                                     } else {
                                         completion(safeJson, nil)
@@ -86,10 +86,10 @@ class AvaliacaoRequest {
         task.resume()
 }
     //delete
-    func deleteAvaliacao(uuid: String, avaliacaoId: String,completion: @escaping ([String: Any]?, Error?) -> Void){
+    func deleteAvaliacao(uuid: String, avaliacaoId: String, completion: @escaping ([String: Any]?, Error?) -> Void) {
         let group = DispatchGroup()
         group.enter()
-        let parameters = ["uuid": uuid, "avaliacaoId": avaliacaoId] as [String : Any]
+        let parameters = ["uuid": uuid, "avaliacaoId": avaliacaoId] as [String: Any]
         guard let url = URL(string: RequestConstants.POSTDELETEAVALIACAO) else {
             return
         }
@@ -119,14 +119,14 @@ class AvaliacaoRequest {
                     return
                 }
                 do {
-                    print(data)
+                    print(data as Any)
                     if let file = data {
                         let json = try JSONSerialization.jsonObject(with: file, options: [])
-                        if let safeJson = json as? [String:Any]{
+                        if let safeJson = json as? [String: Any] {
                             print(safeJson)
                             for (key, value) in safeJson {
-                                if (key == "result"){
-                                    if(value as? Int == 0){
+                                if key == "result" {
+                                    if value as? Int == 0 {
                                         completion(nil, nil)
                                     } else {
                                         completion(safeJson, nil)
@@ -136,8 +136,7 @@ class AvaliacaoRequest {
                                 }
                             }
                         }
-                        }
-                         else {
+                        } else {
                         print("no file")
                     }
                 } catch {

@@ -22,7 +22,8 @@ class UsuarioRequest {
         request.httpMethod = "POST" //set http method as POST
         do {
             
-            request.httpBody = try JSONSerialization.data(withJSONObject: parameters, options: .prettyPrinted) // pass dictionary to data object and set it as request body
+            request.httpBody = try JSONSerialization.data(withJSONObject: parameters, options: .prettyPrinted)
+            // pass dictionary to data object and set it as request body
         } catch let error {
             print(error.localizedDescription)
             completion(nil, error)
@@ -41,14 +42,14 @@ class UsuarioRequest {
                     return
                 }
                 do {
-                    print(data)
+                    print(data as Any)
                     if let file = data {
                         let json = try JSONSerialization.jsonObject(with: file, options: [])
-                        if let safeJson = json as? [String:Any]{
+                        if let safeJson = json as? [String: Any] {
                             print(safeJson)
                             for (key, value) in safeJson {
-                                if (key == "result"){
-                                    if(value as? Int == 0){
+                                if key == "result" {
+                                    if value as? Int == 0 {
                                         completion(nil, nil)
                                     } else {
                                         completion(safeJson, nil)
@@ -68,6 +69,5 @@ class UsuarioRequest {
         })
         task.resume()
     }
-    
     
 }
