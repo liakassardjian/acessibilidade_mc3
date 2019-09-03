@@ -47,11 +47,11 @@ router.post('/login', async function (req, res, next) {
 router.post('/createEmpresa', async (req, res) => {//funciona
     try {
         await Empresa.create(req.body)
-        res.json(true)
+        res.json({ result: true })
     }
     catch (err) {
         console.log('Error: ', err)
-        res.json(false)
+        res.json({ result: false })
     }
 })
 //retorna todas as empresas
@@ -67,7 +67,7 @@ router.get('/empresaNome/:id', async (req, res) => {//funciona
     }
     catch (err){
         console.log('Error ', err)
-        res.json(false)
+        res.json({ result: false })
     }
 })
 //deleta uma empresa
@@ -75,11 +75,11 @@ router.delete('/deleteEmpresa/:id', async (req, res) =>{//funciona
     try {
         let idEmpresa = req.params.id
         await Empresa.findByIdAndRemove(idEmpresa)
-        res.json(true)
+        res.json({ result: true })
         
     } catch (err) {
         console.log('Error: ', err)
-        res.json(false) 
+        res.json({ result: false }) 
     }
 })
 
@@ -88,11 +88,11 @@ router.delete('/deleteEmpresa/:id', async (req, res) =>{//funciona
 router.post('/createAvaliacao', async (req, res) => {//funciona
     try {
         await Avaliacao.create(req.body)
-        res.json(true)
+        res.json({ result: true })
     }
     catch (err) {
         console.log('Error: ', err)
-        res.json(false)
+        res.json({ result: false })
     }
 })
 //retorna todas as avaliacoes
@@ -105,10 +105,10 @@ router.get('/avaliacao', async (req, res) =>{//funciona
 router.post('/updateAvaliacao/:id', async (req, res) => {//funcionando
     try {
         await Avaliacao.findByIdAndUpdate(req.params.id, req.body)
-        res.json(true)
+        res.json({ result: true })
     } catch (err) {
         console.log('Error: ', err)
-        res.json(false)
+        res.json({ result: false })
     }
 })
 
@@ -117,11 +117,11 @@ router.delete('/deleteAvaliacao/:id', async (req, res) =>{//funcionando
     try {
         let idAvaliacao = req.params.id
         await Avaliacao.findByIdAndRemove(idAvaliacao)
-        res.json(true)
+        res.json({ result: true })
         
     } catch (err) {
         console.log('Error: ', err)
-        res.json(false) 
+        res.json({ result: false }) 
     }
 })
 
@@ -130,11 +130,11 @@ router.delete('/deleteAvaliacao/:id', async (req, res) =>{//funcionando
 router.post('/createUsuario', async (req, res) =>{//funciona
     try {
         await Usuario.create(req.body)
-        res.json(true)
+        res.json({ result: true })
     }
     catch (err) {
         console.log('Error: ', err)
-        res.json(false)
+        res.json({ result: false })
     }
 })
 //retorna todos os usuarios
@@ -151,17 +151,17 @@ router.get('/usuario/:uuid', async(req, res) =>{//funcionando
     }
     catch (err){
         console.log('Error ', err)
-        res.json(false)
+        res.json({ result: false })
     }
 })
 //faz um UPDATE do usuario quando algo for mudado
 router.post('/updateUsuario/:uuid', async(req, res) =>{//funciona
     try {
         await Usuario.findOneAndUpdate({uuid: req.params.uuid}, req.body)
-        res.json(true)
+        res.json({ result: true })
     } catch (err) {
         console.log('Error: ', err)
-        res.json(false)
+        res.json({ result: false })
     }
 })
 
@@ -170,11 +170,11 @@ router.delete('/deleteUsuario/:uuid', async (req, res)=>{//funciona
     try {
         let idUsuario = {uuid: req.params.uuid}
         await Usuario.findOneAndDelete(idUsuario)
-        res.json(true)
+        res.json({ result: true })
         
     } catch (err) {
         console.log('Error: ', err)
-        res.json(false) 
+        res.json({ result: false }) 
     }
 })
 

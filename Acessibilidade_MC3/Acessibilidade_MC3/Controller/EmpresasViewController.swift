@@ -57,7 +57,20 @@ class EmpresasViewController: UIViewController {
         empresasDataSourceDelegate?.empresas[0].adicionaAvaliacao(avaliacao: avaliacao1)
         empresasDataSourceDelegate?.empresas[0].adicionaAvaliacao(avaliacao: avaliacao2)
         empresasDataSourceDelegate?.empresas[1].adicionaAvaliacao(avaliacao: avaliacao1)
-        
+        registerUser()
+    }
+    
+    func registerUser() {
+        let uuid = UUID().uuidString
+        UsuarioRequest().usuarioCreate(uuid: uuid) { (response, error) in
+            if response != nil {
+                //success
+                print("sucesso")
+            } else {
+                //error
+                print("falha")
+            }
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

@@ -51,6 +51,7 @@ class UsuarioRequest {
                                     if(value as? Int == 0){
                                         completion(nil, nil)
                                     } else {
+//                                        success
                                         completion(safeJson, nil)
                                     }
                                 } else {
