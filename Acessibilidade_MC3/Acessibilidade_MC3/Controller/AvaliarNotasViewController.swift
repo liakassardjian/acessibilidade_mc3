@@ -10,27 +10,42 @@ import UIKit
 
 class AvaliarNotasViewController: UITableViewController {
     
+    var avaliacao: Avaliacao?
+    var empresa: Empresa?
+    
     @IBOutlet var integracaoBotoes: [UIButton]!
-    var notaIntegracao: Int = 0
+    var notaIntegracao: Float = 0
     
     @IBOutlet var culturaBotoes: [UIButton]!
-    var notaCultura: Int = 0
+    var notaCultura: Float = 0
     
     @IBOutlet var remuneracaoBotoes: [UIButton]!
-    var notaRemuneracao: Int = 0
+    var notaRemuneracao: Float = 0
     
     @IBOutlet var oportunidadeBotoes: [UIButton]!
-    var notaOportunidade: Int = 0
+    var notaOportunidade: Float = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         ajustarUI()
        
     }
+    
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = UIView()
+        
+        headerView.backgroundColor = .brancoAzulado
+        
+        return headerView
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 30
+    }
+    
     func ajustarUI() {
         tableView.tableFooterView = UIView()
         navigationController?.navigationBar.tintColor = .rioCristalino
-        
     }
     
     @IBAction func tocaIntegracao(_ sender: UIButton) {
@@ -49,7 +64,7 @@ class AvaliarNotasViewController: UITableViewController {
         notaOportunidade = apertaBotao(conjuntoDeBotoes: oportunidadeBotoes, sender: sender)
     }
     
-    func apertaBotao(conjuntoDeBotoes: [UIButton], sender: UIButton) -> Int {
+    func apertaBotao(conjuntoDeBotoes: [UIButton], sender: UIButton) -> Float {
         for button in conjuntoDeBotoes {
             if button.tag <= sender.tag {
                 button.setImage(UIImage(named: "GoldenStar"), for: .normal)
@@ -57,7 +72,26 @@ class AvaliarNotasViewController: UITableViewController {
                 button.setImage(UIImage(named: "Star"), for: .normal)
             }
         }
-        return sender.tag
+        return Float(sender.tag)
     }
-
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        avaliacao?.nota = media(valores: [notaIntegracao, notaCultura, notaRemuneracao, notaOportunidade])
+        
+        if let avaliarEmpresa = segue.destination as? AvaliarDeficienciasViewController {
+            avaliarEmpresa.avaliacao = self.avaliacao
+            avaliarEmpresa.empresa = self.empresa
+        }
+    }
+    
+    private func media(valores: [Float]) -> Float {
+        var media: Float = 0
+        
+        for elemento in valores {
+            media += elemento
+        }
+        media /= Float(valores.count)
+        
+        return media
+    }
 }
