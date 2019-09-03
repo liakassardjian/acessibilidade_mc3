@@ -44,6 +44,18 @@ class AvaliarProsViewController: UITableViewController {
         ajustarUI()
     }
     
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = UIView()
+        
+        headerView.backgroundColor = .brancoAzulado
+        
+        return headerView
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 30
+    }
+    
     func ajustarUI() {
         tableView.tableFooterView = UIView()
         navigationController?.navigationBar.tintColor = .rioCristalino

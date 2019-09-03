@@ -581,7 +581,7 @@
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="/5" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8fD-ue-gfQ">
-                                                                            <rect key="frame" x="30" y="0.0" width="11.5" height="50"/>
+                                                                            <rect key="frame" x="30" y="15" width="11.5" height="35"/>
                                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                                                             <color key="textColor" red="0.53333333329999999" green="0.56078431370000004" blue="0.58823529409999997" alpha="1" colorSpace="calibratedRGB"/>
                                                                             <nil key="highlightedColor"/>
@@ -615,7 +615,7 @@
                                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <constraints>
                                                                         <constraint firstItem="Gut-h3-Nub" firstAttribute="height" secondItem="zaG-5w-j43" secondAttribute="height" id="7kf-0A-PR6"/>
-                                                                        <constraint firstItem="8fD-ue-gfQ" firstAttribute="top" secondItem="jT5-dK-LLI" secondAttribute="top" id="9Yg-0O-rmZ"/>
+                                                                        <constraint firstItem="8fD-ue-gfQ" firstAttribute="top" secondItem="jT5-dK-LLI" secondAttribute="top" constant="15" id="9Yg-0O-rmZ"/>
                                                                         <constraint firstItem="Gut-h3-Nub" firstAttribute="leading" secondItem="8fD-ue-gfQ" secondAttribute="trailing" constant="10" id="Bvo-g6-84f"/>
                                                                         <constraint firstItem="Gut-h3-Nub" firstAttribute="width" secondItem="zaG-5w-j43" secondAttribute="width" id="GXb-0e-ja5"/>
                                                                         <constraint firstItem="8fD-ue-gfQ" firstAttribute="leading" secondItem="rMU-hl-BKx" secondAttribute="trailing" id="Pmj-WR-86t"/>
@@ -968,6 +968,7 @@
                                         <connections>
                                             <outlet property="barraProgressoView" destination="Psu-T3-fgN" id="A4D-ca-LtD"/>
                                             <outlet property="cardView" destination="Lot-lt-hiw" id="U1D-9V-3C6"/>
+                                            <outlet property="cargoLabel" destination="KVU-r5-hnP" id="ZWE-8B-KL2"/>
                                             <outlet property="dataLabel" destination="hyK-EJ-kCt" id="pBY-TL-HCQ"/>
                                             <outlet property="desvantagensLabel" destination="Sr6-R3-HlJ" id="cN0-ey-8tn"/>
                                             <outlet property="notaLabel" destination="5Tz-nQ-l09" id="uEV-UN-u72"/>
@@ -1017,8 +1018,8 @@
         <!--avaliarTVC-->
         <scene sceneID="0xQ-e3-p4k">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="a89-GQ-1eq" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewControllerPlaceholder storyboardName="Avaliar" referencedIdentifier="avaliarTVC" id="DNT-iT-9b8" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="a89-GQ-1eq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2193" y="-567"/>
         </scene>

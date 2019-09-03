@@ -49,22 +49,33 @@ class AvaliarCargoViewController: UITableViewController {
     }
 
     @IBAction func switchAlterado(_ sender: Any) {
-        self.tableView.reloadRows(at: .init(arrayLiteral: [0, 4]), with: .bottom)
+        self.tableView.reloadRows(at: .init(arrayLiteral: [1, 1]), with: .bottom)
         desligadoEmPickerView.reloadAllComponents()
     }
 
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.row == 0 {
+        if indexPath.section == 0 || (indexPath.section == 1 && indexPath.row == 0) {
             return 55
-        } else if indexPath.row == 1 || indexPath.row == 2 || indexPath.row == 3 || indexPath.row == 5 {
-            return 55
-        } else if indexPath.row == 6 {
-            return 212
-        } else if indexPath.row == 4 && !funcionarioAtualmenteSwitch.isOn {
-            return 212
-        } else {
+            
+        } else if indexPath.section == 1 && indexPath.row > 0 {
+            if !funcionarioAtualmenteSwitch.isOn {
+                return 212
+            }
             return 0
         }
+        return 212
+    }
+    
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = UIView()
+        
+        headerView.backgroundColor = .brancoAzulado
+        
+        return headerView
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 30
     }
     
     @IBAction func cancelaAvaliacao(_ sender: Any) {
@@ -94,7 +105,8 @@ class AvaliarCargoViewController: UITableViewController {
                 avaliacao.ultimoAno = 2019
             }
         }
-
+        
+        avaliacao.posicao = recuperaTextoTextField(textField: cargoTextField)
         avaliacao.tempoServico = tempoServico[trabalhouDurantePickerView.selectedRow(inComponent: 0)]
         
         if let avaliarNotas = segue.destination as? AvaliarNotasViewController {
@@ -103,4 +115,10 @@ class AvaliarCargoViewController: UITableViewController {
         }
     }
     
+    private func recuperaTextoTextField(textField: UITextField) -> String {
+        if let texto = textField.text {
+            return texto
+        }
+        return ""
+    }
 }

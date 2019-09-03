@@ -69,3 +69,16 @@ class Empresa {
     }
     
 }
+
+enum Acessibilidade: String {
+    case deficienciaMotora = "SIA"
+    case deficienciaVisual = "SIDV"
+    case deficienciaAuditiva = "SIDA"
+    case deficienciaIntelectual = "SDI"
+    case nanismo = "SPN"
+}
+
+enum Cargo: String {
+    case atual = "Funcionário atual"
+    case exFunc = "Ex-funcionário"
+}

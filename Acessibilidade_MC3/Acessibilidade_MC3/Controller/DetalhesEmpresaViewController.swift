@@ -30,17 +30,6 @@ class DetalhesEmpresaViewController: UIViewController {
         navigationItem.title = empresa?.nome
         
     }
-    
-//    @IBAction func avaliarEmpresa(_ sender: Any) {
-//        let avaliarStoryboard = UIStoryboard.init(name: "Avaliar", bundle: nil)
-//        let avaliarCargo = avaliarStoryboard.instantiateViewController(withIdentifier: "avaliarCargo")
-//        
-//        if let avaliar = avaliarCargo as? AvaliarCargoViewController {
-//            avaliar.empresa = self.empresa
-//        }
-//        
-//        self.navigationController?.pushViewController(avaliarCargo, animated: true)
-//    }
 
     @IBAction func adicionaAvaliacao(_ sender: UIStoryboardSegue) {
         if sender.source is AvaliarProsViewController {

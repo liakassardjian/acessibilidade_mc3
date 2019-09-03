@@ -36,6 +36,10 @@ class EmpresasViewController: UIViewController {
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        empresaTableView.reloadData()
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let empresaInfo = segue.destination as? DetalhesEmpresaViewController {
             if let selecionada = empresaTableView.indexPathForSelectedRow {
@@ -44,17 +48,4 @@ class EmpresasViewController: UIViewController {
         }
     }
     
-}
-
-enum Acessibilidade: String {
-    case deficienciaMotora = "SIA"
-    case deficienciaVisual = "SIDV"
-    case deficienciaAuditiva = "SIDA"
-    case deficienciaIntelectual = "SDI"
-    case nanismo = "SPN"
-}
-
-enum Cargo: String {
-    case atual = "Funcionário atual"
-    case exFunc = "Ex-funcionário"
 }
