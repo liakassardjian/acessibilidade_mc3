@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="Vjc-7d-WIX" customClass="AvaliacaoHeaderView" customModule="Acessibilidade_MC3" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rbW-d7-BWw">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kjD-Z7-MBJ">
+                            <rect key="frame" x="20" y="18" width="374" height="24"/>
+                            <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" red="0.96862745100000003" green="0.97647058819999999" blue="0.98823529409999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="kjD-Z7-MBJ" secondAttribute="trailing" constant="20" id="8Jo-Mw-Fkf"/>
+                        <constraint firstItem="kjD-Z7-MBJ" firstAttribute="centerY" secondItem="rbW-d7-BWw" secondAttribute="centerY" id="TUj-dT-l2e"/>
+                        <constraint firstItem="kjD-Z7-MBJ" firstAttribute="leading" secondItem="rbW-d7-BWw" secondAttribute="leading" constant="20" id="gW7-3L-6MZ"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="RqD-SJ-qHm" firstAttribute="trailing" secondItem="rbW-d7-BWw" secondAttribute="trailing" id="Daw-HS-6js"/>
+                <constraint firstItem="rbW-d7-BWw" firstAttribute="top" secondItem="Vjc-7d-WIX" secondAttribute="top" id="XKd-Fa-ror"/>
+                <constraint firstAttribute="bottom" secondItem="rbW-d7-BWw" secondAttribute="bottom" id="xGZ-ud-n43"/>
+                <constraint firstItem="rbW-d7-BWw" firstAttribute="leading" secondItem="RqD-SJ-qHm" secondAttribute="leading" id="zYF-Ar-ewf"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="RqD-SJ-qHm"/>
+            <connections>
+                <outlet property="tituloLabel" destination="kjD-Z7-MBJ" id="YK8-vw-EYP"/>
+            </connections>
+            <point key="canvasLocation" x="-226" y="44"/>
+        </view>
+    </objects>
+</document>
