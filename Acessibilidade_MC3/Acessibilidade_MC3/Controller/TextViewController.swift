@@ -31,13 +31,4 @@ class TextViewController: NSObject, UITextViewDelegate {
         }
     }
     
-    func textViewDidChange(_ textView: UITextView) {
-        if let texto = textView.text {
-//            if let titulo = tituloTextField.text {
-//                validaTexto(titulo: titulo, corpo: corpo)
-//            }
-//        } else {
-//            salvarButton.isEnabled = false
-        }
-    }
 }

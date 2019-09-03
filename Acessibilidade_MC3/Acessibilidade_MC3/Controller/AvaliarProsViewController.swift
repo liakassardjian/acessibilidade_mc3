@@ -99,6 +99,4 @@ class AvaliarProsViewController: UITableViewController {
     @IBAction func tituloTextFieldDidChange(_ sender: Any) {
     }
     
-    
-    
 }
