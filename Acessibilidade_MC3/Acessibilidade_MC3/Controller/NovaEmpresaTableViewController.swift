@@ -18,7 +18,12 @@ class NovaEmpresaTableViewController: UITableViewController {
     
     var pickerViewDelegateDataSource: PickerController?
     
+    @IBOutlet weak var salvarButton: UIBarButtonItem!
+    
     var empresa: Empresa?
+    
+    var nomeValido: Bool = false
+    var cidadeValida: Bool = false
     
     let estadosBrasil = ["AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO",
                          "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI",
@@ -32,6 +37,8 @@ class NovaEmpresaTableViewController: UITableViewController {
         estadoPickerView.dataSource = pickerViewDelegateDataSource
         
         empresa = Empresa()
+        
+        salvarButton.isEnabled = false
     }
 
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -72,5 +79,31 @@ class NovaEmpresaTableViewController: UITableViewController {
             return texto
         }
         return ""
+    }
+    
+    @IBAction func textFieldDidChange(_ sender: Any) {
+        guard let textField = sender as? UITextField else {
+            return
+        }
+        
+        if textField == nomeTextField {
+            if let texto = textField.text {
+                if texto != "" {
+                    nomeValido = true
+                } else {
+                    nomeValido = false
+                }
+            }
+        } else {
+            if let texto = textField.text {
+                if texto != "" {
+                    cidadeValida = true
+                } else {
+                    cidadeValida = false
+                }
+            }
+        }
+        
+        salvarButton.isEnabled = nomeValido && cidadeValida
     }
 }

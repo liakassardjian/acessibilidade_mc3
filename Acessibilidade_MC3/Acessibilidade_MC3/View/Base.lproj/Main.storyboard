@@ -412,7 +412,7 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6OH-kt-Odp">
-                                    <rect key="frame" x="30" y="30" width="354" height="107"/>
+                                    <rect key="frame" x="20" y="20" width="374" height="127"/>
                                     <string key="text">Se você deseja avaliar uma empresa que ainda não consta em nosso sistema, preencha os campos seguintes para criar uma nova empresa.</string>
                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                     <color key="textColor" red="0.066666666669999999" green="0.12549019610000001" blue="0.1764705882" alpha="1" colorSpace="calibratedRGB"/>
@@ -421,10 +421,10 @@
                             </subviews>
                             <color key="backgroundColor" red="0.96862745100000003" green="0.97647058819999999" blue="0.98823529409999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <constraints>
-                                <constraint firstItem="6OH-kt-Odp" firstAttribute="top" secondItem="Y5v-PU-4ak" secondAttribute="top" constant="30" id="XNL-mk-Dpi"/>
-                                <constraint firstItem="6OH-kt-Odp" firstAttribute="leading" secondItem="Y5v-PU-4ak" secondAttribute="leading" constant="30" id="YBu-rs-9ZW"/>
-                                <constraint firstAttribute="bottom" secondItem="6OH-kt-Odp" secondAttribute="bottom" constant="30" id="bRE-Ok-HPh"/>
-                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="6OH-kt-Odp" secondAttribute="trailing" constant="30" id="gxr-8W-ljz"/>
+                                <constraint firstItem="6OH-kt-Odp" firstAttribute="top" secondItem="Y5v-PU-4ak" secondAttribute="top" constant="20" id="6Lm-Fc-7ju"/>
+                                <constraint firstItem="6OH-kt-Odp" firstAttribute="leading" secondItem="Y5v-PU-4ak" secondAttribute="leading" constant="20" id="QUg-6Z-12c"/>
+                                <constraint firstAttribute="bottom" secondItem="6OH-kt-Odp" secondAttribute="bottom" constant="20" id="QYc-fI-gVj"/>
+                                <constraint firstAttribute="trailing" secondItem="6OH-kt-Odp" secondAttribute="trailing" constant="20" id="kee-Y4-h0V"/>
                             </constraints>
                         </view>
                         <sections>
@@ -442,6 +442,9 @@
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <action selector="textFieldDidChange:" destination="Ktz-8H-xy2" eventType="editingChanged" id="w5f-TL-SA6"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -516,6 +519,9 @@
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <action selector="textFieldDidChange:" destination="Ktz-8H-xy2" eventType="editingChanged" id="nEp-Pt-uwd"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -574,6 +580,7 @@
                         <outlet property="cidadeTextField" destination="mjZ-yM-OR2" id="Jss-lW-9nD"/>
                         <outlet property="estadoPickerView" destination="rMd-rA-PSr" id="jke-iv-TMs"/>
                         <outlet property="nomeTextField" destination="DDb-hm-fYY" id="1QK-dD-EvT"/>
+                        <outlet property="salvarButton" destination="jgq-qJ-3J3" id="bSZ-4O-Tqy"/>
                         <outlet property="siteTextField" destination="1k8-r8-Lbe" id="qI0-aN-Whu"/>
                         <outlet property="telefoneTextField" destination="o0J-pC-TUc" id="MMp-ux-RyR"/>
                     </connections>
