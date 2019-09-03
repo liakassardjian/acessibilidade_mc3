@@ -11,10 +11,16 @@ import UIKit
 
 class TextViewController: NSObject, UITextViewDelegate {
     
-    var placeholder: String?
+    var placeholder: String
+    var indice: Int
+    var textoValido: Bool = false
+
+    weak var tableViewController: UITableViewController?
     
-    init(placeholder: String) {
+    init(placeholder: String, tVC: UITableViewController, indice: Int) {
         self.placeholder = placeholder
+        self.tableViewController = tVC
+        self.indice = indice
     }
     
     func textViewDidBeginEditing(_ textView: UITextView) {
@@ -28,6 +34,23 @@ class TextViewController: NSObject, UITextViewDelegate {
         if textView.text == "" {
             textView.text = placeholder
             textView.textColor = .lightGray
+        }
+    }
+ 
+    func textViewDidChange(_ textView: UITextView) {
+        if let texto = textView.text {
+            if texto != "" {
+                textoValido = true
+                
+            } else {
+                textoValido = false
+            }
+            
+            if let tVC = tableViewController as? AvaliarProsViewController {
+                tVC.textosValidos[indice] = textoValido
+                tVC.validaTexto()
+            }
+            
         }
     }
     

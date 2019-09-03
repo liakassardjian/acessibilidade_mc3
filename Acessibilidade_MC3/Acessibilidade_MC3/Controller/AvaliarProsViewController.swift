@@ -18,7 +18,11 @@ class AvaliarProsViewController: UITableViewController {
     @IBOutlet weak var recomendaUIButton: UIButton!
     @IBOutlet weak var naoRecomendaUIButton: UIButton!
     
+    @IBOutlet weak var salvarButton: UIBarButtonItem!
+    
     var recomendaEmpresa: Bool = true
+    
+    var textosValidos: [Bool] = [false, false, false, true] 
     
     var avaliacao: Avaliacao?
     var empresa: Empresa?
@@ -43,13 +47,15 @@ class AvaliarProsViewController: UITableViewController {
         super.viewDidLoad()
         ajustarUI()
         
-        prosTextViewDelegate = TextViewController(placeholder: "Vantagens de se trabalhar nessa empresa")
-        contrasTextViewDelegate = TextViewController(placeholder: "Desvantagens de se trabalhar nessa empresa")
-        sugestoesTextViewDelegate = TextViewController(placeholder: "Sugestoes para melhorar essa empresa")
+        prosTextViewDelegate = TextViewController(placeholder: "Vantagens de se trabalhar nessa empresa", tVC: self, indice: 1)
+        contrasTextViewDelegate = TextViewController(placeholder: "Desvantagens de se trabalhar nessa empresa", tVC: self, indice: 2)
+        sugestoesTextViewDelegate = TextViewController(placeholder: "Sugestões para melhorar essa empresa", tVC: self, indice: 3)
         
         prosTextView.delegate = prosTextViewDelegate
         contrasTextView.delegate = contrasTextViewDelegate
         sugestoesTextView.delegate = sugestoesTextViewDelegate
+        
+        salvarButton.isEnabled = false
     }
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -74,7 +80,7 @@ class AvaliarProsViewController: UITableViewController {
         avaliacao?.vantagens = recuperaTextoTextView(textView: prosTextView)
         avaliacao?.desvantagens = recuperaTextoTextView(textView: contrasTextView)
         
-        if recuperaTextoTextView(textView: sugestoesTextView) != "" {
+        if recuperaTextoTextView(textView: sugestoesTextView) != "Sugestões para melhorar essa empresa" {
             avaliacao?.sugestoes = recuperaTextoTextView(textView: sugestoesTextView)
         }
         
@@ -97,6 +103,25 @@ class AvaliarProsViewController: UITableViewController {
     }
     
     @IBAction func tituloTextFieldDidChange(_ sender: Any) {
+        if let titulo = tituloTextField.text {
+            if titulo != "" {
+                textosValidos[0] = true
+            } else {
+                textosValidos[0] = false
+            }
+            
+            validaTexto()
+        }
+    }
+    
+    public func validaTexto() {
+        var desbloqueiaBotao: Bool = true
+        for valido in textosValidos {
+            if !valido && valido != textosValidos.last {
+                desbloqueiaBotao = false
+            }
+        }
+        salvarButton.isEnabled = desbloqueiaBotao
     }
     
 }
