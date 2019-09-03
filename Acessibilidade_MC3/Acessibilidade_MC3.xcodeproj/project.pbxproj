@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6D8B1327231D7E4F00F7074D /* RequestConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D8B1326231D7E4F00F7074D /* RequestConstants.swift */; };
+		6D8B1329231D860B00F7074D /* EmpresaAcessivelCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D8B1328231D860B00F7074D /* EmpresaAcessivelCodable.swift */; };
+		6D8B132B231DA9A300F7074D /* EmpresaRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D8B132A231DA9A300F7074D /* EmpresaRequest.swift */; };
+		6D8B132D231DA9BA00F7074D /* UserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D8B132C231DA9BA00F7074D /* UserRequest.swift */; };
+		6D8B132F231DAAE300F7074D /* AvaliacaoRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D8B132E231DAAE300F7074D /* AvaliacaoRequest.swift */; };
 		E308109D2319B4B6009A7754 /* PickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E308109C2319B4B6009A7754 /* PickerController.swift */; };
 		E39891CE2317191F003F785B /* AvaliarCargoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39891CD2317191F003F785B /* AvaliarCargoViewController.swift */; };
 		E39891D023171937003F785B /* AvaliarNotasViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39891CF23171937003F785B /* AvaliarNotasViewController.swift */; };
@@ -53,6 +58,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6D8B1326231D7E4F00F7074D /* RequestConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestConstants.swift; sourceTree = "<group>"; };
+		6D8B1328231D860B00F7074D /* EmpresaAcessivelCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmpresaAcessivelCodable.swift; sourceTree = "<group>"; };
+		6D8B132A231DA9A300F7074D /* EmpresaRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmpresaRequest.swift; sourceTree = "<group>"; };
+		6D8B132C231DA9BA00F7074D /* UserRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRequest.swift; sourceTree = "<group>"; };
+		6D8B132E231DAAE300F7074D /* AvaliacaoRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvaliacaoRequest.swift; sourceTree = "<group>"; };
 		E308109C2319B4B6009A7754 /* PickerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerController.swift; sourceTree = "<group>"; };
 		E39891CD2317191F003F785B /* AvaliarCargoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvaliarCargoViewController.swift; sourceTree = "<group>"; };
 		E39891CF23171937003F785B /* AvaliarNotasViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvaliarNotasViewController.swift; sourceTree = "<group>"; };
@@ -112,6 +122,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6D8B1323231D7E0A00F7074D /* RequestModel */ = {
+			isa = PBXGroup;
+			children = (
+				6D8B1326231D7E4F00F7074D /* RequestConstants.swift */,
+				6D8B1328231D860B00F7074D /* EmpresaAcessivelCodable.swift */,
+				6D8B132A231DA9A300F7074D /* EmpresaRequest.swift */,
+				6D8B132E231DAAE300F7074D /* AvaliacaoRequest.swift */,
+				6D8B132C231DA9BA00F7074D /* UserRequest.swift */,
+			);
+			path = RequestModel;
+			sourceTree = "<group>";
+		};
 		E4EC31532314275F00613EA2 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -178,6 +200,7 @@
 		E4EDBF4F2314271F002936C7 /* Acessibilidade_MC3 */ = {
 			isa = PBXGroup;
 			children = (
+				6D8B1323231D7E0A00F7074D /* RequestModel */,
 				E4EDBF5F23142721002936C7 /* Info.plist */,
 				E4EDBF502314271F002936C7 /* AppDelegate.swift */,
 				E4EC31532314275F00613EA2 /* Model */,
@@ -360,6 +383,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4EDBF532314271F002936C7 /* ViewController.swift in Sources */,
+				6D8B132B231DA9A300F7074D /* EmpresaRequest.swift in Sources */,
+				6D8B132F231DAAE300F7074D /* AvaliacaoRequest.swift in Sources */,
+				6D8B1329231D860B00F7074D /* EmpresaAcessivelCodable.swift in Sources */,
+				6D8B1327231D7E4F00F7074D /* RequestConstants.swift in Sources */,
+				6D8B132D231DA9BA00F7074D /* UserRequest.swift in Sources */,
 				E3A5411C231C6C8A00F22DC8 /* UIColors.swift in Sources */,
 				E39891D42317197F003F785B /* AvaliarDeficienciasViewController.swift in Sources */,
 				E39891D22317194B003F785B /* AvaliarProsViewController.swift in Sources */,
