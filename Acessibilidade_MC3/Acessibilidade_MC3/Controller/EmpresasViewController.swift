@@ -31,8 +31,8 @@ class EmpresasViewController: UIViewController {
         self.definesPresentationContext = true
         self.navigationItem.searchController = searchController
         
-        empresasDataSourceDelegate?.empresas = [Empresa(nome: "Mackenzie", localizacao: "São Paulo, SP", site: nil),
-                                                Empresa(nome: "Itau", localizacao: "São Paulo, SP", site: "www.itau.com.br")]
+//        empresasDataSourceDelegate?.empresas = [Empresa(nome: "Mackenzie", localizacao: "São Paulo, SP", site: nil),
+//                                                Empresa(nome: "Itau", localizacao: "São Paulo, SP", site: "www.itau.com.br")]
         
     }
     
@@ -46,6 +46,21 @@ class EmpresasViewController: UIViewController {
                 empresaInfo.empresa = empresasDataSourceDelegate?.empresas[selecionada.row]
             }
         }
+    }
+    
+    @IBAction func adicionaEmpresa(_ sender: UIStoryboardSegue) {
+        if sender.source is NovaEmpresaTableViewController {
+            if let senderAdd = sender.source as? NovaEmpresaTableViewController {
+                if let empresa = senderAdd.empresa {
+                    self.empresasDataSourceDelegate?.empresas.append(empresa)
+                    
+                }
+            }
+        }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        empresaTableView.reloadData()
     }
     
 }
