@@ -14,7 +14,7 @@
         <scene sceneID="UbG-u8-w0J">
             <objects>
                 <tableViewController useStoryboardIdentifierAsRestorationIdentifier="YES" id="dO1-NU-e4I" customClass="AvaliarCargoViewController" customModule="Acessibilidade_MC3" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="BU2-TV-N0F">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="BU2-TV-N0F">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.96862745100000003" green="0.97647058819999999" blue="0.98823529409999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -188,7 +188,7 @@
         <scene sceneID="thj-j9-KhP">
             <objects>
                 <tableViewController id="pPd-x8-mdP" customClass="AvaliarNotasViewController" customModule="Acessibilidade_MC3" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="t06-W0-vld">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="t06-W0-vld">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.96862745100000003" green="0.97647058819999999" blue="0.98823529409999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -676,7 +676,7 @@
         <scene sceneID="lC3-aq-FML">
             <objects>
                 <tableViewController id="tD4-Sq-1pU" customClass="AvaliarProsViewController" customModule="Acessibilidade_MC3" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="ZZ7-JY-ZdG">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="ZZ7-JY-ZdG">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.96862745100000003" green="0.97647058819999999" blue="0.98823529409999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -691,15 +691,15 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Título da Avaliação" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NSS-cn-Kh9">
-                                                    <rect key="frame" x="20" y="11" width="374" height="24"/>
-                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                                    <rect key="frame" x="20" y="11" width="374" height="20.5"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <color key="textColor" red="0.066666666669999999" green="0.12549019610000001" blue="0.1764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Título da avaliação" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PXl-m6-a8J">
-                                                    <rect key="frame" x="20" y="41" width="374" height="36"/>
+                                                    <rect key="frame" x="20" y="37.5" width="374" height="39.5"/>
                                                     <color key="textColor" red="0.066666666669999999" green="0.12549019610000001" blue="0.1764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
                                             </subviews>
@@ -726,15 +726,15 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Prós" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8eI-gd-lEF">
-                                                    <rect key="frame" x="20" y="11" width="374" height="24"/>
-                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                                    <rect key="frame" x="20" y="11" width="374" height="20.5"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <color key="textColor" red="0.066666666669999999" green="0.12549019610000001" blue="0.1764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Vantagens de se trabalhar nesta empresa" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TQg-HV-TAt">
-                                                    <rect key="frame" x="20" y="41" width="374" height="88"/>
+                                                    <rect key="frame" x="20" y="37.5" width="374" height="91.5"/>
                                                     <color key="textColor" red="0.066666666669999999" green="0.12549019610000001" blue="0.1764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
                                             </subviews>
@@ -761,15 +761,15 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contras" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5xO-Wa-5dg">
-                                                    <rect key="frame" x="20" y="11" width="374" height="24"/>
-                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                                    <rect key="frame" x="20" y="11" width="374" height="20.5"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <color key="textColor" red="0.066666666669999999" green="0.12549019610000001" blue="0.1764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Vantagens de se trabalhar nesta empresa" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AE7-6n-LOG">
-                                                    <rect key="frame" x="20" y="41" width="374" height="88"/>
+                                                    <rect key="frame" x="20" y="37.5" width="374" height="91.5"/>
                                                     <color key="textColor" red="0.066666666669999999" green="0.12549019610000001" blue="0.1764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
                                             </subviews>
@@ -796,15 +796,15 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Como melhorar?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e8y-Gd-1K1">
-                                                    <rect key="frame" x="20" y="11" width="374" height="24"/>
-                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                                    <rect key="frame" x="20" y="11" width="374" height="20.5"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <color key="textColor" red="0.066666666669999999" green="0.12549019610000001" blue="0.1764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Vantagens de se trabalhar nesta empresa" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1Oz-oU-2C1">
-                                                    <rect key="frame" x="20" y="41" width="374" height="88"/>
+                                                    <rect key="frame" x="20" y="37.5" width="374" height="91.5"/>
                                                     <color key="textColor" red="0.066666666669999999" green="0.12549019610000001" blue="0.1764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
                                             </subviews>
@@ -823,44 +823,51 @@
                             </tableViewSection>
                             <tableViewSection headerTitle=" " id="qyo-AY-fHb">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="140" id="eWT-ie-63v">
-                                        <rect key="frame" x="0.0" y="648" width="414" height="140"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="100" id="eWT-ie-63v">
+                                        <rect key="frame" x="0.0" y="648" width="414" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="eWT-ie-63v" id="pkF-fZ-eqF">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="139.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="99.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recomendaria trabalhar nesta empresa?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b1j-fU-oh1">
-                                                    <rect key="frame" x="20" y="11" width="374" height="24"/>
-                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                                    <rect key="frame" x="20" y="11" width="374" height="20.5"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <color key="textColor" red="0.066666666669999999" green="0.12549019610000001" blue="0.1764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6eG-Dd-zIQ">
-                                                    <rect key="frame" x="255" y="60" width="55" height="55"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6eG-Dd-zIQ">
+                                                    <rect key="frame" x="240" y="46" width="34" height="34"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="34" id="HZR-4P-b31"/>
+                                                        <constraint firstAttribute="height" constant="34" id="RcD-yl-z4N"/>
+                                                    </constraints>
                                                     <state key="normal" image="NaoRecomendaFalse"/>
                                                     <connections>
                                                         <action selector="apertaNaoRecomenda:" destination="tD4-Sq-1pU" eventType="touchUpInside" id="SuT-Yj-R7s"/>
                                                     </connections>
                                                 </button>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0dR-h7-di1">
-                                                    <rect key="frame" x="100" y="60" width="55" height="55"/>
-                                                    <state key="normal" image="RecomendaTrue"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0dR-h7-di1">
+                                                    <rect key="frame" x="140" y="46" width="34" height="34"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="34" id="Dnc-js-LUh"/>
+                                                        <constraint firstAttribute="height" constant="34" id="EdF-CR-eDs"/>
+                                                    </constraints>
+                                                    <state key="normal" image="RecomendaFalse"/>
                                                     <connections>
                                                         <action selector="apertaRecomenda:" destination="tD4-Sq-1pU" eventType="touchUpInside" id="qer-gd-fgF"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="0dR-h7-di1" firstAttribute="leading" secondItem="pkF-fZ-eqF" secondAttribute="leadingMargin" constant="80" id="1st-X6-hFW"/>
                                                 <constraint firstItem="6eG-Dd-zIQ" firstAttribute="bottom" secondItem="0dR-h7-di1" secondAttribute="bottom" id="6zh-bn-RIV"/>
                                                 <constraint firstItem="6eG-Dd-zIQ" firstAttribute="top" secondItem="0dR-h7-di1" secondAttribute="top" id="6zj-BE-9Yz"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="6eG-Dd-zIQ" secondAttribute="bottom" constant="14" id="Mj3-qc-Yea"/>
-                                                <constraint firstItem="6eG-Dd-zIQ" firstAttribute="leading" secondItem="0dR-h7-di1" secondAttribute="trailing" constant="100" id="PQY-0U-9sg"/>
+                                                <constraint firstItem="0dR-h7-di1" firstAttribute="top" secondItem="b1j-fU-oh1" secondAttribute="bottom" constant="14.5" id="9Mm-gD-bPW"/>
+                                                <constraint firstItem="0dR-h7-di1" firstAttribute="leading" secondItem="pkF-fZ-eqF" secondAttribute="leadingMargin" constant="120" id="V8b-DI-C9L"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="b1j-fU-oh1" secondAttribute="trailing" id="Wbf-Ne-UrX"/>
                                                 <constraint firstItem="b1j-fU-oh1" firstAttribute="leading" secondItem="pkF-fZ-eqF" secondAttribute="leadingMargin" id="e6X-VF-1M4"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="6eG-Dd-zIQ" secondAttribute="trailing" constant="120" id="e8O-Eh-VzT"/>
                                                 <constraint firstItem="b1j-fU-oh1" firstAttribute="top" secondItem="pkF-fZ-eqF" secondAttribute="topMargin" id="f6A-HA-KdI"/>
-                                                <constraint firstItem="0dR-h7-di1" firstAttribute="top" secondItem="b1j-fU-oh1" secondAttribute="bottom" constant="25" id="rRu-ZX-HLm"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -875,7 +882,6 @@
                     <navigationItem key="navigationItem" title="Avaliar Empresa" id="dsv-rd-9S3">
                         <barButtonItem key="rightBarButtonItem" title="Concluir" id="p8Z-hO-LtH">
                             <connections>
-                                <action selector="concluiAvaliacao:" destination="tD4-Sq-1pU" id="4UW-gI-Su7"/>
                                 <segue destination="4Jv-4h-Erx" kind="unwind" unwindAction="adicionaAvaliacao:" id="yr9-dQ-kB2"/>
                             </connections>
                         </barButtonItem>
@@ -918,7 +924,7 @@
     </scenes>
     <resources>
         <image name="NaoRecomendaFalse" width="55" height="55"/>
-        <image name="RecomendaTrue" width="55" height="55"/>
+        <image name="RecomendaFalse" width="55" height="55"/>
         <image name="SDI" width="204" height="204"/>
         <image name="SIA" width="204" height="204"/>
         <image name="SIDA" width="204" height="204"/>

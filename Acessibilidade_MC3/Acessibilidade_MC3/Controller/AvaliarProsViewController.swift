@@ -24,19 +24,15 @@ class AvaliarProsViewController: UITableViewController {
     var empresa: Empresa?
     
     @IBAction func apertaRecomenda(_ sender: UIButton) {
-        if recomendaEmpresa == false {
-            recomendaEmpresa = true
-            recomendaUIButton.setImage(UIImage(named: "RecomendaTrue"), for: .normal)
-            naoRecomendaUIButton.setImage(UIImage(named: "NaoRecomendaFalse"), for: .normal)
-        }
+        recomendaEmpresa = true
+        recomendaUIButton.setImage(UIImage(named: "RecomendaTrue"), for: .normal)
+        naoRecomendaUIButton.setImage(UIImage(named: "NaoRecomendaFalse"), for: .normal)
     }
     
     @IBAction func apertaNaoRecomenda(_ sender: UIButton) {
-        if recomendaEmpresa == true {
-            recomendaEmpresa = false
-            recomendaUIButton.setImage(UIImage(named: "RecomendaFalse"), for: .normal)
-            naoRecomendaUIButton.setImage(UIImage(named: "NaoRecomendaTrue"), for: .normal)
-        }
+        recomendaEmpresa = false
+        recomendaUIButton.setImage(UIImage(named: "RecomendaFalse"), for: .normal)
+        naoRecomendaUIButton.setImage(UIImage(named: "NaoRecomendaTrue"), for: .normal)
     }
     
     override func viewDidLoad() {
@@ -61,8 +57,7 @@ class AvaliarProsViewController: UITableViewController {
         navigationController?.navigationBar.tintColor = .rioCristalino
     }
     
-    @IBAction func concluiAvaliacao(_ sender: Any) {
-        
+    override func viewWillDisappear(_ animated: Bool) {
         avaliacao?.titulo = recuperaTextoTextField(textField: tituloTextField)
         avaliacao?.vantagens = recuperaTextoTextField(textField: prosTextField)
         avaliacao?.desvantagens = recuperaTextoTextField(textField: contrasTextField)
@@ -72,6 +67,7 @@ class AvaliarProsViewController: UITableViewController {
         }
         
         avaliacao?.recomendacao = self.recomendaEmpresa
+        
     }
     
     private func recuperaTextoTextField(textField: UITextField) -> String {

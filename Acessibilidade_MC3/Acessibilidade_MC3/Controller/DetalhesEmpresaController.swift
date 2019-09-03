@@ -78,6 +78,14 @@ class DetalhesEmpresaController: NSObject, UITableViewDelegate, UITableViewDataS
                 }
                 cell.cargoLabel.text = "\(cell.cargoLabel.text ?? "") - \(avaliacao.posicao)"
                 
+                if avaliacao.recomendacao {
+                    cell.recomendaLabel.text = "Recomenda esta empresa"
+                    cell.recomendaImagem.image = UIImage(named: "RecomendaTrue")
+                } else {
+                    cell.recomendaLabel.text = "Não recomenda esta empresa"
+                    cell.recomendaImagem.image = UIImage(named: "NaoRecomendaTrue")
+                }
+                
                 if let sugestoes = avaliacao.sugestoes {
                     cell.sugestoesLabel.text = sugestoes
                     cell.sugestoesTituloLabel.isHidden = false

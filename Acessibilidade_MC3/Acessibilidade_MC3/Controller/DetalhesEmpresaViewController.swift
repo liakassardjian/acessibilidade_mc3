@@ -15,6 +15,7 @@ class DetalhesEmpresaViewController: UIViewController {
     var detalhesDataSourceDelegate: DetalhesEmpresaController?
     
     var empresa: Empresa?
+    var avaliacao: Avaliacao?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,10 +36,18 @@ class DetalhesEmpresaViewController: UIViewController {
         if sender.source is AvaliarProsViewController {
             if let senderAdd = sender.source as? AvaliarProsViewController {
                 if let avaliacao = senderAdd.avaliacao {
-                    empresa?.adicionaAvaliacao(avaliacao: avaliacao)
-                    detalhesTableView.reloadData()
+                    self.avaliacao = avaliacao
                 }
             }
         }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if let avaliacao = avaliacao {
+            empresa?.adicionaAvaliacao(avaliacao: avaliacao)
+            self.avaliacao = nil
+        }
+        
+        detalhesTableView.reloadData()
     }
 }
