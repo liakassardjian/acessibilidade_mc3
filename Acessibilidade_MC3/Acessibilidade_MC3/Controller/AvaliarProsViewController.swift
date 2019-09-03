@@ -11,9 +11,9 @@ import UIKit
 class AvaliarProsViewController: UITableViewController {
 
     @IBOutlet weak var tituloTextField: UITextField!
-    @IBOutlet weak var prosTextField: UITextField!
-    @IBOutlet weak var contrasTextField: UITextField!
-    @IBOutlet weak var melhorarTextField: UITextField!
+    @IBOutlet weak var prosTextView: UITextView!
+    @IBOutlet weak var contrasTextView: UITextView!
+    @IBOutlet weak var sugestoesTextView: UITextView!
     
     @IBOutlet weak var recomendaUIButton: UIButton!
     @IBOutlet weak var naoRecomendaUIButton: UIButton!
@@ -35,9 +35,21 @@ class AvaliarProsViewController: UITableViewController {
         naoRecomendaUIButton.setImage(UIImage(named: "NaoRecomendaTrue"), for: .normal)
     }
     
+    var prosTextViewDelegate: TextViewController?
+    var contrasTextViewDelegate: TextViewController?
+    var sugestoesTextViewDelegate: TextViewController?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         ajustarUI()
+        
+        prosTextViewDelegate = TextViewController(placeholder: "Vantagens de se trabalhar nessa empresa")
+        contrasTextViewDelegate = TextViewController(placeholder: "Desvantagens de se trabalhar nessa empresa")
+        sugestoesTextViewDelegate = TextViewController(placeholder: "Sugestoes para melhorar essa empresa")
+        
+        prosTextView.delegate = prosTextViewDelegate
+        contrasTextView.delegate = contrasTextViewDelegate
+        sugestoesTextView.delegate = sugestoesTextViewDelegate
     }
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -59,11 +71,11 @@ class AvaliarProsViewController: UITableViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         avaliacao?.titulo = recuperaTextoTextField(textField: tituloTextField)
-        avaliacao?.vantagens = recuperaTextoTextField(textField: prosTextField)
-        avaliacao?.desvantagens = recuperaTextoTextField(textField: contrasTextField)
+        avaliacao?.vantagens = recuperaTextoTextView(textView: prosTextView)
+        avaliacao?.desvantagens = recuperaTextoTextView(textView: contrasTextView)
         
-        if recuperaTextoTextField(textField: melhorarTextField) != "" {
-            avaliacao?.sugestoes = recuperaTextoTextField(textField: melhorarTextField)
+        if recuperaTextoTextView(textView: sugestoesTextView) != "" {
+            avaliacao?.sugestoes = recuperaTextoTextView(textView: sugestoesTextView)
         }
         
         avaliacao?.recomendacao = self.recomendaEmpresa
@@ -76,5 +88,17 @@ class AvaliarProsViewController: UITableViewController {
         }
         return ""
     }
+    
+    private func recuperaTextoTextView(textView: UITextView) -> String {
+        if let texto = textView.text {
+            return texto
+        }
+        return ""
+    }
+    
+    @IBAction func tituloTextFieldDidChange(_ sender: Any) {
+    }
+    
+    
     
 }

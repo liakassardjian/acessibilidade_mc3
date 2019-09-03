@@ -19,7 +19,8 @@ class AvaliarCargoViewController: UITableViewController {
     @IBOutlet weak var funcionarioAtualmenteSwitch: UISwitch!
     @IBOutlet weak var desligadoEmPickerView: UIPickerView!
     @IBOutlet weak var trabalhouDurantePickerView: UIPickerView!
-
+    @IBOutlet weak var proximoButton: UIBarButtonItem!
+    
     var trabalhouDelegateDataSource: PickerController?
     var desligadoDelegateDataSource: PickerController?
     
@@ -39,6 +40,7 @@ class AvaliarCargoViewController: UITableViewController {
         
         self.navigationController?.navigationBar.prefersLargeTitles = false
         self.navigationController?.navigationItem.largeTitleDisplayMode = .never
+        self.proximoButton.isEnabled = false
         
     }
     
@@ -121,4 +123,13 @@ class AvaliarCargoViewController: UITableViewController {
         }
         return ""
     }
+    
+    @IBAction func cargoTextFieldDidChange(_ sender: Any) {
+        if recuperaTextoTextField(textField: cargoTextField) != "" {
+            proximoButton.isEnabled = true
+        } else {
+            proximoButton.isEnabled = false
+        }
+    }
+    
 }

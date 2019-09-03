@@ -35,6 +35,9 @@
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <action selector="cargoTextFieldDidChange:" destination="dO1-NU-e4I" eventType="editingChanged" id="t9C-Ug-PlX"/>
+                                                    </connections>
                                                 </textField>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cargo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sfX-fS-flw">
                                                     <rect key="frame" x="20" y="17" width="46.5" height="21"/>
@@ -177,6 +180,7 @@
                         <outlet property="cargoTextField" destination="DS7-GS-ZXV" id="R6U-Mr-sN0"/>
                         <outlet property="desligadoEmPickerView" destination="3US-gP-JeJ" id="ZF1-4x-aQu"/>
                         <outlet property="funcionarioAtualmenteSwitch" destination="Pma-Id-854" id="avl-ug-i1C"/>
+                        <outlet property="proximoButton" destination="Qc4-Q4-pv9" id="0pA-wI-qeo"/>
                         <outlet property="trabalhouDurantePickerView" destination="BWh-4g-SNh" id="icd-Lb-Ayq"/>
                     </connections>
                 </tableViewController>
@@ -701,6 +705,9 @@
                                                     <color key="textColor" red="0.066666666669999999" green="0.12549019610000001" blue="0.1764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <action selector="tituloTextFieldDidChange:" destination="tD4-Sq-1pU" eventType="editingChanged" id="kZ4-4N-UHY"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -731,21 +738,21 @@
                                                     <color key="textColor" red="0.066666666669999999" green="0.12549019610000001" blue="0.1764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Vantagens de se trabalhar nesta empresa" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TQg-HV-TAt">
-                                                    <rect key="frame" x="20" y="37.5" width="374" height="91.5"/>
-                                                    <color key="textColor" red="0.066666666669999999" green="0.12549019610000001" blue="0.1764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                                    <textInputTraits key="textInputTraits"/>
-                                                </textField>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="c0H-i0-Wnh">
+                                                    <rect key="frame" x="20" y="39.5" width="374" height="89.5"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="c0H-i0-Wnh" firstAttribute="trailing" secondItem="aUn-fP-vMk" secondAttribute="trailingMargin" id="1Bo-92-Ut6"/>
+                                                <constraint firstItem="c0H-i0-Wnh" firstAttribute="bottom" secondItem="aUn-fP-vMk" secondAttribute="bottomMargin" id="3AQ-Vb-vRl"/>
                                                 <constraint firstItem="8eI-gd-lEF" firstAttribute="top" secondItem="aUn-fP-vMk" secondAttribute="topMargin" id="C28-3b-8gv"/>
-                                                <constraint firstItem="TQg-HV-TAt" firstAttribute="trailing" secondItem="8eI-gd-lEF" secondAttribute="trailing" id="QLB-uV-Fnh"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="8eI-gd-lEF" secondAttribute="trailing" id="bBQ-US-Mr7"/>
                                                 <constraint firstItem="8eI-gd-lEF" firstAttribute="leading" secondItem="aUn-fP-vMk" secondAttribute="leadingMargin" id="bXJ-RD-q0f"/>
-                                                <constraint firstItem="TQg-HV-TAt" firstAttribute="leading" secondItem="8eI-gd-lEF" secondAttribute="leading" id="cC9-ZD-YAI"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="TQg-HV-TAt" secondAttribute="bottom" id="hhC-Ao-b3V"/>
-                                                <constraint firstItem="TQg-HV-TAt" firstAttribute="top" secondItem="8eI-gd-lEF" secondAttribute="bottom" constant="6" id="jNY-8S-LkX"/>
+                                                <constraint firstItem="c0H-i0-Wnh" firstAttribute="top" secondItem="8eI-gd-lEF" secondAttribute="bottom" constant="8" id="eaE-qZ-8RI"/>
+                                                <constraint firstItem="c0H-i0-Wnh" firstAttribute="leading" secondItem="aUn-fP-vMk" secondAttribute="leadingMargin" id="f11-Vd-ADN"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -766,20 +773,20 @@
                                                     <color key="textColor" red="0.066666666669999999" green="0.12549019610000001" blue="0.1764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Vantagens de se trabalhar nesta empresa" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AE7-6n-LOG">
-                                                    <rect key="frame" x="20" y="37.5" width="374" height="91.5"/>
-                                                    <color key="textColor" red="0.066666666669999999" green="0.12549019610000001" blue="0.1764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                                    <textInputTraits key="textInputTraits"/>
-                                                </textField>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="T4O-D3-uBd">
+                                                    <rect key="frame" x="20" y="39.5" width="374" height="89.5"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="AE7-6n-LOG" firstAttribute="trailing" secondItem="5xO-Wa-5dg" secondAttribute="trailing" id="Mkq-LN-d4V"/>
+                                                <constraint firstItem="T4O-D3-uBd" firstAttribute="top" secondItem="5xO-Wa-5dg" secondAttribute="bottom" constant="8" id="9kS-j7-K2F"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="T4O-D3-uBd" secondAttribute="bottom" id="KYD-Il-Euu"/>
                                                 <constraint firstItem="5xO-Wa-5dg" firstAttribute="top" secondItem="HGp-El-sbI" secondAttribute="topMargin" id="Q2c-q2-lmM"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="5xO-Wa-5dg" secondAttribute="trailing" id="SDo-Fq-wMg"/>
-                                                <constraint firstItem="AE7-6n-LOG" firstAttribute="top" secondItem="5xO-Wa-5dg" secondAttribute="bottom" constant="6" id="XNL-c8-r7N"/>
-                                                <constraint firstItem="AE7-6n-LOG" firstAttribute="leading" secondItem="5xO-Wa-5dg" secondAttribute="leading" id="j1e-RK-GAs"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="AE7-6n-LOG" secondAttribute="bottom" id="xbI-as-zer"/>
+                                                <constraint firstItem="T4O-D3-uBd" firstAttribute="trailing" secondItem="HGp-El-sbI" secondAttribute="trailingMargin" id="Vr1-7X-WoO"/>
+                                                <constraint firstItem="T4O-D3-uBd" firstAttribute="leading" secondItem="HGp-El-sbI" secondAttribute="leadingMargin" id="glH-gw-Lzd"/>
                                                 <constraint firstItem="5xO-Wa-5dg" firstAttribute="leading" secondItem="HGp-El-sbI" secondAttribute="leadingMargin" id="zIg-eO-Oau"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -801,21 +808,21 @@
                                                     <color key="textColor" red="0.066666666669999999" green="0.12549019610000001" blue="0.1764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Vantagens de se trabalhar nesta empresa" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1Oz-oU-2C1">
-                                                    <rect key="frame" x="20" y="37.5" width="374" height="91.5"/>
-                                                    <color key="textColor" red="0.066666666669999999" green="0.12549019610000001" blue="0.1764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                                    <textInputTraits key="textInputTraits"/>
-                                                </textField>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="xhR-0e-hKh">
+                                                    <rect key="frame" x="20" y="39.5" width="374" height="89.5"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="bottomMargin" secondItem="1Oz-oU-2C1" secondAttribute="bottom" id="4f0-Gk-Ecl"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="e8y-Gd-1K1" secondAttribute="trailing" id="7GI-w6-X2Q"/>
                                                 <constraint firstItem="e8y-Gd-1K1" firstAttribute="top" secondItem="CLw-va-mkU" secondAttribute="topMargin" id="K3m-eR-wac"/>
-                                                <constraint firstItem="1Oz-oU-2C1" firstAttribute="leading" secondItem="e8y-Gd-1K1" secondAttribute="leading" id="OCs-Ad-KQW"/>
+                                                <constraint firstItem="xhR-0e-hKh" firstAttribute="trailing" secondItem="CLw-va-mkU" secondAttribute="trailingMargin" id="Rwp-dR-yno"/>
+                                                <constraint firstItem="xhR-0e-hKh" firstAttribute="top" secondItem="e8y-Gd-1K1" secondAttribute="bottom" constant="8" id="SVO-6S-7Lb"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="xhR-0e-hKh" secondAttribute="bottom" id="eQf-Wa-WmB"/>
                                                 <constraint firstItem="e8y-Gd-1K1" firstAttribute="leading" secondItem="CLw-va-mkU" secondAttribute="leadingMargin" id="fhF-kT-tWJ"/>
-                                                <constraint firstItem="1Oz-oU-2C1" firstAttribute="top" secondItem="e8y-Gd-1K1" secondAttribute="bottom" constant="6" id="hEQ-2U-njP"/>
-                                                <constraint firstItem="1Oz-oU-2C1" firstAttribute="trailing" secondItem="e8y-Gd-1K1" secondAttribute="trailing" id="pKx-lt-by4"/>
+                                                <constraint firstItem="xhR-0e-hKh" firstAttribute="leading" secondItem="CLw-va-mkU" secondAttribute="leadingMargin" id="slx-GK-u8i"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -887,11 +894,11 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="contrasTextField" destination="AE7-6n-LOG" id="uBP-cJ-UDB"/>
-                        <outlet property="melhorarTextField" destination="1Oz-oU-2C1" id="P98-yc-8tS"/>
+                        <outlet property="contrasTextView" destination="T4O-D3-uBd" id="Yfs-jm-V2g"/>
                         <outlet property="naoRecomendaUIButton" destination="6eG-Dd-zIQ" id="gXH-vS-A1h"/>
-                        <outlet property="prosTextField" destination="TQg-HV-TAt" id="3dC-AC-0By"/>
+                        <outlet property="prosTextView" destination="c0H-i0-Wnh" id="R8H-YO-LfX"/>
                         <outlet property="recomendaUIButton" destination="0dR-h7-di1" id="0OV-Wf-5z5"/>
+                        <outlet property="sugestoesTextView" destination="xhR-0e-hKh" id="3Pa-js-O7L"/>
                         <outlet property="tituloTextField" destination="PXl-m6-a8J" id="SmO-Wk-Awx"/>
                     </connections>
                 </tableViewController>

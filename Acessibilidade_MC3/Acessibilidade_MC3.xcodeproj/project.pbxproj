@@ -16,6 +16,7 @@
 		E3CBA81B2316EB9F00403440 /* Avaliar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3CBA81A2316EB9F00403440 /* Avaliar.storyboard */; };
 		E40E5EE823170DC100915B21 /* BarraProgressoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40E5EE723170DC100915B21 /* BarraProgressoView.swift */; };
 		E4200B72231EDB9100AFD3A2 /* NovaEmpresaTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4200B71231EDB9100AFD3A2 /* NovaEmpresaTableViewController.swift */; };
+		E4200B76231EE68500AFD3A2 /* TextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4200B75231EE68500AFD3A2 /* TextViewController.swift */; };
 		E4E9C3A92318AB2F004963D4 /* DetalhesEmpresaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E9C3A82318AB2F004963D4 /* DetalhesEmpresaViewController.swift */; };
 		E4E9C3AB2318AB6C004963D4 /* DetalhesEmpresaController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E9C3AA2318AB6C004963D4 /* DetalhesEmpresaController.swift */; };
 		E4EDBF512314271F002936C7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4EDBF502314271F002936C7 /* AppDelegate.swift */; };
@@ -65,6 +66,7 @@
 		E4200B6F231EC6A900AFD3A2 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Main.strings"; sourceTree = "<group>"; };
 		E4200B70231EC6A900AFD3A2 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		E4200B71231EDB9100AFD3A2 /* NovaEmpresaTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NovaEmpresaTableViewController.swift; sourceTree = "<group>"; };
+		E4200B75231EE68500AFD3A2 /* TextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewController.swift; sourceTree = "<group>"; };
 		E4E9C3A82318AB2F004963D4 /* DetalhesEmpresaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetalhesEmpresaViewController.swift; sourceTree = "<group>"; };
 		E4E9C3AA2318AB6C004963D4 /* DetalhesEmpresaController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetalhesEmpresaController.swift; sourceTree = "<group>"; };
 		E4EDBF4D2314271F002936C7 /* Acessibilidade_MC3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Acessibilidade_MC3.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -156,6 +158,7 @@
 				E39891D32317197F003F785B /* AvaliarDeficienciasViewController.swift */,
 				E39891D12317194B003F785B /* AvaliarProsViewController.swift */,
 				E4200B71231EDB9100AFD3A2 /* NovaEmpresaTableViewController.swift */,
+				E4200B75231EE68500AFD3A2 /* TextViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -370,6 +373,7 @@
 				E39891D22317194B003F785B /* AvaliarProsViewController.swift in Sources */,
 				E4FA82B3231D89FB00BD6BFA /* AvaliacaoHeaderView.swift in Sources */,
 				E4FA82A9231D7E2300BD6BFA /* Empresa.swift in Sources */,
+				E4200B76231EE68500AFD3A2 /* TextViewController.swift in Sources */,
 				E4F40F7F2319855900DF4143 /* InformacoesTableViewCell.swift in Sources */,
 				E40E5EE823170DC100915B21 /* BarraProgressoView.swift in Sources */,
 				E4F330ED2315C60D006106E2 /* EmpresaTableViewCell.swift in Sources */,
