@@ -9,8 +9,8 @@
 import Foundation
 import UIKit
 
-struct EmpresaCodable: Codable{
-    var empresaId: String?
+struct EmpresaCodable: Codable {
+    var _id: String?
     var nome: String?
     var site: String?
     var telefone: String?
@@ -21,11 +21,11 @@ struct EmpresaCodable: Codable{
     var avaliacoesEmpresa: [AvaliacaoCodable]?
 }
 struct UsuarioCodable: Codable {
-    var usuarioId: String?
+    var uuid: String?
     var avaliacoesUsuario: [AvaliacaoCodable]?
 }
 struct AvaliacaoCodable: Codable {
-    var avaliacaoId: String?
+    var _id: String?
     var titulo: String?
     var data: Date?
     var cargo: String?
@@ -50,7 +50,8 @@ struct AvaliacaoCodable: Codable {
 
 class InternEmpresaAcessivel: NSObject {
     //retorna todas as empresas
-    static func getAllEmpresas(complete: @escaping() -> ()) -> [EmpresaCodable] {//retorno de todas as empresas
+    static func getAllEmpresas(complete: @escaping() -> (Void)) -> [EmpresaCodable] {
+        //retorno de todas as empresas
         var empresas: [EmpresaCodable] = []
         do {
             let path = "https://br-empresa-acessivel.herokuapp.com/api/empresas/"
@@ -95,10 +96,8 @@ class InternEmpresaAcessivel: NSObject {
         return safeEmpresas
     }
 
-
     static func getAvaliacoesEmpresa(empresaId: String) -> [AvaliacaoCodable] {
         //varias avaliacoes de um id especifico de empresa
-        //varias letters de um id especifico de usuario
         var avaliacoes: [AvaliacaoCodable] = []
         do {
             let path = "https://br-empresa-acessivel.herokuapp.com/api/empresaNome/\(empresaId)/"
@@ -114,11 +113,11 @@ class InternEmpresaAcessivel: NSObject {
         }
         return avaliacoes
     }
-    static func getAvaliacoesUsuario(usuarioId: String) -> [AvaliacaoCodable] {
+    static func getAvaliacoesUsuario(uuid: String) -> [AvaliacaoCodable] {
         //varias avaliacoes de um id especifico de usuario
         var avaliacoes: [AvaliacaoCodable] = []
         do {
-            let path = "https://br-empresa-acessivel.herokuapp.com/api/empresaNome/\(usuarioId)/"
+            let path = "https://br-empresa-acessivel.herokuapp.com/api/empresaNome/\(uuid)/"
             guard let url = URL(string: path) else {
                 return [AvaliacaoCodable]()
             }

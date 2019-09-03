@@ -16,4 +16,5 @@ struct RequestConstants {
     static let POSTDELETEAVALIACAO = "\(RequestConstants.URL)deleteAvaliacao"
     //static let POST_UPDATEAVALIACAO = "\(RequestConstants.URL)updateAvaliacao"
     static let POSTUSUARIO = "\(RequestConstants.URL)createUsuario"
+    //static let POSTDELETEUSUARIO = "\(RequestConstants.URL)deleteUsuario"
 }

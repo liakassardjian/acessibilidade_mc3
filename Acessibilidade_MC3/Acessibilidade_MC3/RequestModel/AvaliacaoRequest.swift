@@ -9,11 +9,10 @@
 import Foundation
 class AvaliacaoRequest {
     //sendAvaliacao
-    func sendAvaliacao(usuarioId: String, avaliacao: AvaliacaoCodable, completion: @escaping ([String: Any]?, Error?) -> Void) {
+    func sendAvaliacao(uuid: String, avaliacao: AvaliacaoCodable, completion: @escaping ([String: Any]?, Error?) -> Void) {
         let group = DispatchGroup()
         group.enter()
-        let avaliacaoParams = ["avaliacaoId": avaliacao.avaliacaoId,
-                               "titulo": avaliacao.titulo,
+        let avaliacaoParams = ["titulo": avaliacao.titulo,
                                "data": avaliacao.data,
                                "cargo": avaliacao.cargo,
                                "cempoServico": avaliacao.tempoServico,
@@ -31,7 +30,7 @@ class AvaliacaoRequest {
                                "deficienciaAuditiva": avaliacao.deficienciaAuditiva,
                                "deficienciaIntelectual": avaliacao.deficienciaIntelectual,
                                "nanismo": avaliacao.nanismo] as [String : Any]
-        let parameters = ["usuarioId": usuarioId, "Avaliacoes": avaliacaoParams] as [String : Any]
+        let parameters = ["uuid": uuid, "Avaliacoes": avaliacaoParams] as [String : Any]
         guard let url = URL(string: RequestConstants.POSTAVALIACAO) else {
             return
         }
@@ -49,19 +48,15 @@ class AvaliacaoRequest {
 
         let task = session.dataTask(with: request, completionHandler: { data, response, error in
             group.leave()
-            
-            
             group.notify(queue: .main, execute: {
                 guard error == nil else {
                     completion(nil, error)
                     return
                 }
-                
                 guard data != nil else {
                     completion(nil, NSError(domain: "dataNilError", code: -100001, userInfo: nil))
                     return
                 }
-                
                 do {
                     print(data)
                     if let file = data {
@@ -91,10 +86,10 @@ class AvaliacaoRequest {
         task.resume()
 }
     //delete
-    func deleteAvaliacao(usuarioId: String, avaliacaoId: String,completion: @escaping ([String: Any]?, Error?) -> Void){
+    func deleteAvaliacao(uuid: String, avaliacaoId: String,completion: @escaping ([String: Any]?, Error?) -> Void){
         let group = DispatchGroup()
         group.enter()
-        let parameters = ["usuarioId": usuarioId, "avaliacaoId": avaliacaoId] as [String : Any]
+        let parameters = ["uuid": uuid, "avaliacaoId": avaliacaoId] as [String : Any]
         guard let url = URL(string: RequestConstants.POSTDELETEAVALIACAO) else {
             return
         }
@@ -103,12 +98,12 @@ class AvaliacaoRequest {
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         do {
-            request.httpBody = try JSONSerialization.data(withJSONObject: parameters, options: .prettyPrinted) // pass dictionary to data object and set it as request body
+            request.httpBody = try JSONSerialization.data(withJSONObject: parameters, options: .prettyPrinted)
+            //pass dictionary to data object and set it as request body
         } catch let error {
             print(error.localizedDescription)
             completion(nil, error)
         }
-        
         //HTTP Headers
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.addValue("application/json", forHTTPHeaderField: "Acadresst")
@@ -126,7 +121,6 @@ class AvaliacaoRequest {
                 do {
                     print(data)
                     if let file = data {
-                        
                         let json = try JSONSerialization.jsonObject(with: file, options: [])
                         if let safeJson = json as? [String:Any]{
                             print(safeJson)
@@ -142,10 +136,7 @@ class AvaliacaoRequest {
                                 }
                             }
                         }
-                            
                         }
-                        
-                        
                          else {
                         print("no file")
                     }
