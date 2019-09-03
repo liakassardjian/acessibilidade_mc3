@@ -82,6 +82,16 @@ router.delete('/deleteEmpresa/:id', async (req, res) =>{//funciona
         res.json({ result: false }) 
     }
 })
+//UPDATE em empresa
+router.post('/updateEmpresa/:id', async (req, res) => {
+    try {
+        await Empresa.findByIdAndUpdate(req.params.id, req.body)
+        res.json({ result: true })
+    } catch (err) {
+        console.log('Error: ', err)
+        res.json({ result: false })
+    }
+})
 
 //Avaliacao
 //cria avaliacao
