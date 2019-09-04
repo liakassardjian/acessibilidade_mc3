@@ -31,12 +31,15 @@ class EmpresasViewController: UIViewController {
         self.definesPresentationContext = true
         self.navigationItem.searchController = searchController
         
-//        empresasDataSourceDelegate?.empresas = [Empresa(nome: "Mackenzie", localizacao: "São Paulo, SP", site: nil),
-//                                                Empresa(nome: "Itau", localizacao: "São Paulo, SP", site: "www.itau.com.br")]
-        
+        let defaults = UserDefaults()
+        let primeiroAcesso = defaults.bool(forKey: "primeiroAcesso")
+        if !primeiroAcesso {
+            // registra usuário
+            defaults.set(true, forKey: "primeiroAcesso")
+        }
     }
     
-    override func viewWillAppear(_ animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         empresaTableView.reloadData()
     }
     
@@ -57,10 +60,6 @@ class EmpresasViewController: UIViewController {
                 }
             }
         }
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        empresaTableView.reloadData()
     }
     
 }

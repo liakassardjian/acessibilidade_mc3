@@ -45,7 +45,7 @@ class AvaliarProsViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        ajustarUI()
+        tableView.tableFooterView = UIView()
         
         prosTextViewDelegate = TextViewController(placeholder: "Vantagens de se trabalhar nessa empresa", tVC: self, indice: 1)
         contrasTextViewDelegate = TextViewController(placeholder: "Desvantagens de se trabalhar nessa empresa", tVC: self, indice: 2)
@@ -68,11 +68,6 @@ class AvaliarProsViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 30
-    }
-    
-    func ajustarUI() {
-        tableView.tableFooterView = UIView()
-        navigationController?.navigationBar.tintColor = .rioCristalino
     }
     
     override func viewWillDisappear(_ animated: Bool) {

@@ -27,8 +27,7 @@ class AvaliarNotasViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        ajustarUI()
-       
+        tableView.tableFooterView = UIView()
     }
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -41,11 +40,6 @@ class AvaliarNotasViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 30
-    }
-    
-    func ajustarUI() {
-        tableView.tableFooterView = UIView()
-        navigationController?.navigationBar.tintColor = .rioCristalino
     }
     
     @IBAction func tocaIntegracao(_ sender: UIButton) {

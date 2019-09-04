@@ -590,87 +590,112 @@
                                 <color key="textColor" red="0.066666666669999999" green="0.12549019610000001" blue="0.1764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SIA" translatesAutoresizingMaskIntoConstraints="NO" id="405-tH-75b">
+                                <rect key="frame" x="55" y="115" width="125" height="125"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YFL-Ey-qqY">
+                                <rect key="frame" x="55" y="115" width="125" height="125"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="125" id="QEY-OE-nIe"/>
+                                    <constraint firstAttribute="height" constant="125" id="UNZ-gX-zuY"/>
+                                </constraints>
+                                <state key="normal" title="Pessoas com deficiência motora">
+                                    <color key="titleColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="alteraFisico:" destination="Mku-f9-f7Q" eventType="touchUpInside" id="2AQ-ty-crW"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SIDV" translatesAutoresizingMaskIntoConstraints="NO" id="Agx-OV-HOp">
+                                <rect key="frame" x="234" y="115" width="125" height="125"/>
+                            </imageView>
                             <button opaque="NO" alpha="0.5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IFs-vD-n0A">
                                 <rect key="frame" x="234" y="115" width="125" height="125"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="125" id="RQ5-wf-O70"/>
                                     <constraint firstAttribute="height" constant="125" id="lQH-9s-6He"/>
                                 </constraints>
-                                <state key="normal" title="Button" image="SIDV"/>
+                                <state key="normal" title="Pessoas com deficiência visual">
+                                    <color key="titleColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="alteraVisual:" destination="Mku-f9-f7Q" eventType="touchUpInside" id="DWc-u6-2P4"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" alpha="0.5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YFL-Ey-qqY">
-                                <rect key="frame" x="55" y="115" width="125" height="125"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="125" id="QEY-OE-nIe"/>
-                                    <constraint firstAttribute="height" constant="125" id="UNZ-gX-zuY"/>
-                                </constraints>
-                                <state key="normal" title="Button" image="SIA"/>
-                                <connections>
-                                    <action selector="alteraFisico:" destination="Mku-f9-f7Q" eventType="touchUpInside" id="2AQ-ty-crW"/>
-                                </connections>
-                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SIDA" translatesAutoresizingMaskIntoConstraints="NO" id="Og3-Bd-yMg">
+                                <rect key="frame" x="55" y="305.5" width="125" height="125"/>
+                            </imageView>
                             <button opaque="NO" alpha="0.5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wgg-gg-FZg">
-                                <rect key="frame" x="55" y="300.5" width="125" height="125"/>
+                                <rect key="frame" x="55" y="305.5" width="125" height="125"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="125" id="1wG-eo-BeQ"/>
                                     <constraint firstAttribute="height" constant="125" id="Orm-HM-G7n"/>
                                 </constraints>
-                                <state key="normal" title="Button" image="SIDA"/>
+                                <state key="normal" title="Pessoas com deficiência auditiva">
+                                    <color key="titleColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="alteraAuditiva:" destination="Mku-f9-f7Q" eventType="touchUpInside" id="2Mq-uL-bxt"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SDI" translatesAutoresizingMaskIntoConstraints="NO" id="PMO-aj-InQ">
+                                <rect key="frame" x="234" y="305.5" width="125" height="125"/>
+                            </imageView>
                             <button opaque="NO" alpha="0.5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WiW-yy-zek">
-                                <rect key="frame" x="234" y="300.5" width="125" height="125"/>
+                                <rect key="frame" x="234" y="305.5" width="125" height="125"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="125" id="70e-Rx-302"/>
                                     <constraint firstAttribute="height" constant="125" id="UlG-hr-Xa4"/>
                                 </constraints>
-                                <state key="normal" title="Button" image="SDI"/>
+                                <state key="normal" title="Pessoas com deficiência intelectual">
+                                    <color key="titleColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="alteraIntelectual:" destination="Mku-f9-f7Q" eventType="touchUpInside" id="rvD-3g-1WL"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SPN" translatesAutoresizingMaskIntoConstraints="NO" id="F8k-7c-3q0">
+                                <rect key="frame" x="145" y="496" width="125" height="125"/>
+                            </imageView>
                             <button opaque="NO" alpha="0.5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Idp-Le-3TA">
-                                <rect key="frame" x="145" y="486" width="125" height="125"/>
+                                <rect key="frame" x="145" y="496" width="125" height="125"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="125" id="9pz-nb-uri"/>
                                     <constraint firstAttribute="width" constant="125" id="xRI-ZP-70a"/>
                                 </constraints>
-                                <state key="normal" title="Button" image="SPN"/>
+                                <state key="normal" title="Pessoas com nanismo">
+                                    <color key="titleColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="alteraNanismo:" destination="Mku-f9-f7Q" eventType="touchUpInside" id="hwU-nJ-t4w"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pessoas com deficiência motora" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zy2-ku-Pjy">
-                                <rect key="frame" x="55" y="240" width="125" height="30.5"/>
+                                <rect key="frame" x="55" y="245" width="125" height="30.5"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                 <color key="textColor" red="0.066666666669999999" green="0.12549019610000001" blue="0.1764705882" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pessoas com deficiência visual" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7jn-Bj-dSx">
-                                <rect key="frame" x="234" y="240" width="125" height="30.5"/>
+                                <rect key="frame" x="234" y="245" width="125" height="30.5"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                 <color key="textColor" red="0.066666666669999999" green="0.12549019610000001" blue="0.1764705882" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pessoas com deficiência auditiva" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w3a-Cc-1CH">
-                                <rect key="frame" x="55" y="425.5" width="125" height="30.5"/>
+                                <rect key="frame" x="55" y="435.5" width="125" height="30.5"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                 <color key="textColor" red="0.066666666669999999" green="0.12549019610000001" blue="0.1764705882" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pessoas com deficiência intelectual" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7db-5r-Zs1">
-                                <rect key="frame" x="234" y="425.5" width="125" height="30.5"/>
+                                <rect key="frame" x="234" y="435.5" width="125" height="30.5"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                 <color key="textColor" red="0.066666666669999999" green="0.12549019610000001" blue="0.1764705882" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pessoas com nanismo" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AGr-bB-8b2">
-                                <rect key="frame" x="145" y="611" width="125" height="30.5"/>
+                                <rect key="frame" x="145" y="626" width="125" height="30.5"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                 <color key="textColor" red="0.066666666669999999" green="0.12549019610000001" blue="0.1764705882" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -680,14 +705,28 @@
                         <constraints>
                             <constraint firstItem="qKE-CU-bOs" firstAttribute="trailing" secondItem="WiW-yy-zek" secondAttribute="trailing" constant="55" id="02V-se-jgh"/>
                             <constraint firstItem="7db-5r-Zs1" firstAttribute="centerX" secondItem="WiW-yy-zek" secondAttribute="centerX" id="2Mw-ra-dvD"/>
+                            <constraint firstItem="Og3-Bd-yMg" firstAttribute="height" secondItem="Wgg-gg-FZg" secondAttribute="height" id="2fR-s4-Y4u"/>
                             <constraint firstItem="qKE-CU-bOs" firstAttribute="trailing" secondItem="14M-zo-LSv" secondAttribute="trailing" constant="70" id="2s8-JV-7E3"/>
                             <constraint firstItem="AGr-bB-8b2" firstAttribute="trailing" secondItem="Idp-Le-3TA" secondAttribute="trailing" id="3OQ-57-fh3"/>
                             <constraint firstItem="14M-zo-LSv" firstAttribute="leading" secondItem="qKE-CU-bOs" secondAttribute="leading" constant="70" id="4qU-Om-AxC"/>
                             <constraint firstItem="14M-zo-LSv" firstAttribute="top" secondItem="qKE-CU-bOs" secondAttribute="top" constant="30" id="7gO-Gf-bFA"/>
+                            <constraint firstItem="Agx-OV-HOp" firstAttribute="width" secondItem="IFs-vD-n0A" secondAttribute="width" id="89y-Yr-tE2"/>
+                            <constraint firstItem="PMO-aj-InQ" firstAttribute="height" secondItem="WiW-yy-zek" secondAttribute="height" id="BV7-dR-62j"/>
                             <constraint firstItem="zy2-ku-Pjy" firstAttribute="centerX" secondItem="YFL-Ey-qqY" secondAttribute="centerX" id="EOl-63-stF"/>
+                            <constraint firstItem="Og3-Bd-yMg" firstAttribute="width" secondItem="Wgg-gg-FZg" secondAttribute="width" id="ET3-y6-2q7"/>
                             <constraint firstItem="qKE-CU-bOs" firstAttribute="trailing" secondItem="IFs-vD-n0A" secondAttribute="trailing" constant="55" id="G6m-Zz-htG"/>
+                            <constraint firstItem="PMO-aj-InQ" firstAttribute="centerY" secondItem="WiW-yy-zek" secondAttribute="centerY" id="I9y-I2-DjH"/>
+                            <constraint firstItem="Agx-OV-HOp" firstAttribute="height" secondItem="IFs-vD-n0A" secondAttribute="height" id="K5s-bB-6Om"/>
                             <constraint firstItem="WiW-yy-zek" firstAttribute="top" secondItem="7jn-Bj-dSx" secondAttribute="bottom" constant="30" id="Lxx-V5-vdS"/>
+                            <constraint firstItem="405-tH-75b" firstAttribute="centerX" secondItem="YFL-Ey-qqY" secondAttribute="centerX" id="Q32-N8-TPZ"/>
                             <constraint firstItem="AGr-bB-8b2" firstAttribute="leading" secondItem="Idp-Le-3TA" secondAttribute="leading" id="R1g-cs-thP"/>
+                            <constraint firstItem="F8k-7c-3q0" firstAttribute="height" secondItem="Idp-Le-3TA" secondAttribute="height" id="R7Q-XN-jPn"/>
+                            <constraint firstItem="F8k-7c-3q0" firstAttribute="width" secondItem="Idp-Le-3TA" secondAttribute="width" id="RdJ-z2-20v"/>
+                            <constraint firstItem="PMO-aj-InQ" firstAttribute="width" secondItem="WiW-yy-zek" secondAttribute="width" id="Sy6-5Z-mi2"/>
+                            <constraint firstItem="405-tH-75b" firstAttribute="width" secondItem="YFL-Ey-qqY" secondAttribute="width" id="TBE-em-S9S"/>
+                            <constraint firstItem="F8k-7c-3q0" firstAttribute="centerY" secondItem="Idp-Le-3TA" secondAttribute="centerY" id="YVh-d5-cb6"/>
+                            <constraint firstItem="Og3-Bd-yMg" firstAttribute="centerX" secondItem="Wgg-gg-FZg" secondAttribute="centerX" id="Z5p-Un-H6s"/>
+                            <constraint firstItem="Og3-Bd-yMg" firstAttribute="centerY" secondItem="Wgg-gg-FZg" secondAttribute="centerY" id="aeY-6r-XUj"/>
                             <constraint firstItem="7db-5r-Zs1" firstAttribute="trailing" secondItem="WiW-yy-zek" secondAttribute="trailing" id="avZ-nW-5qe"/>
                             <constraint firstItem="zy2-ku-Pjy" firstAttribute="leading" secondItem="YFL-Ey-qqY" secondAttribute="leading" id="brf-Ra-zJQ"/>
                             <constraint firstItem="YFL-Ey-qqY" firstAttribute="leading" secondItem="qKE-CU-bOs" secondAttribute="leading" constant="55" id="c6Y-SD-7I1"/>
@@ -696,21 +735,27 @@
                             <constraint firstItem="7db-5r-Zs1" firstAttribute="leading" secondItem="WiW-yy-zek" secondAttribute="leading" id="exF-N6-aCD"/>
                             <constraint firstItem="w3a-Cc-1CH" firstAttribute="centerX" secondItem="Wgg-gg-FZg" secondAttribute="centerX" id="f8T-zA-JpL"/>
                             <constraint firstItem="Wgg-gg-FZg" firstAttribute="leading" secondItem="qKE-CU-bOs" secondAttribute="leading" constant="55" id="fSJ-nE-g6A"/>
-                            <constraint firstItem="AGr-bB-8b2" firstAttribute="top" secondItem="Idp-Le-3TA" secondAttribute="bottom" id="gUE-nf-TTQ"/>
+                            <constraint firstItem="AGr-bB-8b2" firstAttribute="top" secondItem="Idp-Le-3TA" secondAttribute="bottom" constant="5" id="gUE-nf-TTQ"/>
                             <constraint firstItem="zy2-ku-Pjy" firstAttribute="trailing" secondItem="YFL-Ey-qqY" secondAttribute="trailing" id="h5N-kc-9Br"/>
-                            <constraint firstItem="w3a-Cc-1CH" firstAttribute="top" secondItem="Wgg-gg-FZg" secondAttribute="bottom" id="iKS-LS-av0"/>
+                            <constraint firstItem="Agx-OV-HOp" firstAttribute="centerY" secondItem="IFs-vD-n0A" secondAttribute="centerY" id="heU-zX-F1x"/>
+                            <constraint firstItem="w3a-Cc-1CH" firstAttribute="top" secondItem="Wgg-gg-FZg" secondAttribute="bottom" constant="5" id="iKS-LS-av0"/>
                             <constraint firstItem="Wgg-gg-FZg" firstAttribute="top" secondItem="zy2-ku-Pjy" secondAttribute="bottom" constant="30" id="mRG-qt-ufH"/>
-                            <constraint firstItem="zy2-ku-Pjy" firstAttribute="top" secondItem="YFL-Ey-qqY" secondAttribute="bottom" id="niy-Ej-VNW"/>
+                            <constraint firstItem="zy2-ku-Pjy" firstAttribute="top" secondItem="YFL-Ey-qqY" secondAttribute="bottom" constant="5" id="niy-Ej-VNW"/>
                             <constraint firstItem="AGr-bB-8b2" firstAttribute="centerX" secondItem="Idp-Le-3TA" secondAttribute="centerX" id="o2R-sR-iQu"/>
+                            <constraint firstItem="PMO-aj-InQ" firstAttribute="centerX" secondItem="WiW-yy-zek" secondAttribute="centerX" id="rMW-H6-0bZ"/>
                             <constraint firstItem="w3a-Cc-1CH" firstAttribute="leading" secondItem="Wgg-gg-FZg" secondAttribute="leading" id="rqw-6Q-tBe"/>
                             <constraint firstItem="Idp-Le-3TA" firstAttribute="leading" secondItem="qKE-CU-bOs" secondAttribute="leading" constant="145" id="sjw-lj-vDw"/>
                             <constraint firstItem="7jn-Bj-dSx" firstAttribute="trailing" secondItem="IFs-vD-n0A" secondAttribute="trailing" id="tbK-bq-Ti4"/>
-                            <constraint firstItem="7jn-Bj-dSx" firstAttribute="top" secondItem="IFs-vD-n0A" secondAttribute="bottom" id="uPA-x3-ssd"/>
+                            <constraint firstItem="405-tH-75b" firstAttribute="height" secondItem="YFL-Ey-qqY" secondAttribute="height" id="uJz-Pm-83j"/>
+                            <constraint firstItem="7jn-Bj-dSx" firstAttribute="top" secondItem="IFs-vD-n0A" secondAttribute="bottom" constant="5" id="uPA-x3-ssd"/>
+                            <constraint firstItem="405-tH-75b" firstAttribute="centerY" secondItem="YFL-Ey-qqY" secondAttribute="centerY" id="uro-zN-Kpv"/>
+                            <constraint firstItem="F8k-7c-3q0" firstAttribute="centerX" secondItem="Idp-Le-3TA" secondAttribute="centerX" id="vqm-fa-RWR"/>
                             <constraint firstItem="7jn-Bj-dSx" firstAttribute="centerX" secondItem="IFs-vD-n0A" secondAttribute="centerX" id="xGD-PG-bhK"/>
                             <constraint firstItem="Idp-Le-3TA" firstAttribute="top" secondItem="w3a-Cc-1CH" secondAttribute="bottom" constant="30" id="xJQ-SO-bns"/>
-                            <constraint firstItem="7db-5r-Zs1" firstAttribute="top" secondItem="WiW-yy-zek" secondAttribute="bottom" id="xMf-1E-3U3"/>
+                            <constraint firstItem="7db-5r-Zs1" firstAttribute="top" secondItem="WiW-yy-zek" secondAttribute="bottom" constant="5" id="xMf-1E-3U3"/>
                             <constraint firstItem="YFL-Ey-qqY" firstAttribute="top" secondItem="14M-zo-LSv" secondAttribute="bottom" constant="60" id="xXB-kJ-InX"/>
                             <constraint firstItem="7jn-Bj-dSx" firstAttribute="leading" secondItem="IFs-vD-n0A" secondAttribute="leading" id="zgc-wg-C77"/>
+                            <constraint firstItem="Agx-OV-HOp" firstAttribute="centerX" secondItem="IFs-vD-n0A" secondAttribute="centerX" id="zyy-uL-F4M"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="qKE-CU-bOs"/>
                     </view>
@@ -721,6 +766,13 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="sdiImageView" destination="PMO-aj-InQ" id="5DW-ir-5vT"/>
+                        <outlet property="siaImageView" destination="405-tH-75b" id="xl3-be-Rvs"/>
+                        <outlet property="sidaImageView" destination="Og3-Bd-yMg" id="2v9-pe-Z9f"/>
+                        <outlet property="sidvImageView" destination="Agx-OV-HOp" id="1ra-Cs-fYG"/>
+                        <outlet property="spnImageView" destination="F8k-7c-3q0" id="YXG-q9-PHf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dgB-OH-2Oe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -993,4 +1045,5 @@
         <image name="SPN" width="204" height="204"/>
         <image name="Star" width="46" height="44"/>
     </resources>
+    <color key="tintColor" red="0.29664069409999999" green="0.53226596120000003" blue="0.76081210369999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
 </document>
