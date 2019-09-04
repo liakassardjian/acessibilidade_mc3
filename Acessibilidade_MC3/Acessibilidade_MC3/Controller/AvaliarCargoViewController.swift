@@ -27,7 +27,7 @@ class AvaliarCargoViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        ajustarUI()
+        tableView.tableFooterView = UIView()
    
         trabalhouDelegateDataSource = PickerController(componentes: self.tempoServico)
         desligadoDelegateDataSource = PickerController(componentes: self.ultimoAno)
@@ -42,12 +42,6 @@ class AvaliarCargoViewController: UITableViewController {
         self.navigationController?.navigationItem.largeTitleDisplayMode = .never
         self.proximoButton.isEnabled = false
         
-    }
-    
-    func ajustarUI() {
-        tableView.tableFooterView = UIView()
-        navigationController?.navigationBar.tintColor = .rioCristalino
-
     }
 
     @IBAction func switchAlterado(_ sender: Any) {
