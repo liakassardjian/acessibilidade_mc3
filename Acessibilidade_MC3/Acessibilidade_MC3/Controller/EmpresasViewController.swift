@@ -12,11 +12,9 @@ import Foundation
 class EmpresasViewController: UIViewController {
 
     @IBOutlet weak var empresaTableView: UITableView!
-    
     let searchController = UISearchController(searchResultsController: nil)
     
     var empresasDataSourceDelegate: EmpresasController?
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,83 +56,8 @@ class EmpresasViewController: UIViewController {
         empresasDataSourceDelegate?.empresas[0].adicionaAvaliacao(avaliacao: avaliacao1)
         empresasDataSourceDelegate?.empresas[0].adicionaAvaliacao(avaliacao: avaliacao2)
         empresasDataSourceDelegate?.empresas[1].adicionaAvaliacao(avaliacao: avaliacao1)
-        registerUser()
-        registerEmpresa()
-        updateEmpresa()
-        //registerAvaliacao()
-        
     }
-    
-    func registerUser() {
-        let usuario = UserDefaults.standard
-        let uuid = UUID().uuidString
-        UsuarioRequest().usuarioCreate(uuid: uuid) { (response, error) in
-            if response != nil {
-                //success
-                usuario.set(uuid, forKey: "UserId")//salvar LOCALMENTE O USER ID
-                print("sucesso")
-            } else {
-                //error
-                print("falha")
-            }
-        }
-    }
-    
-    func registerEmpresa() {
-        var empresa = EmpresaCodable()
-        empresa.nome = "Itau"
-        empresa.site = "https://www.itau.com.br"
-        empresa.telefone = "0800 728 0728"
-        empresa.cidade = "São Paulo"
-        empresa.estado = "SP"
-        if let safeuuid = UserDefaults.standard.string(forKey: "UserId") {
-            EmpresaRequest().empresaCreate(uuid: safeuuid, empresa: empresa) { (response , error) in
-                if response != nil {
-                    print("sucesso")
-                    //reload na viewdidload
-                } else {
-                    print("falha")
-                }
-            }
-        } else {
-            print("User defaults erro em safe unrap")
-        }
-        
-    }
-    
-    func updateEmpresa() {
-        var empresa = EmpresaCodable()
-        empresa.nome = "Itauuuuuu"
-        empresa.site = "https://www.itau.com.br"
-        empresa.telefone = "0800 728 0728"
-        empresa.cidade = "Sãoooooo Paulo"
-        empresa.estado = "SPPPPP"
-        if let safeuuid = UserDefaults.standard.string(forKey: "UserId") {
-            EmpresaRequest().updateEmpresa(uuid: safeuuid, empresa: empresa) { (response , error) in
-                if response != nil {
-                    print("sucesso")
-                    //reload na viewdidload
-                } else {
-                    print("falha")
-                }
-            }
-        } else {
-            print("User defaults erro em safe unrap")
-        }
-        
-    }
-    
-//    func getAllEmpresas(){
-//
-//    }
-//
-//    func registerAvaliacao(){
-//
-//    }
-    
-    
-    
-    
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let empresaInfo = segue.destination as? DetalhesEmpresaViewController {
             if let selecionada = empresaTableView.indexPathForSelectedRow {
