@@ -6,7 +6,6 @@
 //  Copyright © 2019 Lia Kassardjian. All rights reserved.
 //
 
-
 enum AvaliacoesEmpresaLoadResponse: Error {//varias avaliacoes de um id especifico de empresa
     case success(avaliacoesEmpresa: [AvaliacaoCodable])
     case error(description: String)
@@ -97,7 +96,7 @@ class AvaliacaoRequest {
         task.resume()
 }
     //READ AVALIACOES DE EMPRESA
-    static func getAvaliacoesEmpresa(empresaId:String, completion: @escaping (AvaliacoesEmpresaLoadResponse) -> Void) {
+    static func getAvaliacoesEmpresa(empresaId: String, completion: @escaping (AvaliacoesEmpresaLoadResponse) -> Void) {
         
         let BASE_URL: String = RequestConstants.GETAVALIACAOEMPRESA + empresaId
         

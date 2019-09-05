@@ -16,8 +16,6 @@ struct RequestConstants {
     static let URL = "http://localhost:3000/api/"
     static let POSTEMPRESA = "\(RequestConstants.URL)createEmpresa"
     
-
-    
     static let PUTEMPRESA = "\(RequestConstants.URL)updateEmpresa/"
     
     static let POSTAVALIACAO = "\(RequestConstants.URL)createAvaliacao"

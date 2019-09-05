@@ -31,7 +31,6 @@ class EmpresasViewController: UIViewController {
         self.navigationItem.searchController = searchController
     
     }
-        
     
     override func viewDidAppear(_ animated: Bool) {
         empresaTableView.reloadData()
