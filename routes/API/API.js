@@ -74,8 +74,17 @@ router.get('/empresaNome/:id', async (req, res) => {//funciona
 router.delete('/deleteEmpresa/:id', async (req, res) => {//funciona
     try {
         let idEmpresa = req.params.id
-        await Empresa.findByIdAndRemove(idEmpresa)
-        res.json({ result: true })
+        var empresa = await Empresa.findByIdAndRemove(idEmpresa)
+        if(empresa) {
+            await (empresa.avaliacao).forEach(async avaliacao => {
+                console.log(avaliacao._id);
+                await deleteAvaliacao(avaliacao._id)
+            })
+            // await empresa.remove()
+            res.json({ result: true })
+        } else {
+            res.json({ result: false })
+        }
 
     } catch (err) {
         console.log('Error: ', err)
@@ -158,6 +167,26 @@ router.delete('/deleteAvaliacao/:id', async (req, res) => {//funcionando
         await Avaliacao.findByIdAndRemove(idAvaliacao)
         res.json({ result: true })
 
+    } catch (err) {
+        console.log('Error: ', err)
+        res.json({ result: false })
+    }
+})
+
+async function deleteAvaliacao (id) {//funcionando
+    try {
+        let idAvaliacao = id
+        await Avaliacao.findByIdAndRemove(idAvaliacao)
+    } catch (err) {
+        console.log(err)
+    }
+}
+
+//delete all
+router.delete('/deleteAvaliacoes', async (req, res) => {//funcionando
+    try {
+        await Avaliacao.remove({})
+        res.json({ result: true })
     } catch (err) {
         console.log('Error: ', err)
         res.json({ result: false })
