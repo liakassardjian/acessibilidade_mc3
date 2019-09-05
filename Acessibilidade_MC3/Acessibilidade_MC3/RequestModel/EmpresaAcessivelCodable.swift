@@ -26,6 +26,7 @@ struct UsuarioCodable: Codable {
 }
 struct AvaliacaoCodable: Codable {
     var _id: String?
+    //var empresaId: String?
     var titulo: String?
     var data: Date?
     var cargo: String?
@@ -50,52 +51,6 @@ struct AvaliacaoCodable: Codable {
 
 class InternEmpresaAcessivel: NSObject {
     //retorna todas as empresas
-    static func getAllEmpresas(complete: @escaping() -> Void) -> [EmpresaCodable] {
-        //retorno de todas as empresas
-        var empresas: [EmpresaCodable] = []
-        do {
-            let path = "https://br-empresa-acessivel.herokuapp.com/api/empresas/"
-            guard let url = URL(string: path) else {
-                return [EmpresaCodable]()
-            }
-            let empresasData = try Data(contentsOf: url as URL)
-            empresas = try JSONDecoder().decode([EmpresaCodable].self, from: empresasData)
-            complete()
-            return empresas
-        } catch {
-            complete()
-            print("\(error.localizedDescription)")
-        }
-        complete()
-        return empresas
-    }
-    //funcao para voltar uma empresa só especifica
-    static func getEmpresaEspecifica(empresaId: String) -> EmpresaCodable {
-        var empresas: EmpresaCodable?
-
-        do {
-            let path = "https://br-empresa-acessivel.herokuapp.com/api/empresaNome/\(empresaId)/"
-            guard let url = URL(string: path) else {
-                return EmpresaCodable()
-            }
-            let empresasData = try Data(contentsOf: url as URL)
-            empresas = try JSONDecoder().decode(EmpresaCodable.self, from: empresasData)
-            guard let empresas = empresas else {
-                return EmpresaCodable()
-            }
-
-            return empresas
-
-        } catch {
-            print("\(error.localizedDescription)")
-
-        }
-        guard let safeEmpresas = empresas else {
-            return EmpresaCodable()
-        }
-        return safeEmpresas
-    }
-
     static func getAvaliacoesEmpresa(empresaId: String) -> [AvaliacaoCodable] {
         //varias avaliacoes de um id especifico de empresa
         var avaliacoes: [AvaliacaoCodable] = []

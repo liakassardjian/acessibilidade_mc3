@@ -6,6 +6,17 @@
 //  Copyright © 2019 Lia Kassardjian. All rights reserved.
 //
 
+
+enum AvaliacoesEmpresaLoadResponse: Error {//varias avaliacoes de um id especifico de empresa
+    case success(avaliacoesEmpresa: [AvaliacaoCodable])
+    case error(description: String)
+}
+
+//enum AvaliacoesUsuarioLoadResponsee: Error {//varias avaliacoes de um id especifico de usuario
+//    case success(avaliacoesUsuario: [AvaliacaoCodable])
+//    case error(description: String)
+//}
+
 import Foundation
 class AvaliacaoRequest {
     //sendAvaliacao
@@ -85,6 +96,31 @@ class AvaliacaoRequest {
         })
         task.resume()
 }
+    //READ AVALIACOES DE EMPRESA
+    static func getAvaliacoesEmpresa(empresaId:String, completion: @escaping (AvaliacoesEmpresaLoadResponse) -> Void) {
+        
+        let BASE_URL: String = RequestConstants.GETAVALIACAOEMPRESA + empresaId
+        
+        //Valida a URL
+        guard let url = URL(string: BASE_URL) else {
+            completion(AvaliacoesEmpresaLoadResponse.error(description: "URL not initiated"))
+            return
+        }
+        
+        //Faz a chamada no Servidor
+        URLSession.shared.dataTask(with: url, completionHandler: {(data, response, error) -> Void in
+            guard error == nil, let jsonData = data else {
+                completion(AvaliacoesEmpresaLoadResponse.error(description: "Error to unwrapp data variable"))
+                return
+            }
+            
+            if let avaliacoesEmpresas = try? JSONDecoder().decode([AvaliacaoCodable].self, from: jsonData) {
+                completion(AvaliacoesEmpresaLoadResponse.success(avaliacoesEmpresa: avaliacoesEmpresas))
+            } else {
+                completion(AvaliacoesEmpresaLoadResponse.error(description: "Error to convert data to [Empresa]"))
+            }
+        }).resume()
+    }
     //delete
     func deleteAvaliacao(uuid: String, avaliacaoId: String, completion: @escaping ([String: Any]?, Error?) -> Void) {
         let group = DispatchGroup()

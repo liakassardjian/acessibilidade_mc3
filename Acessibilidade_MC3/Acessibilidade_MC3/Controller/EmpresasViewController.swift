@@ -12,7 +12,6 @@ import Foundation
 class EmpresasViewController: UIViewController {
 
     @IBOutlet weak var empresaTableView: UITableView!
-    
     let searchController = UISearchController(searchResultsController: nil)
     
     var empresasDataSourceDelegate: EmpresasController?
@@ -30,14 +29,9 @@ class EmpresasViewController: UIViewController {
         self.searchController.searchBar.isTranslucent = false
         self.definesPresentationContext = true
         self.navigationItem.searchController = searchController
-        
-        let defaults = UserDefaults()
-        let primeiroAcesso = defaults.bool(forKey: "primeiroAcesso")
-        if !primeiroAcesso {
-            // registra usuário
-            defaults.set(true, forKey: "primeiroAcesso")
-        }
+    
     }
+        
     
     override func viewDidAppear(_ animated: Bool) {
         empresaTableView.reloadData()
