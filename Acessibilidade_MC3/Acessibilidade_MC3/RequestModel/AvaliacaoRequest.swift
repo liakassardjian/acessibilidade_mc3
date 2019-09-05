@@ -121,8 +121,6 @@ class AvaliacaoRequest {
             }
         }).resume()
     }
-    
-    
     //delete
     func deleteAvaliacao(uuid: String, avaliacaoId: String, completion: @escaping ([String: Any]?, Error?) -> Void) {
         let group = DispatchGroup()
