@@ -22,6 +22,7 @@ enum EmpresaLoadResponse: Error {
 import Foundation
 
 class EmpresaRequest {
+    
     func empresaCreate(uuid: String, empresa: EmpresaCodable, completion: @escaping ([String: Any]?, Error?) -> Void) {
         let group = DispatchGroup()
         group.enter()

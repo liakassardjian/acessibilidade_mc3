@@ -19,6 +19,7 @@ class EmpresasController: NSObject, UITableViewDataSource, UITableViewDelegate {
     weak var tableView: UITableView?
     
     init(tableView: UITableView) {
+        super.init()
         self.tableView = tableView
     }
     
@@ -64,7 +65,6 @@ class EmpresasController: NSObject, UITableViewDataSource, UITableViewDelegate {
         }
         
         return cell
-        
     }
     
 }

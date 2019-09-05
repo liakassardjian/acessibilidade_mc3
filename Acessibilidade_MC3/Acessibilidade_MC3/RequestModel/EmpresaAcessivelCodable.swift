@@ -20,10 +20,12 @@ struct EmpresaCodable: Codable {
     var estado: String?
     var avaliacoesEmpresa: [AvaliacaoCodable]?
 }
+
 struct UsuarioCodable: Codable {
     var uuid: String?
     var avaliacoesUsuario: [AvaliacaoCodable]?
 }
+
 struct AvaliacaoCodable: Codable {
     var _id: String?
     //var empresaId: String?
@@ -50,6 +52,7 @@ struct AvaliacaoCodable: Codable {
 }
 
 class InternEmpresaAcessivel: NSObject {
+    
     //retorna todas as empresas
     static func getAvaliacoesEmpresa(empresaId: String) -> [AvaliacaoCodable] {
         //varias avaliacoes de um id especifico de empresa
@@ -68,6 +71,7 @@ class InternEmpresaAcessivel: NSObject {
         }
         return avaliacoes
     }
+    
     static func getAvaliacoesUsuario(uuid: String) -> [AvaliacaoCodable] {
         //varias avaliacoes de um id especifico de usuario
         var avaliacoes: [AvaliacaoCodable] = []
