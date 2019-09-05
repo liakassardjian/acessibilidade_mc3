@@ -65,21 +65,21 @@ router.get('/empresaNome/:id', async (req, res) => {//funciona
         let empresa = await Empresa.findById(req.params.id)
         res.json(empresa)
     }
-    catch (err){
+    catch (err) {
         console.log('Error ', err)
         res.json({ result: false })
     }
 })
 //deleta uma empresa
-router.delete('/deleteEmpresa/:id', async (req, res) =>{//funciona
+router.delete('/deleteEmpresa/:id', async (req, res) => {//funciona
     try {
         let idEmpresa = req.params.id
         await Empresa.findByIdAndRemove(idEmpresa)
         res.json({ result: true })
-        
+
     } catch (err) {
         console.log('Error: ', err)
-        res.json({ result: false }) 
+        res.json({ result: false })
     }
 })
 //UPDATE em empresa
@@ -95,10 +95,30 @@ router.post('/updateEmpresa/:id', async (req, res) => {
 
 //Avaliacao
 //cria avaliacao
-router.post('/createAvaliacao', async (req, res) => {//funciona
+router.post('/createAvaliacao/:empresaId', async (req, res) => {//funciona
     try {
-        await Avaliacao.create(req.body)
-        res.json({ result: true })
+        let empresa = await Empresa.findById(req.params.empresaId)
+        if (empresa) {
+            try {
+                let avaliacao = await Avaliacao.create(req.body)
+                await avaliacao.save()
+                if (empresa.avaliacao) {
+                    empresa.avaliacao.addToSet(avaliacao)
+                } else {
+                    empresa.avaliacao = avaliacao
+                }
+
+                await empresa.save()
+
+                res.json({ result: true })
+            } catch (err) {
+                console.log(err)
+                res.json({ result: false })
+            }
+        } else {
+            res.json({ result: true })
+        }
+
     }
     catch (err) {
         console.log('Error: ', err)
@@ -106,9 +126,18 @@ router.post('/createAvaliacao', async (req, res) => {//funciona
     }
 })
 //retorna todas as avaliacoes
-router.get('/avaliacao', async (req, res) =>{//funciona
+router.get('/avaliacao', async (req, res) => {//funciona
     let avaliacoes = await Avaliacao.find({})
     res.json(avaliacoes)
+})
+
+router.get('/avaliacaoEmpresa/:empresaId', async (req, res) => {//funciona
+    let empresa = await Empresa.findById(req.params.empresaId)
+
+    if (empresa) {
+        res.json(empresa.avaliacoes)
+    }
+    res.json({ result: false })
 })
 
 //faz UPDATE da avaliacao quando algo for alterado
@@ -123,21 +152,21 @@ router.post('/updateAvaliacao/:id', async (req, res) => {//funcionando
 })
 
 //deleta uma avaliacao
-router.delete('/deleteAvaliacao/:id', async (req, res) =>{//funcionando
+router.delete('/deleteAvaliacao/:id', async (req, res) => {//funcionando
     try {
         let idAvaliacao = req.params.id
         await Avaliacao.findByIdAndRemove(idAvaliacao)
         res.json({ result: true })
-        
+
     } catch (err) {
         console.log('Error: ', err)
-        res.json({ result: false }) 
+        res.json({ result: false })
     }
 })
 
 //Usuario
 //cria um usuario
-router.post('/createUsuario', async (req, res) =>{//funciona
+router.post('/createUsuario', async (req, res) => {//funciona
     try {
         await Usuario.create(req.body)
         res.json({ result: true })
@@ -148,26 +177,26 @@ router.post('/createUsuario', async (req, res) =>{//funciona
     }
 })
 //retorna todos os usuarios
-router.get('/todosUsuarios', async (req, res) =>{//funcionando
+router.get('/todosUsuarios', async (req, res) => {//funcionando
     let usuarios = await Usuario.find({})
     res.json(usuarios)
 })
 
 //retorna um usuario em especifico
-router.get('/usuario/:uuid', async(req, res) =>{//funcionando
+router.get('/usuario/:uuid', async (req, res) => {//funcionando
     try {
-        let usuario = await Usuario.findOne({uuid: req.params.uuid})
+        let usuario = await Usuario.findOne({ uuid: req.params.uuid })
         res.json(usuario)
     }
-    catch (err){
+    catch (err) {
         console.log('Error ', err)
         res.json({ result: false })
     }
 })
 //faz um UPDATE do usuario quando algo for mudado
-router.post('/updateUsuario/:uuid', async(req, res) =>{//funciona
+router.post('/updateUsuario/:uuid', async (req, res) => {//funciona
     try {
-        await Usuario.findOneAndUpdate({uuid: req.params.uuid}, req.body)
+        await Usuario.findOneAndUpdate({ uuid: req.params.uuid }, req.body)
         res.json({ result: true })
     } catch (err) {
         console.log('Error: ', err)
@@ -176,15 +205,15 @@ router.post('/updateUsuario/:uuid', async(req, res) =>{//funciona
 })
 
 //deleta um usuario especifico
-router.delete('/deleteUsuario/:uuid', async (req, res)=>{//funciona
+router.delete('/deleteUsuario/:uuid', async (req, res) => {//funciona
     try {
-        let idUsuario = {uuid: req.params.uuid}
+        let idUsuario = { uuid: req.params.uuid }
         await Usuario.findOneAndDelete(idUsuario)
         res.json({ result: true })
-        
+
     } catch (err) {
         console.log('Error: ', err)
-        res.json({ result: false }) 
+        res.json({ result: false })
     }
 })
 

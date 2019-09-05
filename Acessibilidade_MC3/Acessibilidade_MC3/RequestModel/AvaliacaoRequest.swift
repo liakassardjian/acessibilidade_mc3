@@ -97,9 +97,9 @@ class AvaliacaoRequest {
         task.resume()
 }
     //READ AVALIACOES DE EMPRESA
-    static func getAvaliacoesEmpresa(idEmpresa:String, completion: @escaping (AvaliacoesEmpresaLoadResponse) -> Void) {
+    static func getAvaliacoesEmpresa(empresaId:String, completion: @escaping (AvaliacoesEmpresaLoadResponse) -> Void) {
         
-        let BASE_URL: String = RequestConstants.GETAVALIACAOEMPRESA + idEmpresa
+        let BASE_URL: String = RequestConstants.GETAVALIACAOEMPRESA + empresaId
         
         //Valida a URL
         guard let url = URL(string: BASE_URL) else {
@@ -115,7 +115,7 @@ class AvaliacaoRequest {
             }
             
             if let avaliacoesEmpresas = try? JSONDecoder().decode([AvaliacaoCodable].self, from: jsonData) {
-                completion(AvaliacoesEmpresaLoadResponse.success(avaliacoesEmpresa: [avaliacoesEmpresas]))
+                completion(AvaliacoesEmpresaLoadResponse.success(avaliacoesEmpresa: avaliacoesEmpresas))
             } else {
                 completion(AvaliacoesEmpresaLoadResponse.error(description: "Error to convert data to [Empresa]"))
             }
@@ -123,12 +123,8 @@ class AvaliacaoRequest {
     }
     
     
-    
-    
-    
-    
     //delete
-    func deleteAvaliacao(uuid: String, avaliacaoId: String,completion: @escaping ([String: Any]?, Error?) -> Void){
+    func deleteAvaliacao(uuid: String, avaliacaoId: String, completion: @escaping ([String: Any]?, Error?) -> Void) {
         let group = DispatchGroup()
         group.enter()
         let parameters = ["uuid": uuid, "avaliacaoId": avaliacaoId] as [String : Any]
