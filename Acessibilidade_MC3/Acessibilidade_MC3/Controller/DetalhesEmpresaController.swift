@@ -66,9 +66,25 @@ class DetalhesEmpresaController: NSObject, UITableViewDelegate, UITableViewDataS
                 let avaliacao = avaliacoes[indexPath.row]
                 cell.dataLabel.text = retornaDataString(data: avaliacao.data)
                 cell.tituloLabel.text = avaliacao.titulo
-                cell.notaLabel.text = String(avaliacao.nota)
+                cell.notaLabel.text = String(format: "%.1f", avaliacao.nota)
                 cell.vantagensLabel.text = avaliacao.vantagens
                 cell.desvantagensLabel.text = avaliacao.desvantagens
+                cell.barraProgressoView.valorProgresso = CGFloat(avaliacao.nota / 5)
+                
+                if avaliacao.cargo == .exFunc {
+                    cell.cargoLabel.text = "Funcionário até \(avaliacao.ultimoAno)"
+                } else {
+                    cell.cargoLabel.text = avaliacao.cargo.rawValue
+                }
+                cell.cargoLabel.text = "\(cell.cargoLabel.text ?? "") - \(avaliacao.posicao)"
+                
+                if avaliacao.recomendacao {
+                    cell.recomendaLabel.text = "Recomenda esta empresa"
+                    cell.recomendaImagem.image = UIImage(named: "RecomendaTrue")
+                } else {
+                    cell.recomendaLabel.text = "Não recomenda esta empresa"
+                    cell.recomendaImagem.image = UIImage(named: "NaoRecomendaTrue")
+                }
                 
                 if let sugestoes = avaliacao.sugestoes {
                     cell.sugestoesLabel.text = sugestoes

@@ -22,7 +22,7 @@ enum EmpresaLoadResponse: Error {
 import Foundation
 
 class EmpresaRequest {
-    func empresaCreate(uuid: String, empresa:EmpresaCodable, completion: @escaping ([String: Any]?, Error?) -> Void) {
+    func empresaCreate(uuid: String, empresa: EmpresaCodable, completion: @escaping ([String: Any]?, Error?) -> Void) {
         let group = DispatchGroup()
         group.enter()
         let empresaParams = ["nome": empresa.nome,
@@ -34,6 +34,7 @@ class EmpresaRequest {
                              "estado": empresa.estado] as [String : Any]
         
         //let parameters = ["uuid": uuid, "Empresas": empresaParams] as [String : Any]
+
         guard let url = URL(string: RequestConstants.POSTEMPRESA) else {
             return
         }
@@ -60,10 +61,10 @@ class EmpresaRequest {
                     return
                 }
                 do {
-                    print(data)
+                    print(data as Any)
                     if let file = data {
                         let json = try JSONSerialization.jsonObject(with: file, options: [])
-                        if let safeJson = json as? [String:Any]{
+                        if let safeJson = json as? [String: Any] {
                             print(safeJson)
                             for (key, value) in safeJson {
                                 if key == "result" {

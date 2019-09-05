@@ -11,19 +11,23 @@ import Foundation
 class Empresa {
     var nome: String
     var localizacao: String
+    var telefone: String?
     var site: String?
     var nota: Float = 0.0
     var recomendacao: Int = 0
     var acessibilidade: [Acessibilidade] = []
     var avaliacoes: [Avaliacao] = []
     
-    init(nome: String, localizacao: String, site: String?) {
+    init(nome: String, localizacao: String, site: String?, telefone: String?) {
         self.nome = nome
         self.localizacao = localizacao
-        
-        if let site = site {
-            self.site = site
-        }
+        self.site = site
+        self.telefone = telefone
+    }
+    
+    init() {
+        self.nome = ""
+        self.localizacao = ""
     }
     
     public func adicionaAvaliacao(avaliacao: Avaliacao) {
@@ -68,4 +72,17 @@ class Empresa {
         }
     }
     
+}
+
+enum Acessibilidade: String {
+    case deficienciaMotora = "SIA"
+    case deficienciaVisual = "SIDV"
+    case deficienciaAuditiva = "SIDA"
+    case deficienciaIntelectual = "SDI"
+    case nanismo = "SPN"
+}
+
+enum Cargo: String {
+    case atual = "Funcionário atual"
+    case exFunc = "Ex-funcionário"
 }
