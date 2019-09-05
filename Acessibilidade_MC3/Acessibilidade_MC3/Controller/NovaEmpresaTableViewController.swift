@@ -39,6 +39,8 @@ class NovaEmpresaTableViewController: UITableViewController {
         empresa = Empresa()
         
         salvarButton.isEnabled = false
+        
+        tableView.tableFooterView = UIView()
     }
 
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {

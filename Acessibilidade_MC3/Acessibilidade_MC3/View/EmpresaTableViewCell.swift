@@ -16,22 +16,6 @@ class EmpresaTableViewCell: UITableViewCell {
     @IBOutlet weak var recomendacaoLabel: UILabel!
     @IBOutlet weak var barraProgressoView: BarraProgressoView!
     
-    @IBOutlet weak var primeiraAcessibilidade: UIImageView!
-    @IBOutlet weak var segundaAcessibilidade: UIImageView!
-    @IBOutlet weak var terceiraAcessibilidade: UIImageView!
-    @IBOutlet weak var quartaAcessibilidade: UIImageView!
-    @IBOutlet weak var quitaAcessibilidade: UIImageView!
-    
-    @IBOutlet weak var primeiraView: UIView!
-    
-    @IBOutlet weak var segundaView: UIView!
-    
-    @IBOutlet weak var terceiraView: UIView!
-    
-    @IBOutlet weak var quartaView: UIView!
-    
-    @IBOutlet weak var quintaView: UIView!
-    
     @IBOutlet weak var avaliacaoCard: UIView! {
         didSet {
             self.avaliacaoCard.layer.cornerRadius  = 8
@@ -52,22 +36,13 @@ class EmpresaTableViewCell: UITableViewCell {
         }
     }
     
-    var acessibilidades: [UIImageView]?
-    var simbolosViews: [UIView]?
+    @IBOutlet var simbolosViews: [UIView]!
+    @IBOutlet var acessibilidades: [UIImageView]!
+    //    var acessibilidades: [UIImageView]?
+//    var simbolosViews: [UIView]?
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        acessibilidades = [self.primeiraAcessibilidade,
-                           self.segundaAcessibilidade,
-                           self.terceiraAcessibilidade,
-                           self.quartaAcessibilidade,
-                           self.quitaAcessibilidade]
-        
-        simbolosViews = [self.primeiraView,
-                        self.segundaView,
-                        self.terceiraView,
-                        self.quartaView,
-                        self.quintaView]
         
         if let simbolos = simbolosViews {
             for simbolo in simbolos {

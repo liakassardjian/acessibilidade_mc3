@@ -57,10 +57,15 @@ class EmpresasController: NSObject, UITableViewDataSource, UITableViewDelegate {
         for acessivel in dados[indexPath.row].acessibilidade {
             imagens[contador].image = UIImage(named: acessivel.rawValue)
             imagens[contador].layer.cornerRadius = 8
+            
+            imagens[contador+5].image = UIImage(named: acessivel.rawValue)
+            imagens[contador+5].layer.cornerRadius = 8
+            
             contador += 1
         }
         for cont in contador..<5 {
             imagens[cont].image = nil
+            imagens[cont+5].image = nil
         }
         
         return cell
