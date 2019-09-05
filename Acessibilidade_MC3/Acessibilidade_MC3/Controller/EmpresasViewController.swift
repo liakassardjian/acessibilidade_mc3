@@ -31,6 +31,7 @@ class EmpresasViewController: UIViewController {
         self.definesPresentationContext = true
         self.navigationItem.searchController = searchController
         
+<<<<<<< HEAD
         empresasDataSourceDelegate?.empresas = [Empresa(nome: "Mackenzie", localizacao: "São Paulo, SP", site: nil),
                                                 Empresa(nome: "Itau", localizacao: "São Paulo, SP", site: "www.itau.com.br")]
         
@@ -71,6 +72,18 @@ class EmpresasViewController: UIViewController {
                 print("falha")
             }
         }
+=======
+        let defaults = UserDefaults()
+        let primeiroAcesso = defaults.bool(forKey: "primeiroAcesso")
+        if !primeiroAcesso {
+            // registra usuário
+            defaults.set(true, forKey: "primeiroAcesso")
+        }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        empresaTableView.reloadData()
+>>>>>>> 7df5d4a170752e451cbfe8bfee2b70025f7dfd9a
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -80,17 +93,16 @@ class EmpresasViewController: UIViewController {
             }
         }
     }
-}
-
-enum Acessibilidade: String {
-    case deficienciaMotora = "SIA"
-    case deficienciaVisual = "SIDV"
-    case deficienciaAuditiva = "SIDA"
-    case deficienciaIntelectual = "SDI"
-    case nanismo = "SPN"
-}
-
-enum Cargo: String {
-    case atual = "Funcionário atual"
-    case exFunc = "Ex-funcionário"
+    
+    @IBAction func adicionaEmpresa(_ sender: UIStoryboardSegue) {
+        if sender.source is NovaEmpresaTableViewController {
+            if let senderAdd = sender.source as? NovaEmpresaTableViewController {
+                if let empresa = senderAdd.empresa {
+                    self.empresasDataSourceDelegate?.empresas.append(empresa)
+                    
+                }
+            }
+        }
+    }
+    
 }

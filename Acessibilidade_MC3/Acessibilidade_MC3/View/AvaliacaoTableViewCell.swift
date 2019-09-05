@@ -42,6 +42,10 @@ class AvaliacaoTableViewCell: UITableViewCell {
     @IBOutlet weak var sugestoesLabel: UILabel!
     @IBOutlet weak var sugestoesTituloLabel: UILabel!
     
+    @IBOutlet weak var cargoLabel: UILabel!
+    @IBOutlet weak var recomendaLabel: UILabel!
+    @IBOutlet weak var recomendaImagem: UIImageView!
+    
     var imagensAcessibilidade: [UIImageView]?
     var sombrasImagens: [UIView]?
     

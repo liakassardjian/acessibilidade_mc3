@@ -10,61 +10,111 @@ import UIKit
 
 class AvaliarDeficienciasViewController: UIViewController {
     
+    var avaliacao: Avaliacao?
+    var empresa: Empresa?
+    
     var acessibilidadeFisica: Bool = false
+    @IBOutlet weak var siaImageView: UIImageView!
     @IBAction func alteraFisico(_ sender: UIButton) {
-        acessibilidadeFisica = alteraAcessibilidade(acessivel: acessibilidadeFisica,
-                                                    imagemFalse: (UIImage(named: "SIA"))!,
-                                                    imagemTrue: (UIImage(named: "SIACheck"))!,
-                                                    sender: sender)
+        if let falseImage = UIImage(named: "SIA"), let trueImage = UIImage(named: "SIACheck") {
+            acessibilidadeFisica = alteraAcessibilidade(acessivel: acessibilidadeFisica,
+                                                        imagemFalse: falseImage,
+                                                        imagemTrue: trueImage,
+                                                        imageView: siaImageView)
+        }
     }
     
     var acessibilidadeVisual: Bool = false
+    @IBOutlet weak var sidvImageView: UIImageView!
     @IBAction func alteraVisual(_ sender: UIButton) {
-        acessibilidadeVisual = alteraAcessibilidade(acessivel: acessibilidadeVisual,
-                                                    imagemFalse: (UIImage(named: "SIDV"))!,
-                                                    imagemTrue: (UIImage(named: "SIDVCheck"))!,
-                                                    sender: sender)
+        if let falseImage = UIImage(named: "SIDV"), let trueImage = UIImage(named: "SIDVCheck") {
+            acessibilidadeVisual = alteraAcessibilidade(acessivel: acessibilidadeVisual,
+                                                        imagemFalse: falseImage,
+                                                        imagemTrue: trueImage,
+                                                        imageView: sidvImageView)
+        }
     }
     
     var acessibilidadeAuditiva: Bool = false
+    @IBOutlet weak var sidaImageView: UIImageView!
     @IBAction func alteraAuditiva(_ sender: UIButton) {
-        acessibilidadeAuditiva = alteraAcessibilidade(acessivel: acessibilidadeAuditiva,
-                                                      imagemFalse: UIImage(named: "SIDA")!,
-                                                      imagemTrue: UIImage(named: "SIDACheck")!,
-                                                      sender: sender)
+        if let falseImage = UIImage(named: "SIDA"), let trueImage = UIImage(named: "SIDACheck") {
+            acessibilidadeAuditiva = alteraAcessibilidade(acessivel: acessibilidadeAuditiva,
+                                                          imagemFalse: falseImage,
+                                                          imagemTrue: trueImage,
+                                                          imageView: sidaImageView)
+        }
     }
     
     var acessibilidadeIntelectual: Bool = false
+    @IBOutlet weak var sdiImageView: UIImageView!
     @IBAction func alteraIntelectual(_ sender: UIButton) {
-        acessibilidadeIntelectual = alteraAcessibilidade(acessivel: acessibilidadeIntelectual,
-                                                         imagemFalse: UIImage(named: "SDI")!,
-                                                         imagemTrue: UIImage(named: "SDICheck")!,
-                                                         sender: sender)
+        if let falseImage = UIImage(named: "SDI"), let trueImage = UIImage(named: "SDICheck") {
+            acessibilidadeIntelectual = alteraAcessibilidade(acessivel: acessibilidadeIntelectual,
+                                                             imagemFalse: falseImage,
+                                                             imagemTrue: trueImage,
+                                                             imageView: sdiImageView)
+        }
     }
     
-    var acessibilidadeNanismo :Bool = false
+    var acessibilidadeNanismo: Bool = false
+    @IBOutlet weak var spnImageView: UIImageView!
     @IBAction func alteraNanismo(_ sender: UIButton) {
-        acessibilidadeNanismo = alteraAcessibilidade(acessivel: acessibilidadeNanismo, imagemFalse: UIImage(named: "SPN")!, imagemTrue: UIImage(named: "SPNCheck")!, sender: sender)
+        if let falseImage = UIImage(named: "SPN"), let trueImage = UIImage(named: "SPNCheck") {
+            acessibilidadeNanismo = alteraAcessibilidade(acessivel: acessibilidadeNanismo,
+                                                         imagemFalse: falseImage,
+                                                         imagemTrue: trueImage,
+                                                         imageView: spnImageView)
+        }
+
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        ajustarUI()
-
+        
+        siaImageView.alpha = 0.5
+        sidvImageView.alpha = 0.5
+        sidaImageView.alpha = 0.5
+        sdiImageView.alpha = 0.5
+        spnImageView.alpha = 0.5
     }
-    func ajustarUI() {
-        navigationController?.navigationBar.tintColor = .rioCristalino
-
-    }
-    func alteraAcessibilidade(acessivel: Bool, imagemFalse: UIImage, imagemTrue: UIImage, sender: UIButton) -> Bool {
+    
+    func alteraAcessibilidade(acessivel: Bool, imagemFalse: UIImage, imagemTrue: UIImage, imageView: UIImageView) -> Bool {
         if acessivel == false {
-            sender.setImage(imagemTrue, for: .normal)
-            sender.alpha = 1
+            imageView.image = imagemTrue
+            imageView.alpha = 1
             return true
         } else {
-            sender.setImage(imagemFalse, for: .normal)
-            sender.alpha = 0.5
+            imageView.image = imagemFalse
+            imageView.alpha = 0.5
             return false
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if self.acessibilidadeFisica {
+            avaliacao?.acessibilidade.append(.deficienciaMotora)
+        }
+        
+        if self.acessibilidadeVisual {
+            avaliacao?.acessibilidade.append(.deficienciaVisual)
+        }
+        
+        if self.acessibilidadeAuditiva {
+            avaliacao?.acessibilidade.append(.deficienciaAuditiva)
+        }
+        
+        if self.acessibilidadeIntelectual {
+            avaliacao?.acessibilidade.append(.deficienciaIntelectual)
+        }
+        
+        if self.acessibilidadeNanismo {
+            avaliacao?.acessibilidade.append(.nanismo)
+        }
+        
+        if let avaliarTextos = segue.destination as? AvaliarProsViewController {
+            avaliarTextos.avaliacao = self.avaliacao
+            avaliarTextos.empresa = self.empresa
         }
     }
 }

@@ -11,7 +11,6 @@ import UIKit
 
 class EmpresasController: NSObject, UITableViewDataSource, UITableViewDelegate {
     
-    // dados provisorios para teste
     var empresas: [Empresa] = []
     
     var resultadosBusca = [Empresa]()
