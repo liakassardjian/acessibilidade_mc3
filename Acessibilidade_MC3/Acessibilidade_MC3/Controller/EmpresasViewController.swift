@@ -10,6 +10,9 @@ import UIKit
 import Foundation
 
 class EmpresasViewController: UIViewController {
+    
+    let usuarioUUID = UserDefaults.standard
+    var usuario: String?
 
     @IBOutlet weak var empresaTableView: UITableView!
     let searchController = UISearchController(searchResultsController: nil)
@@ -31,6 +34,15 @@ class EmpresasViewController: UIViewController {
         self.searchController.searchBar.isTranslucent = false
         self.definesPresentationContext = true
         self.navigationItem.searchController = searchController
+        
+        let defaults = UserDefaults()
+        let primeiroAcesso = defaults.bool(forKey: "primeiroAcesso")
+        if !primeiroAcesso {
+            registraUsuario(uuid: UUID().uuidString)
+            defaults.set(true, forKey: "primeiroAcesso")
+        } else {
+            usuario = UserDefaults.standard.string(forKey: "UserId")
+        }
     
     }
     
@@ -207,5 +219,17 @@ class EmpresasViewController: UIViewController {
         default:
             return ""
         }
+    }
+    
+    func registraUsuario(uuid: String) {
+        UsuarioRequest().usuarioCreate(uuid: uuid, completion: { (response, error) in
+            if response != nil {
+                self.usuarioUUID.set(uuid, forKey: "UserId")
+                self.usuario = UserDefaults.standard.string(forKey: "UserId")
+                print("sucesso")
+            } else {
+                print("else")
+            }
+            })
     }
 }
