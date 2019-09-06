@@ -71,23 +71,19 @@ class EmpresasViewController: UIViewController {
                         let cidade = empresa.cidade,
                         let estado = empresa.estado {
                         
-                        let localizacao = "\(cidade), \(estado)"
+                            let localizacao = "\(cidade), \(estado)"
                         
-                        let novaEmpresa = Empresa(nome: nome,
-                                                  localizacao: localizacao,
-                                                  site: empresa.site,
-                                                  telefone: empresa.telefone)
-                        novaEmpresa.nota = Float(media)
-                        novaEmpresa.recomendacao = Int(porcentagem)
+                            let novaEmpresa = Empresa(nome: nome,
+                                                      localizacao: localizacao,
+                                                      site: empresa.site,
+                                                      telefone: empresa.telefone)
+                            novaEmpresa.nota = Float(media)
+                            novaEmpresa.recomendacao = Int(porcentagem)
                         
-                        if let avaliacoes = empresa.avaliacoesEmpresa {
-                            
-                            for avaliacao in self.converteAvaliacoes(avaliacaoCodable: avaliacoes) {
-                                novaEmpresa.adicionaAvaliacao(avaliacao: avaliacao)
+                            for avaliacao in self.converteAvaliacoes(avaliacaoCodable: empresa.avaliacao) {
+                                    novaEmpresa.adicionaAvaliacao(avaliacao: avaliacao)
                             }
-                        }
-                        
-                        empresasLocal.append(novaEmpresa)
+                            empresasLocal.append(novaEmpresa)
                     }
                 }
                 self.empresasDataSourceDelegate?.empresas = empresasLocal
@@ -102,59 +98,52 @@ class EmpresasViewController: UIViewController {
         
     }
     
-    func converteAvaliacoes(avaliacaoCodable: [AvaliacaoCodable]) -> [Avaliacao] {
+    func converteAvaliacoes(avaliacaoCodable: [AvaliacaoCodable?]) -> [Avaliacao] {
         var avaliacoes: [Avaliacao] = []
         
         for avaliacao in avaliacaoCodable {
             
-            if let titulo = avaliacao.titulo,
-                let data = avaliacao.data,
-                let cargo = avaliacao.cargo,
-                let tempoServico = avaliacao.tempoServico,
-                let pros = avaliacao.pros,
-                let contras = avaliacao.contras,
-                let ultimoAno = avaliacao.ultimoAno,
-                let integracao = avaliacao.integracaEquipe,
-                let cultura = avaliacao.culturaValores,
-                let remuneracao = avaliacao.renumeracaoBeneficios,
-                let oportunidade = avaliacao.oportunidadeCrescimento,
-                let sia = avaliacao.deficienciaMotora,
-                let sidv = avaliacao.deficienciaVisual,
-                let sida = avaliacao.deficienciaAuditiva,
-                let sdi = avaliacao.deficienciaIntelectual,
-                let spn = avaliacao.nanismo,
-                let recomenda = avaliacao.recomenda {
+            if let titulo = avaliacao?.titulo,
+                let data = avaliacao?.data,
+                let cargo = avaliacao?.cargo,
+                let tempoServico = avaliacao?.tempoServico,
+                let pros = avaliacao?.pros,
+                let contras = avaliacao?.contras,
+                let ultimoAno = avaliacao?.ultimoAno,
+                let integracao = avaliacao?.integracaoEquipe,
+                let cultura = avaliacao?.culturaValores,
+                let remuneracao = avaliacao?.renumeracaoBeneficios,
+                let oportunidade = avaliacao?.oportunidadeCrescimento,
+                let sia = avaliacao?.deficienciaMotora,
+                let sidv = avaliacao?.deficienciaVisual,
+                let sida = avaliacao?.deficienciaAuditiva,
+                let sdi = avaliacao?.deficienciaIntelectual,
+                let spn = avaliacao?.nanismo,
+                let recomenda = avaliacao?.recomenda {
                 
                 let novaAvaliacao = Avaliacao()
                 novaAvaliacao.titulo = titulo
-                novaAvaliacao.data = data
                 novaAvaliacao.vantagens = pros
                 novaAvaliacao.desvantagens = contras
-                novaAvaliacao.sugestoes = avaliacao.melhorias
+                novaAvaliacao.sugestoes = avaliacao?.melhorias
                 novaAvaliacao.nota = media(valores: [integracao,
                                                      cultura,
                                                      remuneracao,
                                                      oportunidade])
                 novaAvaliacao.recomendacao = recomenda
                 novaAvaliacao.ultimoAno = Int(ultimoAno)
-                novaAvaliacao.tempoServico = tempoServico
                 novaAvaliacao.posicao = cargo
                 
-                if sia {
-                    novaAvaliacao.acessibilidade.append(.deficienciaMotora)
+                novaAvaliacao.tempoServico = converteTempoServico(tempoServico: tempoServico)
+                
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+                dateFormatter.locale = Locale(identifier: "pt_BR")
+                if let date = dateFormatter.date(from: data) {
+                    novaAvaliacao.data = date
                 }
-                if sidv {
-                    novaAvaliacao.acessibilidade.append(.deficienciaVisual)
-                }
-                if sida {
-                    novaAvaliacao.acessibilidade.append(.deficienciaAuditiva)
-                }
-                if sdi {
-                    novaAvaliacao.acessibilidade.append(.deficienciaIntelectual)
-                }
-                if spn {
-                    novaAvaliacao.acessibilidade.append(.nanismo)
-                }
+            
+                adicionaAcessibilidade(sia: sia, sidv: sidv, sida: sida, sdi: sdi, spn: spn, avaliacao: novaAvaliacao)
                 
                 if Int(ultimoAno) != Calendar.current.component(.year, from: Date()) {
                     novaAvaliacao.cargo = .exFunc
@@ -178,5 +167,45 @@ class EmpresasViewController: UIViewController {
         }
         
         return media
+    }
+    
+    func adicionaAcessibilidade(sia: Bool, sidv: Bool, sida: Bool, sdi: Bool, spn: Bool, avaliacao: Avaliacao) {
+        if sia {
+            avaliacao.acessibilidade.append(.deficienciaMotora)
+        }
+        if sidv {
+            avaliacao.acessibilidade.append(.deficienciaVisual)
+        }
+        if sida {
+            avaliacao.acessibilidade.append(.deficienciaAuditiva)
+        }
+        if sdi {
+            avaliacao.acessibilidade.append(.deficienciaIntelectual)
+        }
+        if spn {
+            avaliacao.acessibilidade.append(.nanismo)
+        }
+    }
+    
+    func converteTempoServico(tempoServico: Double) -> String {
+        switch tempoServico {
+        case 0.25:
+            return TempoServico.menos3.descricao
+            
+        case 1:
+            return TempoServico.menos1.descricao
+            
+        case 5:
+            return TempoServico.menos5.descricao
+            
+        case 10:
+            return TempoServico.menos10.descricao
+            
+        case 11:
+            return TempoServico.mais10.descricao
+            
+        default:
+            return ""
+        }
     }
 }

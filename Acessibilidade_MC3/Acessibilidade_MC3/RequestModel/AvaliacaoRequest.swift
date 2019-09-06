@@ -31,7 +31,7 @@ class AvaliacaoRequest {
                                "melhorias": avaliacao.melhorias as Any,
                                "ultimoAno": avaliacao.ultimoAno as Any,
                                "recomenda": avaliacao.recomenda as Any,
-                               "integracaoEquipe": avaliacao.integracaEquipe as Any,
+                               "integracaoEquipe": avaliacao.integracaoEquipe as Any,
                                "culturaValores": avaliacao.culturaValores as Any,
                                "renumeracaoBeneficios": avaliacao.renumeracaoBeneficios as Any,
                                "oportunidadeCrescimento": avaliacao.oportunidadeCrescimento as Any,

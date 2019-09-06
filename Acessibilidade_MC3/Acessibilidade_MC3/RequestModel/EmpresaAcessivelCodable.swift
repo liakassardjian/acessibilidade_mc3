@@ -18,7 +18,7 @@ struct EmpresaCodable: Codable {
     var mediaRecomendacao: Double?
     var cidade: String?
     var estado: String?
-    var avaliacoesEmpresa: [AvaliacaoCodable]?
+    var avaliacao: [AvaliacaoCodable?]
 }
 
 struct UsuarioCodable: Codable {
@@ -30,16 +30,16 @@ struct AvaliacaoCodable: Codable {
     var _id: String?
     //var empresaId: String?
     var titulo: String?
-    var data: Date?
+    var data: String?
     var cargo: String?
-    var tempoServico: String?
+    var tempoServico: Double?
     var pros: String?
     var contras: String?
     var melhorias: String?
     var ultimoAno: Double?
     var recomenda: Bool?
     //categoria
-    var integracaEquipe: Double?
+    var integracaoEquipe: Double?
     var culturaValores: Double?
     var renumeracaoBeneficios: Double?
     var oportunidadeCrescimento: Double?

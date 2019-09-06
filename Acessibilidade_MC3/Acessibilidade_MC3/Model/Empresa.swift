@@ -86,3 +86,31 @@ enum Cargo: String {
     case atual = "Funcionário atual"
     case exFunc = "Ex-funcionário"
 }
+
+protocol DescricaoTempoServico {
+    var descricao: String { get }
+}
+
+enum TempoServico: Double, DescricaoTempoServico {
+    case menos3 = 0.25
+    case menos1 = 1
+    case menos5 = 5
+    case menos10 = 10
+    case mais10 = 11
+    
+    var descricao: String {
+        switch self {
+        case .menos3:
+            return "Menos de 3 meses"
+        case .menos1:
+            return "Menos de 1 ano"
+        case .menos5:
+            return "1 a 5 anos"
+        case .menos10:
+            return "5 a 10 anos"
+        case .mais10:
+            return "Mais de 10 anos"
+        }
+    }
+        
+}
