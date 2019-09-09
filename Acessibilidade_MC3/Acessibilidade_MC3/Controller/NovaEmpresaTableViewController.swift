@@ -18,6 +18,8 @@ class NovaEmpresaTableViewController: UITableViewController {
     
     var pickerViewDelegateDataSource: PickerController?
     
+    weak var empresasViewController: EmpresasViewController?
+    
     @IBOutlet weak var salvarButton: UIBarButtonItem!
     
     var empresa: Empresa?
@@ -64,6 +66,8 @@ class NovaEmpresaTableViewController: UITableViewController {
         
         empresa?.nome = nome
         empresa?.localizacao = localizacao
+        empresa?.cidade = cidade
+        empresa?.estado = estado
         
         if telefone != ""{
             empresa?.telefone = telefone
@@ -71,6 +75,11 @@ class NovaEmpresaTableViewController: UITableViewController {
         
         if site != ""{
             empresa?.site = site
+        }
+        
+        if let empresasVC = empresasViewController, let empresa = empresa {
+            empresasVC.registraEmpresa(empresa: empresa)
+            empresasVC.getEmpresas()
         }
     }
     

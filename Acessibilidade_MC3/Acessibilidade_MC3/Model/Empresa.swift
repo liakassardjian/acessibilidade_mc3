@@ -10,6 +10,8 @@ import Foundation
 
 class Empresa {
     var nome: String
+    var cidade: String
+    var estado: String
     var localizacao: String
     var telefone: String?
     var site: String?
@@ -18,16 +20,20 @@ class Empresa {
     var acessibilidade: [Acessibilidade] = []
     var avaliacoes: [Avaliacao] = []
     
-    init(nome: String, localizacao: String, site: String?, telefone: String?) {
+    init(nome: String, site: String?, telefone: String?, cidade: String, estado: String) {
         self.nome = nome
-        self.localizacao = localizacao
+        self.localizacao = "\(cidade), \(estado)"
         self.site = site
         self.telefone = telefone
+        self.cidade = cidade
+        self.estado = estado
     }
     
     init() {
         self.nome = ""
         self.localizacao = ""
+        self.cidade = ""
+        self.estado = ""
     }
     
     public func adicionaAvaliacao(avaliacao: Avaliacao) {

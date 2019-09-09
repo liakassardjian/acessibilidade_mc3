@@ -56,17 +56,14 @@ class EmpresasViewController: UIViewController {
                 empresaInfo.empresa = empresasDataSourceDelegate?.empresas[selecionada.row]
             }
         }
+        
+        if let novaEmpresa = segue.destination as? NovaEmpresaTableViewController {
+            novaEmpresa.empresasViewController = self
+        }
     }
     
     @IBAction func adicionaEmpresa(_ sender: UIStoryboardSegue) {
-        if sender.source is NovaEmpresaTableViewController {
-            if let senderAdd = sender.source as? NovaEmpresaTableViewController {
-                if let empresa = senderAdd.empresa {
-                    self.empresasDataSourceDelegate?.empresas.append(empresa)
-                    
-                }
-            }
-        }
+        // método que permite o Exit da tela de adicionar empresas
     }
     
     func getEmpresas() {
@@ -83,12 +80,11 @@ class EmpresasViewController: UIViewController {
                         let cidade = empresa.cidade,
                         let estado = empresa.estado {
                         
-                            let localizacao = "\(cidade), \(estado)"
-                        
                             let novaEmpresa = Empresa(nome: nome,
-                                                      localizacao: localizacao,
                                                       site: empresa.site,
-                                                      telefone: empresa.telefone)
+                                                      telefone: empresa.telefone,
+                                                      cidade: cidade,
+                                                      estado: estado)
                             novaEmpresa.nota = Float(media)
                             novaEmpresa.recomendacao = Int(porcentagem)
                         
@@ -231,5 +227,29 @@ class EmpresasViewController: UIViewController {
                 print("else")
             }
             })
+    }
+    
+    func registraEmpresa(empresa: Empresa) {
+        let empresaCodable = EmpresaCodable(_id: nil,
+                                            nome: empresa.nome,
+                                            site: empresa.site,
+                                            telefone: empresa.telefone,
+                                            media: 0,
+                                            mediaRecomendacao: 0,
+                                            cidade: empresa.cidade,
+                                            estado: empresa.estado,
+                                            avaliacao: [])
+        
+        if let usuario = usuario {
+            EmpresaRequest().empresaCreate(uuid: usuario,
+                                           empresa: empresaCodable) { (response, error) in
+                                            if response != nil {
+                                                print("sucesso")
+                                            } else {
+                                                print("else")
+                                            }
+            }
+            
+        }
     }
 }
