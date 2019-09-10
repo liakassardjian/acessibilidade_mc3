@@ -6,9 +6,6 @@
 //  Copyright © 2019 Lia Kassardjian. All rights reserved.
 //
 
-//LETTER = AVALIACOES
-//USUARIO = USUARIO
-
 enum EmpresasLoadResponse: Error {
     case success(empresas: [EmpresaCodable])
     case error(description: String)
@@ -33,8 +30,6 @@ class EmpresaRequest {
                              "mediaRecomendacao": empresa.mediaRecomendacao as Any,
                              "cidade": empresa.cidade as Any,
                              "estado": empresa.estado as Any] as [String: Any]
-        
-        //let parameters = ["uuid": uuid, "Empresas": empresaParams] as [String : Any]
 
         guard let url = URL(string: RequestConstants.POSTEMPRESA) else {
             return
@@ -89,7 +84,6 @@ class EmpresaRequest {
         })
         task.resume()
     }
-    //READ
     
     static func getEmpresas(completion: @escaping (EmpresasLoadResponse) -> Void) {
         
@@ -153,7 +147,6 @@ class EmpresaRequest {
                              "cidade": empresa.cidade ?? "",
                              "estado": empresa.estado ?? ""] as [String: Any]
         
-        //let parameters = ["uuid": uuid, "Empresas": empresaParams] as [String: Any]
         guard let url = URL(string: RequestConstants.PUTEMPRESA + String(describing: empresa._id ?? "")) else {
             print("erro na construcao da url")
             return

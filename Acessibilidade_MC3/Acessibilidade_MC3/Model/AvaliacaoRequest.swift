@@ -6,18 +6,15 @@
 //  Copyright © 2019 Lia Kassardjian. All rights reserved.
 //
 
-enum AvaliacoesEmpresaLoadResponse: Error {//varias avaliacoes de um id especifico de empresa
+enum AvaliacoesEmpresaLoadResponse: Error {
+    //varias avaliacoes de um id especifico de empresa
     case success(avaliacoesEmpresa: [AvaliacaoCodable])
     case error(description: String)
 }
 
-//enum AvaliacoesUsuarioLoadResponsee: Error {//varias avaliacoes de um id especifico de usuario
-//    case success(avaliacoesUsuario: [AvaliacaoCodable])
-//    case error(description: String)
-//}
-
 import Foundation
 class AvaliacaoRequest {
+    
     //sendAvaliacao
     func sendAvaliacao(idEmpresa: String?, uuid: String, avaliacao: AvaliacaoCodable, completion: @escaping ([String: Any]?, Error?) -> Void) {
         let group = DispatchGroup()
@@ -95,6 +92,7 @@ class AvaliacaoRequest {
         })
         task.resume()
 }
+    
     //READ AVALIACOES DE EMPRESA
     static func getAvaliacoesEmpresa(empresaId: String, completion: @escaping (AvaliacoesEmpresaLoadResponse) -> Void) {
         
@@ -120,6 +118,7 @@ class AvaliacaoRequest {
             }
         }).resume()
     }
+    
     //delete
     func deleteAvaliacao(uuid: String, avaliacaoId: String, completion: @escaping ([String: Any]?, Error?) -> Void) {
         let group = DispatchGroup()
@@ -139,6 +138,7 @@ class AvaliacaoRequest {
             print(error.localizedDescription)
             completion(nil, error)
         }
+        
         //HTTP Headers
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.addValue("application/json", forHTTPHeaderField: "Acadresst")

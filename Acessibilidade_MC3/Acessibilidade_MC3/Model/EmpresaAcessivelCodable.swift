@@ -28,7 +28,7 @@ struct UsuarioCodable: Codable {
 
 struct AvaliacaoCodable: Codable {
     var _id: String?
-    //var empresaId: String?
+    
     var titulo: String?
     var data: String?
     var cargo: String?
@@ -38,11 +38,13 @@ struct AvaliacaoCodable: Codable {
     var melhorias: String?
     var ultimoAno: Double?
     var recomenda: Bool?
+    
     //categoria
     var integracaoEquipe: Double?
     var culturaValores: Double?
     var renumeracaoBeneficios: Double?
     var oportunidadeCrescimento: Double?
+    
     //acessibilidade
     var deficienciaMotora: Bool?
     var deficienciaVisual: Bool?
@@ -55,6 +57,7 @@ class InternEmpresaAcessivel: NSObject {
     
     //retorna todas as empresas
     static func getAvaliacoesEmpresa(empresaId: String) -> [AvaliacaoCodable] {
+        
         //varias avaliacoes de um id especifico de empresa
         var avaliacoes: [AvaliacaoCodable] = []
         do {
@@ -64,7 +67,7 @@ class InternEmpresaAcessivel: NSObject {
             }
             let avaliacoesData = try Data(contentsOf: url as URL)
             avaliacoes = try JSONDecoder().decode([AvaliacaoCodable].self, from: avaliacoesData)
-            //AvaliacoesSingleton.shared.saveAvaliacoesFromRemoteDataSource(avaliacoes: avaliacoes)
+            
             return avaliacoes
         } catch {
             print("\(error.localizedDescription)")
@@ -73,6 +76,7 @@ class InternEmpresaAcessivel: NSObject {
     }
     
     static func getAvaliacoesUsuario(uuid: String) -> [AvaliacaoCodable] {
+        
         //varias avaliacoes de um id especifico de usuario
         var avaliacoes: [AvaliacaoCodable] = []
         do {
@@ -82,12 +86,11 @@ class InternEmpresaAcessivel: NSObject {
             }
             let avaliacoesData = try Data(contentsOf: url as URL)
             avaliacoes = try JSONDecoder().decode([AvaliacaoCodable].self, from: avaliacoesData)
-            //AvaliacoesSingleton.shared.saveAvaliacoesFromRemoteDataSource(avaliacoes: avaliacoes)
+            
             return avaliacoes
         } catch {
             print("\(error.localizedDescription)")
         }
         return avaliacoes
     }
-    //Implementar get de busca especifica de empresa
 }
