@@ -10,6 +10,8 @@ import Foundation
 
 class Empresa {
     var nome: String
+    var cidade: String
+    var estado: String
     var localizacao: String
     var telefone: String?
     var site: String?
@@ -17,23 +19,44 @@ class Empresa {
     var recomendacao: Int = 0
     var acessibilidade: [Acessibilidade] = []
     var avaliacoes: [Avaliacao] = []
+    var id: String?
     
-    init(nome: String, localizacao: String, site: String?, telefone: String?) {
+    init(nome: String, site: String?, telefone: String?, cidade: String, estado: String, id: String) {
         self.nome = nome
-        self.localizacao = localizacao
+        self.localizacao = "\(cidade), \(estado)"
         self.site = site
         self.telefone = telefone
+        self.cidade = cidade
+        self.estado = estado
+        self.id = id
     }
     
     init() {
         self.nome = ""
         self.localizacao = ""
+        self.cidade = ""
+        self.estado = ""
     }
     
-    public func adicionaAvaliacao(avaliacao: Avaliacao) {
+    public func adicionaAvaliacao(avaliacao: Avaliacao, usuario: String) {
         self.avaliacoes.append(avaliacao)
         self.calculaMediaNota()
         self.calculaPorcentagemRecomendacao()
+        self.registraAcessibilidade(avaliacao: avaliacao)
+        
+        EmpresaRequest().updateEmpresa(uuid: usuario,
+                                       empresa: criaEmpresaCodable()) { (response, error) in
+                                        if response != nil {
+                                            print("sucesso")
+                                        } else {
+                                            print("erro")
+                                            print(error as Any)
+                                        }
+        }
+    }
+    
+    public func criaAvaliacaoEmpresa(avaliacao: Avaliacao) {
+        self.avaliacoes.append(avaliacao)
         self.registraAcessibilidade(avaliacao: avaliacao)
     }
     
@@ -72,6 +95,20 @@ class Empresa {
         }
     }
     
+    private func criaEmpresaCodable() -> EmpresaCodable {
+        let empresa = EmpresaCodable(_id: self.id,
+                                     nome: self.nome,
+                                     site: self.site,
+                                     telefone: self.telefone,
+                                     media: Double(self.nota),
+                                     mediaRecomendacao: Double(self.recomendacao),
+                                     cidade: self.cidade,
+                                     estado: self.estado,
+                                     avaliacao: [])
+        
+        return empresa
+    }
+    
 }
 
 enum Acessibilidade: String {
@@ -85,4 +122,32 @@ enum Acessibilidade: String {
 enum Cargo: String {
     case atual = "Funcionário atual"
     case exFunc = "Ex-funcionário"
+}
+
+protocol DescricaoTempoServico {
+    var descricao: String { get }
+}
+
+enum TempoServico: Double, DescricaoTempoServico {
+    case menos3 = 0.25
+    case menos1 = 1
+    case menos5 = 5
+    case menos10 = 10
+    case mais10 = 11
+    
+    var descricao: String {
+        switch self {
+        case .menos3:
+            return "Menos de 3 meses"
+        case .menos1:
+            return "Menos de 1 ano"
+        case .menos5:
+            return "1 a 5 anos"
+        case .menos10:
+            return "5 a 10 anos"
+        case .mais10:
+            return "Mais de 10 anos"
+        }
+    }
+        
 }

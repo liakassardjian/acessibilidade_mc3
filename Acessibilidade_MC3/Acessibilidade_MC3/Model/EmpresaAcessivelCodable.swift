@@ -18,29 +18,33 @@ struct EmpresaCodable: Codable {
     var mediaRecomendacao: Double?
     var cidade: String?
     var estado: String?
-    var avaliacoesEmpresa: [AvaliacaoCodable]?
+    var avaliacao: [AvaliacaoCodable?]
 }
+
 struct UsuarioCodable: Codable {
     var uuid: String?
     var avaliacoesUsuario: [AvaliacaoCodable]?
 }
+
 struct AvaliacaoCodable: Codable {
     var _id: String?
-    //var empresaId: String?
+    
     var titulo: String?
-    var data: Date?
+    var data: String?
     var cargo: String?
-    var tempoServico: String?
+    var tempoServico: Double?
     var pros: String?
     var contras: String?
     var melhorias: String?
     var ultimoAno: Double?
     var recomenda: Bool?
+    
     //categoria
-    var integracaEquipe: Double?
+    var integracaoEquipe: Double?
     var culturaValores: Double?
     var renumeracaoBeneficios: Double?
     var oportunidadeCrescimento: Double?
+    
     //acessibilidade
     var deficienciaMotora: Bool?
     var deficienciaVisual: Bool?
@@ -50,8 +54,10 @@ struct AvaliacaoCodable: Codable {
 }
 
 class InternEmpresaAcessivel: NSObject {
+    
     //retorna todas as empresas
     static func getAvaliacoesEmpresa(empresaId: String) -> [AvaliacaoCodable] {
+        
         //varias avaliacoes de um id especifico de empresa
         var avaliacoes: [AvaliacaoCodable] = []
         do {
@@ -61,14 +67,16 @@ class InternEmpresaAcessivel: NSObject {
             }
             let avaliacoesData = try Data(contentsOf: url as URL)
             avaliacoes = try JSONDecoder().decode([AvaliacaoCodable].self, from: avaliacoesData)
-            //AvaliacoesSingleton.shared.saveAvaliacoesFromRemoteDataSource(avaliacoes: avaliacoes)
+            
             return avaliacoes
         } catch {
             print("\(error.localizedDescription)")
         }
         return avaliacoes
     }
+    
     static func getAvaliacoesUsuario(uuid: String) -> [AvaliacaoCodable] {
+        
         //varias avaliacoes de um id especifico de usuario
         var avaliacoes: [AvaliacaoCodable] = []
         do {
@@ -78,12 +86,11 @@ class InternEmpresaAcessivel: NSObject {
             }
             let avaliacoesData = try Data(contentsOf: url as URL)
             avaliacoes = try JSONDecoder().decode([AvaliacaoCodable].self, from: avaliacoesData)
-            //AvaliacoesSingleton.shared.saveAvaliacoesFromRemoteDataSource(avaliacoes: avaliacoes)
+            
             return avaliacoes
         } catch {
             print("\(error.localizedDescription)")
         }
         return avaliacoes
     }
-    //Implementar get de busca especifica de empresa
 }
