@@ -36,7 +36,7 @@ class AvaliacaoRequest {
                                "renumeracaoBeneficios": avaliacao.renumeracaoBeneficios as Any,
                                "oportunidadeCrescimento": avaliacao.oportunidadeCrescimento as Any,
                                "deficienciaMotora": avaliacao.deficienciaMotora as Any,
-                               "deficienciasVisual": avaliacao.deficienciaVisual as Any,
+                               "deficienciaVisual": avaliacao.deficienciaVisual as Any,
                                "deficienciaAuditiva": avaliacao.deficienciaAuditiva as Any,
                                "deficienciaIntelectual": avaliacao.deficienciaIntelectual as Any,
                                "nanismo": avaliacao.nanismo as Any,

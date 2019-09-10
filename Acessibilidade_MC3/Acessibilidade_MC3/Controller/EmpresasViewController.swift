@@ -91,8 +91,9 @@ class EmpresasViewController: UIViewController {
                             novaEmpresa.nota = Float(media)
                             novaEmpresa.recomendacao = Int(porcentagem)
                         
+                            print(empresa.avaliacao.count)
                             for avaliacao in self.converteAvaliacoes(avaliacaoCodable: empresa.avaliacao) {
-                                    novaEmpresa.adicionaAvaliacao(avaliacao: avaliacao)
+                                novaEmpresa.criaAvaliacaoEmpresa(avaliacao: avaliacao)
                             }
                             empresasLocal.append(novaEmpresa)
                     }
@@ -113,7 +114,6 @@ class EmpresasViewController: UIViewController {
         var avaliacoes: [Avaliacao] = []
         
         for avaliacao in avaliacaoCodable {
-            
             if let titulo = avaliacao?.titulo,
                 let data = avaliacao?.data,
                 let cargo = avaliacao?.cargo,
@@ -148,7 +148,7 @@ class EmpresasViewController: UIViewController {
                 novaAvaliacao.tempoServico = converteTempoServico(tempoServico: tempoServico)
                 
                 let dateFormatter = DateFormatter()
-                dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+                dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
                 dateFormatter.locale = Locale(identifier: "pt_BR")
                 if let date = dateFormatter.date(from: data) {
                     novaAvaliacao.data = date

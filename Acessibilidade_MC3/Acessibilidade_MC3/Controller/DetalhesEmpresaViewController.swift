@@ -48,6 +48,7 @@ class DetalhesEmpresaViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         if let avaliacao = avaliacao {
             registraAvaliacao(avaliacao: avaliacao)
+            empresa?.adicionaAvaliacao(avaliacao: avaliacao, usuario: usuario ?? "")
             self.avaliacao = nil
         }
         

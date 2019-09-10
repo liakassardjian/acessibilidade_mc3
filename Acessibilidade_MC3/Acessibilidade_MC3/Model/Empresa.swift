@@ -38,10 +38,25 @@ class Empresa {
         self.estado = ""
     }
     
-    public func adicionaAvaliacao(avaliacao: Avaliacao) {
+    public func adicionaAvaliacao(avaliacao: Avaliacao, usuario: String) {
         self.avaliacoes.append(avaliacao)
         self.calculaMediaNota()
         self.calculaPorcentagemRecomendacao()
+        self.registraAcessibilidade(avaliacao: avaliacao)
+        
+        EmpresaRequest().updateEmpresa(uuid: usuario,
+                                       empresa: criaEmpresaCodable()) { (response, error) in
+                                        if response != nil {
+                                            print("sucesso")
+                                        } else {
+                                            print("erro")
+                                            print(error as Any)
+                                        }
+        }
+    }
+    
+    public func criaAvaliacaoEmpresa(avaliacao: Avaliacao) {
+        self.avaliacoes.append(avaliacao)
         self.registraAcessibilidade(avaliacao: avaliacao)
     }
     
@@ -78,6 +93,20 @@ class Empresa {
                 self.acessibilidade.append(acesso)
             }
         }
+    }
+    
+    private func criaEmpresaCodable() -> EmpresaCodable {
+        let empresa = EmpresaCodable(_id: self.id,
+                                     nome: self.nome,
+                                     site: self.site,
+                                     telefone: self.telefone,
+                                     media: Double(self.nota),
+                                     mediaRecomendacao: Double(self.recomendacao),
+                                     cidade: self.cidade,
+                                     estado: self.estado,
+                                     avaliacao: [])
+        
+        return empresa
     }
     
 }
