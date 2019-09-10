@@ -78,13 +78,16 @@ class EmpresasViewController: UIViewController {
                         let media = empresa.media,
                         let porcentagem = empresa.mediaRecomendacao,
                         let cidade = empresa.cidade,
-                        let estado = empresa.estado {
+                        let estado = empresa.estado,
+                        let id = empresa._id {
                         
                             let novaEmpresa = Empresa(nome: nome,
                                                       site: empresa.site,
                                                       telefone: empresa.telefone,
                                                       cidade: cidade,
-                                                      estado: estado)
+                                                      estado: estado,
+                                                      id: id)
+                        
                             novaEmpresa.nota = Float(media)
                             novaEmpresa.recomendacao = Int(porcentagem)
                         
@@ -246,7 +249,7 @@ class EmpresasViewController: UIViewController {
                                             if response != nil {
                                                 print("sucesso")
                                             } else {
-                                                print("else")
+                                                print("erro")
                                             }
             }
             

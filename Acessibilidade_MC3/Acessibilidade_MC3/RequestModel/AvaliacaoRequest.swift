@@ -19,13 +19,13 @@ enum AvaliacoesEmpresaLoadResponse: Error {//varias avaliacoes de um id especifi
 import Foundation
 class AvaliacaoRequest {
     //sendAvaliacao
-    func sendAvaliacao(uuid: String, avaliacao: AvaliacaoCodable, completion: @escaping ([String: Any]?, Error?) -> Void) {
+    func sendAvaliacao(idEmpresa: String?, uuid: String, avaliacao: AvaliacaoCodable, completion: @escaping ([String: Any]?, Error?) -> Void) {
         let group = DispatchGroup()
         group.enter()
-        let avaliacaoParams = ["titulo": avaliacao.titulo as Any,
+        let parameters = ["titulo": avaliacao.titulo as Any,
                                "data": avaliacao.data as Any,
                                "cargo": avaliacao.cargo as Any,
-                               "cempoServico": avaliacao.tempoServico as Any,
+                               "tempoServico": avaliacao.tempoServico as Any,
                                "pros": avaliacao.pros as Any,
                                "contras": avaliacao.contras as Any,
                                "melhorias": avaliacao.melhorias as Any,
@@ -39,11 +39,11 @@ class AvaliacaoRequest {
                                "deficienciasVisual": avaliacao.deficienciaVisual as Any,
                                "deficienciaAuditiva": avaliacao.deficienciaAuditiva as Any,
                                "deficienciaIntelectual": avaliacao.deficienciaIntelectual as Any,
-                               "nanismo": avaliacao.nanismo as Any] as [String: Any]
-        let parameters = ["uuid": uuid, "Avaliacoes": avaliacaoParams] as [String: Any]
-        guard let url = URL(string: RequestConstants.POSTAVALIACAO) else {
-            return
-        }
+                               "nanismo": avaliacao.nanismo as Any,
+                               "uuid": uuid] as [String: Any]
+        
+        guard let idEmpresa = idEmpresa else { return }
+        guard let url = URL(string: RequestConstants.POSTAVALIACAO + idEmpresa) else { return }
         let session = URLSession.shared
         var request = URLRequest(url: url)
         request.httpMethod = "POST"

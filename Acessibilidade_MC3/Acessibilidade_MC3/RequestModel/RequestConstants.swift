@@ -10,6 +10,7 @@ import Foundation
 
 struct RequestConstants {
     static let URL = "https://br-empresa-acessivel.herokuapp.com/api/"
+//    static let URL = "http://10.44.48.207:3000/api/"
     static let GETEMPRESAS = "\(RequestConstants.URL)empresas"
     static let GETEMPRESA = "\(RequestConstants.URL)empresaNome/"
     
@@ -18,7 +19,7 @@ struct RequestConstants {
     
     static let PUTEMPRESA = "\(RequestConstants.URL)updateEmpresa/"
     
-    static let POSTAVALIACAO = "\(RequestConstants.URL)createAvaliacao"
+    static let POSTAVALIACAO = "\(RequestConstants.URL)createAvaliacao/"
     static let POSTDELETEAVALIACAO = "\(RequestConstants.URL)deleteAvaliacao"
     
     static let GETAVALIACAOEMPRESA = "\(RequestConstants.URL)avavaliacoes/"

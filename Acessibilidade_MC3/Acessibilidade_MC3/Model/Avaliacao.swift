@@ -22,6 +22,10 @@ class Avaliacao {
         self.ultimoAno = Calendar.current.component(.year, from: Date())
         self.tempoServico = ""
         self.posicao = ""
+        self.integracao = 0
+        self.cultura = 0
+        self.remuneracao = 0
+        self.oportunidade = 0
     }
     
     var data: Date
@@ -36,5 +40,9 @@ class Avaliacao {
     var ultimoAno: Int
     var tempoServico: String
     var posicao: String
+    var integracao: Int
+    var cultura: Int
+    var remuneracao: Int
+    var oportunidade: Int
     
 }

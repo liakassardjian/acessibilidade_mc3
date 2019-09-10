@@ -152,6 +152,7 @@ class EmpresaRequest {
                              "mediaRecomendacao": empresa.mediaRecomendacao ?? "",
                              "cidade": empresa.cidade ?? "",
                              "estado": empresa.estado ?? ""] as [String: Any]
+        
         //let parameters = ["uuid": uuid, "Empresas": empresaParams] as [String: Any]
         guard let url = URL(string: RequestConstants.PUTEMPRESA + String(describing: empresa._id ?? "")) else {
             print("erro na construcao da url")

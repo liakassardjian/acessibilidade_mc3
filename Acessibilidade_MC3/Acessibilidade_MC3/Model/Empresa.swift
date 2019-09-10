@@ -19,14 +19,16 @@ class Empresa {
     var recomendacao: Int = 0
     var acessibilidade: [Acessibilidade] = []
     var avaliacoes: [Avaliacao] = []
+    var id: String?
     
-    init(nome: String, site: String?, telefone: String?, cidade: String, estado: String) {
+    init(nome: String, site: String?, telefone: String?, cidade: String, estado: String, id: String) {
         self.nome = nome
         self.localizacao = "\(cidade), \(estado)"
         self.site = site
         self.telefone = telefone
         self.cidade = cidade
         self.estado = estado
+        self.id = id
     }
     
     init() {
