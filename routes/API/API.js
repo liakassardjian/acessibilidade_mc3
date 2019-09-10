@@ -77,7 +77,7 @@ router.delete('/deleteEmpresa/:id', async (req, res) => {//funciona
         var empresa = await Empresa.findByIdAndRemove(idEmpresa)
         if(empresa) {
             await (empresa.avaliacao).forEach(async avaliacao => {
-                console.log(avaliacao._id);
+                console.log(avaliacao._id + "");
                 await deleteAvaliacao(avaliacao._id)
             })
             // await empresa.remove()
