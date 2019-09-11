@@ -29,8 +29,8 @@ class AvaliarCargoViewController: UITableViewController {
         
         tableView.tableFooterView = UIView()
    
-        trabalhouDelegateDataSource = PickerController(componentes: self.tempoServico)
-        desligadoDelegateDataSource = PickerController(componentes: self.ultimoAno)
+        trabalhouDelegateDataSource = PickerController(componentes: self.tempoServico, tag: 2)
+        desligadoDelegateDataSource = PickerController(componentes: self.ultimoAno, tag: 3)
         
         trabalhouDurantePickerView.dataSource = trabalhouDelegateDataSource
         trabalhouDurantePickerView.delegate = trabalhouDelegateDataSource
