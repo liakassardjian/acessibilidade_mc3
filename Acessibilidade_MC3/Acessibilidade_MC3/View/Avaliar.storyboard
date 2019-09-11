@@ -107,6 +107,9 @@
                                                 </label>
                                                 <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3US-gP-JeJ">
                                                     <rect key="frame" x="0.0" y="41.5" width="414" height="170"/>
+                                                    <accessibility key="accessibilityConfiguration">
+                                                        <bool key="isElement" value="YES"/>
+                                                    </accessibility>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="170" id="OWS-EJ-awD"/>
                                                     </constraints>
@@ -141,6 +144,9 @@
                                                 </label>
                                                 <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BWh-4g-SNh">
                                                     <rect key="frame" x="0.0" y="41.5" width="414" height="170"/>
+                                                    <accessibility key="accessibilityConfiguration">
+                                                        <bool key="isElement" value="YES"/>
+                                                    </accessibility>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="170" id="Krh-lq-Lrd"/>
                                                     </constraints>

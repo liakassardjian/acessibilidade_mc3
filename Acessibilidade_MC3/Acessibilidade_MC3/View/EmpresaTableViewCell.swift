@@ -68,6 +68,19 @@ class EmpresaTableViewCell: UITableViewCell {
                         self.terceiraView,
                         self.quartaView,
                         self.quintaView]
+        //acessibilidade settings
+        nomeEmpresaLabel.isAccessibilityElement =  true
+        nomeEmpresaLabel.accessibilityHint = "nome da empresa"
+        
+        localizacaoEmpresaLabel.isAccessibilityElement = true
+        localizacaoEmpresaLabel.accessibilityHint = "cidade e estado da empresa"
+        
+        notaLabel.isAccessibilityElement = true
+        notaLabel.accessibilityHint = "nota da empresa"
+        
+        recomendacaoLabel.isAccessibilityElement = true
+        recomendacaoLabel.accessibilityHint = "recomendacão da empresa em porcentagem"
+        
         
         if let simbolos = simbolosViews {
             for simbolo in simbolos {
