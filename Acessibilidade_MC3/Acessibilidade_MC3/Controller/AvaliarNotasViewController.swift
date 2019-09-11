@@ -71,6 +71,10 @@ class AvaliarNotasViewController: UITableViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         avaliacao?.nota = media(valores: [notaIntegracao, notaCultura, notaRemuneracao, notaOportunidade])
+        avaliacao?.integracao = Int(notaIntegracao)
+        avaliacao?.cultura = Int(notaCultura)
+        avaliacao?.remuneracao = Int(notaRemuneracao)
+        avaliacao?.oportunidade = Int(notaOportunidade)
         
         if let avaliarEmpresa = segue.destination as? AvaliarDeficienciasViewController {
             avaliarEmpresa.avaliacao = self.avaliacao

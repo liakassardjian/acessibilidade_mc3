@@ -1,54 +1,58 @@
 //
-//  EmpresaRequest.swift
+//  AvaliacaoRequest.swift
 //  Acessibilidade_MC3
 //
 //  Created by Luiz Henrique Monteiro de Carvalho on 02/09/19.
 //  Copyright © 2019 Lia Kassardjian. All rights reserved.
 //
 
-//LETTER = AVALIACOES
-//USUARIO = USUARIO
-
-enum EmpresasLoadResponse: Error {
-    case success(empresas: [EmpresaCodable])
-    case error(description: String)
-}
-
-enum EmpresaLoadResponse: Error {
-    case success(empresa: EmpresaCodable)
+enum AvaliacoesEmpresaLoadResponse: Error {
+    //varias avaliacoes de um id especifico de empresa
+    case success(avaliacoesEmpresa: [AvaliacaoCodable])
     case error(description: String)
 }
 
 import Foundation
-
-class EmpresaRequest {
-    func empresaCreate(uuid: String, empresa: EmpresaCodable, completion: @escaping ([String: Any]?, Error?) -> Void) {
+class AvaliacaoRequest {
+    
+    //sendAvaliacao
+    func sendAvaliacao(idEmpresa: String?, uuid: String, avaliacao: AvaliacaoCodable, completion: @escaping ([String: Any]?, Error?) -> Void) {
         let group = DispatchGroup()
         group.enter()
-        let empresaParams = ["nome": empresa.nome,
-                             "site": empresa.site,
-                             "telefone": empresa.telefone,
-                             "media": empresa.media,
-                             "mediaRecomendacao": empresa.mediaRecomendacao,
-                             "cidade": empresa.cidade,
-                             "estado": empresa.estado] as [String : Any]
+        let parameters = ["titulo": avaliacao.titulo as Any,
+                               "data": avaliacao.data as Any,
+                               "cargo": avaliacao.cargo as Any,
+                               "tempoServico": avaliacao.tempoServico as Any,
+                               "pros": avaliacao.pros as Any,
+                               "contras": avaliacao.contras as Any,
+                               "melhorias": avaliacao.melhorias as Any,
+                               "ultimoAno": avaliacao.ultimoAno as Any,
+                               "recomenda": avaliacao.recomenda as Any,
+                               "integracaoEquipe": avaliacao.integracaoEquipe as Any,
+                               "culturaValores": avaliacao.culturaValores as Any,
+                               "renumeracaoBeneficios": avaliacao.renumeracaoBeneficios as Any,
+                               "oportunidadeCrescimento": avaliacao.oportunidadeCrescimento as Any,
+                               "deficienciaMotora": avaliacao.deficienciaMotora as Any,
+                               "deficienciaVisual": avaliacao.deficienciaVisual as Any,
+                               "deficienciaAuditiva": avaliacao.deficienciaAuditiva as Any,
+                               "deficienciaIntelectual": avaliacao.deficienciaIntelectual as Any,
+                               "nanismo": avaliacao.nanismo as Any,
+                               "uuid": uuid] as [String: Any]
         
-        //let parameters = ["uuid": uuid, "Empresas": empresaParams] as [String : Any]
-
-        guard let url = URL(string: RequestConstants.POSTEMPRESA) else {
-            return
-        }
+        guard let idEmpresa = idEmpresa else { return }
+        guard let url = URL(string: RequestConstants.POSTAVALIACAO + idEmpresa) else { return }
         let session = URLSession.shared
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         do {
-            request.httpBody = try JSONSerialization.data(withJSONObject: empresaParams, options: .prettyPrinted)
+            request.httpBody = try JSONSerialization.data(withJSONObject: parameters, options: .prettyPrinted)
         } catch let error {
             print(error.localizedDescription)
             completion(nil, error)
         }
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.addValue("application/json", forHTTPHeaderField: "Acadresst")
+
         let task = session.dataTask(with: request, completionHandler: { data, response, error in
             group.leave()
             group.notify(queue: .main, execute: {
@@ -80,91 +84,62 @@ class EmpresaRequest {
                         } else {
                             print("no file")
                         }
-                    }
+                        }
                 } catch {
                     print(error.localizedDescription)
                 }
             })
         })
         task.resume()
-    }
-    //READ
+}
     
-    static func getEmpresas(completion: @escaping (EmpresasLoadResponse) -> Void) {
+    //READ AVALIACOES DE EMPRESA
+    static func getAvaliacoesEmpresa(empresaId: String, completion: @escaping (AvaliacoesEmpresaLoadResponse) -> Void) {
         
-        let BASE_URL: String = RequestConstants.GETEMPRESAS
+        let BASE_URL: String = RequestConstants.GETAVALIACAOEMPRESA + empresaId
         
         //Valida a URL
         guard let url = URL(string: BASE_URL) else {
-            completion(EmpresasLoadResponse.error(description: "URL not initiated"))
+            completion(AvaliacoesEmpresaLoadResponse.error(description: "URL not initiated"))
             return
         }
         
         //Faz a chamada no Servidor
         URLSession.shared.dataTask(with: url, completionHandler: {(data, response, error) -> Void in
             guard error == nil, let jsonData = data else {
-                completion(EmpresasLoadResponse.error(description: "Error to unwrapp data variable"))
+                completion(AvaliacoesEmpresaLoadResponse.error(description: "Error to unwrapp data variable"))
                 return
             }
             
-            if let empresas = try? JSONDecoder().decode([EmpresaCodable].self, from: jsonData) {
-                completion(EmpresasLoadResponse.success(empresas: empresas))
+            if let avaliacoesEmpresas = try? JSONDecoder().decode([AvaliacaoCodable].self, from: jsonData) {
+                completion(AvaliacoesEmpresaLoadResponse.success(avaliacoesEmpresa: avaliacoesEmpresas))
             } else {
-                completion(EmpresasLoadResponse.error(description: "Error to convert data to [Empresa]"))
+                completion(AvaliacoesEmpresaLoadResponse.error(description: "Error to convert data to [Empresa]"))
             }
         }).resume()
     }
     
-    static func getEmpresa(idEmpresa:String, completion: @escaping (EmpresaLoadResponse) -> Void) {
-        
-        let BASE_URL: String = RequestConstants.GETEMPRESA + idEmpresa
-        
-        //Valida a URL
-        guard let url = URL(string: BASE_URL) else {
-            completion(EmpresaLoadResponse.error(description: "URL not initiated"))
-            return
-        }
-        
-        //Faz a chamada no Servidor
-        URLSession.shared.dataTask(with: url, completionHandler: {(data, response, error) -> Void in
-            guard error == nil, let jsonData = data else {
-                completion(EmpresaLoadResponse.error(description: "Error to unwrapp data variable"))
-                return
-            }
-            
-            if let empresas = try? JSONDecoder().decode(EmpresaCodable.self, from: jsonData) {
-                completion(EmpresaLoadResponse.success(empresa: empresas))
-            } else {
-                completion(EmpresaLoadResponse.error(description: "Error to convert data to [Empresa]"))
-            }
-        }).resume()
-    }
-    
-    //update empresa
-    func updateEmpresa(uuid: String, empresa: EmpresaCodable, completion: @escaping ([String: Any]?, Error?) -> Void) {
+    //delete
+    func deleteAvaliacao(uuid: String, avaliacaoId: String, completion: @escaping ([String: Any]?, Error?) -> Void) {
         let group = DispatchGroup()
         group.enter()
-        let empresaParams = ["nome": empresa.nome ?? "",
-                             "site": empresa.site ?? "",
-                             "telefone": empresa.telefone ?? "",
-                             "media": empresa.media ?? "",
-                             "mediaRecomendacao": empresa.mediaRecomendacao ?? "",
-                             "cidade": empresa.cidade ?? "",
-                             "estado": empresa.estado ?? ""] as [String: Any]
-        //let parameters = ["uuid": uuid, "Empresas": empresaParams] as [String: Any]
-        guard let url = URL(string: RequestConstants.PUTEMPRESA + String(describing: empresa._id ?? "")) else {
-            print("erro na construcao da url")
+        let parameters = ["uuid": uuid, "avaliacaoId": avaliacaoId] as [String: Any]
+        guard let url = URL(string: RequestConstants.POSTDELETEAVALIACAO) else {
             return
         }
         let session = URLSession.shared
+        //now create the Request object using the url object
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         do {
-            request.httpBody = try JSONSerialization.data(withJSONObject: empresaParams, options: .prettyPrinted)
+            request.httpBody = try JSONSerialization.data(withJSONObject: parameters, options: .prettyPrinted)
+            //pass dictionary to data object and set it as request body
         } catch let error {
             print(error.localizedDescription)
             completion(nil, error)
         }
+        
+        //HTTP Headers
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.addValue("application/json", forHTTPHeaderField: "Acadresst")
         let task = session.dataTask(with: request, completionHandler: { data, response, error in
@@ -179,10 +154,10 @@ class EmpresaRequest {
                     return
                 }
                 do {
-                    print(data)
+                    print(data as Any)
                     if let file = data {
                         let json = try JSONSerialization.jsonObject(with: file, options: [])
-                        if let safeJson = json as? [String:Any] {
+                        if let safeJson = json as? [String: Any] {
                             print(safeJson)
                             for (key, value) in safeJson {
                                 if key == "result" {
@@ -195,9 +170,9 @@ class EmpresaRequest {
                                     completion(nil, nil)
                                 }
                             }
-                        } else {
-                            print("no file")
                         }
+                        } else {
+                        print("no file")
                     }
                 } catch {
                     print(error.localizedDescription)
@@ -205,9 +180,5 @@ class EmpresaRequest {
             })
         })
         task.resume()
-        
     }
-    
-    
-    
 }
