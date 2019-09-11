@@ -33,6 +33,7 @@ const Empresa = new Schema({
     type: String,
     required: true,
   }, 
+  //relacionamento com avaliacao
   avaliacao: [{
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Avaliacao',

@@ -9,6 +9,7 @@
 import Foundation
 
 class UsuarioRequest {
+    
     //criar usuario
     func usuarioCreate(uuid: String, completion: @escaping ([String: Any]?, Error?) -> Void) {
         let group = DispatchGroup()
