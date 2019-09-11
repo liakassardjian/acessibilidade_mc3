@@ -19,6 +19,9 @@ class EmpresasViewController: UIViewController {
     
     var empresasDataSourceDelegate: EmpresasController?
     
+    @IBOutlet weak var botaoAdcionarEmpresa: UIBarButtonItem!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         empresasDataSourceDelegate = EmpresasController(tableView: empresaTableView)
@@ -44,6 +47,13 @@ class EmpresasViewController: UIViewController {
             usuario = UserDefaults.standard.string(forKey: "UserId")
         }
     
+    }
+    //acessibilidade settings
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        botaoAdcionarEmpresa.isAccessibilityElement = true
+        botaoAdcionarEmpresa.accessibilityValue = "Botão para adcionar uma empresa"
+        botaoAdcionarEmpresa.accessibilityHint = "Clique duas vezes para adcionar uma empresa"
     }
     
     override func viewDidAppear(_ animated: Bool) {

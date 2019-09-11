@@ -33,6 +33,21 @@ class NovaEmpresaTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        nomeTextField.isAccessibilityElement = true
+        nomeTextField.accessibilityValue = "campo de texto para inserir o nome da empresa"
+        nomeTextField.accessibilityHint = "clique duas vezes para adcionar o nome da empresa"
+        
+        telefoneTextField.isAccessibilityElement = true
+        telefoneTextField.accessibilityValue = "campo de texto opcional para inserir o telefone da empresa"
+        telefoneTextField.accessibilityHint = "clique duas vezes para adcionar o telefone da empresa"
+        
+        siteTextField.isAccessibilityElement = true
+        siteTextField.accessibilityValue = "campo de texto opcional para inserir o site da empresa"
+        siteTextField.accessibilityHint = "clique duas vezes para adcionar o site da empresa"
+        
+        cidadeTextField.isAccessibilityElement = true
+        cidadeTextField.accessibilityValue = "campo de texto para inserir a cidade da empresa"
+        cidadeTextField.accessibilityHint = "clique duas vezes para adcionar a cidade da empresa"
 
         pickerViewDelegateDataSource = PickerController(componentes: estadosBrasil)
         estadoPickerView.delegate = pickerViewDelegateDataSource
@@ -41,6 +56,14 @@ class NovaEmpresaTableViewController: UITableViewController {
         empresa = Empresa()
         
         salvarButton.isEnabled = false
+    }
+    //acessibilidade settings
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        
+
+        
     }
 
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {

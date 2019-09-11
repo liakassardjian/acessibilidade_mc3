@@ -9,7 +9,10 @@
 import UIKit
 
 class EmpresaTableViewCell: UITableViewCell {
-
+    
+    
+    @IBOutlet weak var celulaEmpresa: UIView!
+    
     @IBOutlet weak var nomeEmpresaLabel: UILabel!
     @IBOutlet weak var localizacaoEmpresaLabel: UILabel!
     @IBOutlet weak var notaLabel: UILabel!
@@ -21,6 +24,9 @@ class EmpresaTableViewCell: UITableViewCell {
     @IBOutlet weak var terceiraAcessibilidade: UIImageView!
     @IBOutlet weak var quartaAcessibilidade: UIImageView!
     @IBOutlet weak var quitaAcessibilidade: UIImageView!
+    
+    @IBOutlet weak var seta: UIImageView!
+    
     
     @IBOutlet weak var primeiraView: UIView!
     
@@ -68,7 +74,12 @@ class EmpresaTableViewCell: UITableViewCell {
                         self.terceiraView,
                         self.quartaView,
                         self.quintaView]
+        
         //acessibilidade settings
+        celulaEmpresa.isAccessibilityElement = true
+        celulaEmpresa.accessibilityValue = "Card da empresa com informações"
+        celulaEmpresa.accessibilityHint = "Clique no card duas vezes para acessar a empresa"
+        
         nomeEmpresaLabel.isAccessibilityElement =  true
         nomeEmpresaLabel.accessibilityHint = "nome da empresa"
         
@@ -79,8 +90,27 @@ class EmpresaTableViewCell: UITableViewCell {
         notaLabel.accessibilityHint = "nota da empresa"
         
         recomendacaoLabel.isAccessibilityElement = true
-        recomendacaoLabel.accessibilityHint = "recomendacão da empresa em porcentagem"
+        recomendacaoLabel.accessibilityHint = "recomendação da empresa em porcentagem"
         
+        seta.isAccessibilityElement = true
+        seta.accessibilityValue = "Seta para selecionar a empresa"
+        seta.accessibilityHint = "Clique para selecionar a empresa"
+        
+        primeiraAcessibilidade.isAccessibilityElement = true
+        primeiraAcessibilidade.accessibilityHint = "Acessibilidade disponível"
+        //TODO - pegar imagem certa da acessibilidade pela accessibilityValue dentro de uma funcão
+        
+        segundaAcessibilidade.isAccessibilityElement = true
+        segundaAcessibilidade.accessibilityHint = "Acessibilidade disponível"
+        
+        terceiraAcessibilidade.isAccessibilityElement = true
+        terceiraAcessibilidade.accessibilityHint = "Acessibilidade disponível"
+        
+        quartaAcessibilidade.isAccessibilityElement = true
+        quartaAcessibilidade.accessibilityHint = "Acessibilidade disponível"
+        
+        quitaAcessibilidade.isAccessibilityElement = true
+        quitaAcessibilidade.accessibilityHint = "Acessibilidade disponível"
         
         if let simbolos = simbolosViews {
             for simbolo in simbolos {
