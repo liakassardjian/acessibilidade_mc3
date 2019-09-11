@@ -38,8 +38,6 @@ class EmpresaTableViewCell: UITableViewCell {
     
     @IBOutlet var simbolosViews: [UIView]!
     @IBOutlet var acessibilidades: [UIImageView]!
-    //    var acessibilidades: [UIImageView]?
-//    var simbolosViews: [UIView]?
     
     override func awakeFromNib() {
         super.awakeFromNib()
