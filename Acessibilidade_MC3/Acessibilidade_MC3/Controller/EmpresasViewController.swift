@@ -32,6 +32,7 @@ class EmpresasViewController: UIViewController {
         self.searchController.searchBar.placeholder = "Busca"
         self.searchController.searchBar.delegate = empresasDataSourceDelegate
         self.searchController.searchBar.isTranslucent = false
+        self.navigationItem.hidesSearchBarWhenScrolling = false
         self.definesPresentationContext = true
         self.navigationItem.searchController = searchController
         
