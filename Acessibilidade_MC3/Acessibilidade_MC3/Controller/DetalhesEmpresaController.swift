@@ -44,8 +44,23 @@ class DetalhesEmpresaController: NSObject, UITableViewDelegate, UITableViewDataS
                 if let site = empresa.site {
                     cell.siteLabel.text = site
                     cell.siteLinha.isHidden = false
+                    
+                    if site == "" {
+                        cell.siteLinha.isHidden = true
+                    }
                 } else {
                     cell.siteLinha.isHidden = true
+                }
+                
+                if let telefone = empresa.telefone {
+                    cell.telefoneLabel.text = telefone
+                    cell.telefoneLinha.isHidden = false
+                    
+                    if telefone == "" {
+                        cell.telefoneLinha.isHidden = true
+                    }
+                } else {
+                    cell.telefoneLinha.isHidden = true
                 }
                 
                 guard let imagens = cell.imagensAcessibilidade else {

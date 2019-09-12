@@ -12,6 +12,7 @@ class InformacoesTableViewCell: UITableViewCell {
     
     @IBOutlet weak var localizacaoLabel: UILabel!
     @IBOutlet weak var siteLabel: UILabel!
+    @IBOutlet weak var telefoneLabel: UILabel!
     
     @IBOutlet weak var primeiraView: UIView!
     @IBOutlet weak var segundaView: UIView!
@@ -33,7 +34,8 @@ class InformacoesTableViewCell: UITableViewCell {
     var imagensAcessibilidade: [UIImageView]?
     var sombrasImagens: [UIView]?
     
-    @IBOutlet weak var siteLinha: UIStackView!
+    @IBOutlet weak var siteLinha: UIView!
+    @IBOutlet weak var telefoneLinha: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()

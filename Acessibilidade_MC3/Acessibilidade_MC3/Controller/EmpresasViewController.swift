@@ -32,6 +32,7 @@ class EmpresasViewController: UIViewController {
         self.searchController.searchBar.placeholder = "Busca"
         self.searchController.searchBar.delegate = empresasDataSourceDelegate
         self.searchController.searchBar.isTranslucent = false
+        self.navigationItem.hidesSearchBarWhenScrolling = false
         self.definesPresentationContext = true
         self.navigationItem.searchController = searchController
         
@@ -91,7 +92,6 @@ class EmpresasViewController: UIViewController {
                             novaEmpresa.nota = Float(media)
                             novaEmpresa.recomendacao = Int(porcentagem)
                         
-                            print(empresa.avaliacao.count)
                             for avaliacao in self.converteAvaliacoes(avaliacaoCodable: empresa.avaliacao) {
                                 novaEmpresa.criaAvaliacaoEmpresa(avaliacao: avaliacao)
                             }
