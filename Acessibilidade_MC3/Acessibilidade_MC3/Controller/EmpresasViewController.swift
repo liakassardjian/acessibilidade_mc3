@@ -21,7 +21,6 @@ class EmpresasViewController: UIViewController {
     
     @IBOutlet weak var botaoAdcionarEmpresa: UIBarButtonItem!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         empresasDataSourceDelegate = EmpresasController(tableView: empresaTableView)

@@ -149,11 +149,23 @@ class DetalhesEmpresaController: NSObject, UITableViewDelegate, UITableViewDataS
         for acessivel in acessibilidade {
             imagens[contador].image = UIImage(named: acessivel.rawValue)
             imagens[contador].layer.cornerRadius = 8
+            imagens[contador].isAccessibilityElement = true
+            if imagens[contador].image == UIImage(named: "SDI") {
+                imagens[contador].accessibilityLabel = "Deficiência intelectual"
+            } else if imagens[contador].image == UIImage(named: "SIA") {
+                imagens[contador].accessibilityLabel = "Deficiência física"
+            } else if imagens[contador].image == UIImage(named: "SIDA") {
+                imagens[contador].accessibilityLabel = "Deficiência auditiva"
+            } else if imagens[contador].image == UIImage(named: "SIDV") {
+                imagens[contador].accessibilityLabel = "Deficiência visual"
+            } else {
+                imagens[contador].accessibilityLabel = "Nanismo"
+            }
             contador += 1
         }
         
         for cont in contador..<5 {
-            imagens[cont].image = nil
+            imagens[cont].isHidden = true
         }
     }
 
