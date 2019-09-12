@@ -34,7 +34,8 @@ var estadosCompletoBrasil:[String] = ["Acre",
                                       "Roraima",
                                       "Santa Catarina",
                                       "São Paulo",
-                                      "Sergipe"]
+                                      "Sergipe",
+                                      "Tocantins"]
 
 class PickerController: NSObject, UIPickerViewDelegate, UIPickerViewDataSource, UIPickerViewAccessibilityDelegate {
     
@@ -72,10 +73,10 @@ class PickerController: NSObject, UIPickerViewDelegate, UIPickerViewDataSource, 
         case 1:
             return "Estado"
             //return estadoAtual
-//        case 2:
-//            return ""
-//        case 3:
-//            return ""
+        case 2:
+            return "Trabalhou durante"
+        case 3:
+            return "Desligamento ocorrido no ano"
         default:
             return componentes[component]
         }
