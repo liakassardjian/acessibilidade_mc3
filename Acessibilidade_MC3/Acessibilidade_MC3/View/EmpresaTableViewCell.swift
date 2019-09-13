@@ -10,7 +10,6 @@ import UIKit
 
 class EmpresaTableViewCell: UITableViewCell {
     
-    
     @IBOutlet weak var celulaEmpresa: UIView!
     
     @IBOutlet weak var nomeEmpresaLabel: UILabel!
