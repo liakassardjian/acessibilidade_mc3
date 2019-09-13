@@ -15,6 +15,7 @@ class EmpresasViewController: UIViewController {
     var usuario: String?
 
     @IBOutlet weak var empresaTableView: UITableView!
+    @IBOutlet weak var activ: UIActivityIndicatorView!
     let searchController = UISearchController(searchResultsController: nil)
     
     var empresasDataSourceDelegate: EmpresasController?
@@ -48,13 +49,6 @@ class EmpresasViewController: UIViewController {
     
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        if empresaAdicionada {
-            performSegue(withIdentifier: "detalhesEmpresa", sender: self)
-            empresaAdicionada = false
-        }
-    }
-    
     override func viewDidAppear(_ animated: Bool) {
         empresaTableView.reloadData()
     }
@@ -79,6 +73,8 @@ class EmpresasViewController: UIViewController {
     
     func getEmpresas() {
         var empresasLocal: [Empresa] = []
+        activ.startAnimating()
+        activ.isHidden = false
         
         EmpresaRequest.getEmpresas(completion: { (responder) in
             switch responder {
@@ -111,6 +107,14 @@ class EmpresasViewController: UIViewController {
                 self.empresasDataSourceDelegate?.empresas = empresasLocal
                 DispatchQueue.main.async { [weak self] in
                     self?.empresaTableView.reloadData()
+                    self?.activ.stopAnimating()
+                    self?.activ.isHidden = true
+                    if let empresasVC = self {
+                        if empresasVC.empresaAdicionada {
+                            empresasVC.performSegue(withIdentifier: "detalhesEmpresa", sender: empresasVC)
+                            empresasVC.empresaAdicionada = false
+                        }
+                    }
                 }
                 
             case .error(description: let description):

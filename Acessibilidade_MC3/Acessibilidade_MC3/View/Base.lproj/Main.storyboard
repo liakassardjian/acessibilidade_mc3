@@ -775,10 +775,15 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="jwV-mc-2ZT">
+                                <rect key="frame" x="197" y="368" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="0.96862745100000003" green="0.97647058819999999" blue="0.98823529409999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
+                            <constraint firstItem="jwV-mc-2ZT" firstAttribute="centerY" secondItem="PJF-qW-Cwg" secondAttribute="centerY" id="11t-TY-z61"/>
                             <constraint firstItem="L9m-gF-ijD" firstAttribute="trailing" secondItem="0Fa-Db-4ee" secondAttribute="trailing" id="FZv-N7-qNy"/>
+                            <constraint firstItem="jwV-mc-2ZT" firstAttribute="centerX" secondItem="PJF-qW-Cwg" secondAttribute="centerX" id="Jx3-W2-ydO"/>
                             <constraint firstItem="L9m-gF-ijD" firstAttribute="bottom" secondItem="0Fa-Db-4ee" secondAttribute="bottom" id="MmF-d0-5iO"/>
                             <constraint firstItem="L9m-gF-ijD" firstAttribute="top" secondItem="0Fa-Db-4ee" secondAttribute="top" id="QYe-jP-CiR"/>
                             <constraint firstItem="L9m-gF-ijD" firstAttribute="leading" secondItem="0Fa-Db-4ee" secondAttribute="leading" id="fzE-zz-tj8"/>
@@ -793,6 +798,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="activ" destination="jwV-mc-2ZT" id="PUp-QP-e1X"/>
                         <outlet property="empresaTableView" destination="L9m-gF-ijD" id="EOH-3F-BTA"/>
                     </connections>
                 </viewController>
