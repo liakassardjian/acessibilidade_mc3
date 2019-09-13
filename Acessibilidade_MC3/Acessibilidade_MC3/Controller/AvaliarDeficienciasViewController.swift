@@ -83,6 +83,8 @@ class AvaliarDeficienciasViewController: UIViewController {
         if acessivel == false {
             imageView.image = imagemTrue
             imageView.alpha = 1
+            imageView.isAccessibilityElement = true
+            
             return true
         } else {
             imageView.image = imagemFalse

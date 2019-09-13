@@ -56,18 +56,15 @@ class EmpresasController: NSObject, UITableViewDataSource, UITableViewDelegate {
         
         var contador: Int = 0
         for acessivel in dados[indexPath.row].acessibilidade {
+            imagens[contador].isHidden = false
             imagens[contador].image = UIImage(named: acessivel.rawValue)
             imagens[contador].layer.cornerRadius = 8
-            if imagens[contador].image == UIImage(named: "SDI") {
-                imagens[contador].accessibilityLabel = "Deficiência intelectual"
-            } else if imagens[contador].image == UIImage(named: "SIA") {
-                imagens[contador].accessibilityLabel = "Deficiência física"
-            } else if imagens[contador].image == UIImage(named: "SIDA") {
-                imagens[contador].accessibilityLabel = "Deficiência auditiva"
-            } else if imagens[contador].image == UIImage(named: "SIDV") {
-                imagens[contador].accessibilityLabel = "Deficiência visual"
-            } else {
-                imagens[contador].accessibilityLabel = "Nanismo"
+            switch acessivel {
+            case.deficienciaAuditiva: imagens[contador].accessibilityLabel = "Deficiência auditiva"
+            case.deficienciaMotora: imagens[contador].accessibilityLabel = "Deficiência motora"
+            case.deficienciaVisual: imagens[contador].accessibilityLabel = "Deficiência visual"
+            case.deficienciaIntelectual: imagens[contador].accessibilityLabel = "Deficiência intelectual"
+            case.nanismo:imagens[contador].accessibilityLabel = "Nanismo"
             }
             contador += 1
         }
