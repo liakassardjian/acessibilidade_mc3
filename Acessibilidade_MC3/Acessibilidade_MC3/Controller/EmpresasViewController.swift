@@ -18,6 +18,7 @@ class EmpresasViewController: UIViewController {
     let searchController = UISearchController(searchResultsController: nil)
     
     var empresasDataSourceDelegate: EmpresasController?
+    var empresaAdicionada: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,6 +48,13 @@ class EmpresasViewController: UIViewController {
     
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        if empresaAdicionada {
+            performSegue(withIdentifier: "detalhesEmpresa", sender: self)
+            empresaAdicionada = false
+        }
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         empresaTableView.reloadData()
     }
@@ -55,6 +63,8 @@ class EmpresasViewController: UIViewController {
         if let empresaInfo = segue.destination as? DetalhesEmpresaViewController {
             if let selecionada = empresaTableView.indexPathForSelectedRow {
                 empresaInfo.empresa = empresasDataSourceDelegate?.empresas[selecionada.row]
+            } else {
+                empresaInfo.empresa = empresasDataSourceDelegate?.empresas.last
             }
         }
         
