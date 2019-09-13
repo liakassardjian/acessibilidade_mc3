@@ -25,9 +25,6 @@ class EmpresaTableViewCell: UITableViewCell {
     @IBOutlet weak var quartaAcessibilidade: UIImageView!
     @IBOutlet weak var quitaAcessibilidade: UIImageView!
     
-    @IBOutlet weak var seta: UIImageView!
-    
-    
     @IBOutlet weak var primeiraView: UIView!
     
     @IBOutlet weak var segundaView: UIView!
@@ -87,18 +84,15 @@ class EmpresaTableViewCell: UITableViewCell {
         localizacaoEmpresaLabel.accessibilityHint = "cidade e estado da empresa"
         
         notaLabel.isAccessibilityElement = true
+        notaLabel.accessibilityValue = " de 5"
         notaLabel.accessibilityHint = "nota da empresa"
         
         recomendacaoLabel.isAccessibilityElement = true
+        recomendacaoLabel.accessibilityValue = " dos funcionários recomendam"
         recomendacaoLabel.accessibilityHint = "recomendação da empresa em porcentagem"
-        
-        seta.isAccessibilityElement = true
-        seta.accessibilityValue = "Seta para selecionar a empresa"
-        seta.accessibilityHint = "Clique para selecionar a empresa"
         
         primeiraAcessibilidade.isAccessibilityElement = true
         primeiraAcessibilidade.accessibilityHint = "Acessibilidade disponível"
-        //TODO - pegar imagem certa da acessibilidade pela accessibilityValue dentro de uma funcão
         
         segundaAcessibilidade.isAccessibilityElement = true
         segundaAcessibilidade.accessibilityHint = "Acessibilidade disponível"
