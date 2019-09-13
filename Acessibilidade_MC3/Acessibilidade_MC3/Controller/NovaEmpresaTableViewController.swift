@@ -41,6 +41,8 @@ class NovaEmpresaTableViewController: UITableViewController {
         empresa = Empresa()
         
         salvarButton.isEnabled = false
+        
+        tableView.tableFooterView = UIView()
     }
 
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -80,6 +82,7 @@ class NovaEmpresaTableViewController: UITableViewController {
         if let empresasVC = empresasViewController, let empresa = empresa {
             empresasVC.registraEmpresa(empresa: empresa)
             empresasVC.getEmpresas()
+            empresasVC.empresaAdicionada = true
         }
     }
     
