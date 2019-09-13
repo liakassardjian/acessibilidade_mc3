@@ -28,7 +28,11 @@ class AvaliarNotasViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.tableFooterView = UIView()
-        
+
+        setaAcessibilidadeBotoes(vetorBotoes: integracaoBotoes)
+        setaAcessibilidadeBotoes(vetorBotoes: culturaBotoes)
+        setaAcessibilidadeBotoes(vetorBotoes: remuneracaoBotoes)
+        setaAcessibilidadeBotoes(vetorBotoes: oportunidadeBotoes)
     }
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -66,6 +70,12 @@ class AvaliarNotasViewController: UITableViewController {
             } else {
                 button.setImage(UIImage(named: "Star"), for: .normal)
             }
+            if button.tag == sender.tag {
+                button.isAccessibilityElement = true
+                button.accessibilityLabel = "\(button.tag) de 5 estrelas selecionado"
+            } else {
+                button.accessibilityLabel = "\(button.tag) de 5 estrelas"
+            }
         }
         return Float(sender.tag)
     }
@@ -92,5 +102,12 @@ class AvaliarNotasViewController: UITableViewController {
         media /= Float(valores.count)
         
         return media
+    }
+    
+    private func setaAcessibilidadeBotoes(vetorBotoes: [UIButton]) {
+        for button in vetorBotoes {
+            button.isAccessibilityElement = true
+            button.accessibilityLabel = "\(button.tag) de 5 estrelas"
+        }
     }
 }
