@@ -54,17 +54,24 @@ class EmpresasController: NSObject, UITableViewDataSource, UITableViewDelegate {
             return UITableViewCell()
         }
         
+        var elements = [UIAccessibilityElement]()
+        let groupedElement = UIAccessibilityElement(accessibilityContainer: self)
+        groupedElement.accessibilityLabel = "Esta empresa é acessível para"
+        
+        elements.append(groupedElement)
+        var acessibilidadeAcessivel: [String] = []
         var contador: Int = 0
         for acessivel in dados[indexPath.row].acessibilidade {
             imagens[contador].isHidden = false
             imagens[contador].image = UIImage(named: acessivel.rawValue)
             imagens[contador].layer.cornerRadius = 8
+            
             switch acessivel {
-            case.deficienciaAuditiva: imagens[contador].accessibilityLabel = "Deficiência auditiva"
-            case.deficienciaMotora: imagens[contador].accessibilityLabel = "Deficiência motora"
-            case.deficienciaVisual: imagens[contador].accessibilityLabel = "Deficiência visual"
-            case.deficienciaIntelectual: imagens[contador].accessibilityLabel = "Deficiência intelectual"
-            case.nanismo:imagens[contador].accessibilityLabel = "Nanismo"
+            case.deficienciaAuditiva: acessibilidadeAcessivel.append("Deficiência auditiva")
+            case.deficienciaMotora: acessibilidadeAcessivel.append("Deficiência motora")
+            case.deficienciaVisual: acessibilidadeAcessivel.append("Deficiência visual")
+            case.deficienciaIntelectual: acessibilidadeAcessivel.append("Deficiência intelectual")
+            case.nanismo: acessibilidadeAcessivel.append("Nanismo")
             }
             contador += 1
         }

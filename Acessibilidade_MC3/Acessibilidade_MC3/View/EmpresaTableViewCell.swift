@@ -10,7 +10,6 @@ import UIKit
 
 class EmpresaTableViewCell: UITableViewCell {
     
-    
     @IBOutlet weak var celulaEmpresa: UIView!
     
     @IBOutlet weak var nomeEmpresaLabel: UILabel!
@@ -26,7 +25,6 @@ class EmpresaTableViewCell: UITableViewCell {
     @IBOutlet weak var quitaAcessibilidade: UIImageView!
     
     @IBOutlet weak var seta: UIImageView!
-    
     
     @IBOutlet weak var primeiraView: UIView!
     

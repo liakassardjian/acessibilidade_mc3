@@ -145,7 +145,6 @@ class DetalhesEmpresaController: NSObject, UITableViewDelegate, UITableViewDataS
     
     private func exibeSimbolosAcessibilidade(imagens: [UIImageView], acessibilidade: [Acessibilidade]) {
         var contador: Int = 0
-        
         for acessivel in acessibilidade {
             imagens[contador].image = UIImage(named: acessivel.rawValue)
             imagens[contador].layer.cornerRadius = 8
