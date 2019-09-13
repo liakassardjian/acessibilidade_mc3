@@ -28,6 +28,7 @@ class AvaliarNotasViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.tableFooterView = UIView()
+
         setaAcessibilidadeBotoes(vetorBotoes: integracaoBotoes)
         setaAcessibilidadeBotoes(vetorBotoes: culturaBotoes)
         setaAcessibilidadeBotoes(vetorBotoes: remuneracaoBotoes)

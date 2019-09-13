@@ -52,6 +52,9 @@
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="3,6" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iUO-NZ-3QF">
                                                                             <rect key="frame" x="15" y="20" width="54.5" height="36"/>
+                                                                            <accessibility key="accessibilityConfiguration">
+                                                                                <bool key="isElement" value="NO"/>
+                                                                            </accessibility>
                                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
@@ -344,9 +347,6 @@
                                                 </stackView>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Disclosure" translatesAutoresizingMaskIntoConstraints="NO" id="pSO-Tb-ZQq">
                                                     <rect key="frame" x="354" y="25" width="45" height="45"/>
-                                                    <accessibility key="accessibilityConfiguration">
-                                                        <bool key="isElement" value="YES"/>
-                                                    </accessibility>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="45" id="Qsi-PY-MOl"/>
                                                         <constraint firstAttribute="height" constant="45" id="ubX-Z7-c8Y"/>
@@ -386,7 +386,6 @@
                                             <outlet property="recomendacaoLabel" destination="WVH-zc-noI" id="N7Z-Oq-8KC"/>
                                             <outlet property="segundaAcessibilidade" destination="yMc-vk-CVP" id="QTD-h1-9S2"/>
                                             <outlet property="segundaView" destination="0Ob-Wj-BvH" id="ChD-dE-lU3"/>
-                                            <outlet property="seta" destination="pSO-Tb-ZQq" id="WBe-WX-YgL"/>
                                             <outlet property="terceiraAcessibilidade" destination="W9g-uB-Ea6" id="e9U-P7-wli"/>
                                             <outlet property="terceiraView" destination="CAe-Qw-1TK" id="gNI-Lg-bg3"/>
                                             <segue destination="2yy-XE-S9v" kind="show" id="HuU-SA-k93"/>
@@ -839,9 +838,6 @@
                                                                         </view>
                                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Estrelas" highlightedImage="Estrelas" translatesAutoresizingMaskIntoConstraints="NO" id="zaG-5w-j43">
                                                                             <rect key="frame" x="51.5" y="17.5" width="70" height="15"/>
-                                                                            <accessibility key="accessibilityConfiguration">
-                                                                                <bool key="isElement" value="YES"/>
-                                                                            </accessibility>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="height" constant="15" id="Cbb-G5-eZk"/>
                                                                                 <constraint firstAttribute="width" constant="70" id="hTe-n4-BaQ"/>
