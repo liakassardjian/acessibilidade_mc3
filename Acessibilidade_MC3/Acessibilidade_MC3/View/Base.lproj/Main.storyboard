@@ -172,6 +172,7 @@
                                                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XUu-tF-Aor">
                                                                                             <rect key="frame" x="0.0" y="0.0" width="45" height="45"/>
                                                                                             <accessibility key="accessibilityConfiguration">
+                                                                                                <accessibilityTraits key="traits" notEnabled="YES"/>
                                                                                                 <bool key="isElement" value="YES"/>
                                                                                             </accessibility>
                                                                                         </imageView>
@@ -203,6 +204,7 @@
                                                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yMc-vk-CVP">
                                                                                             <rect key="frame" x="0.0" y="0.0" width="45" height="45"/>
                                                                                             <accessibility key="accessibilityConfiguration">
+                                                                                                <accessibilityTraits key="traits" image="YES" notEnabled="YES"/>
                                                                                                 <bool key="isElement" value="YES"/>
                                                                                             </accessibility>
                                                                                         </imageView>
@@ -234,6 +236,7 @@
                                                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="W9g-uB-Ea6">
                                                                                             <rect key="frame" x="0.0" y="0.0" width="45" height="45"/>
                                                                                             <accessibility key="accessibilityConfiguration">
+                                                                                                <accessibilityTraits key="traits" image="YES" notEnabled="YES"/>
                                                                                                 <bool key="isElement" value="YES"/>
                                                                                             </accessibility>
                                                                                         </imageView>
@@ -271,6 +274,7 @@
                                                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="H5D-hh-8Wq">
                                                                                             <rect key="frame" x="0.0" y="0.0" width="45" height="45"/>
                                                                                             <accessibility key="accessibilityConfiguration">
+                                                                                                <accessibilityTraits key="traits" image="YES" notEnabled="YES"/>
                                                                                                 <bool key="isElement" value="YES"/>
                                                                                             </accessibility>
                                                                                         </imageView>
@@ -298,6 +302,7 @@
                                                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gE2-z6-YS4">
                                                                                             <rect key="frame" x="0.0" y="0.0" width="45" height="45"/>
                                                                                             <accessibility key="accessibilityConfiguration">
+                                                                                                <accessibilityTraits key="traits" image="YES" notEnabled="YES"/>
                                                                                                 <bool key="isElement" value="YES"/>
                                                                                             </accessibility>
                                                                                         </imageView>
@@ -370,6 +375,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="acessibilidadeStackView" destination="BLH-wR-CxE" id="niY-rZ-Giv"/>
                                             <outlet property="avaliacaoCard" destination="y4F-gx-be9" id="DKy-K5-whM"/>
                                             <outlet property="barraProgressoView" destination="oPS-bM-ezN" id="kTn-D4-xjv"/>
                                             <outlet property="celulaEmpresa" destination="SY2-nA-TtM" id="EJZ-z4-GKI"/>

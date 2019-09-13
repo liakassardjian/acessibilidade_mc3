@@ -24,6 +24,8 @@ class EmpresaTableViewCell: UITableViewCell {
     @IBOutlet weak var quartaAcessibilidade: UIImageView!
     @IBOutlet weak var quitaAcessibilidade: UIImageView!
     
+    @IBOutlet weak var acessibilidadeStackView: UIStackView!
+    
     @IBOutlet weak var primeiraView: UIView!
     
     @IBOutlet weak var segundaView: UIView!
@@ -90,28 +92,21 @@ class EmpresaTableViewCell: UITableViewCell {
         recomendacaoLabel.accessibilityValue = " dos funcionários recomendam"
         recomendacaoLabel.accessibilityHint = "recomendação da empresa em porcentagem"
         
-        primeiraAcessibilidade.isAccessibilityElement = true
-        primeiraAcessibilidade.accessibilityHint = "Acessibilidade disponível"
-        
-        segundaAcessibilidade.isAccessibilityElement = true
-        segundaAcessibilidade.accessibilityHint = "Acessibilidade disponível"
-        
-        terceiraAcessibilidade.isAccessibilityElement = true
-        terceiraAcessibilidade.accessibilityHint = "Acessibilidade disponível"
-        
-        quartaAcessibilidade.isAccessibilityElement = true
-        quartaAcessibilidade.accessibilityHint = "Acessibilidade disponível"
-        
-        quitaAcessibilidade.isAccessibilityElement = true
-        quitaAcessibilidade.accessibilityHint = "Acessibilidade disponível"
+        acessibilidadeStackView.isAccessibilityElement = true
         
         if let simbolos = simbolosViews {
             for simbolo in simbolos {
+                simbolo.isAccessibilityElement = false
                 simbolo.clipsToBounds = false
                 simbolo.layer.shadowColor = #colorLiteral(red: 0.0804778561, green: 0.1687734723, blue: 0.2325027883, alpha: 1)
                 simbolo.layer.shadowOpacity = 0.15
                 simbolo.layer.shadowRadius = 8
                 simbolo.layer.shadowOffset = CGSize(width: 2, height: 2)
+            }
+        }
+        if let imagens = acessibilidades {
+            for imagem in imagens {
+                imagem.isAccessibilityElement = false
             }
         }
     }
@@ -120,5 +115,7 @@ class EmpresaTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
     }
+    
+    
 
 }

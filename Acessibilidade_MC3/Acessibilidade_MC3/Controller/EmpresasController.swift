@@ -53,32 +53,26 @@ class EmpresasController: NSObject, UITableViewDataSource, UITableViewDelegate {
         guard let imagens = cell.acessibilidades else {
             return UITableViewCell()
         }
-        
-        var elements = [UIAccessibilityElement]()
-        let groupedElement = UIAccessibilityElement(accessibilityContainer: self)
-        groupedElement.accessibilityLabel = "Esta empresa é acessível para"
-        
-        elements.append(groupedElement)
-        var acessibilidadeAcessivel: [String] = []
+        var acessibilidadeAcessivel: String = "Empresa acessível para funcionários com "
         var contador: Int = 0
         for acessivel in dados[indexPath.row].acessibilidade {
             imagens[contador].isHidden = false
             imagens[contador].image = UIImage(named: acessivel.rawValue)
             imagens[contador].layer.cornerRadius = 8
-            
             switch acessivel {
-            case.deficienciaAuditiva: acessibilidadeAcessivel.append("Deficiência auditiva")
-            case.deficienciaMotora: acessibilidadeAcessivel.append("Deficiência motora")
-            case.deficienciaVisual: acessibilidadeAcessivel.append("Deficiência visual")
-            case.deficienciaIntelectual: acessibilidadeAcessivel.append("Deficiência intelectual")
-            case.nanismo: acessibilidadeAcessivel.append("Nanismo")
+            case.deficienciaAuditiva: acessibilidadeAcessivel += ", deficiência auditiva "
+            case.deficienciaMotora: acessibilidadeAcessivel += ", deficiência motora "
+            case.deficienciaVisual: acessibilidadeAcessivel += ", deficiência visual "
+            case.deficienciaIntelectual: acessibilidadeAcessivel += ", deficiência intelectual "
+            case.nanismo:acessibilidadeAcessivel += ", nanismo "
             }
+        
             contador += 1
         }
         for cont in contador..<5 {
             imagens[cont].isHidden = true
         }
-        
+        cell.acessibilidadeStackView.accessibilityLabel = acessibilidadeAcessivel
         return cell
     }
     
