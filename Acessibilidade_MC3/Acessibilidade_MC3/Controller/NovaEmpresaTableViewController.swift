@@ -57,6 +57,8 @@ class NovaEmpresaTableViewController: UITableViewController {
         empresa = Empresa()
         
         salvarButton.isEnabled = false
+        
+        tableView.tableFooterView = UIView()
     }
     
 
@@ -101,6 +103,7 @@ class NovaEmpresaTableViewController: UITableViewController {
         if let empresasVC = empresasViewController, let empresa = empresa {
             empresasVC.registraEmpresa(empresa: empresa)
             empresasVC.getEmpresas()
+            empresasVC.empresaAdicionada = true
         }
     }
     
