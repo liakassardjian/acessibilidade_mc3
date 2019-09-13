@@ -54,8 +54,8 @@ class EmpresasViewController: UIViewController {
     override func awakeFromNib() {
         super.awakeFromNib()
         botaoAdcionarEmpresa.isAccessibilityElement = true
-        botaoAdcionarEmpresa.accessibilityValue = "Botão para adcionar uma empresa"
-        botaoAdcionarEmpresa.accessibilityHint = "Clique duas vezes para adcionar uma empresa"
+        botaoAdcionarEmpresa.accessibilityValue = "Botão para cadastrar uma empresa"
+        botaoAdcionarEmpresa.accessibilityHint = "Clique duas vezes para cadastrar uma empresa"
     }
     
     override func viewDidAppear(_ animated: Bool) {

@@ -800,6 +800,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="activ" destination="jwV-mc-2ZT" id="PUp-QP-e1X"/>
+                        <outlet property="botaoAdcionarEmpresa" destination="w9f-Pm-d0U" id="03B-Ol-2uD"/>
                         <outlet property="empresaTableView" destination="L9m-gF-ijD" id="EOH-3F-BTA"/>
                     </connections>
                 </viewController>
@@ -1035,6 +1036,9 @@
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="252" text="Localização" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3hq-Ls-59t">
                                                             <rect key="frame" x="20" y="0.0" width="199" height="40.5"/>
+                                                            <accessibility key="accessibilityConfiguration">
+                                                                <bool key="isElement" value="NO"/>
+                                                            </accessibility>
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                             <color key="textColor" red="0.53333333329999999" green="0.56078431370000004" blue="0.58823529409999997" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -1047,6 +1051,9 @@
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="São Paulo, SP, Brasil" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g3S-T0-5uV">
                                                             <rect key="frame" x="239" y="10" width="155" height="20.5"/>
+                                                            <accessibility key="accessibilityConfiguration">
+                                                                <bool key="isElement" value="NO"/>
+                                                            </accessibility>
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                             <color key="textColor" red="0.066666666669999999" green="0.12549019610000001" blue="0.1764705882" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -1054,6 +1061,9 @@
                                                         </label>
                                                     </subviews>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <accessibility key="accessibilityConfiguration">
+                                                        <bool key="isElement" value="YES"/>
+                                                    </accessibility>
                                                     <constraints>
                                                         <constraint firstItem="3hq-Ls-59t" firstAttribute="top" secondItem="e0t-SS-1eY" secondAttribute="top" id="3NV-vw-pkO"/>
                                                         <constraint firstItem="g3S-T0-5uV" firstAttribute="top" secondItem="e0t-SS-1eY" secondAttribute="top" constant="10" id="D3l-Iq-Ppf"/>
@@ -1067,11 +1077,105 @@
                                                         <constraint firstItem="g3S-T0-5uV" firstAttribute="centerY" secondItem="e0t-SS-1eY" secondAttribute="centerY" id="wWq-PH-3Vu"/>
                                                     </constraints>
                                                 </view>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="URx-mq-Uk3">
+                                                    <rect key="frame" x="0.0" y="50.5" width="414" height="121.5"/>
+                                                    <subviews>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e3x-Wv-ZvW">
+                                                            <rect key="frame" x="0.0" y="0.0" width="414" height="61.5"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="252" text="Site" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JVq-T5-HyN">
+                                                                    <rect key="frame" x="20" y="0.0" width="187.5" height="61.5"/>
+                                                                    <accessibility key="accessibilityConfiguration">
+                                                                        <bool key="isElement" value="NO"/>
+                                                                    </accessibility>
+                                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                                                    <color key="textColor" red="0.53333333329999999" green="0.56078431370000004" blue="0.58823529409999997" alpha="1" colorSpace="calibratedRGB"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                    <variation key="heightClass=compact-widthClass=regular">
+                                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                                    </variation>
+                                                                    <variation key="heightClass=regular-widthClass=regular">
+                                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                                    </variation>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="www.empresa.com.br" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eIG-Oc-443">
+                                                                    <rect key="frame" x="227.5" y="10" width="166.5" height="41.5"/>
+                                                                    <accessibility key="accessibilityConfiguration">
+                                                                        <bool key="isElement" value="NO"/>
+                                                                    </accessibility>
+                                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                                    <color key="textColor" red="0.066666666669999999" green="0.12549019610000001" blue="0.1764705882" alpha="1" colorSpace="calibratedRGB"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <accessibility key="accessibilityConfiguration">
+                                                                <bool key="isElement" value="YES"/>
+                                                            </accessibility>
+                                                            <constraints>
+                                                                <constraint firstItem="eIG-Oc-443" firstAttribute="top" secondItem="e3x-Wv-ZvW" secondAttribute="top" constant="10" id="287-ZS-Y0U"/>
+                                                                <constraint firstAttribute="trailing" secondItem="eIG-Oc-443" secondAttribute="trailing" constant="20" id="4v9-nm-n6S"/>
+                                                                <constraint firstAttribute="bottom" secondItem="eIG-Oc-443" secondAttribute="bottom" constant="10" id="EPF-ak-roS"/>
+                                                                <constraint firstItem="eIG-Oc-443" firstAttribute="centerY" secondItem="e3x-Wv-ZvW" secondAttribute="centerY" id="PpA-FF-szx"/>
+                                                                <constraint firstItem="eIG-Oc-443" firstAttribute="leading" secondItem="JVq-T5-HyN" secondAttribute="trailing" constant="20" id="fNP-cY-5x7"/>
+                                                                <constraint firstItem="JVq-T5-HyN" firstAttribute="centerY" secondItem="e3x-Wv-ZvW" secondAttribute="centerY" id="m13-md-V5e"/>
+                                                                <constraint firstItem="JVq-T5-HyN" firstAttribute="top" secondItem="e3x-Wv-ZvW" secondAttribute="top" id="vky-cp-FU1"/>
+                                                                <constraint firstItem="JVq-T5-HyN" firstAttribute="leading" secondItem="e3x-Wv-ZvW" secondAttribute="leading" constant="20" id="xO2-BQ-hSt"/>
+                                                                <constraint firstAttribute="bottom" secondItem="JVq-T5-HyN" secondAttribute="bottom" id="zhy-jb-Jap"/>
+                                                            </constraints>
+                                                        </view>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c6H-9i-1gt">
+                                                            <rect key="frame" x="0.0" y="71.5" width="414" height="50"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="252" text="Telefone" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OpS-Pf-Y9C">
+                                                                    <rect key="frame" x="20" y="0.0" width="230.5" height="50"/>
+                                                                    <accessibility key="accessibilityConfiguration">
+                                                                        <bool key="isElement" value="NO"/>
+                                                                    </accessibility>
+                                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                                                    <color key="textColor" red="0.53333333329999999" green="0.56078431370000004" blue="0.58823529409999997" alpha="1" colorSpace="calibratedRGB"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                    <variation key="heightClass=compact-widthClass=regular">
+                                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                                    </variation>
+                                                                    <variation key="heightClass=regular-widthClass=regular">
+                                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                                    </variation>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="(00)0000-0000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xzi-gv-gU9">
+                                                                    <rect key="frame" x="270.5" y="10" width="123.5" height="30"/>
+                                                                    <accessibility key="accessibilityConfiguration">
+                                                                        <bool key="isElement" value="NO"/>
+                                                                    </accessibility>
+                                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                                    <color key="textColor" red="0.066666666669999999" green="0.12549019610000001" blue="0.1764705882" alpha="1" colorSpace="calibratedRGB"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <accessibility key="accessibilityConfiguration">
+                                                                <bool key="isElement" value="YES"/>
+                                                            </accessibility>
+                                                            <constraints>
+                                                                <constraint firstAttribute="trailing" secondItem="xzi-gv-gU9" secondAttribute="trailing" constant="20" id="ORU-2r-Fjn"/>
+                                                                <constraint firstAttribute="bottom" secondItem="OpS-Pf-Y9C" secondAttribute="bottom" id="QnW-RK-5ew"/>
+                                                                <constraint firstItem="OpS-Pf-Y9C" firstAttribute="top" secondItem="c6H-9i-1gt" secondAttribute="top" id="Zv8-3P-4ig"/>
+                                                                <constraint firstItem="OpS-Pf-Y9C" firstAttribute="leading" secondItem="c6H-9i-1gt" secondAttribute="leading" constant="20" id="bZP-DG-e3n"/>
+                                                                <constraint firstItem="xzi-gv-gU9" firstAttribute="top" secondItem="c6H-9i-1gt" secondAttribute="top" constant="10" id="lP1-HV-k39"/>
+                                                                <constraint firstItem="xzi-gv-gU9" firstAttribute="leading" secondItem="OpS-Pf-Y9C" secondAttribute="trailing" constant="20" id="oXA-4k-T6K"/>
+                                                                <constraint firstAttribute="bottom" secondItem="xzi-gv-gU9" secondAttribute="bottom" constant="10" id="qf2-hs-quZ"/>
+                                                            </constraints>
+                                                        </view>
+                                                    </subviews>
+                                                </stackView>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nTd-uR-qBb">
                                                     <rect key="frame" x="0.0" y="182" width="414" height="50"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Acessibilidade" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LV1-l2-Vyu">
                                                             <rect key="frame" x="20" y="0.0" width="98.5" height="50"/>
+                                                            <accessibility key="accessibilityConfiguration">
+                                                                <bool key="isElement" value="NO"/>
+                                                            </accessibility>
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                             <color key="textColor" red="0.53333333329999999" green="0.56078431370000004" blue="0.58823529409999997" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -1245,12 +1349,18 @@
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5,0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rMU-hl-BKx">
                                                                     <rect key="frame" x="0.0" y="0.0" width="30" height="54"/>
+                                                                    <accessibility key="accessibilityConfiguration">
+                                                                        <bool key="isElement" value="NO"/>
+                                                                    </accessibility>
                                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                                                     <color key="textColor" red="0.066666666669999999" green="0.12549019610000001" blue="0.1764705882" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="/5" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8fD-ue-gfQ">
                                                                     <rect key="frame" x="30" y="15" width="11.5" height="39"/>
+                                                                    <accessibility key="accessibilityConfiguration">
+                                                                        <bool key="isElement" value="NO"/>
+                                                                    </accessibility>
                                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                                                     <color key="textColor" red="0.53333333329999999" green="0.56078431370000004" blue="0.58823529409999997" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <nil key="highlightedColor"/>
@@ -1317,6 +1427,9 @@
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="dos funcionários recomendam" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WWW-tf-ume">
                                                                     <rect key="frame" x="66.5" y="0.0" width="97.5" height="54"/>
+                                                                    <accessibility key="accessibilityConfiguration">
+                                                                        <bool key="isElement" value="NO"/>
+                                                                    </accessibility>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" relation="lessThanOrEqual" constant="108" id="JHM-P7-hRt">
                                                                             <variation key="heightClass=compact-widthClass=regular" constant="250"/>
@@ -1335,6 +1448,9 @@
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vdf-HI-0gt">
                                                                     <rect key="frame" x="8" y="0.0" width="50.5" height="54"/>
+                                                                    <accessibility key="accessibilityConfiguration">
+                                                                        <bool key="isElement" value="NO"/>
+                                                                    </accessibility>
                                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                                                     <color key="textColor" red="0.066666666669999999" green="0.12549019610000001" blue="0.1764705882" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <nil key="highlightedColor"/>
@@ -1353,6 +1469,9 @@
                                                         </view>
                                                     </subviews>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <accessibility key="accessibilityConfiguration">
+                                                        <bool key="isElement" value="YES"/>
+                                                    </accessibility>
                                                     <constraints>
                                                         <constraint firstAttribute="bottom" secondItem="jT5-dK-LLI" secondAttribute="bottom" id="2IQ-zy-BE7"/>
                                                         <constraint firstAttribute="trailing" secondItem="tgK-DC-ymU" secondAttribute="trailing" constant="20" id="5C9-3A-yvd"/>
@@ -1369,79 +1488,6 @@
                                                         <constraint firstAttribute="height" constant="1" id="mue-Gd-6kn"/>
                                                     </constraints>
                                                 </view>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="URx-mq-Uk3">
-                                                    <rect key="frame" x="0.0" y="50.5" width="414" height="121.5"/>
-                                                    <subviews>
-                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e3x-Wv-ZvW">
-                                                            <rect key="frame" x="0.0" y="0.0" width="414" height="61.5"/>
-                                                            <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="252" text="Site" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JVq-T5-HyN">
-                                                                    <rect key="frame" x="20" y="0.0" width="187.5" height="61.5"/>
-                                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
-                                                                    <color key="textColor" red="0.53333333329999999" green="0.56078431370000004" blue="0.58823529409999997" alpha="1" colorSpace="calibratedRGB"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                    <variation key="heightClass=compact-widthClass=regular">
-                                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                                                    </variation>
-                                                                    <variation key="heightClass=regular-widthClass=regular">
-                                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                                                    </variation>
-                                                                </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="www.empresa.com.br" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eIG-Oc-443">
-                                                                    <rect key="frame" x="227.5" y="10" width="166.5" height="41.5"/>
-                                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                                                    <color key="textColor" red="0.066666666669999999" green="0.12549019610000001" blue="0.1764705882" alpha="1" colorSpace="calibratedRGB"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                            </subviews>
-                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            <constraints>
-                                                                <constraint firstItem="eIG-Oc-443" firstAttribute="top" secondItem="e3x-Wv-ZvW" secondAttribute="top" constant="10" id="287-ZS-Y0U"/>
-                                                                <constraint firstAttribute="trailing" secondItem="eIG-Oc-443" secondAttribute="trailing" constant="20" id="4v9-nm-n6S"/>
-                                                                <constraint firstAttribute="bottom" secondItem="eIG-Oc-443" secondAttribute="bottom" constant="10" id="EPF-ak-roS"/>
-                                                                <constraint firstItem="eIG-Oc-443" firstAttribute="centerY" secondItem="e3x-Wv-ZvW" secondAttribute="centerY" id="PpA-FF-szx"/>
-                                                                <constraint firstItem="eIG-Oc-443" firstAttribute="leading" secondItem="JVq-T5-HyN" secondAttribute="trailing" constant="20" id="fNP-cY-5x7"/>
-                                                                <constraint firstItem="JVq-T5-HyN" firstAttribute="centerY" secondItem="e3x-Wv-ZvW" secondAttribute="centerY" id="m13-md-V5e"/>
-                                                                <constraint firstItem="JVq-T5-HyN" firstAttribute="top" secondItem="e3x-Wv-ZvW" secondAttribute="top" id="vky-cp-FU1"/>
-                                                                <constraint firstItem="JVq-T5-HyN" firstAttribute="leading" secondItem="e3x-Wv-ZvW" secondAttribute="leading" constant="20" id="xO2-BQ-hSt"/>
-                                                                <constraint firstAttribute="bottom" secondItem="JVq-T5-HyN" secondAttribute="bottom" id="zhy-jb-Jap"/>
-                                                            </constraints>
-                                                        </view>
-                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c6H-9i-1gt">
-                                                            <rect key="frame" x="0.0" y="71.5" width="414" height="50"/>
-                                                            <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="252" text="Telefone" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OpS-Pf-Y9C">
-                                                                    <rect key="frame" x="20" y="0.0" width="230.5" height="50"/>
-                                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
-                                                                    <color key="textColor" red="0.53333333329999999" green="0.56078431370000004" blue="0.58823529409999997" alpha="1" colorSpace="calibratedRGB"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                    <variation key="heightClass=compact-widthClass=regular">
-                                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                                                    </variation>
-                                                                    <variation key="heightClass=regular-widthClass=regular">
-                                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                                                    </variation>
-                                                                </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="(00)0000-0000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xzi-gv-gU9">
-                                                                    <rect key="frame" x="270.5" y="10" width="123.5" height="30"/>
-                                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                                                    <color key="textColor" red="0.066666666669999999" green="0.12549019610000001" blue="0.1764705882" alpha="1" colorSpace="calibratedRGB"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                            </subviews>
-                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="trailing" secondItem="xzi-gv-gU9" secondAttribute="trailing" constant="20" id="ORU-2r-Fjn"/>
-                                                                <constraint firstAttribute="bottom" secondItem="OpS-Pf-Y9C" secondAttribute="bottom" id="QnW-RK-5ew"/>
-                                                                <constraint firstItem="OpS-Pf-Y9C" firstAttribute="top" secondItem="c6H-9i-1gt" secondAttribute="top" id="Zv8-3P-4ig"/>
-                                                                <constraint firstItem="OpS-Pf-Y9C" firstAttribute="leading" secondItem="c6H-9i-1gt" secondAttribute="leading" constant="20" id="bZP-DG-e3n"/>
-                                                                <constraint firstItem="xzi-gv-gU9" firstAttribute="top" secondItem="c6H-9i-1gt" secondAttribute="top" constant="10" id="lP1-HV-k39"/>
-                                                                <constraint firstItem="xzi-gv-gU9" firstAttribute="leading" secondItem="OpS-Pf-Y9C" secondAttribute="trailing" constant="20" id="oXA-4k-T6K"/>
-                                                                <constraint firstAttribute="bottom" secondItem="xzi-gv-gU9" secondAttribute="bottom" constant="10" id="qf2-hs-quZ"/>
-                                                            </constraints>
-                                                        </view>
-                                                    </subviews>
-                                                </stackView>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
@@ -1465,9 +1511,13 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
+                                            <outlet property="acessibilidadeView" destination="nTd-uR-qBb" id="axM-mZ-Iqs"/>
                                             <outlet property="avaliacaoLabel" destination="rMU-hl-BKx" id="9m6-kN-VrH"/>
+                                            <outlet property="avaliacaoRecomendacaoView" destination="Eeb-Zk-hpK" id="ata-U0-WQc"/>
                                             <outlet property="barraProgressoView" destination="Gut-h3-Nub" id="amk-82-cwI"/>
+                                            <outlet property="localizacaoAcessivelLabel" destination="3hq-Ls-59t" id="etp-pa-zn3"/>
                                             <outlet property="localizacaoLabel" destination="g3S-T0-5uV" id="k6m-pj-YLy"/>
+                                            <outlet property="localizacaoView" destination="e0t-SS-1eY" id="NHp-37-Xf3"/>
                                             <outlet property="primeiraImagem" destination="s5e-ci-TDs" id="7eQ-dh-rzn"/>
                                             <outlet property="primeiraView" destination="ivL-Ot-A3y" id="uxc-hq-7vv"/>
                                             <outlet property="quartaImagem" destination="feu-q0-IsS" id="Dvg-fB-6Ri"/>
@@ -1477,10 +1527,14 @@
                                             <outlet property="recomendacaoLabel" destination="Vdf-HI-0gt" id="FRM-S4-1Wp"/>
                                             <outlet property="segundaImagem" destination="SbP-jX-kJs" id="fDl-v5-GL1"/>
                                             <outlet property="segundaView" destination="VNH-nI-hZD" id="Y3v-Ld-sEv"/>
+                                            <outlet property="siteAcessivelLabel" destination="JVq-T5-HyN" id="074-d1-cgw"/>
                                             <outlet property="siteLabel" destination="eIG-Oc-443" id="4hy-96-L3H"/>
                                             <outlet property="siteLinha" destination="e3x-Wv-ZvW" id="sjZ-LT-8f4"/>
+                                            <outlet property="siteView" destination="e3x-Wv-ZvW" id="AYK-u2-CdP"/>
+                                            <outlet property="telefoneAcessivelLabel" destination="OpS-Pf-Y9C" id="Qb7-K3-wMl"/>
                                             <outlet property="telefoneLabel" destination="xzi-gv-gU9" id="5QO-GU-Y66"/>
                                             <outlet property="telefoneLinha" destination="c6H-9i-1gt" id="hrU-23-mZi"/>
+                                            <outlet property="telefoneView" destination="c6H-9i-1gt" id="S9y-LJ-eQw"/>
                                             <outlet property="terceiraImagem" destination="64b-tc-cWD" id="bCQ-H1-gkO"/>
                                             <outlet property="terceiraView" destination="KnG-gK-eOy" id="j2g-Ue-elx"/>
                                         </connections>
@@ -1533,6 +1587,9 @@
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="/5" textAlignment="natural" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zXe-1I-aWc">
                                                             <rect key="frame" x="50" y="110" width="11.5" height="14.5"/>
+                                                            <accessibility key="accessibilityConfiguration">
+                                                                <bool key="isElement" value="NO"/>
+                                                            </accessibility>
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                                             <color key="textColor" red="0.53333333329999999" green="0.56078431370000004" blue="0.58823529409999997" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>

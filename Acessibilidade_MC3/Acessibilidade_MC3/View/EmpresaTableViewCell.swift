@@ -56,27 +56,19 @@ class EmpresaTableViewCell: UITableViewCell {
         localizacaoEmpresaLabel.accessibilityHint = "cidade e estado da empresa"
         
         notaLabel.isAccessibilityElement = true
-        notaLabel.accessibilityValue = " de 5"
+        notaLabel.accessibilityValue = "de 5"
         notaLabel.accessibilityHint = "nota da empresa"
         
         recomendacaoLabel.isAccessibilityElement = true
         recomendacaoLabel.accessibilityValue = " dos funcionários recomendam"
         recomendacaoLabel.accessibilityHint = "recomendação da empresa em porcentagem"
         
-        primeiraAcessibilidade.isAccessibilityElement = true
-        primeiraAcessibilidade.accessibilityHint = "Acessibilidade disponível"
-        
-        segundaAcessibilidade.isAccessibilityElement = true
-        segundaAcessibilidade.accessibilityHint = "Acessibilidade disponível"
-        
-        terceiraAcessibilidade.isAccessibilityElement = true
-        terceiraAcessibilidade.accessibilityHint = "Acessibilidade disponível"
-        
-        quartaAcessibilidade.isAccessibilityElement = true
-        quartaAcessibilidade.accessibilityHint = "Acessibilidade disponível"
-        
-        quitaAcessibilidade.isAccessibilityElement = true
-        quitaAcessibilidade.accessibilityHint = "Acessibilidade disponível"
+        if let acessibilidadesDescricao = acessibilidades {
+            for acessibilidade in acessibilidadesDescricao {
+                acessibilidade.isAccessibilityElement = true
+                acessibilidade.accessibilityHint = "Acessibilidade disponível"
+            }
+        }
         
         if let simbolos = simbolosViews {
             for simbolo in simbolos {
