@@ -18,6 +18,7 @@ class EmpresaTableViewCell: UITableViewCell {
     @IBOutlet weak var recomendacaoLabel: UILabel!
     @IBOutlet weak var barraProgressoView: BarraProgressoView!
     
+    @IBOutlet weak var acessibilidadeStackView: UIStackView!
     @IBOutlet weak var avaliacaoCard: UIView! {
         didSet {
             self.avaliacaoCard.layer.cornerRadius  = 8
@@ -62,6 +63,8 @@ class EmpresaTableViewCell: UITableViewCell {
         recomendacaoLabel.isAccessibilityElement = true
         recomendacaoLabel.accessibilityValue = " dos funcionários recomendam"
         recomendacaoLabel.accessibilityHint = "recomendação da empresa em porcentagem"
+        
+        acessibilidadeStackView.isAccessibilityElement = true
         
         if let acessibilidadesDescricao = acessibilidades {
             for acessibilidade in acessibilidadesDescricao {

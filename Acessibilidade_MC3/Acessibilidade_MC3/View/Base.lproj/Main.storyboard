@@ -743,6 +743,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="acessibilidadeStackView" destination="JM2-Gk-xqX" id="Spl-Wg-hci"/>
                                             <outlet property="avaliacaoCard" destination="y4F-gx-be9" id="DKy-K5-whM"/>
                                             <outlet property="barraProgressoView" destination="oPS-bM-ezN" id="kTn-D4-xjv"/>
                                             <outlet property="celulaEmpresa" destination="SY2-nA-TtM" id="EJZ-z4-GKI"/>
