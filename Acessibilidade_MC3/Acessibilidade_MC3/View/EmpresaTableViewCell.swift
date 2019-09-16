@@ -18,6 +18,7 @@ class EmpresaTableViewCell: UITableViewCell {
     @IBOutlet weak var recomendacaoLabel: UILabel!
     @IBOutlet weak var barraProgressoView: BarraProgressoView!
     
+<<<<<<< HEAD
     @IBOutlet weak var primeiraAcessibilidade: UIImageView!
     @IBOutlet weak var segundaAcessibilidade: UIImageView!
     @IBOutlet weak var terceiraAcessibilidade: UIImageView!
@@ -36,6 +37,8 @@ class EmpresaTableViewCell: UITableViewCell {
     
     @IBOutlet weak var quintaView: UIView!
     
+=======
+>>>>>>> 3407f10fd4e4ef5f8dfd91957963941b66dfc0d3
     @IBOutlet weak var avaliacaoCard: UIView! {
         didSet {
             self.avaliacaoCard.layer.cornerRadius  = 8
@@ -56,22 +59,11 @@ class EmpresaTableViewCell: UITableViewCell {
         }
     }
     
-    var acessibilidades: [UIImageView]?
-    var simbolosViews: [UIView]?
+    @IBOutlet var simbolosViews: [UIView]!
+    @IBOutlet var acessibilidades: [UIImageView]!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        acessibilidades = [self.primeiraAcessibilidade,
-                           self.segundaAcessibilidade,
-                           self.terceiraAcessibilidade,
-                           self.quartaAcessibilidade,
-                           self.quitaAcessibilidade]
-        
-        simbolosViews = [self.primeiraView,
-                        self.segundaView,
-                        self.terceiraView,
-                        self.quartaView,
-                        self.quintaView]
         
         //acessibilidade settings
         celulaEmpresa.isAccessibilityElement = true

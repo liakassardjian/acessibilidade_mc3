@@ -57,8 +57,11 @@ class EmpresasController: NSObject, UITableViewDataSource, UITableViewDelegate {
         var contador: Int = 0
         for acessivel in dados[indexPath.row].acessibilidade {
             imagens[contador].isHidden = false
+            imagens[contador+5].isHidden = false
             imagens[contador].image = UIImage(named: acessivel.rawValue)
             imagens[contador].layer.cornerRadius = 8
+            imagens[contador+5].image = UIImage(named: acessivel.rawValue)
+            imagens[contador+5].layer.cornerRadius = 8
             switch acessivel {
             case.deficienciaAuditiva: acessibilidadeAcessivel += ", deficiência auditiva "
             case.deficienciaMotora: acessibilidadeAcessivel += ", deficiência motora "
@@ -71,6 +74,8 @@ class EmpresasController: NSObject, UITableViewDataSource, UITableViewDelegate {
         }
         for cont in contador..<5 {
             imagens[cont].isHidden = true
+            imagens[cont+5].isHidden = true
+            contador += 1
         }
         cell.acessibilidadeStackView.accessibilityLabel = acessibilidadeAcessivel
         return cell

@@ -20,6 +20,7 @@ class DetalhesEmpresaViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         detalhesDataSourceDelegate = DetalhesEmpresaController()
         detalhesTableView.delegate = detalhesDataSourceDelegate
         detalhesTableView.dataSource = detalhesDataSourceDelegate
