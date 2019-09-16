@@ -42,9 +42,8 @@ class DetalhesEmpresaController: NSObject, UITableViewDelegate, UITableViewDataS
                 cell.avaliacaoLabel.text = String(format: "%.1f", empresa.nota)
                 cell.barraProgressoView.valorProgresso = CGFloat(empresa.nota / 5)
                 cell.recomendacaoLabel.text = String("\(empresa.recomendacao)%")
-                
-                //cell.avaliacaoRecomendacaoView.accessibilityValue = "Nota \(cell.avaliacaoLabel.text) de 5, e \(cell.recomendacaoLabel.text) dos funcionários recomendam"
-                if let avaliacaoNotaAcessivel = cell.avaliacaoLabel.text, let recomendacaoAcessivel =  cell.recomendacaoLabel.text{
+
+                if let avaliacaoNotaAcessivel = cell.avaliacaoLabel.text, let recomendacaoAcessivel =  cell.recomendacaoLabel.text {
                     cell.avaliacaoRecomendacaoView.accessibilityValue = "Nota \(avaliacaoNotaAcessivel) de 5, e \(recomendacaoAcessivel) dos funcionários recomendam"
                     
                 }
@@ -173,12 +172,6 @@ class DetalhesEmpresaController: NSObject, UITableViewDelegate, UITableViewDataS
             imagens[contador].image = UIImage(named: acessivel.rawValue)
             imagens[contador].layer.cornerRadius = 8
             imagens[contador].isAccessibilityElement = true
-//            switch acessivel {
-//            case.deficienciaAuditiva: imagens[contador].accessibilityLabel = "Deficiência auditiva"
-//            case.deficienciaMotora: imagens[contador].accessibilityLabel = "Deficiência motora"
-//            case.deficienciaVisual: imagens[contador].accessibilityLabel = "Deficiência visual"
-//            case.deficienciaIntelectual: imagens[contador].accessibilityLabel = "Deficiência intelectual"
-//            case.nanismo:imagens[contador].accessibilityLabel = "Nanismo"
             switch acessivel {
             case.deficienciaAuditiva: acessibilidadeAcessivel += ", deficiência auditiva "
             case.deficienciaMotora: acessibilidadeAcessivel += ", deficiência motora "
@@ -186,7 +179,6 @@ class DetalhesEmpresaController: NSObject, UITableViewDelegate, UITableViewDataS
             case.deficienciaIntelectual: acessibilidadeAcessivel += ", deficiência intelectual "
             case.nanismo:acessibilidadeAcessivel += ", nanismo "
             }
-            
             
             contador += 1
         }

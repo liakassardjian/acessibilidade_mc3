@@ -45,9 +45,7 @@ class InformacoesTableViewCell: UITableViewCell {
     
     @IBOutlet weak var acessibilidadeView: UIView!
     
-    
     @IBOutlet weak var avaliacaoRecomendacaoView: UIView!
-    
     
     var imagensAcessibilidade: [UIImageView]?
     var sombrasImagens: [UIView]?
