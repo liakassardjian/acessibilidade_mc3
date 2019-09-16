@@ -78,6 +78,7 @@ class EmpresasController: NSObject, UITableViewDataSource, UITableViewDelegate {
             contador += 1
         }
         cell.acessibilidadeStackView.accessibilityLabel = acessibilidadeAcessivel
+        
         return cell
     }
     

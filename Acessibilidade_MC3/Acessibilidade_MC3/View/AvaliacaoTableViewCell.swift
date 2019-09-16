@@ -20,6 +20,8 @@ class AvaliacaoTableViewCell: UITableViewCell {
         }
     }
     
+    @IBOutlet weak var estrelas: UIImageView!
+    
     @IBOutlet weak var dataLabel: UILabel!
     @IBOutlet weak var tituloLabel: UILabel!
     @IBOutlet weak var notaLabel: UILabel!
@@ -64,6 +66,9 @@ class AvaliacaoTableViewCell: UITableViewCell {
                           quartaView,
                           quintaView]
         
+        notaLabel.isAccessibilityElement = true
+        notaLabel.accessibilityValue = "de 5"
+        
         if let sombras = sombrasImagens {
             for sombra in sombras {
                 sombra.clipsToBounds = false
@@ -73,6 +78,7 @@ class AvaliacaoTableViewCell: UITableViewCell {
                 sombra.layer.shadowOffset = CGSize(width: 2, height: 2)
             }
         }
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

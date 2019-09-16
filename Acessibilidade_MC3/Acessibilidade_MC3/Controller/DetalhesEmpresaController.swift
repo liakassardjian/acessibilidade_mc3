@@ -43,7 +43,6 @@ class DetalhesEmpresaController: NSObject, UITableViewDelegate, UITableViewDataS
                 cell.barraProgressoView.valorProgresso = CGFloat(empresa.nota / 5)
                 cell.recomendacaoLabel.text = String("\(empresa.recomendacao)%")
 
-                
                 if let avaNotaAcessivel = cell.avaliacaoLabel.text, let recAcessivel =  cell.recomendacaoLabel.text {
                     cell.avaliacaoRecomendacaoView.accessibilityValue = "Nota \(avaNotaAcessivel) de 5, e \(recAcessivel) dos funcionários recomendam"
                     
@@ -74,8 +73,9 @@ class DetalhesEmpresaController: NSObject, UITableViewDelegate, UITableViewDataS
                 guard let imagens = cell.imagensAcessibilidade else {
                     return UITableViewCell()
                 }
-                
-                exibeSimbolosAcessibilidade(imagens: imagens, acessibilidade: empresa.acessibilidade)
+                cell.acessibilidadeView.isAccessibilityElement = true
+                cell.acessibilidadeView.accessibilityLabel = exibeSimbolosAcessibilidade(imagens: imagens, acessibilidade: empresa.acessibilidade)
+     
             }
             
             return cell
@@ -121,8 +121,18 @@ class DetalhesEmpresaController: NSObject, UITableViewDelegate, UITableViewDataS
                 guard let imagens = cell.imagensAcessibilidade else {
                     return UITableViewCell()
                 }
-                
-                exibeSimbolosAcessibilidade(imagens: imagens, acessibilidade: avaliacao.acessibilidade)
+                cell.primeiraImagem.isAccessibilityElement = false
+                cell.segundaImagem.isAccessibilityElement = false
+                cell.terceiraImagem.isAccessibilityElement = false
+                cell.quartaImagem.isAccessibilityElement = false
+                cell.quintaImagem.isAccessibilityElement = false
+                cell.primeiraView.isAccessibilityElement = false
+                cell.segundaView.isAccessibilityElement = false
+                cell.terceiraView.isAccessibilityElement = false
+                cell.quartaView.isAccessibilityElement = false
+                cell.quintaView.isAccessibilityElement = false
+                cell.estrelas.isAccessibilityElement = true
+                cell.estrelas.accessibilityLabel = exibeSimbolosAcessibilidade(imagens: imagens, acessibilidade: avaliacao.acessibilidade)
                 
             }
             
@@ -166,7 +176,7 @@ class DetalhesEmpresaController: NSObject, UITableViewDelegate, UITableViewDataS
         return "\(dia) de \(meses[mes-1]) de \(ano)"
     }
     
-    private func exibeSimbolosAcessibilidade(imagens: [UIImageView], acessibilidade: [Acessibilidade]) {
+    private func exibeSimbolosAcessibilidade(imagens: [UIImageView], acessibilidade: [Acessibilidade]) -> String {
         var contador: Int = 0
         var acessibilidadeAcessivel: String = "Empresa acessível para funcionários com "
         for acessivel in acessibilidade {
@@ -186,7 +196,9 @@ class DetalhesEmpresaController: NSObject, UITableViewDelegate, UITableViewDataS
         
         for cont in contador..<5 {
             imagens[cont].isHidden = true
+            
         }
+     return acessibilidadeAcessivel
     }
 
 }

@@ -71,9 +71,10 @@ class InformacoesTableViewCell: UITableViewCell {
         if let imagens = imagensAcessibilidade {
             for imagem in imagens {
                 imagem.layer.cornerRadius = 8
+                imagem.isAccessibilityElement = false
             }
         }
-        
+
         if let sombras = sombrasImagens {
             for sombra in sombras {
                 sombra.clipsToBounds = false
@@ -91,3 +92,5 @@ class InformacoesTableViewCell: UITableViewCell {
     }
 
 }
+
+//}

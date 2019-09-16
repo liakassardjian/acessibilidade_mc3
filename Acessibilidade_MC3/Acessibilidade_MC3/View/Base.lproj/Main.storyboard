@@ -1624,6 +1624,9 @@
                                                         </view>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Estrelas" highlightedImage="Estrelas" translatesAutoresizingMaskIntoConstraints="NO" id="FuD-By-m7q">
                                                             <rect key="frame" x="66.5" y="102" width="70" height="15"/>
+                                                            <accessibility key="accessibilityConfiguration">
+                                                                <accessibilityTraits key="traits" none="YES"/>
+                                                            </accessibility>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="70" id="RmM-wl-Xxu"/>
                                                                 <constraint firstAttribute="height" constant="15" id="wWJ-LA-YrU"/>
@@ -1635,11 +1638,15 @@
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SIA" translatesAutoresizingMaskIntoConstraints="NO" id="l2g-1X-DLI">
                                                                     <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
                                                                     <accessibility key="accessibilityConfiguration">
-                                                                        <bool key="isElement" value="YES"/>
+                                                                        <accessibilityTraits key="traits" notEnabled="YES"/>
+                                                                        <bool key="isElement" value="NO"/>
                                                                     </accessibility>
                                                                 </imageView>
                                                             </subviews>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <accessibility key="accessibilityConfiguration">
+                                                                <accessibilityTraits key="traits" notEnabled="YES"/>
+                                                            </accessibility>
                                                             <constraints>
                                                                 <constraint firstItem="l2g-1X-DLI" firstAttribute="width" secondItem="cRd-ZJ-bEo" secondAttribute="width" id="2Rj-o4-7Xz"/>
                                                                 <constraint firstItem="l2g-1X-DLI" firstAttribute="centerY" secondItem="cRd-ZJ-bEo" secondAttribute="centerY" id="3QY-Yn-7uj"/>
@@ -1655,11 +1662,14 @@
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SIDV" translatesAutoresizingMaskIntoConstraints="NO" id="lYO-DC-QOZ">
                                                                     <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
                                                                     <accessibility key="accessibilityConfiguration">
-                                                                        <bool key="isElement" value="YES"/>
+                                                                        <accessibilityTraits key="traits" notEnabled="YES"/>
                                                                     </accessibility>
                                                                 </imageView>
                                                             </subviews>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <accessibility key="accessibilityConfiguration">
+                                                                <accessibilityTraits key="traits" notEnabled="YES"/>
+                                                            </accessibility>
                                                             <constraints>
                                                                 <constraint firstItem="lYO-DC-QOZ" firstAttribute="width" secondItem="3bB-5p-fHR" secondAttribute="width" id="I2u-ye-kSi"/>
                                                                 <constraint firstItem="lYO-DC-QOZ" firstAttribute="centerX" secondItem="3bB-5p-fHR" secondAttribute="centerX" id="Npa-yP-NGM"/>
@@ -1675,11 +1685,14 @@
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SIDA" translatesAutoresizingMaskIntoConstraints="NO" id="uuE-hG-nWd">
                                                                     <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
                                                                     <accessibility key="accessibilityConfiguration">
-                                                                        <bool key="isElement" value="YES"/>
+                                                                        <accessibilityTraits key="traits" notEnabled="YES"/>
                                                                     </accessibility>
                                                                 </imageView>
                                                             </subviews>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <accessibility key="accessibilityConfiguration">
+                                                                <accessibilityTraits key="traits" notEnabled="YES"/>
+                                                            </accessibility>
                                                             <constraints>
                                                                 <constraint firstItem="uuE-hG-nWd" firstAttribute="height" secondItem="UQC-Yv-CqC" secondAttribute="height" id="aaM-IB-Bfp"/>
                                                                 <constraint firstItem="uuE-hG-nWd" firstAttribute="centerY" secondItem="UQC-Yv-CqC" secondAttribute="centerY" id="eWN-CE-Vgh"/>
@@ -1695,11 +1708,14 @@
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SDI" translatesAutoresizingMaskIntoConstraints="NO" id="Pcc-qy-cxC">
                                                                     <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
                                                                     <accessibility key="accessibilityConfiguration">
-                                                                        <bool key="isElement" value="YES"/>
+                                                                        <accessibilityTraits key="traits" notEnabled="YES"/>
                                                                     </accessibility>
                                                                 </imageView>
                                                             </subviews>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <accessibility key="accessibilityConfiguration">
+                                                                <accessibilityTraits key="traits" notEnabled="YES"/>
+                                                            </accessibility>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="30" id="023-1I-vcs"/>
                                                                 <constraint firstAttribute="height" constant="30" id="5pm-hI-BWK"/>
@@ -1715,7 +1731,8 @@
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SPN" translatesAutoresizingMaskIntoConstraints="NO" id="SPa-Fe-1BO">
                                                                     <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
                                                                     <accessibility key="accessibilityConfiguration">
-                                                                        <bool key="isElement" value="YES"/>
+                                                                        <accessibilityTraits key="traits" notEnabled="YES"/>
+                                                                        <bool key="isElement" value="NO"/>
                                                                     </accessibility>
                                                                 </imageView>
                                                             </subviews>
@@ -1929,6 +1946,7 @@
                                             <outlet property="cargoLabel" destination="KVU-r5-hnP" id="ZWE-8B-KL2"/>
                                             <outlet property="dataLabel" destination="hyK-EJ-kCt" id="pBY-TL-HCQ"/>
                                             <outlet property="desvantagensLabel" destination="Sr6-R3-HlJ" id="cN0-ey-8tn"/>
+                                            <outlet property="estrelas" destination="FuD-By-m7q" id="Nzy-em-CLN"/>
                                             <outlet property="notaLabel" destination="5Tz-nQ-l09" id="uEV-UN-u72"/>
                                             <outlet property="primeiraImagem" destination="l2g-1X-DLI" id="zgC-Nc-8uF"/>
                                             <outlet property="primeiraView" destination="cRd-ZJ-bEo" id="bFw-KQ-HMS"/>
