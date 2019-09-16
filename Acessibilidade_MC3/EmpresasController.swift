@@ -53,7 +53,7 @@ class EmpresasController: NSObject, UITableViewDataSource, UITableViewDelegate {
         guard let imagens = cell.acessibilidades else {
             return UITableViewCell()
         }
-        
+        var acessibilidadeAcessivel: String = "Empresa acessível para funcionários com "
         var contador: Int = 0
         for acessivel in dados[indexPath.row].acessibilidade {
             imagens[contador].isHidden = false
@@ -63,12 +63,13 @@ class EmpresasController: NSObject, UITableViewDataSource, UITableViewDelegate {
             imagens[contador+5].image = UIImage(named: acessivel.rawValue)
             imagens[contador+5].layer.cornerRadius = 8
             switch acessivel {
-            case.deficienciaAuditiva: imagens[contador].accessibilityLabel = "Deficiência auditiva"
-            case.deficienciaMotora: imagens[contador].accessibilityLabel = "Deficiência motora"
-            case.deficienciaVisual: imagens[contador].accessibilityLabel = "Deficiência visual"
-            case.deficienciaIntelectual: imagens[contador].accessibilityLabel = "Deficiência intelectual"
-            case.nanismo:imagens[contador].accessibilityLabel = "Nanismo"
+            case.deficienciaAuditiva: acessibilidadeAcessivel += ", deficiência auditiva "
+            case.deficienciaMotora: acessibilidadeAcessivel += ", deficiência motora "
+            case.deficienciaVisual: acessibilidadeAcessivel += ", deficiência visual "
+            case.deficienciaIntelectual: acessibilidadeAcessivel += ", deficiência intelectual "
+            case.nanismo:acessibilidadeAcessivel += ", nanismo "
             }
+        
             contador += 1
         }
         for cont in contador..<5 {
@@ -76,7 +77,7 @@ class EmpresasController: NSObject, UITableViewDataSource, UITableViewDelegate {
             imagens[cont+5].isHidden = true
             contador += 1
         }
-        
+        cell.acessibilidadeStackView.accessibilityLabel = acessibilidadeAcessivel
         return cell
     }
     

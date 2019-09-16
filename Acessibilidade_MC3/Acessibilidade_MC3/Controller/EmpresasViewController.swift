@@ -204,6 +204,7 @@ class EmpresasViewController: UIViewController {
     }
     
     func adicionaAcessibilidade(sia: Bool, sidv: Bool, sida: Bool, sdi: Bool, spn: Bool, avaliacao: Avaliacao) {
+        
         if sia {
             avaliacao.acessibilidade.append(.deficienciaMotora)
         }
@@ -219,6 +220,7 @@ class EmpresasViewController: UIViewController {
         if spn {
             avaliacao.acessibilidade.append(.nanismo)
         }
+        
     }
     
     func converteTempoServico(tempoServico: Double) -> String {

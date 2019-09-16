@@ -19,6 +19,7 @@ class EmpresaTableViewCell: UITableViewCell {
     @IBOutlet weak var barraProgressoView: BarraProgressoView!
     
     @IBOutlet weak var acessibilidadeStackView: UIStackView!
+
     @IBOutlet weak var avaliacaoCard: UIView! {
         didSet {
             self.avaliacaoCard.layer.cornerRadius  = 8
@@ -65,21 +66,27 @@ class EmpresaTableViewCell: UITableViewCell {
         recomendacaoLabel.accessibilityHint = "recomendação da empresa em porcentagem"
         
         acessibilidadeStackView.isAccessibilityElement = true
-        
+
         if let acessibilidadesDescricao = acessibilidades {
             for acessibilidade in acessibilidadesDescricao {
                 acessibilidade.isAccessibilityElement = true
                 acessibilidade.accessibilityHint = "Acessibilidade disponível"
             }
         }
-        
+
         if let simbolos = simbolosViews {
             for simbolo in simbolos {
+                simbolo.isAccessibilityElement = false
                 simbolo.clipsToBounds = false
                 simbolo.layer.shadowColor = #colorLiteral(red: 0.0804778561, green: 0.1687734723, blue: 0.2325027883, alpha: 1)
                 simbolo.layer.shadowOpacity = 0.15
                 simbolo.layer.shadowRadius = 8
                 simbolo.layer.shadowOffset = CGSize(width: 2, height: 2)
+            }
+        }
+        if let imagens = acessibilidades {
+            for imagem in imagens {
+                imagem.isAccessibilityElement = false
             }
         }
     }
@@ -88,5 +95,5 @@ class EmpresaTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
     }
-
+    
 }

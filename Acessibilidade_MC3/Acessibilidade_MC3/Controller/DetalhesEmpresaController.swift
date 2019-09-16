@@ -43,7 +43,6 @@ class DetalhesEmpresaController: NSObject, UITableViewDelegate, UITableViewDataS
                 cell.barraProgressoView.valorProgresso = CGFloat(empresa.nota / 5)
                 cell.recomendacaoLabel.text = String("\(empresa.recomendacao)%")
                 
-                //cell.avaliacaoRecomendacaoView.accessibilityValue = "Nota \(cell.avaliacaoLabel.text) de 5, e \(cell.recomendacaoLabel.text) dos funcionários recomendam"
                 if let avaNotaAcessivel = cell.avaliacaoLabel.text, let recAcessivel =  cell.recomendacaoLabel.text {
                     cell.avaliacaoRecomendacaoView.accessibilityValue = "Nota \(avaNotaAcessivel) de 5, e \(recAcessivel) dos funcionários recomendam"
                     
@@ -168,18 +167,19 @@ class DetalhesEmpresaController: NSObject, UITableViewDelegate, UITableViewDataS
     
     private func exibeSimbolosAcessibilidade(imagens: [UIImageView], acessibilidade: [Acessibilidade]) {
         var contador: Int = 0
-        
+        var acessibilidadeAcessivel: String = "Empresa acessível para funcionários com "
         for acessivel in acessibilidade {
             imagens[contador].image = UIImage(named: acessivel.rawValue)
             imagens[contador].layer.cornerRadius = 8
             imagens[contador].isAccessibilityElement = true
             switch acessivel {
-            case.deficienciaAuditiva: imagens[contador].accessibilityLabel = "Deficiência auditiva"
-            case.deficienciaMotora: imagens[contador].accessibilityLabel = "Deficiência motora"
-            case.deficienciaVisual: imagens[contador].accessibilityLabel = "Deficiência visual"
-            case.deficienciaIntelectual: imagens[contador].accessibilityLabel = "Deficiência intelectual"
-            case.nanismo:imagens[contador].accessibilityLabel = "Nanismo"
+            case.deficienciaAuditiva: acessibilidadeAcessivel += ", deficiência auditiva "
+            case.deficienciaMotora: acessibilidadeAcessivel += ", deficiência motora "
+            case.deficienciaVisual: acessibilidadeAcessivel += ", deficiência visual "
+            case.deficienciaIntelectual: acessibilidadeAcessivel += ", deficiência intelectual "
+            case.nanismo:acessibilidadeAcessivel += ", nanismo "
             }
+            
             contador += 1
         }
         
