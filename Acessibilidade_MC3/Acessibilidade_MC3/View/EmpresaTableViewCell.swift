@@ -18,27 +18,8 @@ class EmpresaTableViewCell: UITableViewCell {
     @IBOutlet weak var recomendacaoLabel: UILabel!
     @IBOutlet weak var barraProgressoView: BarraProgressoView!
     
-<<<<<<< HEAD
-    @IBOutlet weak var primeiraAcessibilidade: UIImageView!
-    @IBOutlet weak var segundaAcessibilidade: UIImageView!
-    @IBOutlet weak var terceiraAcessibilidade: UIImageView!
-    @IBOutlet weak var quartaAcessibilidade: UIImageView!
-    @IBOutlet weak var quitaAcessibilidade: UIImageView!
-    
     @IBOutlet weak var acessibilidadeStackView: UIStackView!
     
-    @IBOutlet weak var primeiraView: UIView!
-    
-    @IBOutlet weak var segundaView: UIView!
-    
-    @IBOutlet weak var terceiraView: UIView!
-    
-    @IBOutlet weak var quartaView: UIView!
-    
-    @IBOutlet weak var quintaView: UIView!
-    
-=======
->>>>>>> 3407f10fd4e4ef5f8dfd91957963941b66dfc0d3
     @IBOutlet weak var avaliacaoCard: UIView! {
         didSet {
             self.avaliacaoCard.layer.cornerRadius  = 8
@@ -77,7 +58,7 @@ class EmpresaTableViewCell: UITableViewCell {
         localizacaoEmpresaLabel.accessibilityHint = "cidade e estado da empresa"
         
         notaLabel.isAccessibilityElement = true
-        notaLabel.accessibilityValue = " de 5"
+        notaLabel.accessibilityValue = "de 5"
         notaLabel.accessibilityHint = "nota da empresa"
         
         recomendacaoLabel.isAccessibilityElement = true
@@ -85,7 +66,14 @@ class EmpresaTableViewCell: UITableViewCell {
         recomendacaoLabel.accessibilityHint = "recomendação da empresa em porcentagem"
         
         acessibilidadeStackView.isAccessibilityElement = true
-        
+
+        if let acessibilidadesDescricao = acessibilidades {
+            for acessibilidade in acessibilidadesDescricao {
+                acessibilidade.isAccessibilityElement = true
+                acessibilidade.accessibilityHint = "Acessibilidade disponível"
+            }
+        }
+
         if let simbolos = simbolosViews {
             for simbolo in simbolos {
                 simbolo.isAccessibilityElement = false
@@ -108,6 +96,4 @@ class EmpresaTableViewCell: UITableViewCell {
 
     }
     
-    
-
 }

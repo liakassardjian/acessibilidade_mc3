@@ -37,25 +37,33 @@ class DetalhesEmpresaController: NSObject, UITableViewDelegate, UITableViewDataS
             
             if let empresa = empresa {
                 cell.localizacaoLabel.text = empresa.localizacao
+                
+                cell.localizacaoView.accessibilityValue = "Localização \(empresa.localizacao)"
                 cell.avaliacaoLabel.text = String(format: "%.1f", empresa.nota)
                 cell.barraProgressoView.valorProgresso = CGFloat(empresa.nota / 5)
                 cell.recomendacaoLabel.text = String("\(empresa.recomendacao)%")
                 
+                //cell.avaliacaoRecomendacaoView.accessibilityValue = "Nota \(cell.avaliacaoLabel.text) de 5, e \(cell.recomendacaoLabel.text) dos funcionários recomendam"
+                if let avaliacaoNotaAcessivel = cell.avaliacaoLabel.text, let recomendacaoAcessivel =  cell.recomendacaoLabel.text{
+                    cell.avaliacaoRecomendacaoView.accessibilityValue = "Nota \(avaliacaoNotaAcessivel) de 5, e \(recomendacaoAcessivel) dos funcionários recomendam"
+                    
+                }
+                
                 if let site = empresa.site {
                     cell.siteLabel.text = site
                     cell.siteLinha.isHidden = false
-                    
+                    cell.siteView.accessibilityValue = "Site \(site)"
                     if site == "" {
                         cell.siteLinha.isHidden = true
                     }
                 } else {
                     cell.siteLinha.isHidden = true
                 }
-                
+            
                 if let telefone = empresa.telefone {
                     cell.telefoneLabel.text = telefone
                     cell.telefoneLinha.isHidden = false
-                    
+                    cell.telefoneView.accessibilityValue = "Telefone \(telefone)"
                     if telefone == "" {
                         cell.telefoneLinha.isHidden = true
                     }

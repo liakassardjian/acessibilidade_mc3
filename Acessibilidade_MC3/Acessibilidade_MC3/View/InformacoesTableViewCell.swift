@@ -11,8 +11,19 @@ import UIKit
 class InformacoesTableViewCell: UITableViewCell {
     
     @IBOutlet weak var localizacaoLabel: UILabel!
+    @IBOutlet weak var localizacaoAcessivelLabel: UILabel!
+    
+    @IBOutlet weak var localizacaoView: UIView!
+    
     @IBOutlet weak var siteLabel: UILabel!
+    @IBOutlet weak var siteAcessivelLabel: UILabel!
+    
+    @IBOutlet weak var siteView: UIView!
+    
     @IBOutlet weak var telefoneLabel: UILabel!
+    @IBOutlet weak var telefoneAcessivelLabel: UILabel!
+    
+    @IBOutlet weak var telefoneView: UIView!
     
     @IBOutlet weak var primeiraView: UIView!
     @IBOutlet weak var segundaView: UIView!
@@ -29,7 +40,14 @@ class InformacoesTableViewCell: UITableViewCell {
     @IBOutlet weak var barraProgressoView: BarraProgressoView!
     
     @IBOutlet weak var recomendacaoLabel: UILabel!
+
     @IBOutlet weak var avaliacaoLabel: UILabel!
+    
+    @IBOutlet weak var acessibilidadeView: UIView!
+    
+    
+    @IBOutlet weak var avaliacaoRecomendacaoView: UIView!
+    
     
     var imagensAcessibilidade: [UIImageView]?
     var sombrasImagens: [UIView]?
