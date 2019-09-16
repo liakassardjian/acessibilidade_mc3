@@ -19,7 +19,7 @@ class EmpresaTableViewCell: UITableViewCell {
     @IBOutlet weak var barraProgressoView: BarraProgressoView!
     
     @IBOutlet weak var acessibilidadeStackView: UIStackView!
-    
+
     @IBOutlet weak var avaliacaoCard: UIView! {
         didSet {
             self.avaliacaoCard.layer.cornerRadius  = 8

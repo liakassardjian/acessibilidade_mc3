@@ -43,8 +43,9 @@ class DetalhesEmpresaController: NSObject, UITableViewDelegate, UITableViewDataS
                 cell.barraProgressoView.valorProgresso = CGFloat(empresa.nota / 5)
                 cell.recomendacaoLabel.text = String("\(empresa.recomendacao)%")
 
-                if let avaliacaoNotaAcessivel = cell.avaliacaoLabel.text, let recomendacaoAcessivel =  cell.recomendacaoLabel.text {
-                    cell.avaliacaoRecomendacaoView.accessibilityValue = "Nota \(avaliacaoNotaAcessivel) de 5, e \(recomendacaoAcessivel) dos funcionários recomendam"
+                
+                if let avaNotaAcessivel = cell.avaliacaoLabel.text, let recAcessivel =  cell.recomendacaoLabel.text {
+                    cell.avaliacaoRecomendacaoView.accessibilityValue = "Nota \(avaNotaAcessivel) de 5, e \(recAcessivel) dos funcionários recomendam"
                     
                 }
                 
