@@ -26,7 +26,6 @@ class EmpresasViewController: UIViewController {
         
         empresaTableView.delegate = empresasDataSourceDelegate
         empresaTableView.dataSource = empresasDataSourceDelegate
-        empresaTableView.rowHeight = 217
         
         self.searchController.obscuresBackgroundDuringPresentation = false
         self.searchController.searchBar.placeholder = "Busca"
