@@ -12,6 +12,8 @@ class DetalhesEmpresaViewController: UIViewController {
 
     @IBOutlet weak var detalhesTableView: UITableView!
     
+    @IBOutlet weak var avaliarEmpresaButton: UIBarButtonItem!
+    
     var detalhesDataSourceDelegate: DetalhesEmpresaController?
     
     var empresa: Empresa?
@@ -33,6 +35,9 @@ class DetalhesEmpresaViewController: UIViewController {
         navigationItem.title = empresa?.nome
         
         usuario = UserDefaults.standard.string(forKey: "UserId")
+    avaliarEmpresaButton.isAccessibilityElement = true
+        avaliarEmpresaButton.accessibilityHint = "clique duas vezes para avaliar uma empresa"
+        
         
     }
 

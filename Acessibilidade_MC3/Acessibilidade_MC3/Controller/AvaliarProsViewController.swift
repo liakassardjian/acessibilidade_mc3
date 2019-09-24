@@ -18,6 +18,8 @@ class AvaliarProsViewController: UITableViewController {
     @IBOutlet weak var recomendaUIButton: UIButton!
     @IBOutlet weak var naoRecomendaUIButton: UIButton!
     
+    @IBOutlet weak var recomendaSimNaoLabel: UILabel!
+    
     @IBOutlet weak var salvarButton: UIBarButtonItem!
     
     var recomendaEmpresa: Bool = true
@@ -27,16 +29,21 @@ class AvaliarProsViewController: UITableViewController {
     var avaliacao: Avaliacao?
     var empresa: Empresa?
     
+    
     @IBAction func apertaRecomenda(_ sender: UIButton) {
         recomendaEmpresa = true
         recomendaUIButton.setImage(UIImage(named: "RecomendaTrue"), for: .normal)
+        recomendaUIButton.accessibilityLabel = "Botão de recomendação ativado"
         naoRecomendaUIButton.setImage(UIImage(named: "NaoRecomendaFalse"), for: .normal)
+        naoRecomendaUIButton.accessibilityLabel = "Botão de não recomendação desativado"
     }
     
     @IBAction func apertaNaoRecomenda(_ sender: UIButton) {
         recomendaEmpresa = false
         recomendaUIButton.setImage(UIImage(named: "RecomendaFalse"), for: .normal)
+        recomendaUIButton.accessibilityLabel = "Botão de recomendação desativado"
         naoRecomendaUIButton.setImage(UIImage(named: "NaoRecomendaTrue"), for: .normal)
+        naoRecomendaUIButton.accessibilityLabel = "Botão de não recomendação ativado"
     }
     
     var prosTextViewDelegate: TextViewController?
@@ -55,7 +62,12 @@ class AvaliarProsViewController: UITableViewController {
         contrasTextView.delegate = contrasTextViewDelegate
         sugestoesTextView.delegate = sugestoesTextViewDelegate
         
+        recomendaUIButton.accessibilityLabel = "botão de recomendação desativado"
+        naoRecomendaUIButton.accessibilityLabel = "botão de não recomendação desativado"
+        
         salvarButton.isEnabled = false
+        recomendaSimNaoLabel.isAccessibilityElement = true
+        recomendaSimNaoLabel.accessibilityValue = "clique em um dos botões para recomendar ou não a empresa"
     }
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {

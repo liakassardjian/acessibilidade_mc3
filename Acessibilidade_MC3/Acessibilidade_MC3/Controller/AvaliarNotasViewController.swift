@@ -25,6 +25,14 @@ class AvaliarNotasViewController: UITableViewController {
     @IBOutlet var oportunidadeBotoes: [UIButton]!
     var notaOportunidade: Float = 0
     
+    @IBOutlet weak var integracaoLabel: UILabel!
+    
+    @IBOutlet weak var culturaLabel: UILabel!
+    
+    @IBOutlet weak var renumeracaoLabel: UILabel!
+    
+    @IBOutlet weak var oportunidadeLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.tableFooterView = UIView()
@@ -33,6 +41,16 @@ class AvaliarNotasViewController: UITableViewController {
         setaAcessibilidadeBotoes(vetorBotoes: culturaBotoes)
         setaAcessibilidadeBotoes(vetorBotoes: remuneracaoBotoes)
         setaAcessibilidadeBotoes(vetorBotoes: oportunidadeBotoes)
+        
+        integracaoLabel.isAccessibilityElement = true
+        integracaoLabel.accessibilityValue = "dê uma nota de 1 a 5 estrelas"
+        culturaLabel.isAccessibilityElement = true
+        culturaLabel.accessibilityValue = "dê uma nota de 1 a 5 estrelas"
+        renumeracaoLabel.isAccessibilityElement = true
+        renumeracaoLabel.accessibilityValue = "dê uma nota de 1 a 5 estrelas"
+        oportunidadeLabel.isAccessibilityElement = true
+        oportunidadeLabel.accessibilityValue = "dê uma nota de 1 a 5 estrelas"
+        
     }
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {

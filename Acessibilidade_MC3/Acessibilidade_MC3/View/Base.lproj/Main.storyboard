@@ -1746,6 +1746,7 @@
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="253" text="Vantagens" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="70a-a4-JNC">
                                                             <rect key="frame" x="20" y="186.5" width="334" height="18"/>
+                                                            <accessibility key="accessibilityConfiguration" label="Vantagens"/>
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                             <color key="textColor" red="0.53333333329999999" green="0.56078431370000004" blue="0.58823529409999997" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -1758,6 +1759,7 @@
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="255" text="Desvantagens" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OgC-GV-beT">
                                                             <rect key="frame" x="20" y="253" width="334" height="18"/>
+                                                            <accessibility key="accessibilityConfiguration" label="Desvantagens"/>
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                             <color key="textColor" red="0.53333333329999999" green="0.56078431370000004" blue="0.58823529409999997" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -1770,6 +1772,7 @@
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Sugestões" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Bp-1M-p9b">
                                                             <rect key="frame" x="20" y="319.5" width="334" height="18"/>
+                                                            <accessibility key="accessibilityConfiguration" label="Sugestões"/>
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                             <color key="textColor" red="0.53333333329999999" green="0.56078431370000004" blue="0.58823529409999997" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -1804,6 +1807,9 @@
                                                         </label>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <accessibility key="accessibilityConfiguration">
+                                                        <accessibilityTraits key="traits" notEnabled="YES"/>
+                                                    </accessibility>
                                                     <constraints>
                                                         <constraint firstItem="FuD-By-m7q" firstAttribute="leading" secondItem="zXe-1I-aWc" secondAttribute="trailing" constant="5" id="0ha-jA-P0A"/>
                                                         <constraint firstItem="zXe-1I-aWc" firstAttribute="leading" secondItem="5Tz-nQ-l09" secondAttribute="trailing" id="26h-Ms-bdU"/>
@@ -1923,12 +1929,16 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <accessibility key="accessibilityConfiguration">
+                                            <accessibilityTraits key="traits" notEnabled="YES"/>
+                                        </accessibility>
                                         <connections>
                                             <outlet property="barraProgressoView" destination="Psu-T3-fgN" id="A4D-ca-LtD"/>
                                             <outlet property="cardView" destination="Lot-lt-hiw" id="U1D-9V-3C6"/>
                                             <outlet property="cargoLabel" destination="KVU-r5-hnP" id="ZWE-8B-KL2"/>
                                             <outlet property="dataLabel" destination="hyK-EJ-kCt" id="pBY-TL-HCQ"/>
                                             <outlet property="desvantagensLabel" destination="Sr6-R3-HlJ" id="cN0-ey-8tn"/>
+                                            <outlet property="desvantagensTituloLabel" destination="OgC-GV-beT" id="kb0-dd-iUb"/>
                                             <outlet property="notaLabel" destination="5Tz-nQ-l09" id="uEV-UN-u72"/>
                                             <outlet property="primeiraImagem" destination="l2g-1X-DLI" id="zgC-Nc-8uF"/>
                                             <outlet property="primeiraView" destination="cRd-ZJ-bEo" id="bFw-KQ-HMS"/>
@@ -1946,6 +1956,7 @@
                                             <outlet property="terceiraView" destination="UQC-Yv-CqC" id="VXq-vj-U8A"/>
                                             <outlet property="tituloLabel" destination="lBd-7W-AZx" id="VVR-0o-ms7"/>
                                             <outlet property="vantagensLabel" destination="ayE-HF-Nml" id="Rxw-ug-WaR"/>
+                                            <outlet property="vantagensTituloLabel" destination="70a-a4-JNC" id="hF3-GV-Cxz"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -1968,6 +1979,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="avaliarEmpresaButton" destination="dzf-tS-Skb" id="wpK-me-A7f"/>
                         <outlet property="detalhesTableView" destination="8DH-JH-IPG" id="nW7-Zv-64R"/>
                     </connections>
                 </viewController>

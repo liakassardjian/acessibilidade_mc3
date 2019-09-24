@@ -61,9 +61,6 @@ class NovaEmpresaTableViewController: UITableViewController {
         tableView.tableFooterView = UIView()
     }
     
-
-    
-
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerView = UIView()
         
@@ -75,8 +72,6 @@ class NovaEmpresaTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 30
     }
-    
-    
     
     override func viewWillDisappear(_ animated: Bool) {
         let nome = recuperaTextoTextField(textField: nomeTextField)

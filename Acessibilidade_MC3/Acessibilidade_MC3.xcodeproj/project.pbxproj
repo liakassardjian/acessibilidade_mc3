@@ -163,6 +163,7 @@
 		E4EC31552314279D00613EA2 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				E4F330EA2315C34D006106E2 /* EmpresasController.swift */,
 				E4F330E82315C311006106E2 /* EmpresasViewController.swift */,
 				E4E9C3A82318AB2F004963D4 /* DetalhesEmpresaViewController.swift */,
 				E4E9C3AA2318AB6C004963D4 /* DetalhesEmpresaController.swift */,
@@ -180,7 +181,6 @@
 		E4EDBF442314271F002936C7 = {
 			isa = PBXGroup;
 			children = (
-				E4F330EA2315C34D006106E2 /* EmpresasController.swift */,
 				E4EDBF4F2314271F002936C7 /* Acessibilidade_MC3 */,
 				E4EDBF6723142721002936C7 /* Acessibilidade_MC3Tests */,
 				E4EDBF7223142721002936C7 /* Acessibilidade_MC3UITests */,

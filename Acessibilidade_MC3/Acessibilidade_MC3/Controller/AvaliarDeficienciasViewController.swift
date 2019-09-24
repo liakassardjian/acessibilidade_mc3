@@ -12,6 +12,8 @@ class AvaliarDeficienciasViewController: UIViewController {
     
     var avaliacao: Avaliacao?
     var empresa: Empresa?
+    var acessibilidadesImages: [UIImageView] = []
+    var acessibilidadesTextos: [String] = []
     
     var acessibilidadeFisica: Bool = false
     @IBOutlet weak var siaImageView: UIImageView!
@@ -72,6 +74,13 @@ class AvaliarDeficienciasViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        acessibilidadesImages = [siaImageView, sidvImageView, sidaImageView, sdiImageView, spnImageView]
+        acessibilidadesTextos = ["pessoas com deficiência fisíca", "pessoas com deficiência visual","pessoas com deficiência auditiva","pessoas com deficiência intelectual","pessoas com nanismo"]
+        
+        for imageView in acessibilidadesTextos {
+            imageView.accessibilityValue = "\(acessibilidadesTextos) não disponível"
+        }
+        
         siaImageView.alpha = 0.5
         sidvImageView.alpha = 0.5
         sidaImageView.alpha = 0.5
@@ -84,11 +93,13 @@ class AvaliarDeficienciasViewController: UIViewController {
             imageView.image = imagemTrue
             imageView.alpha = 1
             imageView.isAccessibilityElement = true
+            imageView.accessibilityValue = "disponivel"
             
             return true
         } else {
             imageView.image = imagemFalse
             imageView.alpha = 0.5
+            imageView.accessibilityValue = "não disponível"
             return false
         }
     }

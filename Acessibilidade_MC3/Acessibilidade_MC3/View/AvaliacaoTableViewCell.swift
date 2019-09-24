@@ -37,7 +37,9 @@ class AvaliacaoTableViewCell: UITableViewCell {
     @IBOutlet weak var quartaImagem: UIImageView!
     @IBOutlet weak var quintaImagem: UIImageView!
     
+    @IBOutlet weak var vantagensTituloLabel: UILabel!
     @IBOutlet weak var vantagensLabel: UILabel!
+    @IBOutlet weak var desvantagensTituloLabel: UILabel!
     @IBOutlet weak var desvantagensLabel: UILabel!
     @IBOutlet weak var sugestoesLabel: UILabel!
     @IBOutlet weak var sugestoesTituloLabel: UILabel!

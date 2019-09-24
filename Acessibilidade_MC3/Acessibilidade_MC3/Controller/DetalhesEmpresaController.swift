@@ -87,11 +87,23 @@ class DetalhesEmpresaController: NSObject, UITableViewDelegate, UITableViewDataS
             if let avaliacoes = empresa?.avaliacoes {
                 let avaliacao = avaliacoes[indexPath.row]
                 cell.dataLabel.text = retornaDataString(data: avaliacao.data)
+                cell.dataLabel.isAccessibilityElement = true
+                if let dataLabelAvaliacao = cell.dataLabel.text {
+                    cell.dataLabel.accessibilityLabel = "Avaliação feita em \(dataLabelAvaliacao)"
+                }
                 cell.tituloLabel.text = avaliacao.titulo
+                cell.tituloLabel.isAccessibilityElement = true
                 cell.notaLabel.text = String(format: "%.1f", avaliacao.nota)
+                cell.notaLabel.isAccessibilityElement = true
+                cell.notaLabel.accessibilityValue = "de 5"
                 cell.vantagensLabel.text = avaliacao.vantagens
+                cell.vantagensLabel.isAccessibilityElement = true
                 cell.desvantagensLabel.text = avaliacao.desvantagens
+                cell.desvantagensLabel.isAccessibilityElement = true
                 cell.barraProgressoView.valorProgresso = CGFloat(avaliacao.nota / 5)
+                cell.vantagensTituloLabel.isAccessibilityElement = true
+                cell.desvantagensTituloLabel.isAccessibilityElement = true
+                cell.sugestoesTituloLabel.isAccessibilityElement = true
                 
                 if avaliacao.cargo == .exFunc {
                     cell.cargoLabel.text = "Funcionário até \(avaliacao.ultimoAno)"
@@ -99,22 +111,32 @@ class DetalhesEmpresaController: NSObject, UITableViewDelegate, UITableViewDataS
                     cell.cargoLabel.text = avaliacao.cargo.rawValue
                 }
                 cell.cargoLabel.text = "\(cell.cargoLabel.text ?? "") - \(avaliacao.posicao)"
+                cell.cargoLabel.isAccessibilityElement = true
                 
                 if avaliacao.recomendacao {
                     cell.recomendaLabel.text = "Recomenda esta empresa"
                     cell.recomendaImagem.image = UIImage(named: "RecomendaTrue")
+                    cell.recomendaLabel.isAccessibilityElement = true
                 } else {
                     cell.recomendaLabel.text = "Não recomenda esta empresa"
                     cell.recomendaImagem.image = UIImage(named: "NaoRecomendaTrue")
+                    cell.recomendaLabel.isAccessibilityElement = true
                 }
                 
                 if let sugestoes = avaliacao.sugestoes {
                     cell.sugestoesLabel.text = sugestoes
                     cell.sugestoesTituloLabel.isHidden = false
                     cell.sugestoesLabel.isHidden = false
+                    cell.sugestoesTituloLabel.isAccessibilityElement = true
+                    cell.sugestoesLabel.isAccessibilityElement = true
+                    
                 } else {
                     cell.sugestoesTituloLabel.isHidden = true
                     cell.sugestoesLabel.isHidden = true
+                    cell.sugestoesTituloLabel.isAccessibilityElement = true
+                    cell.sugestoesTituloLabel.accessibilityValue = ""
+                    cell.sugestoesLabel.isAccessibilityElement = true
+                    cell.sugestoesLabel.accessibilityValue = ""
                 }
                 
                 guard let imagens = cell.imagensAcessibilidade else {
