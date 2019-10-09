@@ -28,7 +28,6 @@ class EmpresasViewController: UIViewController {
         
         empresaTableView.delegate = empresasDataSourceDelegate
         empresaTableView.dataSource = empresasDataSourceDelegate
-        empresaTableView.rowHeight = 217
         
         self.searchController.obscuresBackgroundDuringPresentation = false
         self.searchController.searchBar.placeholder = "Busca"
@@ -69,6 +68,7 @@ class EmpresasViewController: UIViewController {
     
     @IBAction func adicionaEmpresa(_ sender: UIStoryboardSegue) {
         // método que permite o Exit da tela de adicionar empresas
+        empresaAdicionada = true
     }
     
     func getEmpresas() {

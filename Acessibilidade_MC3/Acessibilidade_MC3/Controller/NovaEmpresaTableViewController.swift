@@ -38,8 +38,6 @@ class NovaEmpresaTableViewController: UITableViewController {
         estadoPickerView.delegate = pickerViewDelegateDataSource
         estadoPickerView.dataSource = pickerViewDelegateDataSource
         
-        empresa = Empresa()
-        
         salvarButton.isEnabled = false
         
         tableView.tableFooterView = UIView()
@@ -66,6 +64,7 @@ class NovaEmpresaTableViewController: UITableViewController {
         
         let localizacao = "\(cidade), \(estado)"
         
+        empresa = Empresa()
         empresa?.nome = nome
         empresa?.localizacao = localizacao
         empresa?.cidade = cidade
@@ -79,10 +78,11 @@ class NovaEmpresaTableViewController: UITableViewController {
             empresa?.site = site
         }
         
-        if let empresasVC = empresasViewController, let empresa = empresa {
-            empresasVC.registraEmpresa(empresa: empresa)
-            empresasVC.getEmpresas()
-            empresasVC.empresaAdicionada = true
+        if let empresasVC = empresasViewController {
+            if let empresa = empresa {
+                empresasVC.registraEmpresa(empresa: empresa)
+                empresasVC.getEmpresas()
+            }
         }
     }
     
@@ -118,4 +118,5 @@ class NovaEmpresaTableViewController: UITableViewController {
         
         salvarButton.isEnabled = nomeValido && cidadeValida
     }
+    
 }
