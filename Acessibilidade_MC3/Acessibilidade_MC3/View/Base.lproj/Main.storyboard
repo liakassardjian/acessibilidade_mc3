@@ -13,11 +13,11 @@
             <objects>
                 <viewController id="Mw3-2I-Yv3" customClass="EmpresasViewController" customModule="Acessibilidade_MC3" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PJF-qW-Cwg">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="L9m-gF-ijD">
-                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <rect key="frame" x="0.0" y="140" width="414" height="722"/>
                                 <color key="backgroundColor" red="0.96862745098039216" green="0.97647058823529409" blue="0.9882352941176471" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="empresaCell" rowHeight="217" id="HIK-p5-GDn" customClass="EmpresaTableViewCell" customModule="Acessibilidade_MC3" customModuleProvider="target">
@@ -1009,7 +1009,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="8DH-JH-IPG">
-                                <rect key="frame" x="0.0" y="140" width="414" height="756"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1491,6 +1491,9 @@
                                                                     </variation>
                                                                     <variation key="heightClass=regular-widthClass=regular">
                                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                                        <mask key="constraints">
+                                                                            <exclude reference="JHM-P7-hRt"/>
+                                                                        </mask>
                                                                     </variation>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vdf-HI-0gt">
@@ -2157,10 +2160,18 @@
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
-                                                <constraint firstItem="Lot-lt-hiw" firstAttribute="top" secondItem="plu-qf-FLk" secondAttribute="topMargin" id="CR9-gY-wvd"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="Lot-lt-hiw" secondAttribute="trailing" id="XUV-Bm-ghb"/>
-                                                <constraint firstItem="Lot-lt-hiw" firstAttribute="leading" secondItem="plu-qf-FLk" secondAttribute="leadingMargin" id="YSs-9a-N5p"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="Lot-lt-hiw" secondAttribute="bottom" id="ril-Zx-LAI"/>
+                                                <constraint firstItem="Lot-lt-hiw" firstAttribute="top" secondItem="plu-qf-FLk" secondAttribute="topMargin" id="CR9-gY-wvd">
+                                                    <variation key="heightClass=regular-widthClass=regular" constant="8"/>
+                                                </constraint>
+                                                <constraint firstAttribute="trailingMargin" secondItem="Lot-lt-hiw" secondAttribute="trailing" id="XUV-Bm-ghb">
+                                                    <variation key="heightClass=regular-widthClass=regular" constant="8"/>
+                                                </constraint>
+                                                <constraint firstItem="Lot-lt-hiw" firstAttribute="leading" secondItem="plu-qf-FLk" secondAttribute="leadingMargin" id="YSs-9a-N5p">
+                                                    <variation key="heightClass=regular-widthClass=regular" constant="8"/>
+                                                </constraint>
+                                                <constraint firstAttribute="bottomMargin" secondItem="Lot-lt-hiw" secondAttribute="bottom" id="ril-Zx-LAI">
+                                                    <variation key="heightClass=regular-widthClass=regular" constant="8"/>
+                                                </constraint>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
