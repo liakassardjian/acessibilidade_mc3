@@ -14,6 +14,7 @@ class AvaliarNotasViewController: UITableViewController {
     var empresa: Empresa?
     
     @IBOutlet var integracaoBotoes: [UIButton]!
+    @IBOutlet var integracaoImagens: [UIImageView]!
     var notaIntegracao: Float = 0
     
     @IBOutlet var culturaBotoes: [UIButton]!
@@ -28,6 +29,11 @@ class AvaliarNotasViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.tableFooterView = UIView()
+        
+        integracaoBotoes.sort(by: { $0.tag < $1.tag })
+        integracaoImagens.sort(by: { $0.tag < $1.tag })
+        
+        
     }
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -43,7 +49,7 @@ class AvaliarNotasViewController: UITableViewController {
     }
     
     @IBAction func tocaIntegracao(_ sender: UIButton) {
-        notaIntegracao = apertaBotao(conjuntoDeBotoes: integracaoBotoes, sender: sender)
+        notaIntegracao = apertaBotao(botoes: integracaoBotoes, imagens: integracaoImagens, sender: sender)
     }
     
     @IBAction func tocaCultura(_ sender: UIButton) {
@@ -64,6 +70,17 @@ class AvaliarNotasViewController: UITableViewController {
                 button.setImage(UIImage(named: "GoldenStar"), for: .normal)
             } else {
                 button.setImage(UIImage(named: "Star"), for: .normal)
+            }
+        }
+        return Float(sender.tag)
+    }
+    
+    func apertaBotao(botoes: [UIButton], imagens: [UIImageView], sender: UIButton) -> Float {
+        for i in 0..<botoes.count {
+            if botoes[i].tag <= sender.tag {
+                imagens[i].image = UIImage(named: "GoldenStar")
+            } else {
+                imagens[i].image = UIImage(named: "Star")
             }
         }
         return Float(sender.tag)
