@@ -18,12 +18,15 @@ class AvaliarNotasViewController: UITableViewController {
     var notaIntegracao: Float = 0
     
     @IBOutlet var culturaBotoes: [UIButton]!
+    @IBOutlet var culturaImagens: [UIImageView]!
     var notaCultura: Float = 0
     
     @IBOutlet var remuneracaoBotoes: [UIButton]!
+    @IBOutlet var remuneracaoImagens: [UIImageView]!
     var notaRemuneracao: Float = 0
     
     @IBOutlet var oportunidadeBotoes: [UIButton]!
+    @IBOutlet var oportunidadeImagens: [UIImageView]!
     var notaOportunidade: Float = 0
     
     override func viewDidLoad() {
@@ -33,7 +36,14 @@ class AvaliarNotasViewController: UITableViewController {
         integracaoBotoes.sort(by: { $0.tag < $1.tag })
         integracaoImagens.sort(by: { $0.tag < $1.tag })
         
+        culturaBotoes.sort(by: { $0.tag < $1.tag })
+        culturaImagens.sort(by: { $0.tag < $1.tag })
         
+        remuneracaoBotoes.sort(by: { $0.tag < $1.tag })
+        remuneracaoImagens.sort(by: { $0.tag < $1.tag })
+        
+        oportunidadeBotoes.sort(by: { $0.tag < $1.tag })
+        oportunidadeImagens.sort(by: { $0.tag < $1.tag })
     }
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -53,26 +63,15 @@ class AvaliarNotasViewController: UITableViewController {
     }
     
     @IBAction func tocaCultura(_ sender: UIButton) {
-        notaCultura = apertaBotao(conjuntoDeBotoes: culturaBotoes, sender: sender)
+        notaCultura = apertaBotao(botoes: culturaBotoes, imagens: culturaImagens, sender: sender)
     }
     
     @IBAction func tocaRemuneracao(_ sender: UIButton) {
-        notaRemuneracao = apertaBotao(conjuntoDeBotoes: remuneracaoBotoes, sender: sender)
+        notaRemuneracao = apertaBotao(botoes: remuneracaoBotoes, imagens: remuneracaoImagens, sender: sender)
     }
     
     @IBAction func tocaOportunidade(_ sender: UIButton) {
-        notaOportunidade = apertaBotao(conjuntoDeBotoes: oportunidadeBotoes, sender: sender)
-    }
-    
-    func apertaBotao(conjuntoDeBotoes: [UIButton], sender: UIButton) -> Float {
-        for button in conjuntoDeBotoes {
-            if button.tag <= sender.tag {
-                button.setImage(UIImage(named: "GoldenStar"), for: .normal)
-            } else {
-                button.setImage(UIImage(named: "Star"), for: .normal)
-            }
-        }
-        return Float(sender.tag)
+        notaOportunidade = apertaBotao(botoes: oportunidadeBotoes, imagens: oportunidadeImagens, sender: sender)
     }
     
     func apertaBotao(botoes: [UIButton], imagens: [UIImageView], sender: UIButton) -> Float {
