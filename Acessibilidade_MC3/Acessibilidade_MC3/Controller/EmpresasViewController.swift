@@ -68,6 +68,7 @@ class EmpresasViewController: UIViewController {
     
     @IBAction func adicionaEmpresa(_ sender: UIStoryboardSegue) {
         // método que permite o Exit da tela de adicionar empresas
+        empresaAdicionada = true
     }
     
     func getEmpresas() {
