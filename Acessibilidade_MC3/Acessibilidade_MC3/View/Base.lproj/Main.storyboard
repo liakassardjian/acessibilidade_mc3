@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="L9m-gF-ijD">
-                                <rect key="frame" x="0.0" y="140" width="414" height="722"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <color key="backgroundColor" red="0.96862745098039216" green="0.97647058823529409" blue="0.9882352941176471" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="empresaCell" rowHeight="217" id="HIK-p5-GDn" customClass="EmpresaTableViewCell" customModule="Acessibilidade_MC3" customModuleProvider="target">
@@ -769,15 +769,20 @@
                                             <outletCollection property="acessibilidades" destination="ecI-Dr-Caj" collectionClass="NSMutableArray" id="lgA-AC-BSm"/>
                                             <outletCollection property="acessibilidades" destination="Jwk-h0-xoW" collectionClass="NSMutableArray" id="h1Q-kk-bKF"/>
                                             <outletCollection property="acessibilidades" destination="goE-r7-9N7" collectionClass="NSMutableArray" id="uJI-xm-cM9"/>
-                                            <segue destination="2yy-XE-S9v" kind="show" id="HuU-SA-k93"/>
+                                            <segue destination="2yy-XE-S9v" kind="show" identifier="detalhesEmpresa" id="HuU-SA-k93"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="jwV-mc-2ZT">
+                                <rect key="frame" x="197" y="438" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="0.96862745100000003" green="0.97647058819999999" blue="0.98823529409999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
+                            <constraint firstItem="jwV-mc-2ZT" firstAttribute="centerY" secondItem="PJF-qW-Cwg" secondAttribute="centerY" id="11t-TY-z61"/>
                             <constraint firstItem="L9m-gF-ijD" firstAttribute="trailing" secondItem="0Fa-Db-4ee" secondAttribute="trailing" id="FZv-N7-qNy"/>
+                            <constraint firstItem="jwV-mc-2ZT" firstAttribute="centerX" secondItem="PJF-qW-Cwg" secondAttribute="centerX" id="Jx3-W2-ydO"/>
                             <constraint firstItem="L9m-gF-ijD" firstAttribute="bottom" secondItem="0Fa-Db-4ee" secondAttribute="bottom" id="MmF-d0-5iO"/>
                             <constraint firstItem="L9m-gF-ijD" firstAttribute="top" secondItem="0Fa-Db-4ee" secondAttribute="top" id="QYe-jP-CiR"/>
                             <constraint firstItem="L9m-gF-ijD" firstAttribute="leading" secondItem="0Fa-Db-4ee" secondAttribute="leading" id="fzE-zz-tj8"/>
@@ -792,6 +797,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="activ" destination="jwV-mc-2ZT" id="PUp-QP-e1X"/>
                         <outlet property="empresaTableView" destination="L9m-gF-ijD" id="EOH-3F-BTA"/>
                     </connections>
                 </viewController>

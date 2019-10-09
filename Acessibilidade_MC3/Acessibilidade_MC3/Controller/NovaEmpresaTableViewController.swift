@@ -82,6 +82,7 @@ class NovaEmpresaTableViewController: UITableViewController {
         if let empresasVC = empresasViewController, let empresa = empresa {
             empresasVC.registraEmpresa(empresa: empresa)
             empresasVC.getEmpresas()
+            empresasVC.empresaAdicionada = true
         }
     }
     
