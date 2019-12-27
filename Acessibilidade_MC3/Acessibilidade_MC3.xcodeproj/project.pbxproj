@@ -133,12 +133,12 @@
 			children = (
 				E4EDBF572314271F002936C7 /* Acessibilidade_MC3.xcdatamodeld */,
 				E4FA82A8231D7E2300BD6BFA /* Empresa.swift */,
+				E4FA82AA231D7E5300BD6BFA /* Avaliacao.swift */,
 				6D8B1326231D7E4F00F7074D /* RequestConstants.swift */,
 				6D8B1328231D860B00F7074D /* EmpresaAcessivelCodable.swift */,
 				6D8B132A231DA9A300F7074D /* EmpresaRequest.swift */,
 				6D8B132E231DAAE300F7074D /* AvaliacaoRequest.swift */,
 				6D8B132C231DA9BA00F7074D /* UserRequest.swift */,
-				E4FA82AA231D7E5300BD6BFA /* Avaliacao.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";

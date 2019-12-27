@@ -13,8 +13,8 @@ import Foundation
  
  As empresas são caracterizadas por nome, localização, telefone e website; esses elementos são atribuídos a uma empresa na sua inicialização. Uma empresa recebe uma nota, uma recomendação e uma classificação em acessibilidade; esses valores são atualizados a cada avaliação atribuída à empresa.
  */
-
 class Empresa {
+    
     /**
         Nome da empresa.
      

@@ -8,8 +8,18 @@
 
 import Foundation
 
+/**
+Classe que representa uma avaliação dentro do sistema.
+
+As avaliações são caracterizadas por data de publicação, título, vantagens, desvantagens, sugestões, posição do usuário e se o cargo é atual ou não, nota dada à empresa, recomendação, classificação de acessibilidade, último ano e tempo de serviço do usuário, notas em integração com a equipe, cultura e valores, remuneração e benefícios e oportunidade de crescimento.
+*/
 class Avaliacao {
     
+    /**
+     Inicializador da avaliação.
+     
+     Permite inicializar sem parâmetro nenhum; os valores são inseridos conforme o usuário preenche o formulário de avaliação.
+     */
     init() {
         self.data = Date()
         self.titulo = ""
