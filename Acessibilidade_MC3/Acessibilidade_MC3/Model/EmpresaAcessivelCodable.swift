@@ -272,7 +272,7 @@ class InternEmpresaAcessivel: NSObject {
     /**
     Função estática que retorna todas as avaliações de um usuário.
     - parameters:
-       - empresaId: Identificador do usuário cujas avaliações deseja-se buscar.
+       - uuid: Identificador do usuário cujas avaliações deseja-se buscar.
     - returns:
        Todas as avaliações publicadas pelo usuário.
     - throws:
