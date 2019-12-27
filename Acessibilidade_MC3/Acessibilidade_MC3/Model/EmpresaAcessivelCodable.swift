@@ -236,9 +236,20 @@ struct AvaliacaoCodable: Codable {
     var nanismo: Bool?
 }
 
+/**
+ Classe com funções estáticas para contato com o servidor.
+ */
 class InternEmpresaAcessivel: NSObject {
     
-    //retorna todas as empresas
+    /**
+     Função estática que retorna todas as avaliações de uma empresa.
+     - parameters:
+        - empresaId: Identificador da empresa cujas avaliações deseja-se buscar.
+     - returns:
+        Todas as avaliações atribuídas à empresa.
+     - throws:
+        Imprime descrição de erro, caso haja.
+     */
     static func getAvaliacoesEmpresa(empresaId: String) -> [AvaliacaoCodable] {
         
         //varias avaliacoes de um id especifico de empresa
@@ -258,6 +269,15 @@ class InternEmpresaAcessivel: NSObject {
         return avaliacoes
     }
     
+    /**
+    Função estática que retorna todas as avaliações de um usuário.
+    - parameters:
+       - empresaId: Identificador do usuário cujas avaliações deseja-se buscar.
+    - returns:
+       Todas as avaliações publicadas pelo usuário.
+    - throws:
+       Imprime descrição de erro, caso haja.
+    */
     static func getAvaliacoesUsuario(uuid: String) -> [AvaliacaoCodable] {
         
         //varias avaliacoes de um id especifico de usuario
