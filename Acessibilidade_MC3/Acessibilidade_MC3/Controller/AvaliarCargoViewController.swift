@@ -13,7 +13,7 @@ import UIKit
  
  Nesta tela, o usuário descreve sua posição dentro da empresa, se é um funcionário atual ou ex-funcionário (neste último caso, indica seu último ano na empresa) e por quanto tempo trabalhou na empresa.
  - - -
- A classe herda de NSObject, UITableViewDataSource e UITableViewDelegate, sendo, assim, Delegate e Data Source de uma determinada Table View.
+ A classe herda de UITableViewController, sendo, assim, Delegate e Data Source de uma determinada Table View.
 
  */
 class AvaliarCargoViewController: UITableViewController {
