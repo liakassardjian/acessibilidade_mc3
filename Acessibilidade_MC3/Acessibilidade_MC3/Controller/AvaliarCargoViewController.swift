@@ -175,7 +175,7 @@ class AvaliarCargoViewController: UITableViewController {
      Função privada que retorna o texto contido em um campo de texto.
      
      - parameters:
-        - textField: O UITextField do qual deseja-se obter o texto.
+        - textField: O `UITextField` do qual deseja-se obter o texto.
      
      - returns: Uma string contendo o texto inserido no campo de texto. Se o texto for vazio ou não for possível obtê-lo, a função retorna uma string vazia.
      */
