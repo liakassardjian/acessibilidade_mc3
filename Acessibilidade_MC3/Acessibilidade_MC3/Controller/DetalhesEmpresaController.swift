@@ -9,9 +9,23 @@
 import Foundation
 import UIKit
 
+/**
+ Classe que controla os detalhes que serão exibidos da empresa previamente selecionada.
+ 
+ A classe herda de NSObject, UITableViewDataSource e UITableViewDelegate, sendo, assim, Delegate e Data Source de uma determinada Table View.
+ */
 class DetalhesEmpresaController: NSObject, UITableViewDelegate, UITableViewDataSource {
     
+    /**
+     Títulos das seções da Table View exibidas na tela.
+     */
     let titulos = ["Informações da empresa", "Avaliações"]
+    
+    /**
+     Empresa cujos detalhes estão sendo exibidos na tela.
+     
+     Recebe um valor de uma instância da classe DetalhesEmpresaViewController.
+     */
     var empresa: Empresa?
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -148,6 +162,14 @@ class DetalhesEmpresaController: NSObject, UITableViewDelegate, UITableViewDataS
         return 60
     }
     
+    /**
+     Função privada que converte um objeto Date em uma data por extenso do tipo string.
+     
+     - parameters:
+        - data: Objeto do tipo Date do qual serão retirados os valores para composição da string.
+     
+     - returns: Uma string correspondente à data por extenso, no modelo "31 de janeiro de 2019".
+     */
     private func retornaDataString(data: Date) -> String {
         let dia = Calendar.current.component(.day, from: data)
         let mes = Calendar.current.component(.month, from: data)
@@ -158,6 +180,14 @@ class DetalhesEmpresaController: NSObject, UITableViewDelegate, UITableViewDataS
         return "\(dia) de \(meses[mes-1]) de \(ano)"
     }
     
+    /**
+     Função privada que exibe os símbolos de acessibilidade de acordo com a classificação da empresa.
+     
+     - parameters:
+        - imagens: Lista de `UIImageView`, que são as views de imagens pertencentes às células de uma Table View.
+        - acessibilidade: Lista de casos do enumerador `Acessibilidade` que são representados pelas imagens também passadas como parâmetro para esta função.
+     
+     */
     private func exibeSimbolosAcessibilidade(imagens: [UIImageView], acessibilidade: [Acessibilidade]) {
         var contador: Int = 0
         
