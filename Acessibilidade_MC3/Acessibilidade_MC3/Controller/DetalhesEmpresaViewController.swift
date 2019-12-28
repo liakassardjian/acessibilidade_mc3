@@ -8,14 +8,42 @@
 
 import UIKit
 
+/**
+ Classe que controla a tela que exibe os detalhes de uma empresa.
+ 
+ A classe herda de UIViewController.
+ */
 class DetalhesEmpresaViewController: UIViewController {
 
+    /**
+     Conector da Table View que exibe os dados da empresa.
+     */
     @IBOutlet weak var detalhesTableView: UITableView!
     
+    /**
+     Delegate e Data Source da empresa.
+     
+     Representado por DetalhesEmpresaController opcional.
+     */
     var detalhesDataSourceDelegate: DetalhesEmpresaController?
     
+    /**
+     Empresa cujos detalhes são exibidos na tela.
+     
+     Recebe uma empresa de EmpresasViewController quando esta tela é chamada.
+     */
     var empresa: Empresa?
+    
+    /**
+     Corresponde a uma nova avaliação adicionada pelo usuário.
+     */
     var avaliacao: Avaliacao?
+    
+    /**
+     Usuário que está utilizando o aplicativo no momento.
+     
+     É representado por uma string opcional.
+     */
     var usuario: String?
     
     override func viewDidLoad() {
@@ -35,6 +63,14 @@ class DetalhesEmpresaViewController: UIViewController {
         
     }
 
+    /**
+    Ação executada ao salvar uma nova avaliação no sistema.
+    
+    A função é conectada com um botão na tela de adicionar uma avaliação a fim de permitir o Exit daquela tela para esta.
+    
+    - parameters:
+       - sender: A transição executada ao sair da tela.
+    */
     @IBAction func adicionaAvaliacao(_ sender: UIStoryboardSegue) {
         if sender.source is AvaliarProsViewController {
             if let senderAdd = sender.source as? AvaliarProsViewController {
@@ -55,6 +91,12 @@ class DetalhesEmpresaViewController: UIViewController {
         detalhesTableView.reloadData()
     }
     
+    /**
+     Funcão que faz o registro no servidor de uma avaliação enviada por um usuário.
+     
+     - parameters:
+        - avaliacao: A nova avaliação enviada pelo usuário.
+     */
     func registraAvaliacao(avaliacao: Avaliacao) {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
@@ -93,6 +135,14 @@ class DetalhesEmpresaViewController: UIViewController {
         }
     }
     
+    /**
+     Função que converte uma descrição de tempo de serviço, de acordo com o enumerador `TempoServico`, em um double, a fim de que seja enviado ao servidor.
+     
+     - parameters:
+        - tempoServico: A string de descrição do tempo de serviço, conforme casos do enumerador `TempoServico`.
+     
+     - returns: Um double, utilizado para correspondência com o servidor para descrição do tempo de serviço, conforme valores brutos dos casos do enumerador `TempoServico`.
+     */
     func converteTempoServico(tempoServico: String) -> Double {
         switch tempoServico {
         case TempoServico.menos3.descricao:
