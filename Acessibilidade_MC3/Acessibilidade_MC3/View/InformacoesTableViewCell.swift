@@ -10,6 +10,8 @@ import UIKit
 
 /**
  Representação visual da célula que contém todas as informações de uma empresa.
+ 
+ A classe herda de `UITableViewCell`.
  */
 class InformacoesTableViewCell: UITableViewCell {
     
