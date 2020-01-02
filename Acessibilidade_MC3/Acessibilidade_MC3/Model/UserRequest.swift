@@ -8,9 +8,17 @@
 
 import Foundation
 
+/**
+ Classe que controla a requisição dos perfis dos usuários ao servidor.
+ */
 class UsuarioRequest {
     
-    //criar usuario
+    /**
+    Função que cria um usuário no servidor.
+    - parameters:
+        - uuid: Identificador do usuário que está sendo criado.
+        - completion: Closure que é chamada com um vetor opcional de strings como Any e um Error opcional.
+    */
     func usuarioCreate(uuid: String, completion: @escaping ([String: Any]?, Error?) -> Void) {
         let group = DispatchGroup()
         group.enter()

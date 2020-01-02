@@ -8,8 +8,18 @@
 
 import Foundation
 
+/**
+Classe que representa uma avaliação dentro do sistema.
+
+As avaliações são caracterizadas por data de publicação, título, vantagens, desvantagens, sugestões, posição do usuário e se o cargo é atual ou não, nota dada à empresa, recomendação, classificação de acessibilidade, último ano e tempo de serviço do usuário, notas em integração com a equipe, cultura e valores, remuneração e benefícios e oportunidade de crescimento.
+*/
 class Avaliacao {
     
+    /**
+     Inicializador da avaliação.
+     
+     Permite inicializar sem parâmetro nenhum; os valores são inseridos conforme o usuário preenche o formulário de avaliação.
+     */
     init() {
         self.data = Date()
         self.titulo = ""
@@ -28,21 +38,116 @@ class Avaliacao {
         self.oportunidade = 0
     }
     
+    /**
+       Data de publicação da avaliação.
+    
+       É representado por um Date.
+    */
     var data: Date
+    
+    /**
+       Título dado à avaliação.
+    
+       É representado por uma string.
+    */
     var titulo: String
+    
+    /**
+       Vantagens da empresa, descritas pelo usuário na avaliação.
+    
+       São representadas por uma string.
+    */
     var vantagens: String
+    
+    /**
+       Desvantagens da empresa, descritas pelo usuário na avaliação.
+    
+       São representadas por uma string.
+    */
     var desvantagens: String
+    
+    /**
+       Sugestões para a empresa, podem ser descritas pelo usuário na avaliação.
+    
+       São representadas por uma string, mas são opcionais.
+    */
     var sugestoes: String?
+    
+    /**
+       Indica se avaliação foi feita por um funcionário atual ou ex-funcionário da empresa.
+       
+       É representado por um caso do enumerador Cargo.
+    */
     var cargo: Cargo
+    
+    /**
+       Média das notas dadas pelo usuário à empresa.
+    
+       É  representada por um float.
+    */
     var nota: Float
+    
+    /**
+       Recomendação da empresa pelo usuário.
+    
+       É  representada por um bool.
+    */
     var recomendacao: Bool
+    
+    /**
+       Classificação de acessibilidade da empresa.
+    
+       É  representada por um vetor de casos do enumerador Acessibilidade.
+    */
     var acessibilidade: [Acessibilidade]
+    
+    /**
+       Último ano em que o usuário trabalhou na empresa.
+    
+       É  representado por um int.
+    */
     var ultimoAno: Int
+    
+    /**
+       Tempo de serviço do usuário na empresa.
+    
+       É  representado por uma string.
+    */
     var tempoServico: String
+    
+    /**
+       Posição ocupada pelo usuário na empresa.
+    
+       É  representada por uma string.
+    */
     var posicao: String
+    
+    /**
+       Nota dada pelo usuário para integração com a equipe.
+    
+       É  representada por um int.
+    */
     var integracao: Int
+    
+    /**
+       Nota dada pelo usuário para cultura e valores.
+    
+       É  representada por um int.
+    */
     var cultura: Int
+    
+    /**
+       Nota dada pelo usuário para remuneração.
+    
+       É  representada por um int.
+    */
     var remuneracao: Int
+    
+    /**
+       Nota dada pelo usuário para oportunidade de crescimento.
+    
+       É  representada por um int.
+    */
     var oportunidade: Int
     
 }
