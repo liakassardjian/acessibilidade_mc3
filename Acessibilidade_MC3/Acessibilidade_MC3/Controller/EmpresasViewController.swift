@@ -136,15 +136,16 @@ class EmpresasViewController: UIViewController {
                         let porcentagem = empresa.mediaRecomendacao,
                         let cidade = empresa.cidade,
                         let estado = empresa.estado,
-                        let id = empresa._id {
+                        let id = empresa._id,
+                        let status = empresa.estadoPendenteEmpresa {
                         
-                        // TODO: o valor de status precusa ser alterado quando houver uma variável de estado em EmpresaCodable
                             let novaEmpresa = Empresa(nome: nome,
                                                       site: empresa.site,
                                                       telefone: empresa.telefone,
                                                       cidade: cidade,
                                                       estado: estado,
-                                                      id: id, status: 0)
+                                                      id: id,
+                                                      status: status)
                         
                             novaEmpresa.nota = Float(media)
                             novaEmpresa.recomendacao = Int(porcentagem)
@@ -326,8 +327,9 @@ class EmpresasViewController: UIViewController {
      - parameters:
         - uuid: String que representa o identificador de um usuário no sistema.
      */
+    // TODO: inserir instância de UsuarioCodable
     func registraUsuario(uuid: String) {
-        UsuarioRequest().usuarioCreate(uuid: uuid, completion: { (response, error) in
+        UsuarioRequest().usuarioCreate(uuid: uuid, usuario: UsuarioCodable(), completion: { (response, error) in
             if response != nil {
                 self.usuarioUUID.set(uuid, forKey: "UserId")
                 self.usuario = UserDefaults.standard.string(forKey: "UserId")
@@ -344,7 +346,6 @@ class EmpresasViewController: UIViewController {
      - parameters:
         - empresa: A empresa que está sendo criada.
      */
-    // TODO: essa função precisa ser alterada quando EmpresaCodable tiver uma variável que represente estado de curadoria
     func registraEmpresa(empresa: Empresa) {
         let empresaCodable = EmpresaCodable(_id: nil,
                                             nome: empresa.nome,
@@ -354,7 +355,7 @@ class EmpresasViewController: UIViewController {
                                             mediaRecomendacao: 0,
                                             cidade: empresa.cidade,
                                             estado: empresa.estado,
-                                            avaliacao: [])
+                                            estadoPendenteEmpresa: empresa.status.rawValue, avaliacao: [])
         
         if let usuario = usuario {
             EmpresaRequest().empresaCreate(uuid: usuario,

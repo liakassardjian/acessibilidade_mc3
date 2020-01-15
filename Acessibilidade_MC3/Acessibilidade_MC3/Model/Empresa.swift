@@ -111,7 +111,7 @@ class Empresa {
             - id: Identificador da empresa no sistema. **Não** pode ser vazio.
             - status: Inteiro que representa o estado de curadoria de uma emoresa inserida no sistema. **Não** pode ser vazio.
      */
-    init(nome: String, site: String?, telefone: String?, cidade: String, estado: String, id: String, status: Int) {
+    init(nome: String, site: String?, telefone: String?, cidade: String, estado: String, id: String, status: Double) {
         self.nome = nome
         self.localizacao = "\(cidade), \(estado)"
         self.site = site

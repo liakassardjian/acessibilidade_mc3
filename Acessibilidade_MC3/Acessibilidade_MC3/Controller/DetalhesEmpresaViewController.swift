@@ -97,7 +97,6 @@ class DetalhesEmpresaViewController: UIViewController {
      - parameters:
         - avaliacao: A nova avaliação enviada pelo usuário.
      */
-    // TODO: essa função precisa ser alterada quando AvaliacaoCodable tiver uma variável que represente estado de curadoria
     func registraAvaliacao(avaliacao: Avaliacao) {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
@@ -121,7 +120,8 @@ class DetalhesEmpresaViewController: UIViewController {
                                                 deficienciaVisual: avaliacao.acessibilidade.contains(.deficienciaVisual),
                                                 deficienciaAuditiva: avaliacao.acessibilidade.contains(.deficienciaAuditiva),
                                                 deficienciaIntelectual: avaliacao.acessibilidade.contains(.deficienciaIntelectual),
-                                                nanismo: avaliacao.acessibilidade.contains(.nanismo))
+                                                nanismo: avaliacao.acessibilidade.contains(.nanismo),
+                                                estadoPendenteAvaliacao: Estado.pendente.rawValue)
         
         if let usuario = usuario {
             AvaliacaoRequest().sendAvaliacao(idEmpresa: empresa?.id, uuid: usuario,

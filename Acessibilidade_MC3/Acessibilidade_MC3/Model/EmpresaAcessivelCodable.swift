@@ -73,7 +73,7 @@ struct EmpresaCodable: Codable {
      Estado de pendencia para a empresa se está pendente, recusada ou aprovada para entrar no banco de empresas.
       
       É representada por um double opcional.
-      */
+    */
      var estadoPendenteEmpresa: Double?
     
     /**
@@ -252,7 +252,7 @@ struct AvaliacaoCodable: Codable {
     /**
      Estado de pendencia para a avaliação se está pendente, recusada ou aprovada para entrar no banco de avaliações da empresa.
      
-     É representada por um inteiro opcional.
+     É representada por um double opcional.
      */
     var estadoPendenteAvaliacao: Double?
 }

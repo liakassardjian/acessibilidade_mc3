@@ -162,9 +162,9 @@ class Avaliacao {
 
 /**
  Enumerador que representa o estado de curadoria de uma entrada do usuário.
- Corresponde com Int.
+ Corresponde com Double.
  */
-enum Estado: Int {
+enum Estado: Double {
     /**
      Caso em que a entrada foi aprovada pela curadoria.
      Equivale a 1.
