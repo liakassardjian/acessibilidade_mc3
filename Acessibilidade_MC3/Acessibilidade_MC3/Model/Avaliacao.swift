@@ -36,6 +36,7 @@ class Avaliacao {
         self.cultura = 0
         self.remuneracao = 0
         self.oportunidade = 0
+        self.status = .pendente
     }
     
     /**
@@ -149,6 +150,13 @@ class Avaliacao {
        É  representada por um int.
     */
     var oportunidade: Int
+    
+    /**
+       Estado de curadoria da avaliação inserida no sistema.
+    
+       É representado por um caso do enumerador Estado.
+    */
+    var status: Estado
     
 }
 

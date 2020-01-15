@@ -138,12 +138,13 @@ class EmpresasViewController: UIViewController {
                         let estado = empresa.estado,
                         let id = empresa._id {
                         
+                        // TODO: o valor de status precusa ser alterado quando houver uma variável de estado em EmpresaCodable
                             let novaEmpresa = Empresa(nome: nome,
                                                       site: empresa.site,
                                                       telefone: empresa.telefone,
                                                       cidade: cidade,
                                                       estado: estado,
-                                                      id: id)
+                                                      id: id, status: 0)
                         
                             novaEmpresa.nota = Float(media)
                             novaEmpresa.recomendacao = Int(porcentagem)
@@ -343,6 +344,7 @@ class EmpresasViewController: UIViewController {
      - parameters:
         - empresa: A empresa que está sendo criada.
      */
+    // TODO: essa função precisa ser alterada quando EmpresaCodable tiver uma variável que represente estado de curadoria
     func registraEmpresa(empresa: Empresa) {
         let empresaCodable = EmpresaCodable(_id: nil,
                                             nome: empresa.nome,

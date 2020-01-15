@@ -92,7 +92,12 @@ class Empresa {
     */
     var id: String?
     
-//    var estado
+    /**
+       Estado de curadoria da empresa inserida no sistema.
+    
+       É representado por um caso do enumerador Estado.
+    */
+    var status: Estado
     
     /**
         Inicializador da empresa.
@@ -104,8 +109,9 @@ class Empresa {
             - cidade: Cidade onde a empresa está localizada. **Não** pode ser vazio.
             - estado: Estado onde a empresa está localizada. **Não** pode ser vazio.
             - id: Identificador da empresa no sistema. **Não** pode ser vazio.
+            - status: Inteiro que representa o estado de curadoria de uma emoresa inserida no sistema. **Não** pode ser vazio.
      */
-    init(nome: String, site: String?, telefone: String?, cidade: String, estado: String, id: String) {
+    init(nome: String, site: String?, telefone: String?, cidade: String, estado: String, id: String, status: Int) {
         self.nome = nome
         self.localizacao = "\(cidade), \(estado)"
         self.site = site
@@ -113,6 +119,15 @@ class Empresa {
         self.cidade = cidade
         self.estado = estado
         self.id = id
+        
+        switch status {
+        case Estado.aprovado.rawValue:
+            self.status = .aprovado
+        case Estado.reprovado.rawValue:
+            self.status = .reprovado
+        default:
+            self.status = .pendente
+        }
     }
     
     /**
@@ -125,6 +140,7 @@ class Empresa {
         self.localizacao = ""
         self.cidade = ""
         self.estado = ""
+        self.status = .pendente
     }
     
     /**

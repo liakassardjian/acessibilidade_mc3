@@ -97,6 +97,7 @@ class DetalhesEmpresaViewController: UIViewController {
      - parameters:
         - avaliacao: A nova avaliação enviada pelo usuário.
      */
+    // TODO: essa função precisa ser alterada quando AvaliacaoCodable tiver uma variável que represente estado de curadoria
     func registraAvaliacao(avaliacao: Avaliacao) {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
