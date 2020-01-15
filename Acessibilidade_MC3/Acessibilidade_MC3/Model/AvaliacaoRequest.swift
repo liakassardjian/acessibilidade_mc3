@@ -58,7 +58,7 @@ class AvaliacaoRequest {
                                "deficienciaIntelectual": avaliacao.deficienciaIntelectual as Any,
                                "nanismo": avaliacao.nanismo as Any,
                                "uuid": uuid,
-                "estadoPendenteAvaliacao": avaliacao.estadoPendenteAvaliacao as Any] as [String: Any]
+                "estadoPendenteAvaliacao": avaliacao as Any] as [String: Any]
         
         guard let idEmpresa = idEmpresa else { return }
         guard let url = URL(string: RequestConstants.POSTAVALIACAO + idEmpresa) else { return }
