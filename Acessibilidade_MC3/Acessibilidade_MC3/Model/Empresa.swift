@@ -11,7 +11,7 @@ import Foundation
 /**
  Classe que representa uma empresa dentro do sistema.
  
- As empresas são caracterizadas por nome, localização, telefone e website; esses elementos são atribuídos a uma empresa na sua inicialização. Uma empresa recebe uma nota, uma recomendação e uma classificação em acessibilidade; esses valores são atualizados a cada avaliação atribuída à empresa.
+ As empresas são caracterizadas por nome, localização, telefone e website; esses elementos são atribuídos a uma empresa na sua inicialização. Uma empresa recebe uma nota, uma recomendação e uma classificação em acessibilidade; esses valores são atualizados a cada avaliação atribuída à empresa. E as empresas ao serem criadas também recebem um estado de pendencia inicial posteriormente podendo ser recusadas ou aprovadas.
  */
 class Empresa {
     

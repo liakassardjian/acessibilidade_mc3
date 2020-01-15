@@ -70,6 +70,13 @@ struct EmpresaCodable: Codable {
     var estado: String?
     
     /**
+     Estado de pendencia para a empresa se está pendente, recusada ou aprovada para entrar no banco de empresas.
+      
+      É representada por um double opcional.
+      */
+     var estadoPendenteEmpresa: Double?
+    
+    /**
        Conjunto das avaliações atribuídas à empresa.
     
        É representado por um vetor de `AvaliacaoCodable` opcional.
@@ -87,6 +94,13 @@ struct UsuarioCodable: Codable {
        É representado por uma string opcional.
     */
     var uuid: String?
+    
+    /**
+        Identificador de nivel de administração do usuário
+     
+        É reprensentado por um booleano opcional
+     */
+    var administrador: Bool?
     
     /**
        Conjunto das avaliações publicadas por um usuário.
@@ -234,6 +248,13 @@ struct AvaliacaoCodable: Codable {
        É representada por um bool opcional.
     */
     var nanismo: Bool?
+    
+    /**
+     Estado de pendencia para a avaliação se está pendente, recusada ou aprovada para entrar no banco de avaliações da empresa.
+     
+     É representada por um inteiro opcional.
+     */
+    var estadoPendenteAvaliacao: Double?
 }
 
 /**

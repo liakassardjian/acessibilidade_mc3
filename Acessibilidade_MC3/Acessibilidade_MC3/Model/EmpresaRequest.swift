@@ -61,7 +61,8 @@ class EmpresaRequest {
                              "media": empresa.media as Any,
                              "mediaRecomendacao": empresa.mediaRecomendacao as Any,
                              "cidade": empresa.cidade as Any,
-                             "estado": empresa.estado as Any] as [String: Any]
+                             "estado": empresa.estado as Any,
+                        "estadoPendenteEmpresa": empresa.estadoPendenteEmpresa as Any] as [String: Any]
 
         guard let url = URL(string: RequestConstants.POSTEMPRESA) else {
             return
@@ -197,7 +198,8 @@ class EmpresaRequest {
                              "media": empresa.media ?? "",
                              "mediaRecomendacao": empresa.mediaRecomendacao ?? "",
                              "cidade": empresa.cidade ?? "",
-                             "estado": empresa.estado ?? ""] as [String: Any]
+                             "estado": empresa.estado ?? "",
+                        "estadoPendenteEmpresa": empresa.estadoPendenteEmpresa ?? ""] as [String: Any]
         
         guard let url = URL(string: RequestConstants.PUTEMPRESA + String(describing: empresa._id ?? "")) else {
             print("erro na construcao da url")

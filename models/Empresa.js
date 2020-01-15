@@ -32,7 +32,11 @@ const Empresa = new Schema({
   estado: {
     type: String,
     required: true,
-  }, 
+  },
+  estadoPendenteEmpresa: {
+    type: Number,
+    required: true,
+  },
   //relacionamento com avaliacao
   avaliacao: [{
     type: mongoose.Schema.Types.ObjectId,
