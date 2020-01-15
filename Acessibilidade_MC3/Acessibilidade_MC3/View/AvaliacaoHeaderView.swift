@@ -8,8 +8,16 @@
 
 import UIKit
 
+/**
+ Representação visual do cabeçalho das sessões da Table View.
+ 
+ A classe herda de `UITableViewHeaderFooterView`.
+ */
 class AvaliacaoHeaderView: UITableViewHeaderFooterView {
 
+    /**
+     Título da sessão.
+     */
     @IBOutlet weak var tituloLabel: UILabel!
 
 }

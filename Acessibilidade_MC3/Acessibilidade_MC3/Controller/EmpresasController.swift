@@ -9,15 +9,47 @@
 import Foundation
 import UIKit
 
+/**
+ Classe que controla a lista de empresas exibida na primeira tela.
+ 
+ A classe herda de NSObject, UITableViewDataSource e UITableViewDelegate, sendo, assim, Delegate e Data Source de uma determinada Table View.
+ */
 class EmpresasController: NSObject, UITableViewDataSource, UITableViewDelegate {
     
+    /**
+     Lista de empresas existentes no sistema.
+     
+     Inicializada como vazia até que as empresas sejam buscadas do servidor.
+     */
     var empresas: [Empresa] = []
     
+    /**
+     Lista das empresas correspondentes a um resultado de busca.
+     
+     Inicializada como vazia.
+     */
     var resultadosBusca = [Empresa]()
+    
+    /**
+     Booleano que informa se está sendo feita uma busca no momento ou não.
+     
+     Inicializado como false.
+     */
     var buscando = false
     
+    /**
+     Table View que está sendo controlada por uma instância dessa classe.
+     
+     É atribuída na inicialização da classe.
+     */
     weak var tableView: UITableView?
     
+    /**
+     Inicializador da classe.
+     
+     - parameters:
+        - tableView: Table View que está sendo controlada pela instância que está sendo inicializada.
+     */
     init(tableView: UITableView) {
         super.init()
         self.tableView = tableView
@@ -70,6 +102,14 @@ class EmpresasController: NSObject, UITableViewDataSource, UITableViewDelegate {
         }
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
+    }
+    
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 217
     }
     
 }

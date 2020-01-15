@@ -8,14 +8,41 @@
 
 import UIKit
 
+/**
+ Representação visual das células exibidas na primeira tela, contendo as informações gerais das empresas do catálogo.
+ 
+ A classe herda de `UITableViewCell`.
+ */
 class EmpresaTableViewCell: UITableViewCell {
 
+    /**
+     Conector da Label na qual é exibido o nome da empresa.
+     */
     @IBOutlet weak var nomeEmpresaLabel: UILabel!
+    
+    /**
+     Conector da Label na qual é exibida a localização da empresa.
+    */
     @IBOutlet weak var localizacaoEmpresaLabel: UILabel!
+    
+    /**
+     Conector da Label na qual é exibida a nota da empresa.
+    */
     @IBOutlet weak var notaLabel: UILabel!
+    
+    /**
+     Conector da Label na qual é exibida a porcentagem de recomendação da empresa.
+    */
     @IBOutlet weak var recomendacaoLabel: UILabel!
+    
+    /**
+     Conector da barra de progresso utilizada para representar a quantidade de estrelas correspondente à nota dada.
+    */
     @IBOutlet weak var barraProgressoView: BarraProgressoView!
     
+    /**
+     Conector do card que contém a nota da empresa.
+     */
     @IBOutlet weak var avaliacaoCard: UIView! {
         didSet {
             self.avaliacaoCard.layer.cornerRadius  = 8
@@ -26,6 +53,9 @@ class EmpresaTableViewCell: UITableViewCell {
         }
     }
     
+    /**
+     Conector do card que contém a porcentagem de recomendação da empresa.
+     */
     @IBOutlet weak var recomendacaoCard: UIView! {
         didSet {
             self.recomendacaoCard.layer.cornerRadius  = 8
@@ -36,7 +66,14 @@ class EmpresaTableViewCell: UITableViewCell {
         }
     }
     
+    /**
+     Conector do conjunto de views que contém as imagens de acessibilidade.
+     */
     @IBOutlet var simbolosViews: [UIView]!
+    
+    /**
+     Conector do conjunto de imagens de acessibilidade.
+     */
     @IBOutlet var acessibilidades: [UIImageView]!
     
     override func awakeFromNib() {

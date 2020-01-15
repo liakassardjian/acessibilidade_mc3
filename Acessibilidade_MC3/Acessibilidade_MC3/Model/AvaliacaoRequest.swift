@@ -6,16 +6,36 @@
 //  Copyright © 2019 Lia Kassardjian. All rights reserved.
 //
 
+/**
+Enumerador de possíveis respostas para o carregamento das avaliações de uma empresa, compatível com Error.
+*/
 enum AvaliacoesEmpresaLoadResponse: Error {
-    //varias avaliacoes de um id especifico de empresa
+    /**
+    Caso de sucesso no carregamento, recebendo um vetor de AvaliacaoCodable.
+    */
     case success(avaliacoesEmpresa: [AvaliacaoCodable])
+    
+    /**
+    Caso de erro no carregamento, recebendo uma string de descrição.
+    */
     case error(description: String)
 }
 
 import Foundation
+
+/**
+Classe que controla a requisição das avaliações ao servidor.
+*/
 class AvaliacaoRequest {
     
-    //sendAvaliacao
+    /**
+    Função que envia uma avaliação criada ao servidor.
+    - parameters:
+        - idEmpresa: String opcional que representa o identificador da empresa que está sendo avaliada.
+        - uuid: Identificador do usuário que enviou a avaliação.
+        - avaliacao: Instância de AvaliacaoCodable que será enviada ao servidor.
+        - completion: Closure que é chamada com um vetor opcional de strings como Any e um Error opcional.
+    */
     func sendAvaliacao(idEmpresa: String?, uuid: String, avaliacao: AvaliacaoCodable, completion: @escaping ([String: Any]?, Error?) -> Void) {
         let group = DispatchGroup()
         group.enter()
@@ -93,7 +113,13 @@ class AvaliacaoRequest {
         task.resume()
 }
     
-    //READ AVALIACOES DE EMPRESA
+    /**
+    Função estática que busca as avaliações de uma empresa no servidor.
+    
+    - parameters:
+        - empresaId: String que representa o identificador da empresa cujas avaliações estão sendo buscadas.
+        - completion: Closure que é chamada com caso do enumerador `AvaliacoesEmpresaLoadResponse`.
+    */
     static func getAvaliacoesEmpresa(empresaId: String, completion: @escaping (AvaliacoesEmpresaLoadResponse) -> Void) {
         
         let BASE_URL: String = RequestConstants.GETAVALIACAOEMPRESA + empresaId
@@ -119,7 +145,14 @@ class AvaliacaoRequest {
         }).resume()
     }
     
-    //delete
+    /**
+    Função que deleta uma avaliação no servidor.
+    
+    - parameters:
+        - uuid: Identificador do usuário que requisitou a exclusão da avaliação.
+        - avaliacaoId: String que representa o identificador da avaliação que está sendo excluída.
+        - completion: Closure que é chamada com um vetor opcional de strings como Any e um Error opcional.
+    */
     func deleteAvaliacao(uuid: String, avaliacaoId: String, completion: @escaping ([String: Any]?, Error?) -> Void) {
         let group = DispatchGroup()
         group.enter()

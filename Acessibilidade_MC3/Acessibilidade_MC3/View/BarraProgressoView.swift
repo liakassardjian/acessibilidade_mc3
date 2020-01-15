@@ -9,9 +9,17 @@
 import Foundation
 import UIKit
 
+/**
+ Representação visual de uma barra de progresso ajustável.
+ 
+ A classe herda de `UIView`.
+ */
 @IBDesignable
 class BarraProgressoView: UIView {
     
+    /**
+     `CGFloat` correspondente ao comprimento total da linha.
+     */
     @IBInspectable
     var comprimentoLinha: CGFloat = 10.0 {
         didSet {
@@ -19,6 +27,9 @@ class BarraProgressoView: UIView {
         }
     }
     
+    /**
+     `CGFloat` correspondente ao valor do progresso até o momento.
+    */
     @IBInspectable
     var valorProgresso: CGFloat = 0.0 {
         didSet {
@@ -26,9 +37,15 @@ class BarraProgressoView: UIView {
         }
     }
     
+    /**
+     Cor da linha base da barra.
+    */
     @IBInspectable
     var corLinha: UIColor = #colorLiteral(red: 0.6027947068, green: 0.6290434003, blue: 0.6537475586, alpha: 0.6)
     
+    /**
+     Cor da linha de progresso da barra.
+     */
     @IBInspectable
     var corProgresso: UIColor = #colorLiteral(red: 1, green: 0.7469202876, blue: 0.3515547514, alpha: 1) {
         didSet {
