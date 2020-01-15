@@ -9,25 +9,16 @@ const Usuario = new Schema({
     type: String,
     required: true
   },
-  //   nome: {
-  //   type: String,
-  //    required: true
-  //  },
-  // email: {
-  //   type: String,
-  //   required: true,
-  //   unique: true
-  // },
-  // salario: {
-  //   type: Number,
-  //   required: true,
-  //   unique: true
-  // },
-  // cargo: {
-  //   type: Number,
-  //   required: true,
-  //   unique: true
-  // },
+  senha: {
+    type: String
+  },
+  nome: {
+    type: String
+  },
+  email: {
+    type: String,
+    unique: true
+  },
   
   //relacionamento com usuario
   avaliacaoDoUsuario: [{
@@ -37,14 +28,14 @@ const Usuario = new Schema({
   }]
 })
 
-// Usuario.methods.checkPassword = function (password) {
-//   let resut = this.password === md5(password)
-//   return resut
-// }
+Usuario.methods.checkPassword = function (senha) {
+  let resut = this.senha === md5(senha)
+  return resut
+}
 
-// Usuario.methods.hashPassword = function (password) {
-//   return md5(password)
-// }
+Usuario.methods.hashPassword = function (senha) {
+  return md5(senha)
+}
 
 Usuario.plugin(autopopulate)
 mongoose.model('Usuario', Usuario)
