@@ -19,10 +19,11 @@ class UsuarioRequest {
         - uuid: Identificador do usuário que está sendo criado.
         - completion: Closure que é chamada com um vetor opcional de strings como Any e um Error opcional.
     */
-    func usuarioCreate(uuid: String, completion: @escaping ([String: Any]?, Error?) -> Void) {
+    func usuarioCreate(uuid: String, usuario: UsuarioCodable, completion: @escaping ([String: Any]?, Error?) -> Void) {
         let group = DispatchGroup()
         group.enter()
-        let parameters = ["uuid": uuid]
+        let parameters = ["uuid": uuid,
+                          "administrador": usuario.administrador as Any] as [String: Any]
         guard let url = URL(string: RequestConstants.POSTUSUARIO) else {
             return
         }

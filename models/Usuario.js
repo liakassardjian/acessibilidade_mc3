@@ -9,6 +9,9 @@ const Usuario = new Schema({
     type: String,
     required: true
   },
+  administrador: {
+    type: Boolean,
+  },
   //   nome: {
   //   type: String,
   //    required: true
