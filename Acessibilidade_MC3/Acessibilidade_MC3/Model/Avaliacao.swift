@@ -151,3 +151,27 @@ class Avaliacao {
     var oportunidade: Int
     
 }
+
+/**
+ Enumerador que representa o estado de curadoria de uma entrada do usuário.
+ Corresponde com Int.
+ */
+enum Estado: Int {
+    /**
+     Caso em que a entrada foi aprovada pela curadoria.
+     Equivale a 1.
+     */
+    case aprovado = 1
+    
+    /**
+     Caso em que a entrada foi reprovada pela curadoria.
+     Equivale a -1.
+     */
+    case reprovado = -1
+    
+    /**
+    Caso em que a curadoria da entrada está pendente.
+    Equivale a 0.
+    */
+    case pendente = 0
+}

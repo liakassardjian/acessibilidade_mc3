@@ -92,6 +92,8 @@ class Empresa {
     */
     var id: String?
     
+//    var estado
+    
     /**
         Inicializador da empresa.
      
