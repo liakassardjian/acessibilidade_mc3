@@ -13,7 +13,7 @@ router.get('/', function (req, res, next) {
 router.post('/register', async function (req, res, next) {
     try {
         let newUsuario = new Usuario(req.body)
-        newUsuario.password = newUsuario.hashPassword(newUsuario.password)
+        newUsuario.senha = newUsuario.hashPassword(newUsuario.senha)
         await newUsuario.save()
         res.json({ result: true })
     } catch (err) {
@@ -24,14 +24,12 @@ router.post('/register', async function (req, res, next) {
 
 router.post('/login', async function (req, res, next) {
     let email = req.body.email
-    let password = req.body.password
+    let senha = req.body.senha
 
     try {
-        let Usuario = await Usuario.findOne({
-            email: email
-        }).exec()
-        if (Usuario && Usuario.checkPassword(password)) {
-            res.json(Usuario)
+        let usuario = await Usuario.findOne({ email: email })
+        if (usuario && usuario.checkPassword(senha)) {
+            res.json(usuario)
         } else {
             res.json({ result: false })
         }
