@@ -46,9 +46,8 @@ class CuradoriaEmpresasTVC: UITableViewController {
         empresas.last?.avaliacoes.append(avaliacao2)
         empresas.last?.avaliacoes.append(avaliacao3)
         
+        getEmpresas()
         tableView.reloadData()
-        
-//        getEmpresas()
         
     }
 
