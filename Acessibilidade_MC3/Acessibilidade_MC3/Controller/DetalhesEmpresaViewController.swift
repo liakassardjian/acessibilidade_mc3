@@ -164,5 +164,16 @@ class DetalhesEmpresaViewController: UIViewController {
             return 0
         }
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let defaults = UserDefaults()
+        let usuarioLogado = defaults.bool(forKey: "usuarioLogado")
+        if !usuarioLogado {
+            let telaLogin = UIStoryboard(name: "Login", bundle: nil).instantiateViewController(withIdentifier: "telaInicioLogin")
+            present(telaLogin, animated: true, completion: nil)
+        } else {
+            usuario = UserDefaults.standard.string(forKey: "UserId")
+        }
+    }
 
 }

@@ -77,14 +77,14 @@ class EmpresasViewController: UIViewController {
         self.definesPresentationContext = true
         self.navigationItem.searchController = searchController
         
-        let defaults = UserDefaults()
-        let primeiroAcesso = defaults.bool(forKey: "primeiroAcesso")
-        if !primeiroAcesso {
-            registraUsuario(uuid: UUID().uuidString)
-            defaults.set(true, forKey: "primeiroAcesso")
-        } else {
-            usuario = UserDefaults.standard.string(forKey: "UserId")
-        }
+//        let defaults = UserDefaults()
+//        let primeiroAcesso = defaults.bool(forKey: "primeiroAcesso")
+//        if !primeiroAcesso {
+//            registraUsuario(uuid: UUID().uuidString)
+//            defaults.set(true, forKey: "primeiroAcesso")
+//        } else {
+//            usuario = UserDefaults.standard.string(forKey: "UserId")
+//        }
     
     }
     
