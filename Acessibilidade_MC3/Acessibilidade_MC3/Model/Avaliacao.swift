@@ -21,6 +21,7 @@ class Avaliacao {
      Permite inicializar sem parâmetro nenhum; os valores são inseridos conforme o usuário preenche o formulário de avaliação.
      */
     init() {
+        self.id = ""
         self.data = Date()
         self.titulo = ""
         self.vantagens = ""
@@ -38,6 +39,13 @@ class Avaliacao {
         self.oportunidade = 0
         self.status = .pendente
     }
+    
+    /**
+        Id da avaliação
+     
+        É representado por uma string
+     */
+    var id: String
     
     /**
        Data de publicação da avaliação.

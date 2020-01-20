@@ -188,7 +188,8 @@ class EmpresasViewController: UIViewController {
         var avaliacoes: [Avaliacao] = []
         
         for avaliacao in avaliacaoCodable {
-            if let titulo = avaliacao?.titulo,
+            if  let id = avaliacao?._id,
+                let titulo = avaliacao?.titulo,
                 let data = avaliacao?.data,
                 let cargo = avaliacao?.cargo,
                 let tempoServico = avaliacao?.tempoServico,

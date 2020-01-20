@@ -12,9 +12,24 @@ class CuradoriaEmpresasTVC: UITableViewController {
 
     var empresas: [Empresa] = []
     
+//    var usuario: String?
+//    let usuarioUUID = UserDefaults.standard
+    
+    override func viewWillAppear(_ animated: Bool) {
+        getEmpresas()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+//        let defaults = UserDefaults()
+//        let primeiroAcesso = defaults.bool(forKey: "primeiroAcesso")
+//        if !primeiroAcesso {
+//            registraUsuario(uuid: UUID().uuidString)
+//            defaults.set(true, forKey: "primeiroAcesso")
+//        } else {
+//            usuario = UserDefaults.standard.string(forKey: "UserId")
+//        }
         // TODO: dados inseridos localmente para teste das telas provisórias
         let avaliacao1 = Avaliacao()
         avaliacao1.titulo = "Avaliação 1"
@@ -91,6 +106,72 @@ class CuradoriaEmpresasTVC: UITableViewController {
             }
         }
     }
+//    func registraUsuario(uuid: String) {
+//        UsuarioRequest().usuarioCreate(uuid: uuid, usuario: UsuarioCodable(), completion: { (response, error) in
+//            if response != nil {
+//                self.usuarioUUID.set(uuid, forKey: "UserId")
+//                self.usuario = UserDefaults.standard.string(forKey: "UserId")
+//                print("sucesso")
+//            } else {
+//                print("else")
+//            }
+//            })
+//    }
+    
+    
+    
+    
+//    func updateEmpresa(empresa: Empresa, estado: Estado) {
+//        let empresaCodable = EmpresaCodable(_id: empresa.id,
+//                                                nome: empresa.nome,
+//                                                site: empresa.site,
+//                                                telefone: empresa.telefone,
+//                                                media: 0,
+//                                                mediaRecomendacao: 0,
+//                                                cidade: empresa.cidade,
+//                                                estado: empresa.estado,
+//                                                estadoPendenteEmpresa: estado.rawValue, avaliacao: [])
+//
+//            if let usuario = usuario {
+//
+//            EmpresaRequest().updateEmpresa(uuid: usuario, empresa: empresaCodable) { (response, error) in
+//                                                    if response != nil {
+//                                                        print("sucesso")
+//                                                    } else {
+//                                                        print("erro")
+//                                                    }
+//                    }
+//
+//                }
+//    }
+    
+    
+    
+    
+//    func registraEmpresa(empresa: Empresa) {
+//        let empresaCodable = EmpresaCodable(_id: nil,
+//                                            nome: empresa.nome,
+//                                            site: empresa.site,
+//                                            telefone: empresa.telefone,
+//                                            media: 0,
+//                                            mediaRecomendacao: 0,
+//                                            cidade: empresa.cidade,
+//                                            estado: empresa.estado,
+//                                            estadoPendenteEmpresa: empresa.status.rawValue, avaliacao: [])
+//
+//        if let usuario = usuario {
+//            EmpresaRequest().empresaCreate(uuid: usuario,
+//                                           empresa: empresaCodable) { (response, error) in
+//                                            if response != nil {
+//                                                print("sucesso")
+//                                            } else {
+//                                                print("erro")
+//                                            }
+//            }
+//
+//        }
+//    }
+    
     
     func getEmpresas() {
         var empresasLocal: [Empresa] = []
@@ -142,10 +223,11 @@ class CuradoriaEmpresasTVC: UITableViewController {
         
         for avaliacao in avaliacaoCodable {
             if let titulo = avaliacao?.titulo,
-                let status = avaliacao?.estadoPendenteAvaliacao {
-                
+                let status = avaliacao?.estadoPendenteAvaliacao,
+                let id = avaliacao?._id {
                 let novaAvaliacao = Avaliacao()
                 novaAvaliacao.titulo = titulo
+                novaAvaliacao.id = id
                 
                 switch status {
                 case 1:
@@ -161,5 +243,7 @@ class CuradoriaEmpresasTVC: UITableViewController {
         
         return avaliacoes
     }
+    
+    
 
 }
