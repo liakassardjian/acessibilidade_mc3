@@ -228,28 +228,53 @@ class AvaliacaoRequest {
     func updateAvaliacao(uuid: String, avaliacao: AvaliacaoCodable, completion: @escaping ([String: Any]?, Error?) -> Void) {
         let group = DispatchGroup()
         group.enter()
-        let avaliacaoParams = ["titulo": avaliacao.titulo as Any,
-                               "data": avaliacao.data as Any,
-                               "cargo": avaliacao.cargo as Any,
-                               "tempoServico": avaliacao.tempoServico as Any,
-                               "pros": avaliacao.pros as Any,
-                               "contras": avaliacao.contras as Any,
-                               "melhorias": avaliacao.melhorias as Any,
-                               "ultimoAno": avaliacao.ultimoAno as Any,
-                               "recomenda": avaliacao.recomenda as Any,
-                               "integracaoEquipe": avaliacao.integracaoEquipe as Any,
-                               "culturaValores": avaliacao.culturaValores as Any,
-                               "renumeracaoBeneficios": avaliacao.renumeracaoBeneficios as Any,
-                               "oportunidadeCrescimento": avaliacao.oportunidadeCrescimento as Any,
-                               "deficienciaMotora": avaliacao.deficienciaMotora as Any,
-                               "deficienciaVisual": avaliacao.deficienciaVisual as Any,
-                               "deficienciaAuditiva": avaliacao.deficienciaAuditiva as Any,
-                               "deficienciaIntelectual": avaliacao.deficienciaIntelectual as Any,
-                               "nanismo": avaliacao.nanismo as Any,
-                               "uuid": uuid,
-                               "estadoPendenteAvaliacao": avaliacao.estadoPendenteAvaliacao as Any] as [String: Any]
+        var avaliacaoParams : [String: Any] = [:]
         
-        guard let url = URL(string: RequestConstants.POSTUPDATEAVALIACAO + String(describing: avaliacao._id ?? "")) else {
+        if let titulo = avaliacao.titulo,
+            let data = avaliacao.data,
+            let cargo = avaliacao.cargo,
+            let tempoServico = avaliacao.tempoServico,
+            let pros = avaliacao.pros,
+            let contras = avaliacao.contras,
+            let melhorias = avaliacao.melhorias,
+            let ultimoAno =  avaliacao.ultimoAno,
+            let recomenda =  avaliacao.recomenda,
+            let integracaoEquipe = avaliacao.integracaoEquipe,
+            let culturaValores = avaliacao.culturaValores,
+            let renumeracaoBeneficios = avaliacao.renumeracaoBeneficios,
+            let oportunidadeCrescimento = avaliacao.oportunidadeCrescimento,
+            let deficienciaMotora = avaliacao.deficienciaMotora,
+            let deficienciaVisual = avaliacao.deficienciaVisual,
+            let deficienciaAuditiva = avaliacao.deficienciaAuditiva,
+            let deficienciaIntelectual =  avaliacao.deficienciaIntelectual,
+            let nanismo = avaliacao.nanismo,
+            let estadoPendenteAvaliacao = avaliacao.estadoPendenteAvaliacao {
+            
+        
+            avaliacaoParams = ["titulo": titulo,
+                               "data": data,
+                               "cargo": cargo,
+                               "tempoServico": tempoServico,
+                               "pros": pros,
+                               "contras": contras,
+                               "melhorias": melhorias,
+                               "ultimoAno": ultimoAno,
+                               "recomenda": recomenda,
+                               "integracaoEquipe": integracaoEquipe,
+                               "culturaValores": culturaValores,
+                               "renumeracaoBeneficios": renumeracaoBeneficios,
+                               "oportunidadeCrescimento": oportunidadeCrescimento,
+                               "deficienciaMotora": deficienciaMotora,
+                               "deficienciaVisual": deficienciaVisual,
+                               "deficienciaAuditiva": deficienciaAuditiva,
+                               "deficienciaIntelectual": deficienciaIntelectual,
+                               "nanismo": nanismo,
+                               "estadoPendenteAvaliacao": estadoPendenteAvaliacao] as [String: Any]
+        
+    }
+        
+        
+        guard let url = URL(string: RequestConstants.PUTAVALIACAO + String(describing: avaliacao._id ?? "")) else {
             print("erro na construcao da url")
             return
         }

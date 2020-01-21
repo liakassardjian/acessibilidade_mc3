@@ -50,7 +50,7 @@ struct RequestConstants {
     /**
     Endereço para atualizar uma avaliação do servidor.
     */
-    static let POSTUPDATEAVALIACAO = "\(RequestConstants.URL)updateAvaliacao"
+    static let PUTAVALIACAO = "\(RequestConstants.URL)updateAvaliacao/"
     
     /**
     Endereço para buscar as avaliações de uma empresa no servidor.

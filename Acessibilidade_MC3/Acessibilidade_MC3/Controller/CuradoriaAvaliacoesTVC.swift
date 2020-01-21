@@ -28,7 +28,7 @@ class CuradoriaAvaliacoesTVC: UITableViewController {
         }
         
         super.viewDidLoad()
-        updateEmpresa(empresa: empresa!, estado: Estado(rawValue: 1)!)
+        updateEmpresa(empresa: empresa!, estado: Estado(rawValue: -1)!)
         
         guard let unrap = empresa?.avaliacoes.first else {
                    print(Error.self)
@@ -107,27 +107,25 @@ class CuradoriaAvaliacoesTVC: UITableViewController {
         let data = dateFormatter.string(from: avaliacao.data)
         
         let avaliacaoCodable = AvaliacaoCodable(_id: avaliacao.id,
-                                            titulo: avaliacao.titulo,
-                                            data: data,
-                                            cargo: avaliacao.posicao,
-                                            tempoServico: converteTempoServico(tempoServico: avaliacao.tempoServico),
-                                            pros: avaliacao.vantagens,
-                                            contras: avaliacao.desvantagens,
-                                            melhorias: avaliacao.sugestoes,
-                                            ultimoAno: Double(avaliacao.ultimoAno),
-                                            recomenda: avaliacao.recomendacao,
-                                            integracaoEquipe:Double(avaliacao.integracao),
-                                            culturaValores: Double(avaliacao.cultura),
-                                            
-                                            renumeracaoBeneficios: Double(avaliacao.remuneracao),
-                                            oportunidadeCrescimento: Double(avaliacao.oportunidade),
-                                            
-                                            deficienciaMotora: avaliacao.acessibilidade.contains(.deficienciaMotora),
-                                            deficienciaVisual: avaliacao.acessibilidade.contains(.deficienciaVisual),
-                                            deficienciaAuditiva: avaliacao.acessibilidade.contains(.deficienciaAuditiva),
-                                            deficienciaIntelectual: avaliacao.acessibilidade.contains(.deficienciaIntelectual),
-                                            nanismo: avaliacao.acessibilidade.contains(.nanismo),
-                                            estadoPendenteAvaliacao: estado.rawValue)
+                                                titulo: avaliacao.titulo,
+                                                data: data,
+                                                cargo: avaliacao.posicao,
+                                                tempoServico: converteTempoServico(tempoServico: avaliacao.tempoServico),
+                                                pros: avaliacao.vantagens,
+                                                contras: avaliacao.desvantagens,
+                                                melhorias: avaliacao.sugestoes ?? "",
+                                                ultimoAno: Double(avaliacao.ultimoAno),
+                                                recomenda: avaliacao.recomendacao,
+                                                integracaoEquipe: Double(avaliacao.integracao),
+                                                culturaValores: Double(avaliacao.cultura),
+                                                renumeracaoBeneficios: Double(avaliacao.remuneracao),
+                                                oportunidadeCrescimento: Double(avaliacao.oportunidade),
+                                                deficienciaMotora: avaliacao.acessibilidade.contains(.deficienciaMotora),
+                                                deficienciaVisual: avaliacao.acessibilidade.contains(.deficienciaVisual),
+                                                deficienciaAuditiva: avaliacao.acessibilidade.contains(.deficienciaAuditiva),
+                                                deficienciaIntelectual: avaliacao.acessibilidade.contains(.deficienciaIntelectual),
+                                                nanismo: avaliacao.acessibilidade.contains(.nanismo),
+                                                estadoPendenteAvaliacao: estado.rawValue)
         if let usuario = usuario {
             AvaliacaoRequest().updateAvaliacao(uuid: usuario, avaliacao: avaliacaoCodable) { (response, error) in
                                                 if response != nil {
@@ -137,6 +135,7 @@ class CuradoriaAvaliacoesTVC: UITableViewController {
                                                 }
                 }
             }
+        
 }
     
     func converteTempoServico(tempoServico: String) -> Double {
