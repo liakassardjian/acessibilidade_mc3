@@ -247,6 +247,7 @@ class Empresa {
                                      mediaRecomendacao: Double(self.recomendacao),
                                      cidade: self.cidade,
                                      estado: self.estado,
+                                     estadoPendenteEmpresa: self.status.rawValue,
                                      avaliacao: [])
         
         return empresa

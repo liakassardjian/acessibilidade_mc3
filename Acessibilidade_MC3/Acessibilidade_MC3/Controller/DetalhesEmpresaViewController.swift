@@ -76,10 +76,6 @@ class DetalhesEmpresaViewController: UIViewController {
             if let senderAdd = sender.source as? AvaliarProsViewController {
                 if let avaliacao = senderAdd.avaliacao {
                     self.avaliacao = avaliacao
-                    registraAvaliacao(avaliacao: avaliacao)
-                    empresa?.adicionaAvaliacao(avaliacao: avaliacao, usuario: usuario ?? "")
-                    self.avaliacao = nil
-                    detalhesTableView.reloadData()
                 }
             }
         }
@@ -91,7 +87,6 @@ class DetalhesEmpresaViewController: UIViewController {
             empresa?.adicionaAvaliacao(avaliacao: avaliacao, usuario: usuario ?? "")
             self.avaliacao = nil
         }
-        
         detalhesTableView.reloadData()
     }
     
@@ -113,7 +108,7 @@ class DetalhesEmpresaViewController: UIViewController {
                                                 tempoServico: converteTempoServico(tempoServico: avaliacao.tempoServico),
                                                 pros: avaliacao.vantagens,
                                                 contras: avaliacao.desvantagens,
-                                                melhorias: avaliacao.sugestoes,
+                                                melhorias: avaliacao.sugestoes ?? "",
                                                 ultimoAno: Double(avaliacao.ultimoAno),
                                                 recomenda: avaliacao.recomendacao,
                                                 integracaoEquipe: Double(avaliacao.integracao),

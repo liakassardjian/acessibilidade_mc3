@@ -22,6 +22,8 @@
 		E40E5EE823170DC100915B21 /* BarraProgressoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40E5EE723170DC100915B21 /* BarraProgressoView.swift */; };
 		E4200B72231EDB9100AFD3A2 /* NovaEmpresaTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4200B71231EDB9100AFD3A2 /* NovaEmpresaTableViewController.swift */; };
 		E4200B76231EE68500AFD3A2 /* TextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4200B75231EE68500AFD3A2 /* TextViewController.swift */; };
+		E42BD43923D7D4800055D166 /* VerificadorPalavras.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42BD43823D7D4800055D166 /* VerificadorPalavras.swift */; };
+		E42BD43B23D7D4970055D166 /* lista-palavroes-bloqueio.txt in Resources */ = {isa = PBXBuildFile; fileRef = E42BD43A23D7D4960055D166 /* lista-palavroes-bloqueio.txt */; };
 		E4574F9B23D14656004F5840 /* TesteAdm.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E4574F9A23D14656004F5840 /* TesteAdm.storyboard */; };
 		E4574F9D23D147C1004F5840 /* CuradoriaEmpresasTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4574F9C23D147C1004F5840 /* CuradoriaEmpresasTVC.swift */; };
 		E4574F9F23D14B66004F5840 /* CuradoriaAvaliacoesTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4574F9E23D14B66004F5840 /* CuradoriaAvaliacoesTVC.swift */; };
@@ -80,6 +82,8 @@
 		E4200B70231EC6A900AFD3A2 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		E4200B71231EDB9100AFD3A2 /* NovaEmpresaTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NovaEmpresaTableViewController.swift; sourceTree = "<group>"; };
 		E4200B75231EE68500AFD3A2 /* TextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewController.swift; sourceTree = "<group>"; };
+		E42BD43823D7D4800055D166 /* VerificadorPalavras.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificadorPalavras.swift; sourceTree = "<group>"; };
+		E42BD43A23D7D4960055D166 /* lista-palavroes-bloqueio.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "lista-palavroes-bloqueio.txt"; sourceTree = "<group>"; };
 		E4574F9A23D14656004F5840 /* TesteAdm.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TesteAdm.storyboard; sourceTree = "<group>"; };
 		E4574F9C23D147C1004F5840 /* CuradoriaEmpresasTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CuradoriaEmpresasTVC.swift; sourceTree = "<group>"; };
 		E4574F9E23D14B66004F5840 /* CuradoriaAvaliacoesTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CuradoriaAvaliacoesTVC.swift; sourceTree = "<group>"; };
@@ -145,6 +149,7 @@
 				6D8B132A231DA9A300F7074D /* EmpresaRequest.swift */,
 				6D8B132E231DAAE300F7074D /* AvaliacaoRequest.swift */,
 				6D8B132C231DA9BA00F7074D /* UserRequest.swift */,
+				E42BD43823D7D4800055D166 /* VerificadorPalavras.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -210,6 +215,7 @@
 		E4EDBF4F2314271F002936C7 /* Acessibilidade_MC3 */ = {
 			isa = PBXGroup;
 			children = (
+				E42BD43A23D7D4960055D166 /* lista-palavroes-bloqueio.txt */,
 				E4EDBF5F23142721002936C7 /* Info.plist */,
 				E4EDBF502314271F002936C7 /* AppDelegate.swift */,
 				E4EC31532314275F00613EA2 /* Model */,
@@ -349,6 +355,7 @@
 				E4FA82B1231D898700BD6BFA /* AvaliacaoHeaderView.xib in Resources */,
 				E4EDBF5B23142721002936C7 /* Assets.xcassets in Resources */,
 				E4EDBF562314271F002936C7 /* Main.storyboard in Resources */,
+				E42BD43B23D7D4970055D166 /* lista-palavroes-bloqueio.txt in Resources */,
 				E3CBA81B2316EB9F00403440 /* Avaliar.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -398,6 +405,7 @@
 				6D8B132F231DAAE300F7074D /* AvaliacaoRequest.swift in Sources */,
 				6D8B1329231D860B00F7074D /* EmpresaAcessivelCodable.swift in Sources */,
 				6D8B1327231D7E4F00F7074D /* RequestConstants.swift in Sources */,
+				E42BD43923D7D4800055D166 /* VerificadorPalavras.swift in Sources */,
 				6D8B132D231DA9BA00F7074D /* UserRequest.swift in Sources */,
 				E3A5411C231C6C8A00F22DC8 /* UIColors.swift in Sources */,
 				E4574F9F23D14B66004F5840 /* CuradoriaAvaliacoesTVC.swift in Sources */,
