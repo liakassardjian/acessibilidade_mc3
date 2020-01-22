@@ -80,7 +80,10 @@ class EmpresasViewController: UIViewController {
         let defaults = UserDefaults()
         let primeiroAcesso = defaults.bool(forKey: "primeiroAcesso")
         if !primeiroAcesso {
-            registraUsuario(uuid: UUID().uuidString)
+            let usuario = UsuarioCodable(uuid: UUID().uuidString,
+                                         administrador: false,
+                                         avaliacoesUsuario: [])
+            registraUsuario(uuid: usuario.uuid ?? UUID().uuidString, usuario: usuario)
             defaults.set(true, forKey: "primeiroAcesso")
         } else {
             usuario = UserDefaults.standard.string(forKey: "UserId")
@@ -219,6 +222,7 @@ class EmpresasViewController: UIViewController {
                 novaAvaliacao.recomendacao = recomenda
                 novaAvaliacao.ultimoAno = Int(ultimoAno)
                 novaAvaliacao.posicao = cargo
+                novaAvaliacao.id = id
                 
                 novaAvaliacao.tempoServico = converteTempoServico(tempoServico: tempoServico)
                 
@@ -328,9 +332,8 @@ class EmpresasViewController: UIViewController {
      - parameters:
         - uuid: String que representa o identificador de um usuário no sistema.
      */
-    // TODO: inserir instância de UsuarioCodable
-    func registraUsuario(uuid: String) {
-        UsuarioRequest().usuarioCreate(uuid: uuid, usuario: UsuarioCodable(), completion: { (response, error) in
+    func registraUsuario(uuid: String, usuario: UsuarioCodable) {
+        UsuarioRequest().usuarioCreate(uuid: uuid, usuario: usuario, completion: { (response, error) in
             if response != nil {
                 self.usuarioUUID.set(uuid, forKey: "UserId")
                 self.usuario = UserDefaults.standard.string(forKey: "UserId")

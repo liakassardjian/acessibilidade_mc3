@@ -15,8 +15,8 @@ class CuradoriaAvaliacoesTVC: UITableViewController {
     var usuario: String?
     let usuarioUUID = UserDefaults.standard
     
-    
     override func viewDidLoad() {
+        super.viewDidLoad()
         
         let defaults = UserDefaults()
         let primeiroAcesso = defaults.bool(forKey: "primeiroAcesso")
@@ -26,16 +26,6 @@ class CuradoriaAvaliacoesTVC: UITableViewController {
         } else {
             usuario = UserDefaults.standard.string(forKey: "UserId")
         }
-        
-        super.viewDidLoad()
-        updateEmpresa(empresa: empresa!, estado: Estado(rawValue: -1)!)
-        
-        guard let unrap = empresa?.avaliacoes.first else {
-                   print(Error.self)
-                   return
-               }
-        updateAvaliacao(avaliacao: (unrap), estado: Estado(rawValue: -1)!)
-       
 }
     
     // MARK: - Table view data source
