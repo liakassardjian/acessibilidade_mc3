@@ -8,6 +8,16 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--empresasCuradoria-->
+        <scene sceneID="PNa-Ih-1vA">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Administracao" referencedIdentifier="empresasCuradoria" id="hYz-1l-xlW" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="eUD-wu-yeu"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="T9c-rJ-Zsa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="209" y="-1060"/>
+        </scene>
         <!--Empresas-->
         <scene sceneID="Bqh-6D-jBn">
             <objects>
@@ -16,7 +26,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="L9m-gF-ijD">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="217" estimatedRowHeight="217" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="L9m-gF-ijD">
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <color key="backgroundColor" red="0.96862745098039216" green="0.97647058823529409" blue="0.9882352941176471" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
@@ -790,6 +800,11 @@
                         <viewLayoutGuide key="safeArea" id="0Fa-Db-4ee"/>
                     </view>
                     <navigationItem key="navigationItem" title="Empresas" id="kjk-tv-Ax9">
+                        <barButtonItem key="leftBarButtonItem" title="Administração" id="Pa6-mp-wD5">
+                            <connections>
+                                <segue destination="hYz-1l-xlW" kind="show" identifier="adm" id="OJv-ha-5zw"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="w9f-Pm-d0U">
                             <connections>
                                 <segue destination="Ktz-8H-xy2" kind="show" id="geS-2s-nJQ"/>
@@ -2229,7 +2244,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DTq-PL-Shv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1209" y="-567"/>
+            <point key="canvasLocation" x="1203" y="-553"/>
         </scene>
         <!--avaliarTVC-->
         <scene sceneID="k1c-Kq-wgF">
@@ -2239,7 +2254,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Ua-pC-KU3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2036" y="-567"/>
+            <point key="canvasLocation" x="2036" y="-553"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="SgI-lR-5Uo">

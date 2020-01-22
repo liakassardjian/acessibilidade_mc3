@@ -62,6 +62,13 @@ class EmpresasViewController: UIViewController {
     var empresaAdicionada: Bool = false
     
     /**
+     Lista de empresas existentes no sistema.
+     
+     Inicializada como vazia até que as empresas sejam buscadas do servidor.
+     */
+    var empresas: [Empresa] = []
+    
+    /**
      Controlador de refresh da página ao puxar para baixo.
      */
     lazy var refreshControl: UIRefreshControl = {
@@ -129,6 +136,12 @@ class EmpresasViewController: UIViewController {
         if let novaEmpresa = segue.destination as? NovaEmpresaTableViewController {
             novaEmpresa.empresasViewController = self
         }
+        
+        if let adm = segue.destination as? CuradoriaEmpresasViewController {
+            adm.empresas = empresas
+            adm.usuario = usuario
+            adm.empresasViewController = self
+        }
     }
     
     /**
@@ -148,6 +161,7 @@ class EmpresasViewController: UIViewController {
      */
     func getEmpresas() {
         var empresasLocal: [Empresa] = []
+        var empresasDataSource: [Empresa] = []
         activ.startAnimating()
         activ.isHidden = false
         
@@ -163,25 +177,28 @@ class EmpresasViewController: UIViewController {
                         let estado = empresa.estado,
                         let id = empresa._id,
                         let status = empresa.estadoPendenteEmpresa {
+                        let novaEmpresa = Empresa(nome: nome,
+                                                  site: empresa.site,
+                                                  telefone: empresa.telefone,
+                                                  cidade: cidade,
+                                                  estado: estado,
+                                                  id: id,
+                                                  status: status)
                         
-                            let novaEmpresa = Empresa(nome: nome,
-                                                      site: empresa.site,
-                                                      telefone: empresa.telefone,
-                                                      cidade: cidade,
-                                                      estado: estado,
-                                                      id: id,
-                                                      status: status)
+                        novaEmpresa.nota = Float(media)
+                        novaEmpresa.recomendacao = Int(porcentagem)
                         
-                            novaEmpresa.nota = Float(media)
-                            novaEmpresa.recomendacao = Int(porcentagem)
-                        
-                            for avaliacao in self.converteAvaliacoes(avaliacaoCodable: empresa.avaliacao) {
-                                novaEmpresa.criaAvaliacaoEmpresa(avaliacao: avaliacao)
-                            }
+                        for avaliacao in self.converteAvaliacoes(avaliacaoCodable: empresa.avaliacao) {
+                            novaEmpresa.criaAvaliacaoEmpresa(avaliacao: avaliacao)
+                        }
+                        if status != -1 {
                             empresasLocal.append(novaEmpresa)
+                        }
+                        empresasDataSource.append(novaEmpresa)
                     }
                 }
                 self.empresasDataSourceDelegate?.empresas = empresasLocal
+                self.empresas = empresasDataSource
                 DispatchQueue.main.async { [weak self] in
                     self?.empresaTableView.reloadData()
                     self?.activ.stopAnimating()
@@ -330,19 +347,14 @@ class EmpresasViewController: UIViewController {
         switch tempoServico {
         case 0.25:
             return TempoServico.menos3.descricao
-            
         case 1:
             return TempoServico.menos1.descricao
-            
         case 5:
             return TempoServico.menos5.descricao
-            
         case 10:
             return TempoServico.menos10.descricao
-            
         case 11:
             return TempoServico.mais10.descricao
-            
         default:
             return ""
         }

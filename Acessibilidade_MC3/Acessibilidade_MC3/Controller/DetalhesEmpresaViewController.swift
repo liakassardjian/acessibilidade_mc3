@@ -53,6 +53,7 @@ class DetalhesEmpresaViewController: UIViewController {
         detalhesTableView.dataSource = detalhesDataSourceDelegate
         
         detalhesDataSourceDelegate?.empresa = self.empresa
+        detalhesDataSourceDelegate?.adm = false
         
         let headerNib = UINib.init(nibName: "AvaliacaoHeaderView", bundle: Bundle.main)
         detalhesTableView.register(headerNib, forHeaderFooterViewReuseIdentifier: "AvaliacaoHeaderView")
