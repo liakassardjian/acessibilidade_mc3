@@ -66,10 +66,7 @@ class EmpresasViewController: UIViewController {
      */
     lazy var refreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
-        refreshControl.addTarget(self, action:
-                     #selector(self.regarregaPagina(_:)),
-                                 for: UIControl.Event.valueChanged)
-        
+        refreshControl.addTarget(self, action: #selector(self.regarregaPagina(_:)), for: UIControl.Event.valueChanged)
         return refreshControl
     }()
     
@@ -395,7 +392,6 @@ class EmpresasViewController: UIViewController {
                                                 print("erro")
                                             }
             }
-            
         }
     }
 }

@@ -100,6 +100,13 @@ class Empresa {
     var status: Estado
     
     /**
+     Vetor que contém todas as avaliações atribuídas a essa empresa que já foram aprovadas pela curadoria.
+     
+     É representado por um vetor de Avaliacao.
+     */
+    var avaliacoesAprovadas: [Avaliacao]
+    
+    /**
         Inicializador da empresa.
      
         - parameters:
@@ -119,6 +126,7 @@ class Empresa {
         self.cidade = cidade
         self.estado = estado
         self.id = id
+        self.avaliacoesAprovadas = []
         
         switch status {
         case Estado.aprovado.rawValue:
@@ -141,6 +149,7 @@ class Empresa {
         self.cidade = ""
         self.estado = ""
         self.status = .pendente
+        self.avaliacoesAprovadas = []
     }
     
     /**
@@ -154,9 +163,13 @@ class Empresa {
      */
     public func adicionaAvaliacao(avaliacao: Avaliacao, usuario: String) {
         self.avaliacoes.append(avaliacao)
-        self.calculaMediaNota()
-        self.calculaPorcentagemRecomendacao()
-        self.registraAcessibilidade(avaliacao: avaliacao)
+        if avaliacao.status == .aprovado {
+            self.avaliacoesAprovadas.append(avaliacao)
+//            TODO: As linhas abaixo devem ser chamadas quando um administrador aprovar a avaliação
+            self.calculaMediaNota()
+            self.calculaPorcentagemRecomendacao()
+            self.registraAcessibilidade(avaliacao: avaliacao)
+        }
         
         EmpresaRequest().updateEmpresa(uuid: usuario,
                                        empresa: criaEmpresaCodable()) { (response, error) in
@@ -177,7 +190,10 @@ class Empresa {
      */
     public func criaAvaliacaoEmpresa(avaliacao: Avaliacao) {
         self.avaliacoes.append(avaliacao)
-        self.registraAcessibilidade(avaliacao: avaliacao)
+        if avaliacao.status == .aprovado {
+            self.avaliacoesAprovadas.append(avaliacao)
+            self.registraAcessibilidade(avaliacao: avaliacao)
+        }
     }
     
     /**
@@ -186,12 +202,12 @@ class Empresa {
      */
     private func calculaMediaNota() {
         var media: Float = 0
-        for avaliacao in avaliacoes {
+        for avaliacao in avaliacoesAprovadas {
             media += avaliacao.nota
         }
         
-        if avaliacoes.count > 0 {
-            media /= Float(avaliacoes.count)
+        if avaliacoesAprovadas.count > 0 {
+            media /= Float(avaliacoesAprovadas.count)
         }
         self.nota = media
     }
@@ -202,14 +218,14 @@ class Empresa {
     */
     private func calculaPorcentagemRecomendacao() {
         var recomendacoes: Int = 0
-        for avaliacao in avaliacoes {
+        for avaliacao in avaliacoesAprovadas {
             if avaliacao.recomendacao {
                 recomendacoes += 1
             }
         }
         
-        if avaliacoes.count > 0 {
-            recomendacoes = recomendacoes * 100 / avaliacoes.count
+        if avaliacoesAprovadas.count > 0 {
+            recomendacoes = recomendacoes * 100 / avaliacoesAprovadas.count
         }
         
         self.recomendacao = recomendacoes

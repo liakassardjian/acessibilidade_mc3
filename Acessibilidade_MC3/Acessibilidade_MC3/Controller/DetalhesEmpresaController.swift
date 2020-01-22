@@ -36,7 +36,7 @@ class DetalhesEmpresaController: NSObject, UITableViewDelegate, UITableViewDataS
         if section == 0 {
             return 1
         } else {
-            if let avaliacoes = empresa?.avaliacoes {
+            if let avaliacoes = empresa?.avaliacoesAprovadas {
                 return avaliacoes.count
             }
             return 0
@@ -91,7 +91,7 @@ class DetalhesEmpresaController: NSObject, UITableViewDelegate, UITableViewDataS
                 return UITableViewCell()
             }
             
-            if let avaliacoes = empresa?.avaliacoes {
+            if let avaliacoes = empresa?.avaliacoesAprovadas {
                 let avaliacao = avaliacoes[indexPath.row]
                 cell.dataLabel.text = retornaDataString(data: avaliacao.data)
                 cell.tituloLabel.text = avaliacao.titulo
@@ -115,7 +115,8 @@ class DetalhesEmpresaController: NSObject, UITableViewDelegate, UITableViewDataS
                     cell.recomendaImagem.image = UIImage(named: "NaoRecomendaTrue")
                 }
                 
-                if let sugestoes = avaliacao.sugestoes {
+                if let sugestoes = avaliacao.sugestoes,
+                    sugestoes != "" {
                     cell.sugestoesLabel.text = sugestoes
                     cell.sugestoesTituloLabel.isHidden = false
                     cell.sugestoesLabel.isHidden = false
@@ -149,7 +150,7 @@ class DetalhesEmpresaController: NSObject, UITableViewDelegate, UITableViewDataS
         var titulo = titulos[section]
         if section != 0 {
             if let empresa = empresa {
-                titulo = "\(titulo) (\(String(describing: empresa.avaliacoes.count)))"                
+                titulo = "\(titulo) (\(String(describing: empresa.avaliacoesAprovadas.count)))"                
             }
         }
         headerView.tituloLabel.text = titulo

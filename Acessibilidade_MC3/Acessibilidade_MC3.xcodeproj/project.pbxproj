@@ -24,7 +24,7 @@
 		E4200B76231EE68500AFD3A2 /* TextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4200B75231EE68500AFD3A2 /* TextViewController.swift */; };
 		E42BD43923D7D4800055D166 /* VerificadorPalavras.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42BD43823D7D4800055D166 /* VerificadorPalavras.swift */; };
 		E42BD43B23D7D4970055D166 /* lista-palavroes-bloqueio.txt in Resources */ = {isa = PBXBuildFile; fileRef = E42BD43A23D7D4960055D166 /* lista-palavroes-bloqueio.txt */; };
-		E4574F9B23D14656004F5840 /* TesteAdm.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E4574F9A23D14656004F5840 /* TesteAdm.storyboard */; };
+		E4574F9B23D14656004F5840 /* Administracao.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E4574F9A23D14656004F5840 /* Administracao.storyboard */; };
 		E4574F9D23D147C1004F5840 /* CuradoriaEmpresasTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4574F9C23D147C1004F5840 /* CuradoriaEmpresasTVC.swift */; };
 		E4574F9F23D14B66004F5840 /* CuradoriaAvaliacoesTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4574F9E23D14B66004F5840 /* CuradoriaAvaliacoesTVC.swift */; };
 		E4E9C3A92318AB2F004963D4 /* DetalhesEmpresaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E9C3A82318AB2F004963D4 /* DetalhesEmpresaViewController.swift */; };
@@ -83,8 +83,8 @@
 		E4200B71231EDB9100AFD3A2 /* NovaEmpresaTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NovaEmpresaTableViewController.swift; sourceTree = "<group>"; };
 		E4200B75231EE68500AFD3A2 /* TextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewController.swift; sourceTree = "<group>"; };
 		E42BD43823D7D4800055D166 /* VerificadorPalavras.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificadorPalavras.swift; sourceTree = "<group>"; };
-		E42BD43A23D7D4960055D166 /* lista-palavroes-bloqueio.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "lista-palavroes-bloqueio.txt"; sourceTree = "<group>"; };
-		E4574F9A23D14656004F5840 /* TesteAdm.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TesteAdm.storyboard; sourceTree = "<group>"; };
+		E42BD43A23D7D4960055D166 /* lista-palavroes-bloqueio.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "lista-palavroes-bloqueio.txt"; path = "Acessibilidade_MC3/lista-palavroes-bloqueio.txt"; sourceTree = SOURCE_ROOT; };
+		E4574F9A23D14656004F5840 /* Administracao.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Administracao.storyboard; sourceTree = "<group>"; };
 		E4574F9C23D147C1004F5840 /* CuradoriaEmpresasTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CuradoriaEmpresasTVC.swift; sourceTree = "<group>"; };
 		E4574F9E23D14B66004F5840 /* CuradoriaAvaliacoesTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CuradoriaAvaliacoesTVC.swift; sourceTree = "<group>"; };
 		E4E9C3A82318AB2F004963D4 /* DetalhesEmpresaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetalhesEmpresaViewController.swift; sourceTree = "<group>"; };
@@ -167,7 +167,7 @@
 				E4F40F7E2319855900DF4143 /* InformacoesTableViewCell.swift */,
 				E4F40F802319ADCA00DF4143 /* AvaliacaoTableViewCell.swift */,
 				E4FA82B2231D89FB00BD6BFA /* AvaliacaoHeaderView.swift */,
-				E4574F9A23D14656004F5840 /* TesteAdm.storyboard */,
+				E4574F9A23D14656004F5840 /* Administracao.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -351,7 +351,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E4EDBF5E23142721002936C7 /* LaunchScreen.storyboard in Resources */,
-				E4574F9B23D14656004F5840 /* TesteAdm.storyboard in Resources */,
+				E4574F9B23D14656004F5840 /* Administracao.storyboard in Resources */,
 				E4FA82B1231D898700BD6BFA /* AvaliacaoHeaderView.xib in Resources */,
 				E4EDBF5B23142721002936C7 /* Assets.xcassets in Resources */,
 				E4EDBF562314271F002936C7 /* Main.storyboard in Resources */,

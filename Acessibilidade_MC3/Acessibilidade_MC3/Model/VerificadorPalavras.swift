@@ -15,7 +15,8 @@ class VerificadorPalavras {
     
     private init() {
         do {
-            let texto = try String(contentsOfFile: "lista-palavroes-bloqueio.txt", encoding: .utf8)
+            let caminho = "/Users/liakassardjian/Projetos/Acessibilidade/acessibilidade_mc3/Acessibilidade_MC3/Acessibilidade_MC3/lista-palavroes-bloqueio.txt"
+            let texto = try String(contentsOfFile: caminho)
             self.palavras = texto.components(separatedBy: "\n")
         } catch {
             palavras = []
@@ -24,6 +25,7 @@ class VerificadorPalavras {
     }
     
     public func verificaPalavras(texto: String) -> Bool {
-        return palavras.reduce(false) { $0 || texto.contains($1.lowercased()) }
+        let palavrao = palavras.reduce(false) { $0 || texto.contains($1.lowercased()) }
+        return palavrao
     }
 }

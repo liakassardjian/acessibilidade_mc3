@@ -197,7 +197,7 @@ class AvaliarCargoViewController: UITableViewController {
     @IBAction func cargoTextFieldDidChange(_ sender: Any) {
         let texto = recuperaTextoTextField(textField: cargoTextField)
         if texto != "" {
-            proximoButton.isEnabled = true //VerificadorPalavras.shared.verificaPalavras(texto: texto)
+            proximoButton.isEnabled = true  //VerificadorPalavras.shared.verificaPalavras(texto: texto)
         } else {
             proximoButton.isEnabled = false
         }
