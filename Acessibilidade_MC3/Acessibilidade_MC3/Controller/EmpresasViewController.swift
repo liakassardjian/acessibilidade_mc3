@@ -61,6 +61,29 @@ class EmpresasViewController: UIViewController {
     */
     var empresaAdicionada: Bool = false
     
+    /**
+     Controlador de refresh da página ao puxar para baixo.
+     */
+    lazy var refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action:
+                     #selector(self.regarregaPagina(_:)),
+                                 for: UIControl.Event.valueChanged)
+        
+        return refreshControl
+    }()
+    
+    /**
+     Função que atualiza os dados da página através de GET no servidor.
+     
+     - parameters:
+        - refreshControl: Instância de UIRefreshControl que recarrega a página.
+     */
+    @objc func regarregaPagina(_ refreshControl: UIRefreshControl) {
+        getEmpresas()
+        refreshControl.endRefreshing()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         empresasDataSourceDelegate = EmpresasController(tableView: empresaTableView)
@@ -89,6 +112,8 @@ class EmpresasViewController: UIViewController {
             usuario = UserDefaults.standard.string(forKey: "UserId")
         }
     
+        self.empresaTableView.addSubview(self.refreshControl)
+
     }
     
     override func viewDidAppear(_ animated: Bool) {
