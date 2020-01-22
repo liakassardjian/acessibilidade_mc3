@@ -76,6 +76,10 @@ class DetalhesEmpresaViewController: UIViewController {
             if let senderAdd = sender.source as? AvaliarProsViewController {
                 if let avaliacao = senderAdd.avaliacao {
                     self.avaliacao = avaliacao
+                    registraAvaliacao(avaliacao: avaliacao)
+                    empresa?.adicionaAvaliacao(avaliacao: avaliacao, usuario: usuario ?? "")
+                    self.avaliacao = nil
+                    detalhesTableView.reloadData()
                 }
             }
         }

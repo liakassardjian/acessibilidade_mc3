@@ -2219,7 +2219,7 @@
                     <navigationItem key="navigationItem" title="Nome da empresa" id="Ne3-8T-5AU">
                         <barButtonItem key="rightBarButtonItem" title="Avaliar empresa" id="dzf-tS-Skb">
                             <connections>
-                                <segue destination="DNT-iT-9b8" kind="show" id="sTl-Tv-0y0"/>
+                                <segue destination="O2A-Cc-aoD" kind="show" id="LAZ-9n-O31"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -2232,14 +2232,14 @@
             <point key="canvasLocation" x="1209" y="-567"/>
         </scene>
         <!--avaliarTVC-->
-        <scene sceneID="0xQ-e3-p4k">
+        <scene sceneID="k1c-Kq-wgF">
             <objects>
-                <viewControllerPlaceholder storyboardName="Avaliar" referencedIdentifier="avaliarTVC" id="DNT-iT-9b8" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="Q3a-2k-f4e"/>
+                <viewControllerPlaceholder storyboardName="Avaliar" referencedIdentifier="avaliarTVC" id="O2A-Cc-aoD" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="W9d-Gb-iRe"/>
                 </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="a89-GQ-1eq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3Ua-pC-KU3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2193" y="-567"/>
+            <point key="canvasLocation" x="2036" y="-567"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="SgI-lR-5Uo">
