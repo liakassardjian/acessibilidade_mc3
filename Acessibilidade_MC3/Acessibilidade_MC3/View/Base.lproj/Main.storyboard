@@ -800,11 +800,6 @@
                         <viewLayoutGuide key="safeArea" id="0Fa-Db-4ee"/>
                     </view>
                     <navigationItem key="navigationItem" title="Empresas" id="kjk-tv-Ax9">
-                        <barButtonItem key="leftBarButtonItem" title="Administração" id="Pa6-mp-wD5">
-                            <connections>
-                                <segue destination="hYz-1l-xlW" kind="show" identifier="adm" id="OJv-ha-5zw"/>
-                            </connections>
-                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="w9f-Pm-d0U">
                             <connections>
                                 <segue destination="Ktz-8H-xy2" kind="show" id="geS-2s-nJQ"/>
