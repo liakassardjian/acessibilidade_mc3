@@ -163,13 +163,6 @@ class Empresa {
      */
     public func adicionaAvaliacao(avaliacao: Avaliacao, usuario: String) {
         self.avaliacoes.append(avaliacao)
-        if avaliacao.status == .aprovado {
-            self.avaliacoesAprovadas.append(avaliacao)
-//            TODO: As linhas abaixo devem ser chamadas quando um administrador aprovar a avaliação
-            self.calculaMediaNota()
-            self.calculaPorcentagemRecomendacao()
-            self.registraAcessibilidade(avaliacao: avaliacao)
-        }
         
         EmpresaRequest().updateEmpresa(uuid: usuario,
                                        empresa: criaEmpresaCodable()) { (response, error) in
@@ -193,6 +186,24 @@ class Empresa {
         if avaliacao.status == .aprovado {
             self.avaliacoesAprovadas.append(avaliacao)
             self.registraAcessibilidade(avaliacao: avaliacao)
+        }
+    }
+    
+    public func aprovaAvaliacao(avaliacao: Avaliacao, usuario: String) {
+        if avaliacao.status == .aprovado {            self.avaliacoesAprovadas.append(avaliacao)
+            self.calculaMediaNota()
+            self.calculaPorcentagemRecomendacao()
+            self.registraAcessibilidade(avaliacao: avaliacao)
+        }
+        
+        EmpresaRequest().updateEmpresa(uuid: usuario,
+                                       empresa: criaEmpresaCodable()) { (response, error) in
+                                        if response != nil {
+                                            print("sucesso na atualizacao de uma avaliacao")
+                                        } else {
+                                            print("erro atualizacao de uma avaliacao")
+                                            print(error as Any)
+                                        }
         }
     }
     

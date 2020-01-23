@@ -46,6 +46,7 @@
 		E4FDA8BE23D8AFB200F367CF /* CuradoriaEmpresasViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FDA8BD23D8AFB200F367CF /* CuradoriaEmpresasViewController.swift */; };
 		E4FDA8C023D8C0EF00F367CF /* CuradoriaDetalhesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FDA8BF23D8C0EF00F367CF /* CuradoriaDetalhesViewController.swift */; };
 		E4FDA8C223D8C62700F367CF /* AvaliarEmpresaTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FDA8C123D8C62700F367CF /* AvaliarEmpresaTableViewController.swift */; };
+		E4FDA8C423D8D92F00F367CF /* AvaliarComentarioTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FDA8C323D8D92F00F367CF /* AvaliarComentarioTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,6 +114,7 @@
 		E4FDA8BD23D8AFB200F367CF /* CuradoriaEmpresasViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CuradoriaEmpresasViewController.swift; sourceTree = "<group>"; };
 		E4FDA8BF23D8C0EF00F367CF /* CuradoriaDetalhesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CuradoriaDetalhesViewController.swift; sourceTree = "<group>"; };
 		E4FDA8C123D8C62700F367CF /* AvaliarEmpresaTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvaliarEmpresaTableViewController.swift; sourceTree = "<group>"; };
+		E4FDA8C323D8D92F00F367CF /* AvaliarComentarioTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvaliarComentarioTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,6 +193,7 @@
 				E4FDA8BD23D8AFB200F367CF /* CuradoriaEmpresasViewController.swift */,
 				E4FDA8BF23D8C0EF00F367CF /* CuradoriaDetalhesViewController.swift */,
 				E4FDA8C123D8C62700F367CF /* AvaliarEmpresaTableViewController.swift */,
+				E4FDA8C323D8D92F00F367CF /* AvaliarComentarioTableViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -424,6 +427,7 @@
 				E4F330E92315C311006106E2 /* EmpresasViewController.swift in Sources */,
 				E4FDA8C023D8C0EF00F367CF /* CuradoriaDetalhesViewController.swift in Sources */,
 				E39891D023171937003F785B /* AvaliarNotasViewController.swift in Sources */,
+				E4FDA8C423D8D92F00F367CF /* AvaliarComentarioTableViewController.swift in Sources */,
 				E308109D2319B4B6009A7754 /* PickerController.swift in Sources */,
 				E4EDBF592314271F002936C7 /* Acessibilidade_MC3.xcdatamodeld in Sources */,
 				E4F40F812319ADCA00DF4143 /* AvaliacaoTableViewCell.swift in Sources */,

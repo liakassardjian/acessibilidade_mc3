@@ -32,7 +32,7 @@ class DetalhesEmpresaController: NSObject, UITableViewDelegate, UITableViewDataS
      Booleano que indica se a tela a ser exibida estará em estado administrativo ou não.
      */
     var adm: Bool = false
-    
+        
     func numberOfSections(in tableView: UITableView) -> Int {
         return titulos.count
     }

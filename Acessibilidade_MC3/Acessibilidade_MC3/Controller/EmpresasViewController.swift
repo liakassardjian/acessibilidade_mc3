@@ -247,7 +247,8 @@ class EmpresasViewController: UIViewController {
                 let sida = avaliacao?.deficienciaAuditiva,
                 let sdi = avaliacao?.deficienciaIntelectual,
                 let spn = avaliacao?.nanismo,
-                let recomenda = avaliacao?.recomenda {
+                let recomenda = avaliacao?.recomenda,
+                let status = avaliacao?.estadoPendenteAvaliacao {
                 
                 let novaAvaliacao = Avaliacao()
                 novaAvaliacao.titulo = titulo
@@ -258,10 +259,26 @@ class EmpresasViewController: UIViewController {
                                                      cultura,
                                                      remuneracao,
                                                      oportunidade])
+                novaAvaliacao.integracao = Int(integracao)
+                novaAvaliacao.cultura = Int(cultura)
+                novaAvaliacao.remuneracao = Int(remuneracao)
+                novaAvaliacao.oportunidade = Int(oportunidade)
+
                 novaAvaliacao.recomendacao = recomenda
                 novaAvaliacao.ultimoAno = Int(ultimoAno)
                 novaAvaliacao.posicao = cargo
                 novaAvaliacao.id = id
+                
+                switch status {
+                case -1:
+                    novaAvaliacao.status = .reprovado
+                case 0:
+                    novaAvaliacao.status = .pendente
+                case 1:
+                    novaAvaliacao.status = .aprovado
+                default:
+                    break
+                }
                 
                 novaAvaliacao.tempoServico = converteTempoServico(tempoServico: tempoServico)
                 
