@@ -48,6 +48,11 @@ struct RequestConstants {
     static let POSTDELETEAVALIACAO = "\(RequestConstants.URL)deleteAvaliacao"
     
     /**
+    Endereço para atualizar uma avaliação do servidor.
+    */
+    static let PUTAVALIACAO = "\(RequestConstants.URL)updateAvaliacao/"
+    
+    /**
     Endereço para buscar as avaliações de uma empresa no servidor.
     */
     static let GETAVALIACAOEMPRESA = "\(RequestConstants.URL)avavaliacoes/"

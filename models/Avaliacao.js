@@ -72,6 +72,10 @@ const Avaliacao = new Schema({
   },
   nanismo: {
     type: Boolean
+  },
+  estadoPendenteAvaliacao: {
+    type: Number,
+    required: true,
   }
   /*usuarioDaAvaliacao: {
     type: mongoose.Schema.Types.ObjectId,

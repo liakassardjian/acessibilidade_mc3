@@ -27,7 +27,6 @@ import Foundation
 Classe que controla a requisição das avaliações ao servidor.
 */
 class AvaliacaoRequest {
-    
     /**
     Função que envia uma avaliação criada ao servidor.
     - parameters:
@@ -57,7 +56,8 @@ class AvaliacaoRequest {
                                "deficienciaAuditiva": avaliacao.deficienciaAuditiva as Any,
                                "deficienciaIntelectual": avaliacao.deficienciaIntelectual as Any,
                                "nanismo": avaliacao.nanismo as Any,
-                               "uuid": uuid] as [String: Any]
+                               "uuid": uuid,
+                               "estadoPendenteAvaliacao": avaliacao.estadoPendenteAvaliacao as Any] as [String: Any]
         
         guard let idEmpresa = idEmpresa else { return }
         guard let url = URL(string: RequestConstants.POSTAVALIACAO + idEmpresa) else { return }
@@ -157,9 +157,7 @@ class AvaliacaoRequest {
         let group = DispatchGroup()
         group.enter()
         let parameters = ["uuid": uuid, "avaliacaoId": avaliacaoId] as [String: Any]
-        guard let url = URL(string: RequestConstants.POSTDELETEAVALIACAO) else {
-            return
-        }
+        guard let url = URL(string: RequestConstants.POSTDELETEAVALIACAO) else { return }
         let session = URLSession.shared
         //now create the Request object using the url object
         var request = URLRequest(url: url)
@@ -206,6 +204,105 @@ class AvaliacaoRequest {
                         }
                         } else {
                         print("no file")
+                    }
+                } catch {
+                    print(error.localizedDescription)
+                }
+            })
+        })
+        task.resume()
+    }
+    
+    /**
+    Função que atualiza uma avaliação no servidor.
+    
+    - parameters:
+        - uuid: Identificador do usuário que requisitou a atualização da avaliação.
+        - avaliacaoId: String que representa o identificador da avaliação que está sendo atualizada.
+        - completion: Closure que é chamada com um vetor opcional de strings como Any e um Error opcional.
+    */
+    
+    func updateAvaliacao(uuid: String, avaliacao: AvaliacaoCodable, completion: @escaping ([String: Any]?, Error?) -> Void) {
+        let group = DispatchGroup()
+        group.enter()
+        var avaliacaoParams: [String: Any] = [:]
+        if let titulo = avaliacao.titulo, let data = avaliacao.data,
+            let cargo = avaliacao.cargo, let tempoServico = avaliacao.tempoServico,
+            let pros = avaliacao.pros, let contras = avaliacao.contras,
+            let melhorias = avaliacao.melhorias, let ultimoAno =  avaliacao.ultimoAno,
+            let recomenda =  avaliacao.recomenda, let integracaoEquipe = avaliacao.integracaoEquipe,
+            let culturaValores = avaliacao.culturaValores, let renumeracaoBeneficios = avaliacao.renumeracaoBeneficios,
+            let oportunidadeCrescimento = avaliacao.oportunidadeCrescimento, let deficienciaMotora = avaliacao.deficienciaMotora,
+            let deficienciaVisual = avaliacao.deficienciaVisual, let deficienciaAuditiva = avaliacao.deficienciaAuditiva,
+            let deficienciaIntelectual =  avaliacao.deficienciaIntelectual, let nanismo = avaliacao.nanismo,
+            let estadoPendenteAvaliacao = avaliacao.estadoPendenteAvaliacao {
+            avaliacaoParams = ["titulo": titulo,
+                               "data": data,
+                               "cargo": cargo,
+                               "tempoServico": tempoServico,
+                               "pros": pros,
+                               "contras": contras,
+                               "melhorias": melhorias,
+                               "ultimoAno": ultimoAno,
+                               "recomenda": recomenda,
+                               "integracaoEquipe": integracaoEquipe,
+                               "culturaValores": culturaValores,
+                               "renumeracaoBeneficios": renumeracaoBeneficios,
+                               "oportunidadeCrescimento": oportunidadeCrescimento,
+                               "deficienciaMotora": deficienciaMotora,
+                               "deficienciaVisual": deficienciaVisual,
+                               "deficienciaAuditiva": deficienciaAuditiva,
+                               "deficienciaIntelectual": deficienciaIntelectual,
+                               "nanismo": nanismo,
+                               "estadoPendenteAvaliacao": estadoPendenteAvaliacao] as [String: Any]
+        }
+        
+        guard let url = URL(string: RequestConstants.PUTAVALIACAO + String(describing: avaliacao._id ?? "")) else {
+            print("erro na construcao da url")
+            return
+        }
+        let session = URLSession.shared
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        do {
+            request.httpBody = try JSONSerialization.data(withJSONObject: avaliacaoParams, options: .prettyPrinted)
+        } catch let error {
+            print(error.localizedDescription)
+            completion(nil, error)
+        }
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("application/json", forHTTPHeaderField: "Acadresst")
+        let task = session.dataTask(with: request, completionHandler: { data, response, error in
+            group.leave()
+            group.notify(queue: .main, execute: {
+                guard error == nil else {
+                    completion(nil, error)
+                    return
+                }
+                guard data != nil else {
+                    completion(nil, NSError(domain: "dataNilError", code: -100001, userInfo: nil))
+                    return
+                }
+                do {
+                    print(data as Any)
+                    if let file = data {
+                        let json = try JSONSerialization.jsonObject(with: file, options: [])
+                        if let safeJson = json as? [String: Any] {
+                            print(safeJson)
+                            for (key, value) in safeJson {
+                                if key == "result" {
+                                    if value as? Int == 0 {
+                                        completion(nil, nil)
+                                    } else {
+                                        completion(safeJson, nil)
+                                    }
+                                } else {
+                                    completion(nil, nil)
+                                }
+                            }
+                        } else {
+                            print("no file")
+                        }
                     }
                 } catch {
                     print(error.localizedDescription)

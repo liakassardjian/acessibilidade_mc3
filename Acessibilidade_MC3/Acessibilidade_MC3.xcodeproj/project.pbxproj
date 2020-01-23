@@ -22,6 +22,9 @@
 		E40E5EE823170DC100915B21 /* BarraProgressoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40E5EE723170DC100915B21 /* BarraProgressoView.swift */; };
 		E4200B72231EDB9100AFD3A2 /* NovaEmpresaTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4200B71231EDB9100AFD3A2 /* NovaEmpresaTableViewController.swift */; };
 		E4200B76231EE68500AFD3A2 /* TextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4200B75231EE68500AFD3A2 /* TextViewController.swift */; };
+		E42BD43923D7D4800055D166 /* VerificadorPalavras.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42BD43823D7D4800055D166 /* VerificadorPalavras.swift */; };
+		E42BD43B23D7D4970055D166 /* lista-palavroes-bloqueio.txt in Resources */ = {isa = PBXBuildFile; fileRef = E42BD43A23D7D4960055D166 /* lista-palavroes-bloqueio.txt */; };
+		E4574F9B23D14656004F5840 /* Administracao.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E4574F9A23D14656004F5840 /* Administracao.storyboard */; };
 		E4E9C3A92318AB2F004963D4 /* DetalhesEmpresaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E9C3A82318AB2F004963D4 /* DetalhesEmpresaViewController.swift */; };
 		E4E9C3AB2318AB6C004963D4 /* DetalhesEmpresaController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E9C3AA2318AB6C004963D4 /* DetalhesEmpresaController.swift */; };
 		E4EDBF512314271F002936C7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4EDBF502314271F002936C7 /* AppDelegate.swift */; };
@@ -40,6 +43,10 @@
 		E4FA82AB231D7E5300BD6BFA /* Avaliacao.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FA82AA231D7E5300BD6BFA /* Avaliacao.swift */; };
 		E4FA82B1231D898700BD6BFA /* AvaliacaoHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4FA82B0231D898700BD6BFA /* AvaliacaoHeaderView.xib */; };
 		E4FA82B3231D89FB00BD6BFA /* AvaliacaoHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FA82B2231D89FB00BD6BFA /* AvaliacaoHeaderView.swift */; };
+		E4FDA8BE23D8AFB200F367CF /* CuradoriaEmpresasViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FDA8BD23D8AFB200F367CF /* CuradoriaEmpresasViewController.swift */; };
+		E4FDA8C023D8C0EF00F367CF /* CuradoriaDetalhesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FDA8BF23D8C0EF00F367CF /* CuradoriaDetalhesViewController.swift */; };
+		E4FDA8C223D8C62700F367CF /* AvaliarEmpresaTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FDA8C123D8C62700F367CF /* AvaliarEmpresaTableViewController.swift */; };
+		E4FDA8C423D8D92F00F367CF /* AvaliarComentarioTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FDA8C323D8D92F00F367CF /* AvaliarComentarioTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +84,9 @@
 		E4200B70231EC6A900AFD3A2 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		E4200B71231EDB9100AFD3A2 /* NovaEmpresaTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NovaEmpresaTableViewController.swift; sourceTree = "<group>"; };
 		E4200B75231EE68500AFD3A2 /* TextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewController.swift; sourceTree = "<group>"; };
+		E42BD43823D7D4800055D166 /* VerificadorPalavras.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificadorPalavras.swift; sourceTree = "<group>"; };
+		E42BD43A23D7D4960055D166 /* lista-palavroes-bloqueio.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "lista-palavroes-bloqueio.txt"; path = "Acessibilidade_MC3/lista-palavroes-bloqueio.txt"; sourceTree = SOURCE_ROOT; };
+		E4574F9A23D14656004F5840 /* Administracao.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Administracao.storyboard; sourceTree = "<group>"; };
 		E4E9C3A82318AB2F004963D4 /* DetalhesEmpresaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetalhesEmpresaViewController.swift; sourceTree = "<group>"; };
 		E4E9C3AA2318AB6C004963D4 /* DetalhesEmpresaController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetalhesEmpresaController.swift; sourceTree = "<group>"; };
 		E4EDBF4D2314271F002936C7 /* Acessibilidade_MC3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Acessibilidade_MC3.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -101,6 +111,10 @@
 		E4FA82AA231D7E5300BD6BFA /* Avaliacao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Avaliacao.swift; sourceTree = "<group>"; };
 		E4FA82B0231D898700BD6BFA /* AvaliacaoHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AvaliacaoHeaderView.xib; sourceTree = "<group>"; };
 		E4FA82B2231D89FB00BD6BFA /* AvaliacaoHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvaliacaoHeaderView.swift; sourceTree = "<group>"; };
+		E4FDA8BD23D8AFB200F367CF /* CuradoriaEmpresasViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CuradoriaEmpresasViewController.swift; sourceTree = "<group>"; };
+		E4FDA8BF23D8C0EF00F367CF /* CuradoriaDetalhesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CuradoriaDetalhesViewController.swift; sourceTree = "<group>"; };
+		E4FDA8C123D8C62700F367CF /* AvaliarEmpresaTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvaliarEmpresaTableViewController.swift; sourceTree = "<group>"; };
+		E4FDA8C323D8D92F00F367CF /* AvaliarComentarioTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvaliarComentarioTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +153,7 @@
 				6D8B132A231DA9A300F7074D /* EmpresaRequest.swift */,
 				6D8B132E231DAAE300F7074D /* AvaliacaoRequest.swift */,
 				6D8B132C231DA9BA00F7074D /* UserRequest.swift */,
+				E42BD43823D7D4800055D166 /* VerificadorPalavras.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -150,6 +165,7 @@
 				E4FA82B0231D898700BD6BFA /* AvaliacaoHeaderView.xib */,
 				E3CBA81A2316EB9F00403440 /* Avaliar.storyboard */,
 				E4EDBF5C23142721002936C7 /* LaunchScreen.storyboard */,
+				E4574F9A23D14656004F5840 /* Administracao.storyboard */,
 				E4F330EC2315C60D006106E2 /* EmpresaTableViewCell.swift */,
 				E3A5411B231C6C8A00F22DC8 /* UIColors.swift */,
 				E40E5EE723170DC100915B21 /* BarraProgressoView.swift */,
@@ -174,6 +190,10 @@
 				E39891D12317194B003F785B /* AvaliarProsViewController.swift */,
 				E4200B71231EDB9100AFD3A2 /* NovaEmpresaTableViewController.swift */,
 				E4200B75231EE68500AFD3A2 /* TextViewController.swift */,
+				E4FDA8BD23D8AFB200F367CF /* CuradoriaEmpresasViewController.swift */,
+				E4FDA8BF23D8C0EF00F367CF /* CuradoriaDetalhesViewController.swift */,
+				E4FDA8C123D8C62700F367CF /* AvaliarEmpresaTableViewController.swift */,
+				E4FDA8C323D8D92F00F367CF /* AvaliarComentarioTableViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -201,6 +221,7 @@
 		E4EDBF4F2314271F002936C7 /* Acessibilidade_MC3 */ = {
 			isa = PBXGroup;
 			children = (
+				E42BD43A23D7D4960055D166 /* lista-palavroes-bloqueio.txt */,
 				E4EDBF5F23142721002936C7 /* Info.plist */,
 				E4EDBF502314271F002936C7 /* AppDelegate.swift */,
 				E4EC31532314275F00613EA2 /* Model */,
@@ -336,9 +357,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				E4EDBF5E23142721002936C7 /* LaunchScreen.storyboard in Resources */,
+				E4574F9B23D14656004F5840 /* Administracao.storyboard in Resources */,
 				E4FA82B1231D898700BD6BFA /* AvaliacaoHeaderView.xib in Resources */,
 				E4EDBF5B23142721002936C7 /* Assets.xcassets in Resources */,
 				E4EDBF562314271F002936C7 /* Main.storyboard in Resources */,
+				E42BD43B23D7D4970055D166 /* lista-palavroes-bloqueio.txt in Resources */,
 				E3CBA81B2316EB9F00403440 /* Avaliar.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -386,12 +409,15 @@
 			files = (
 				6D8B132B231DA9A300F7074D /* EmpresaRequest.swift in Sources */,
 				6D8B132F231DAAE300F7074D /* AvaliacaoRequest.swift in Sources */,
+				E4FDA8C223D8C62700F367CF /* AvaliarEmpresaTableViewController.swift in Sources */,
 				6D8B1329231D860B00F7074D /* EmpresaAcessivelCodable.swift in Sources */,
 				6D8B1327231D7E4F00F7074D /* RequestConstants.swift in Sources */,
+				E42BD43923D7D4800055D166 /* VerificadorPalavras.swift in Sources */,
 				6D8B132D231DA9BA00F7074D /* UserRequest.swift in Sources */,
 				E3A5411C231C6C8A00F22DC8 /* UIColors.swift in Sources */,
 				E39891D42317197F003F785B /* AvaliarDeficienciasViewController.swift in Sources */,
 				E39891D22317194B003F785B /* AvaliarProsViewController.swift in Sources */,
+				E4FDA8BE23D8AFB200F367CF /* CuradoriaEmpresasViewController.swift in Sources */,
 				E4FA82B3231D89FB00BD6BFA /* AvaliacaoHeaderView.swift in Sources */,
 				E4FA82A9231D7E2300BD6BFA /* Empresa.swift in Sources */,
 				E4200B76231EE68500AFD3A2 /* TextViewController.swift in Sources */,
@@ -399,7 +425,9 @@
 				E40E5EE823170DC100915B21 /* BarraProgressoView.swift in Sources */,
 				E4F330ED2315C60D006106E2 /* EmpresaTableViewCell.swift in Sources */,
 				E4F330E92315C311006106E2 /* EmpresasViewController.swift in Sources */,
+				E4FDA8C023D8C0EF00F367CF /* CuradoriaDetalhesViewController.swift in Sources */,
 				E39891D023171937003F785B /* AvaliarNotasViewController.swift in Sources */,
+				E4FDA8C423D8D92F00F367CF /* AvaliarComentarioTableViewController.swift in Sources */,
 				E308109D2319B4B6009A7754 /* PickerController.swift in Sources */,
 				E4EDBF592314271F002936C7 /* Acessibilidade_MC3.xcdatamodeld in Sources */,
 				E4F40F812319ADCA00DF4143 /* AvaliacaoTableViewCell.swift in Sources */,
@@ -589,6 +617,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = 5HW626WUP4;
 				INFOPLIST_FILE = Acessibilidade_MC3/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -607,6 +636,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = 5HW626WUP4;
 				INFOPLIST_FILE = Acessibilidade_MC3/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (

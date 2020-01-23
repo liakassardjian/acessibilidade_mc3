@@ -21,6 +21,7 @@ class Avaliacao {
      Permite inicializar sem parâmetro nenhum; os valores são inseridos conforme o usuário preenche o formulário de avaliação.
      */
     init() {
+        self.id = ""
         self.data = Date()
         self.titulo = ""
         self.vantagens = ""
@@ -36,7 +37,15 @@ class Avaliacao {
         self.cultura = 0
         self.remuneracao = 0
         self.oportunidade = 0
+        self.status = .pendente
     }
+    
+    /**
+        Id da avaliação
+     
+        É representado por uma string
+     */
+    var id: String
     
     /**
        Data de publicação da avaliação.
@@ -150,4 +159,35 @@ class Avaliacao {
     */
     var oportunidade: Int
     
+    /**
+       Estado de curadoria da avaliação inserida no sistema.
+    
+       É representado por um caso do enumerador Estado.
+    */
+    var status: Estado
+    
+}
+
+/**
+ Enumerador que representa o estado de curadoria de uma entrada do usuário.
+ Corresponde com Double.
+ */
+enum Estado: Double {
+    /**
+     Caso em que a entrada foi aprovada pela curadoria.
+     Equivale a 1.
+     */
+    case aprovado = 1
+    
+    /**
+     Caso em que a entrada foi reprovada pela curadoria.
+     Equivale a -1.
+     */
+    case reprovado = -1
+    
+    /**
+    Caso em que a curadoria da entrada está pendente.
+    Equivale a 0.
+    */
+    case pendente = 0
 }

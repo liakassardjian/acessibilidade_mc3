@@ -11,7 +11,7 @@ import Foundation
 /**
  Classe que representa uma empresa dentro do sistema.
  
- As empresas são caracterizadas por nome, localização, telefone e website; esses elementos são atribuídos a uma empresa na sua inicialização. Uma empresa recebe uma nota, uma recomendação e uma classificação em acessibilidade; esses valores são atualizados a cada avaliação atribuída à empresa.
+ As empresas são caracterizadas por nome, localização, telefone e website; esses elementos são atribuídos a uma empresa na sua inicialização. Uma empresa recebe uma nota, uma recomendação e uma classificação em acessibilidade; esses valores são atualizados a cada avaliação atribuída à empresa. E as empresas ao serem criadas também recebem um estado de pendencia inicial posteriormente podendo ser recusadas ou aprovadas.
  */
 class Empresa {
     
@@ -93,6 +93,20 @@ class Empresa {
     var id: String?
     
     /**
+       Estado de curadoria da empresa inserida no sistema.
+    
+       É representado por um caso do enumerador Estado.
+    */
+    var status: Estado
+    
+    /**
+     Vetor que contém todas as avaliações atribuídas a essa empresa que já foram aprovadas pela curadoria.
+     
+     É representado por um vetor de Avaliacao.
+     */
+    var avaliacoesAprovadas: [Avaliacao]
+    
+    /**
         Inicializador da empresa.
      
         - parameters:
@@ -102,8 +116,9 @@ class Empresa {
             - cidade: Cidade onde a empresa está localizada. **Não** pode ser vazio.
             - estado: Estado onde a empresa está localizada. **Não** pode ser vazio.
             - id: Identificador da empresa no sistema. **Não** pode ser vazio.
+            - status: Inteiro que representa o estado de curadoria de uma emoresa inserida no sistema. **Não** pode ser vazio.
      */
-    init(nome: String, site: String?, telefone: String?, cidade: String, estado: String, id: String) {
+    init(nome: String, site: String?, telefone: String?, cidade: String, estado: String, id: String, status: Double) {
         self.nome = nome
         self.localizacao = "\(cidade), \(estado)"
         self.site = site
@@ -111,6 +126,16 @@ class Empresa {
         self.cidade = cidade
         self.estado = estado
         self.id = id
+        self.avaliacoesAprovadas = []
+        
+        switch status {
+        case Estado.aprovado.rawValue:
+            self.status = .aprovado
+        case Estado.reprovado.rawValue:
+            self.status = .reprovado
+        default:
+            self.status = .pendente
+        }
     }
     
     /**
@@ -123,6 +148,8 @@ class Empresa {
         self.localizacao = ""
         self.cidade = ""
         self.estado = ""
+        self.status = .pendente
+        self.avaliacoesAprovadas = []
     }
     
     /**
@@ -136,9 +163,6 @@ class Empresa {
      */
     public func adicionaAvaliacao(avaliacao: Avaliacao, usuario: String) {
         self.avaliacoes.append(avaliacao)
-        self.calculaMediaNota()
-        self.calculaPorcentagemRecomendacao()
-        self.registraAcessibilidade(avaliacao: avaliacao)
         
         EmpresaRequest().updateEmpresa(uuid: usuario,
                                        empresa: criaEmpresaCodable()) { (response, error) in
@@ -159,7 +183,28 @@ class Empresa {
      */
     public func criaAvaliacaoEmpresa(avaliacao: Avaliacao) {
         self.avaliacoes.append(avaliacao)
-        self.registraAcessibilidade(avaliacao: avaliacao)
+        if avaliacao.status == .aprovado {
+            self.avaliacoesAprovadas.append(avaliacao)
+            self.registraAcessibilidade(avaliacao: avaliacao)
+        }
+    }
+    
+    public func aprovaAvaliacao(avaliacao: Avaliacao, usuario: String) {
+        if avaliacao.status == .aprovado {            self.avaliacoesAprovadas.append(avaliacao)
+            self.calculaMediaNota()
+            self.calculaPorcentagemRecomendacao()
+            self.registraAcessibilidade(avaliacao: avaliacao)
+        }
+        
+        EmpresaRequest().updateEmpresa(uuid: usuario,
+                                       empresa: criaEmpresaCodable()) { (response, error) in
+                                        if response != nil {
+                                            print("sucesso na atualizacao de uma avaliacao")
+                                        } else {
+                                            print("erro atualizacao de uma avaliacao")
+                                            print(error as Any)
+                                        }
+        }
     }
     
     /**
@@ -168,12 +213,12 @@ class Empresa {
      */
     private func calculaMediaNota() {
         var media: Float = 0
-        for avaliacao in avaliacoes {
+        for avaliacao in avaliacoesAprovadas {
             media += avaliacao.nota
         }
         
-        if avaliacoes.count > 0 {
-            media /= Float(avaliacoes.count)
+        if avaliacoesAprovadas.count > 0 {
+            media /= Float(avaliacoesAprovadas.count)
         }
         self.nota = media
     }
@@ -184,14 +229,14 @@ class Empresa {
     */
     private func calculaPorcentagemRecomendacao() {
         var recomendacoes: Int = 0
-        for avaliacao in avaliacoes {
+        for avaliacao in avaliacoesAprovadas {
             if avaliacao.recomendacao {
                 recomendacoes += 1
             }
         }
         
-        if avaliacoes.count > 0 {
-            recomendacoes = recomendacoes * 100 / avaliacoes.count
+        if avaliacoesAprovadas.count > 0 {
+            recomendacoes = recomendacoes * 100 / avaliacoesAprovadas.count
         }
         
         self.recomendacao = recomendacoes
@@ -229,6 +274,7 @@ class Empresa {
                                      mediaRecomendacao: Double(self.recomendacao),
                                      cidade: self.cidade,
                                      estado: self.estado,
+                                     estadoPendenteEmpresa: self.status.rawValue,
                                      avaliacao: [])
         
         return empresa

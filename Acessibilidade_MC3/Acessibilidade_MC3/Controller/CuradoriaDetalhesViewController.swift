@@ -1,23 +1,25 @@
 //
-//  DetalhesEmpresaViewController.swift
+//  CuradoriaDetalhesViewController.swift
 //  Acessibilidade_MC3
 //
-//  Created by Lia Kassardjian on 29/08/19.
-//  Copyright © 2019 Lia Kassardjian. All rights reserved.
+//  Created by Lia Kassardjian on 22/01/20.
+//  Copyright © 2020 Lia Kassardjian. All rights reserved.
 //
 
 import UIKit
 
-/**
- Classe que controla a tela que exibe os detalhes de uma empresa.
- 
- A classe herda de UIViewController.
- */
-class DetalhesEmpresaViewController: UIViewController {
+class CuradoriaDetalhesViewController: UIViewController {
 
     /**
-     Conector da Table View que exibe os dados da empresa.
+     Usuário que está utilizando o aplicativo no momento.
+     
+     É representado por uma string opcional.
      */
+    var usuario: String?
+    
+    /**
+    Conector da Table View que exibe os dados da empresa.
+    */
     @IBOutlet weak var detalhesTableView: UITableView!
     
     /**
@@ -29,80 +31,105 @@ class DetalhesEmpresaViewController: UIViewController {
     
     /**
      Empresa cujos detalhes são exibidos na tela.
-     
+  
      Recebe uma empresa de EmpresasViewController quando esta tela é chamada.
      */
     var empresa: Empresa?
     
     /**
-     Corresponde a uma nova avaliação adicionada pelo usuário.
-     */
-    var avaliacao: Avaliacao?
+       Avaliação que foi atualizada.
     
-    /**
-     Usuário que está utilizando o aplicativo no momento.
-     
-     É representado por uma string opcional.
-     */
-    var usuario: String?
+       Recebe uma instância de Avaliação quando há alterações, mas é nula enquanto não há mudanças.
+    */
+    var avaliacaoAtualizada: Avaliacao?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
         detalhesDataSourceDelegate = DetalhesEmpresaController()
         detalhesTableView.delegate = detalhesDataSourceDelegate
         detalhesTableView.dataSource = detalhesDataSourceDelegate
         
         detalhesDataSourceDelegate?.empresa = self.empresa
-        detalhesDataSourceDelegate?.adm = false
+        detalhesDataSourceDelegate?.adm = true
         
         let headerNib = UINib.init(nibName: "AvaliacaoHeaderView", bundle: Bundle.main)
         detalhesTableView.register(headerNib, forHeaderFooterViewReuseIdentifier: "AvaliacaoHeaderView")
         
         navigationItem.title = empresa?.nome
-        
-        usuario = UserDefaults.standard.string(forKey: "UserId")
-        
     }
-
-    /**
-    Ação executada ao salvar uma nova avaliação no sistema.
     
-    A função é conectada com um botão na tela de adicionar uma avaliação a fim de permitir o Exit daquela tela para esta.
-    
-    - parameters:
-       - sender: A transição executada ao sair da tela.
-    */
-    @IBAction func adicionaAvaliacao(_ sender: UIStoryboardSegue) {
-        if sender.source is AvaliarProsViewController {
-            if let senderAdd = sender.source as? AvaliarProsViewController {
-                if let avaliacao = senderAdd.avaliacao {
-                    self.avaliacao = avaliacao
-                }
+    // MARK: Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let avaliar = segue.destination as? AvaliarEmpresaTableViewController {
+            avaliar.empresa = self.empresa
+        }
+        if let avaliar = segue.destination as? AvaliarComentarioTableViewController {
+            if let selecionada = detalhesTableView.indexPathForSelectedRow {
+                avaliacaoAtualizada = empresa?.avaliacoes[selecionada.row]
+                avaliar.avaliacao = avaliacaoAtualizada
             }
         }
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        if let avaliacao = avaliacao {
-            registraAvaliacao(avaliacao: avaliacao)
-            empresa?.adicionaAvaliacao(avaliacao: avaliacao, usuario: usuario ?? "")
-            self.avaliacao = nil
+    @IBAction func salvarEmpresa(_ sender: UIStoryboardSegue) {
+        if let empresa = empresa {
+            atualizaEmpresa(empresa: empresa)
         }
-        detalhesTableView.reloadData()
+    }
+    
+    @IBAction func salvarAvaliacao(_ sender: UIStoryboardSegue) {
+        if let avaliacao = avaliacaoAtualizada,
+            let empresa = empresa {
+            atualizaAvaliacao(avaliacao: avaliacao)
+            empresa.aprovaAvaliacao(avaliacao: avaliacao, usuario: usuario ?? "")
+            avaliacaoAtualizada = nil
+        }
+    }
+    
+    // MARK: Data
+    /**
+    Funcão que atualiza uma empresa no servidor.
+    
+    - parameters:
+       - empresa: A empresa que está sendo atualizada.
+    */
+
+    func atualizaEmpresa(empresa: Empresa) {
+        let empresaCodable = EmpresaCodable(_id: empresa.id,
+                                            nome: empresa.nome,
+                                            site: empresa.site,
+                                            telefone: empresa.telefone,
+                                            media: 0,
+                                            mediaRecomendacao: 0,
+                                            cidade: empresa.cidade,
+                                            estado: empresa.estado,
+                                            estadoPendenteEmpresa: empresa.status.rawValue, avaliacao: [])
+        
+        if let usuario = usuario {
+            EmpresaRequest().updateEmpresa(uuid: usuario,
+                                           empresa: empresaCodable) { (response, error) in
+                                            if response != nil {
+                                                print("sucesso")
+                                            } else {
+                                                print("erro")
+                                            }
+            }
+        }
     }
     
     /**
-     Funcão que faz o registro no servidor de uma avaliação enviada por um usuário.
+     Funcão que atualiza uma avaliação no servidor.
      
      - parameters:
-        - avaliacao: A nova avaliação enviada pelo usuário.
+        - avaliacao: A avaliação que está sendo atualizada.
      */
-    func registraAvaliacao(avaliacao: Avaliacao) {
+    func atualizaAvaliacao(avaliacao: Avaliacao) {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
         let data = dateFormatter.string(from: avaliacao.data)
         
-        let avaliacaoCodable = AvaliacaoCodable(_id: nil,
+        let avaliacaoCodable = AvaliacaoCodable(_id: avaliacao.id,
                                                 titulo: avaliacao.titulo,
                                                 data: data,
                                                 cargo: avaliacao.posicao,
@@ -121,10 +148,10 @@ class DetalhesEmpresaViewController: UIViewController {
                                                 deficienciaAuditiva: avaliacao.acessibilidade.contains(.deficienciaAuditiva),
                                                 deficienciaIntelectual: avaliacao.acessibilidade.contains(.deficienciaIntelectual),
                                                 nanismo: avaliacao.acessibilidade.contains(.nanismo),
-                                                estadoPendenteAvaliacao: Estado.pendente.rawValue)
+                                                estadoPendenteAvaliacao: avaliacao.status.rawValue)
         
         if let usuario = usuario {
-            AvaliacaoRequest().sendAvaliacao(idEmpresa: empresa?.id, uuid: usuario,
+            AvaliacaoRequest().updateAvaliacao(uuid: usuario,
                                              avaliacao: avaliacaoCodable) { (response, error) in
                                                 if response != nil {
                                                     print("sucesso")
