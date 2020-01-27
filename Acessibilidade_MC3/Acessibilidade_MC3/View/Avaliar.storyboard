@@ -38,7 +38,7 @@
                                                 </textField>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cargo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sfX-fS-flw">
                                                     <rect key="frame" x="20" y="17" width="46.5" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <color key="textColor" red="0.066666666669999999" green="0.12549019610000001" blue="0.1764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -67,7 +67,7 @@
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="É um funcionário atualmente?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4rS-aY-0uG">
                                                     <rect key="frame" x="20" y="17" width="305" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <color key="textColor" red="0.066666666669999999" green="0.12549019610000001" blue="0.1764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -98,7 +98,7 @@
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Desligamento da empresa ocorrido no ano" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j1P-ET-IAC">
                                                     <rect key="frame" x="20" y="11" width="374" height="20.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <color key="textColor" red="0.066666666669999999" green="0.12549019610000001" blue="0.1764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -132,7 +132,7 @@
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Trabalhou na empresa durante" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dM6-G8-FGk">
                                                     <rect key="frame" x="20" y="11" width="374" height="20.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <color key="textColor" red="0.066666666669999999" green="0.12549019610000001" blue="0.1764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -204,16 +204,16 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Integração com a equipe" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BOA-dt-hKS">
-                                                    <rect key="frame" x="20" y="11" width="374" height="24"/>
-                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
+                                                    <rect key="frame" x="20" y="11" width="374" height="20.5"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <color key="textColor" red="0.066666666669999999" green="0.12549019610000001" blue="0.1764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Star" translatesAutoresizingMaskIntoConstraints="NO" id="Klh-vK-QhF">
-                                                    <rect key="frame" x="29" y="49.5" width="37" height="37"/>
+                                                    <rect key="frame" x="29" y="48" width="37" height="36.5"/>
                                                 </imageView>
                                                 <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vLF-Ko-DNs">
-                                                    <rect key="frame" x="20" y="40.5" width="55" height="55"/>
+                                                    <rect key="frame" x="20" y="39" width="55" height="55"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="55" id="Bvd-SR-XFK"/>
                                                         <constraint firstAttribute="width" constant="55" id="rhb-h7-m8M"/>
@@ -223,13 +223,13 @@
                                                     </connections>
                                                 </button>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rbx-xz-1FR">
-                                                    <rect key="frame" x="75" y="35" width="104.5" height="66"/>
+                                                    <rect key="frame" x="75" y="31.5" width="104.5" height="69.5"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="2" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Star" translatesAutoresizingMaskIntoConstraints="NO" id="iT9-IS-01X">
-                                                            <rect key="frame" x="34" y="14.5" width="36.5" height="37"/>
+                                                            <rect key="frame" x="34" y="16.5" width="36.5" height="36.5"/>
                                                         </imageView>
                                                         <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XUh-m2-rqC">
-                                                            <rect key="frame" x="25" y="5.5" width="55" height="55"/>
+                                                            <rect key="frame" x="25" y="7.5" width="55" height="55"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="55" id="RKE-jV-JoQ"/>
                                                                 <constraint firstAttribute="width" constant="55" id="YV6-gr-pbu"/>
@@ -250,10 +250,10 @@
                                                     </constraints>
                                                 </view>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="3" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Star" translatesAutoresizingMaskIntoConstraints="NO" id="4FN-Im-zkC">
-                                                    <rect key="frame" x="188.5" y="49.5" width="37" height="37"/>
+                                                    <rect key="frame" x="188.5" y="48" width="37" height="36.5"/>
                                                 </imageView>
                                                 <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JdV-Iw-my9">
-                                                    <rect key="frame" x="179.5" y="40.5" width="55" height="55"/>
+                                                    <rect key="frame" x="179.5" y="39" width="55" height="55"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="55" id="73E-iO-8jK"/>
                                                         <constraint firstAttribute="height" constant="55" id="I4C-0D-EQO"/>
@@ -263,13 +263,13 @@
                                                     </connections>
                                                 </button>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ScY-cO-yP6">
-                                                    <rect key="frame" x="234.5" y="35" width="104.5" height="66"/>
+                                                    <rect key="frame" x="234.5" y="31.5" width="104.5" height="69.5"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="4" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Star" translatesAutoresizingMaskIntoConstraints="NO" id="soo-c4-I9p">
-                                                            <rect key="frame" x="34" y="14.5" width="36.5" height="37"/>
+                                                            <rect key="frame" x="34" y="16.5" width="36.5" height="36.5"/>
                                                         </imageView>
                                                         <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eIG-K8-d1j">
-                                                            <rect key="frame" x="25" y="5.5" width="55" height="55"/>
+                                                            <rect key="frame" x="25" y="7.5" width="55" height="55"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="55" id="8yi-Cm-RtF"/>
                                                                 <constraint firstAttribute="height" constant="55" id="DyM-cP-Hy4"/>
@@ -290,10 +290,10 @@
                                                     </constraints>
                                                 </view>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="5" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Star" translatesAutoresizingMaskIntoConstraints="NO" id="z3h-9b-gVQ">
-                                                    <rect key="frame" x="348" y="49.5" width="37" height="37"/>
+                                                    <rect key="frame" x="348" y="48" width="37" height="36.5"/>
                                                 </imageView>
                                                 <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yr2-NR-Dou">
-                                                    <rect key="frame" x="339" y="40.5" width="55" height="55"/>
+                                                    <rect key="frame" x="339" y="39" width="55" height="55"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="55" id="JnZ-DR-avm"/>
                                                         <constraint firstAttribute="width" constant="55" id="eNh-8X-SKJ"/>
@@ -348,16 +348,16 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cultura e valores" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KnC-rS-WqV">
-                                                    <rect key="frame" x="20" y="11" width="374" height="24"/>
-                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
+                                                    <rect key="frame" x="20" y="11" width="374" height="20.5"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <color key="textColor" red="0.066666666669999999" green="0.12549019610000001" blue="0.1764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Star" translatesAutoresizingMaskIntoConstraints="NO" id="eB0-1y-lha">
-                                                    <rect key="frame" x="29" y="49.5" width="37" height="37"/>
+                                                    <rect key="frame" x="29" y="48" width="37" height="36.5"/>
                                                 </imageView>
                                                 <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vmm-ax-1Jh">
-                                                    <rect key="frame" x="20" y="40.5" width="55" height="55"/>
+                                                    <rect key="frame" x="20" y="39" width="55" height="55"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="55" id="YgG-05-rao"/>
                                                         <constraint firstAttribute="height" constant="55" id="xBI-eR-AG2"/>
@@ -367,13 +367,13 @@
                                                     </connections>
                                                 </button>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Un0-MW-CrQ">
-                                                    <rect key="frame" x="75" y="35" width="104.5" height="66"/>
+                                                    <rect key="frame" x="75" y="31.5" width="104.5" height="69.5"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="2" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Star" translatesAutoresizingMaskIntoConstraints="NO" id="NHF-JC-akc">
-                                                            <rect key="frame" x="34" y="14.5" width="36.5" height="37"/>
+                                                            <rect key="frame" x="34" y="16.5" width="36.5" height="36.5"/>
                                                         </imageView>
                                                         <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zk5-JZ-uJt">
-                                                            <rect key="frame" x="25" y="5.5" width="55" height="55"/>
+                                                            <rect key="frame" x="25" y="7.5" width="55" height="55"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="55" id="bqD-rv-SbO"/>
                                                                 <constraint firstAttribute="width" constant="55" id="dD9-7u-xbI"/>
@@ -394,10 +394,10 @@
                                                     </constraints>
                                                 </view>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="3" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Star" translatesAutoresizingMaskIntoConstraints="NO" id="4FJ-sD-r0F">
-                                                    <rect key="frame" x="188.5" y="49.5" width="37" height="37"/>
+                                                    <rect key="frame" x="188.5" y="48" width="37" height="36.5"/>
                                                 </imageView>
                                                 <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RiV-rJ-pMM">
-                                                    <rect key="frame" x="179.5" y="40.5" width="55" height="55"/>
+                                                    <rect key="frame" x="179.5" y="39" width="55" height="55"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="55" id="EDq-6R-BVB"/>
                                                         <constraint firstAttribute="width" constant="55" id="d1b-te-BYL"/>
@@ -407,13 +407,13 @@
                                                     </connections>
                                                 </button>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Zr-no-W0j">
-                                                    <rect key="frame" x="234.5" y="35" width="104.5" height="66"/>
+                                                    <rect key="frame" x="234.5" y="31.5" width="104.5" height="69.5"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="4" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Star" translatesAutoresizingMaskIntoConstraints="NO" id="t5T-BO-fny">
-                                                            <rect key="frame" x="34" y="14.5" width="36.5" height="37"/>
+                                                            <rect key="frame" x="34" y="16.5" width="36.5" height="36.5"/>
                                                         </imageView>
                                                         <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kQE-9B-zgq">
-                                                            <rect key="frame" x="25" y="5.5" width="55" height="55"/>
+                                                            <rect key="frame" x="25" y="7.5" width="55" height="55"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="55" id="PDp-Z0-50J"/>
                                                                 <constraint firstAttribute="width" constant="55" id="eC8-gN-HNd"/>
@@ -434,10 +434,10 @@
                                                     </constraints>
                                                 </view>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="5" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Star" translatesAutoresizingMaskIntoConstraints="NO" id="X86-tw-UH1">
-                                                    <rect key="frame" x="348" y="49.5" width="37" height="37"/>
+                                                    <rect key="frame" x="348" y="48" width="37" height="36.5"/>
                                                 </imageView>
                                                 <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UFc-3G-9yC">
-                                                    <rect key="frame" x="339" y="40.5" width="55" height="55"/>
+                                                    <rect key="frame" x="339" y="39" width="55" height="55"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="55" id="exf-jk-2kM"/>
                                                         <constraint firstAttribute="width" constant="55" id="gtM-9z-iA1"/>
@@ -492,16 +492,16 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Remuneração e benefícios" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rzl-sl-zpg">
-                                                    <rect key="frame" x="20" y="11" width="374" height="24"/>
-                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
+                                                    <rect key="frame" x="20" y="11" width="374" height="20.5"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <color key="textColor" red="0.066666666669999999" green="0.12549019610000001" blue="0.1764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Star" translatesAutoresizingMaskIntoConstraints="NO" id="EcJ-H8-h4E">
-                                                    <rect key="frame" x="29" y="49.5" width="37" height="37"/>
+                                                    <rect key="frame" x="29" y="48" width="37" height="36.5"/>
                                                 </imageView>
                                                 <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QeP-0A-F8d">
-                                                    <rect key="frame" x="20" y="40.5" width="55" height="55"/>
+                                                    <rect key="frame" x="20" y="39" width="55" height="55"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="55" id="GFp-1e-UxF"/>
                                                         <constraint firstAttribute="width" constant="55" id="S8X-Fd-ojr"/>
@@ -511,13 +511,13 @@
                                                     </connections>
                                                 </button>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rYI-xa-3KA">
-                                                    <rect key="frame" x="75" y="35" width="104.5" height="66"/>
+                                                    <rect key="frame" x="75" y="31.5" width="104.5" height="69.5"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="2" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Star" translatesAutoresizingMaskIntoConstraints="NO" id="wWh-ju-93Z">
-                                                            <rect key="frame" x="34" y="14.5" width="36.5" height="37"/>
+                                                            <rect key="frame" x="34" y="16.5" width="36.5" height="36.5"/>
                                                         </imageView>
                                                         <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FQ6-Oi-e74">
-                                                            <rect key="frame" x="25" y="5.5" width="55" height="55"/>
+                                                            <rect key="frame" x="25" y="7.5" width="55" height="55"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="55" id="3cQ-GU-B2I"/>
                                                                 <constraint firstAttribute="width" constant="55" id="sLk-tr-NDg"/>
@@ -538,10 +538,10 @@
                                                     </constraints>
                                                 </view>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="3" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Star" translatesAutoresizingMaskIntoConstraints="NO" id="MVY-ft-cSe">
-                                                    <rect key="frame" x="188.5" y="49.5" width="37" height="37"/>
+                                                    <rect key="frame" x="188.5" y="48" width="37" height="36.5"/>
                                                 </imageView>
                                                 <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R7F-3o-5rJ">
-                                                    <rect key="frame" x="179.5" y="40.5" width="55" height="55"/>
+                                                    <rect key="frame" x="179.5" y="39" width="55" height="55"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="55" id="Clm-Jc-34A"/>
                                                         <constraint firstAttribute="width" constant="55" id="EIY-kB-luO"/>
@@ -551,13 +551,13 @@
                                                     </connections>
                                                 </button>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YoD-1h-4dy">
-                                                    <rect key="frame" x="234.5" y="35" width="104.5" height="66"/>
+                                                    <rect key="frame" x="234.5" y="31.5" width="104.5" height="69.5"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="4" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Star" translatesAutoresizingMaskIntoConstraints="NO" id="YgX-tS-lco">
-                                                            <rect key="frame" x="34" y="14.5" width="36.5" height="37"/>
+                                                            <rect key="frame" x="34" y="16.5" width="36.5" height="36.5"/>
                                                         </imageView>
                                                         <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b9a-Y1-mWd">
-                                                            <rect key="frame" x="25" y="5.5" width="55" height="55"/>
+                                                            <rect key="frame" x="25" y="7.5" width="55" height="55"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="55" id="EJ6-Uo-CA5"/>
                                                                 <constraint firstAttribute="width" constant="55" id="erv-Pu-7Fq"/>
@@ -578,10 +578,10 @@
                                                     </constraints>
                                                 </view>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="5" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Star" translatesAutoresizingMaskIntoConstraints="NO" id="N9W-2S-NdK">
-                                                    <rect key="frame" x="348" y="49.5" width="37" height="37"/>
+                                                    <rect key="frame" x="348" y="48" width="37" height="36.5"/>
                                                 </imageView>
                                                 <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cGG-rW-6Qh">
-                                                    <rect key="frame" x="339" y="40.5" width="55" height="55"/>
+                                                    <rect key="frame" x="339" y="39" width="55" height="55"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="55" id="JGj-yR-avX"/>
                                                         <constraint firstAttribute="height" constant="55" id="l8Y-x3-4Sw"/>
@@ -638,16 +638,16 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Oportunidade de crescimento" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5s1-aA-eqx">
-                                                    <rect key="frame" x="20" y="11" width="374" height="24"/>
-                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
+                                                    <rect key="frame" x="20" y="11" width="374" height="20.5"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <color key="textColor" red="0.066666666669999999" green="0.12549019610000001" blue="0.1764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Star" translatesAutoresizingMaskIntoConstraints="NO" id="YgA-AU-Xey">
-                                                    <rect key="frame" x="29" y="49.5" width="37" height="37"/>
+                                                    <rect key="frame" x="29" y="48" width="37" height="36.5"/>
                                                 </imageView>
                                                 <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p3I-xu-Vri">
-                                                    <rect key="frame" x="20" y="40.5" width="55" height="55"/>
+                                                    <rect key="frame" x="20" y="39" width="55" height="55"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="55" id="6Le-IW-vCp"/>
                                                         <constraint firstAttribute="width" constant="55" id="ikl-vY-KaD"/>
@@ -657,13 +657,13 @@
                                                     </connections>
                                                 </button>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yUn-3r-Zua">
-                                                    <rect key="frame" x="75" y="35" width="104.5" height="66"/>
+                                                    <rect key="frame" x="75" y="31.5" width="104.5" height="69.5"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="2" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Star" translatesAutoresizingMaskIntoConstraints="NO" id="wGJ-2m-4g2">
-                                                            <rect key="frame" x="34" y="14.5" width="36.5" height="37"/>
+                                                            <rect key="frame" x="34" y="16.5" width="36.5" height="36.5"/>
                                                         </imageView>
                                                         <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TD7-oO-TgL">
-                                                            <rect key="frame" x="25" y="5.5" width="55" height="55"/>
+                                                            <rect key="frame" x="25" y="7.5" width="55" height="55"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="55" id="daQ-mh-onI"/>
                                                                 <constraint firstAttribute="width" constant="55" id="l6C-qd-3as"/>
@@ -684,10 +684,10 @@
                                                     </constraints>
                                                 </view>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="3" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Star" translatesAutoresizingMaskIntoConstraints="NO" id="uM1-uV-bzf">
-                                                    <rect key="frame" x="188.5" y="49.5" width="37" height="37"/>
+                                                    <rect key="frame" x="188.5" y="48" width="37" height="36.5"/>
                                                 </imageView>
                                                 <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YoK-Tk-bLU">
-                                                    <rect key="frame" x="179.5" y="40.5" width="55" height="55"/>
+                                                    <rect key="frame" x="179.5" y="39" width="55" height="55"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="55" id="dHO-mM-gKT"/>
                                                         <constraint firstAttribute="width" constant="55" id="oqy-L6-LBE"/>
@@ -697,13 +697,13 @@
                                                     </connections>
                                                 </button>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zQx-q2-C0M">
-                                                    <rect key="frame" x="234.5" y="35" width="104.5" height="66"/>
+                                                    <rect key="frame" x="234.5" y="31.5" width="104.5" height="69.5"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="4" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Star" translatesAutoresizingMaskIntoConstraints="NO" id="Zow-RX-S2c">
-                                                            <rect key="frame" x="34" y="14.5" width="36.5" height="37"/>
+                                                            <rect key="frame" x="34" y="16.5" width="36.5" height="36.5"/>
                                                         </imageView>
                                                         <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ug5-Fb-mXG">
-                                                            <rect key="frame" x="25" y="5.5" width="55" height="55"/>
+                                                            <rect key="frame" x="25" y="7.5" width="55" height="55"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="55" id="4CB-ZX-Gg7"/>
                                                                 <constraint firstAttribute="width" constant="55" id="EYW-rh-9C4"/>
@@ -724,10 +724,10 @@
                                                     </constraints>
                                                 </view>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="5" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Star" translatesAutoresizingMaskIntoConstraints="NO" id="4Nx-L5-nBm">
-                                                    <rect key="frame" x="348" y="49.5" width="37" height="37"/>
+                                                    <rect key="frame" x="348" y="48" width="37" height="36.5"/>
                                                 </imageView>
                                                 <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zv4-zj-vbT">
-                                                    <rect key="frame" x="339" y="40.5" width="55" height="55"/>
+                                                    <rect key="frame" x="339" y="39" width="55" height="55"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="55" id="m5A-eD-N7o"/>
                                                         <constraint firstAttribute="height" constant="55" id="w4K-EW-Bas"/>
