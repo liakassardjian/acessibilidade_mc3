@@ -46,6 +46,11 @@ class NovaEmpresaTableViewController: UITableViewController {
     var pickerViewDelegateDataSource: PickerController?
     
     /**
+     Delegate dos campos de texto dessa tela.
+     */
+    var textFieldDelegate: TextFieldController?
+    
+    /**
      View Controller da tela que lista todas as empresas do sistema.
      */
     weak var empresasViewController: EmpresasViewController?
@@ -86,6 +91,12 @@ class NovaEmpresaTableViewController: UITableViewController {
         
         salvarButton.isEnabled = false
         
+        textFieldDelegate = TextFieldController(view: self.view)
+        nomeTextField.delegate = textFieldDelegate
+        siteTextField.delegate = textFieldDelegate
+        cidadeTextField.delegate = textFieldDelegate
+        telefoneTextField.delegate = textFieldDelegate
+        
         tableView.tableFooterView = UIView()
     }
 
@@ -124,11 +135,11 @@ class NovaEmpresaTableViewController: UITableViewController {
             empresa?.site = site
         }
         
-        if let empresasVC = empresasViewController {
-            if let empresa = empresa {
+        if let empresasVC = empresasViewController,
+            let empresa = empresa,
+            empresasVC.empresaAdicionada {
                 empresasVC.registraEmpresa(empresa: empresa)
                 empresasVC.getEmpresas()
-            }
         }
     }
     
@@ -180,5 +191,4 @@ class NovaEmpresaTableViewController: UITableViewController {
         
         salvarButton.isEnabled = nomeValido && cidadeValida
     }
-    
 }

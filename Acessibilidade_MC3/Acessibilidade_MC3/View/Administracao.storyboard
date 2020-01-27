@@ -2136,7 +2136,7 @@
                     <navigationItem key="navigationItem" title="Avaliar empresa inserida" id="s2A-uM-Xby">
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="vh3-TS-Npo">
                             <connections>
-                                <segue destination="8lm-bc-T6V" kind="unwind" unwindAction="salvarAlteracoes:" id="Itm-DQ-d2v"/>
+                                <segue destination="8lm-bc-T6V" kind="unwind" unwindAction="salvarEmpresa:" id="OmG-Sd-E9j"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

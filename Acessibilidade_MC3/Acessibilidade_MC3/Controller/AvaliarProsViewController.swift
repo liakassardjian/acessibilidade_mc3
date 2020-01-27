@@ -115,6 +115,11 @@ class AvaliarProsViewController: UITableViewController {
     */
     var sugestoesTextViewDelegate: TextViewController?
     
+    /**
+     Delegate dos campos de texto dessa tela.
+     */
+    var textFieldDelegate: TextFieldController?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.tableFooterView = UIView()
@@ -126,6 +131,9 @@ class AvaliarProsViewController: UITableViewController {
         prosTextView.delegate = prosTextViewDelegate
         contrasTextView.delegate = contrasTextViewDelegate
         sugestoesTextView.delegate = sugestoesTextViewDelegate
+        
+        textFieldDelegate = TextFieldController(view: self.view)
+        tituloTextField.delegate = textFieldDelegate
         
         salvarButton.isEnabled = false
     }
