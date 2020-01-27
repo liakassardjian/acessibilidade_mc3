@@ -61,6 +61,33 @@ class EmpresasViewController: UIViewController {
     */
     var empresaAdicionada: Bool = false
     
+    /**
+     Lista de empresas existentes no sistema.
+     
+     Inicializada como vazia até que as empresas sejam buscadas do servidor.
+     */
+    var empresas: [Empresa] = []
+    
+    /**
+     Controlador de refresh da página ao puxar para baixo.
+     */
+    lazy var refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(self.regarregaPagina(_:)), for: UIControl.Event.valueChanged)
+        return refreshControl
+    }()
+    
+    /**
+     Função que atualiza os dados da página através de GET no servidor.
+     
+     - parameters:
+        - refreshControl: Instância de UIRefreshControl que recarrega a página.
+     */
+    @objc func regarregaPagina(_ refreshControl: UIRefreshControl) {
+        getEmpresas()
+        refreshControl.endRefreshing()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         empresasDataSourceDelegate = EmpresasController(tableView: empresaTableView)
@@ -80,12 +107,17 @@ class EmpresasViewController: UIViewController {
         let defaults = UserDefaults()
         let primeiroAcesso = defaults.bool(forKey: "primeiroAcesso")
         if !primeiroAcesso {
-            registraUsuario(uuid: UUID().uuidString)
+            let usuario = UsuarioCodable(uuid: UUID().uuidString,
+                                         administrador: false,
+                                         avaliacoesUsuario: [])
+            registraUsuario(uuid: usuario.uuid ?? UUID().uuidString, usuario: usuario)
             defaults.set(true, forKey: "primeiroAcesso")
         } else {
             usuario = UserDefaults.standard.string(forKey: "UserId")
         }
     
+        self.empresaTableView.addSubview(self.refreshControl)
+
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -103,6 +135,12 @@ class EmpresasViewController: UIViewController {
         
         if let novaEmpresa = segue.destination as? NovaEmpresaTableViewController {
             novaEmpresa.empresasViewController = self
+        }
+        
+        if let adm = segue.destination as? CuradoriaEmpresasViewController {
+            adm.empresas = empresas
+            adm.usuario = usuario
+            adm.empresasViewController = self
         }
     }
     
@@ -123,6 +161,7 @@ class EmpresasViewController: UIViewController {
      */
     func getEmpresas() {
         var empresasLocal: [Empresa] = []
+        var empresasDataSource: [Empresa] = []
         activ.startAnimating()
         activ.isHidden = false
         
@@ -138,25 +177,28 @@ class EmpresasViewController: UIViewController {
                         let estado = empresa.estado,
                         let id = empresa._id,
                         let status = empresa.estadoPendenteEmpresa {
+                        let novaEmpresa = Empresa(nome: nome,
+                                                  site: empresa.site,
+                                                  telefone: empresa.telefone,
+                                                  cidade: cidade,
+                                                  estado: estado,
+                                                  id: id,
+                                                  status: status)
                         
-                            let novaEmpresa = Empresa(nome: nome,
-                                                      site: empresa.site,
-                                                      telefone: empresa.telefone,
-                                                      cidade: cidade,
-                                                      estado: estado,
-                                                      id: id,
-                                                      status: status)
+                        novaEmpresa.nota = Float(media)
+                        novaEmpresa.recomendacao = Int(porcentagem)
                         
-                            novaEmpresa.nota = Float(media)
-                            novaEmpresa.recomendacao = Int(porcentagem)
-                        
-                            for avaliacao in self.converteAvaliacoes(avaliacaoCodable: empresa.avaliacao) {
-                                novaEmpresa.criaAvaliacaoEmpresa(avaliacao: avaliacao)
-                            }
+                        for avaliacao in self.converteAvaliacoes(avaliacaoCodable: empresa.avaliacao) {
+                            novaEmpresa.criaAvaliacaoEmpresa(avaliacao: avaliacao)
+                        }
+                        if status != -1 {
                             empresasLocal.append(novaEmpresa)
+                        }
+                        empresasDataSource.append(novaEmpresa)
                     }
                 }
                 self.empresasDataSourceDelegate?.empresas = empresasLocal
+                self.empresas = empresasDataSource
                 DispatchQueue.main.async { [weak self] in
                     self?.empresaTableView.reloadData()
                     self?.activ.stopAnimating()
@@ -205,7 +247,8 @@ class EmpresasViewController: UIViewController {
                 let sida = avaliacao?.deficienciaAuditiva,
                 let sdi = avaliacao?.deficienciaIntelectual,
                 let spn = avaliacao?.nanismo,
-                let recomenda = avaliacao?.recomenda {
+                let recomenda = avaliacao?.recomenda,
+                let status = avaliacao?.estadoPendenteAvaliacao {
                 
                 let novaAvaliacao = Avaliacao()
                 novaAvaliacao.titulo = titulo
@@ -216,9 +259,26 @@ class EmpresasViewController: UIViewController {
                                                      cultura,
                                                      remuneracao,
                                                      oportunidade])
+                novaAvaliacao.integracao = Int(integracao)
+                novaAvaliacao.cultura = Int(cultura)
+                novaAvaliacao.remuneracao = Int(remuneracao)
+                novaAvaliacao.oportunidade = Int(oportunidade)
+
                 novaAvaliacao.recomendacao = recomenda
                 novaAvaliacao.ultimoAno = Int(ultimoAno)
                 novaAvaliacao.posicao = cargo
+                novaAvaliacao.id = id
+                
+                switch status {
+                case -1:
+                    novaAvaliacao.status = .reprovado
+                case 0:
+                    novaAvaliacao.status = .pendente
+                case 1:
+                    novaAvaliacao.status = .aprovado
+                default:
+                    break
+                }
                 
                 novaAvaliacao.tempoServico = converteTempoServico(tempoServico: tempoServico)
                 
@@ -304,19 +364,14 @@ class EmpresasViewController: UIViewController {
         switch tempoServico {
         case 0.25:
             return TempoServico.menos3.descricao
-            
         case 1:
             return TempoServico.menos1.descricao
-            
         case 5:
             return TempoServico.menos5.descricao
-            
         case 10:
             return TempoServico.menos10.descricao
-            
         case 11:
             return TempoServico.mais10.descricao
-            
         default:
             return ""
         }
@@ -328,9 +383,8 @@ class EmpresasViewController: UIViewController {
      - parameters:
         - uuid: String que representa o identificador de um usuário no sistema.
      */
-    // TODO: inserir instância de UsuarioCodable
-    func registraUsuario(uuid: String) {
-        UsuarioRequest().usuarioCreate(uuid: uuid, usuario: UsuarioCodable(), completion: { (response, error) in
+    func registraUsuario(uuid: String, usuario: UsuarioCodable) {
+        UsuarioRequest().usuarioCreate(uuid: uuid, usuario: usuario, completion: { (response, error) in
             if response != nil {
                 self.usuarioUUID.set(uuid, forKey: "UserId")
                 self.usuario = UserDefaults.standard.string(forKey: "UserId")
@@ -367,7 +421,6 @@ class EmpresasViewController: UIViewController {
                                                 print("erro")
                                             }
             }
-            
         }
     }
 }

@@ -28,6 +28,11 @@ class DetalhesEmpresaController: NSObject, UITableViewDelegate, UITableViewDataS
      */
     var empresa: Empresa?
     
+    /**
+     Booleano que indica se a tela a ser exibida estará em estado administrativo ou não.
+     */
+    var adm: Bool = false
+        
     func numberOfSections(in tableView: UITableView) -> Int {
         return titulos.count
     }
@@ -36,7 +41,12 @@ class DetalhesEmpresaController: NSObject, UITableViewDelegate, UITableViewDataS
         if section == 0 {
             return 1
         } else {
-            if let avaliacoes = empresa?.avaliacoes {
+            if adm {
+                if let avaliacoes = empresa?.avaliacoes {
+                    return avaliacoes.count
+                }
+            }
+            if let avaliacoes = empresa?.avaliacoesAprovadas {
                 return avaliacoes.count
             }
             return 0
@@ -91,7 +101,14 @@ class DetalhesEmpresaController: NSObject, UITableViewDelegate, UITableViewDataS
                 return UITableViewCell()
             }
             
-            if let avaliacoes = empresa?.avaliacoes {
+            var avaliacoesEmpresa: [Avaliacao]?
+            if adm {
+                avaliacoesEmpresa = empresa?.avaliacoes
+            } else {
+                avaliacoesEmpresa = empresa?.avaliacoesAprovadas
+            }
+            
+            if let avaliacoes = avaliacoesEmpresa {
                 let avaliacao = avaliacoes[indexPath.row]
                 cell.dataLabel.text = retornaDataString(data: avaliacao.data)
                 cell.tituloLabel.text = avaliacao.titulo
@@ -115,7 +132,8 @@ class DetalhesEmpresaController: NSObject, UITableViewDelegate, UITableViewDataS
                     cell.recomendaImagem.image = UIImage(named: "NaoRecomendaTrue")
                 }
                 
-                if let sugestoes = avaliacao.sugestoes {
+                if let sugestoes = avaliacao.sugestoes,
+                    sugestoes != "" {
                     cell.sugestoesLabel.text = sugestoes
                     cell.sugestoesTituloLabel.isHidden = false
                     cell.sugestoesLabel.isHidden = false
@@ -149,7 +167,11 @@ class DetalhesEmpresaController: NSObject, UITableViewDelegate, UITableViewDataS
         var titulo = titulos[section]
         if section != 0 {
             if let empresa = empresa {
-                titulo = "\(titulo) (\(String(describing: empresa.avaliacoes.count)))"                
+                if adm {
+                    titulo = "\(titulo) (\(String(describing: empresa.avaliacoes.count)))"
+                } else {
+                    titulo = "\(titulo) (\(String(describing: empresa.avaliacoesAprovadas.count)))"
+                }
             }
         }
         headerView.tituloLabel.text = titulo

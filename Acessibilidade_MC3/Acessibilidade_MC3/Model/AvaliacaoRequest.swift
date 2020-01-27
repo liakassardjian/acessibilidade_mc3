@@ -27,7 +27,6 @@ import Foundation
 Classe que controla a requisição das avaliações ao servidor.
 */
 class AvaliacaoRequest {
-    
     /**
     Função que envia uma avaliação criada ao servidor.
     - parameters:
@@ -158,9 +157,7 @@ class AvaliacaoRequest {
         let group = DispatchGroup()
         group.enter()
         let parameters = ["uuid": uuid, "avaliacaoId": avaliacaoId] as [String: Any]
-        guard let url = URL(string: RequestConstants.POSTDELETEAVALIACAO) else {
-            return
-        }
+        guard let url = URL(string: RequestConstants.POSTDELETEAVALIACAO) else { return }
         let session = URLSession.shared
         //now create the Request object using the url object
         var request = URLRequest(url: url)
@@ -228,29 +225,17 @@ class AvaliacaoRequest {
     func updateAvaliacao(uuid: String, avaliacao: AvaliacaoCodable, completion: @escaping ([String: Any]?, Error?) -> Void) {
         let group = DispatchGroup()
         group.enter()
-        var avaliacaoParams : [String: Any] = [:]
-        
-        if let titulo = avaliacao.titulo,
-            let data = avaliacao.data,
-            let cargo = avaliacao.cargo,
-            let tempoServico = avaliacao.tempoServico,
-            let pros = avaliacao.pros,
-            let contras = avaliacao.contras,
-            let melhorias = avaliacao.melhorias,
-            let ultimoAno =  avaliacao.ultimoAno,
-            let recomenda =  avaliacao.recomenda,
-            let integracaoEquipe = avaliacao.integracaoEquipe,
-            let culturaValores = avaliacao.culturaValores,
-            let renumeracaoBeneficios = avaliacao.renumeracaoBeneficios,
-            let oportunidadeCrescimento = avaliacao.oportunidadeCrescimento,
-            let deficienciaMotora = avaliacao.deficienciaMotora,
-            let deficienciaVisual = avaliacao.deficienciaVisual,
-            let deficienciaAuditiva = avaliacao.deficienciaAuditiva,
-            let deficienciaIntelectual =  avaliacao.deficienciaIntelectual,
-            let nanismo = avaliacao.nanismo,
+        var avaliacaoParams: [String: Any] = [:]
+        if let titulo = avaliacao.titulo, let data = avaliacao.data,
+            let cargo = avaliacao.cargo, let tempoServico = avaliacao.tempoServico,
+            let pros = avaliacao.pros, let contras = avaliacao.contras,
+            let melhorias = avaliacao.melhorias, let ultimoAno =  avaliacao.ultimoAno,
+            let recomenda =  avaliacao.recomenda, let integracaoEquipe = avaliacao.integracaoEquipe,
+            let culturaValores = avaliacao.culturaValores, let renumeracaoBeneficios = avaliacao.renumeracaoBeneficios,
+            let oportunidadeCrescimento = avaliacao.oportunidadeCrescimento, let deficienciaMotora = avaliacao.deficienciaMotora,
+            let deficienciaVisual = avaliacao.deficienciaVisual, let deficienciaAuditiva = avaliacao.deficienciaAuditiva,
+            let deficienciaIntelectual =  avaliacao.deficienciaIntelectual, let nanismo = avaliacao.nanismo,
             let estadoPendenteAvaliacao = avaliacao.estadoPendenteAvaliacao {
-            
-        
             avaliacaoParams = ["titulo": titulo,
                                "data": data,
                                "cargo": cargo,
@@ -270,9 +255,7 @@ class AvaliacaoRequest {
                                "deficienciaIntelectual": deficienciaIntelectual,
                                "nanismo": nanismo,
                                "estadoPendenteAvaliacao": estadoPendenteAvaliacao] as [String: Any]
-        
-    }
-        
+        }
         
         guard let url = URL(string: RequestConstants.PUTAVALIACAO + String(describing: avaliacao._id ?? "")) else {
             print("erro na construcao da url")
@@ -327,6 +310,5 @@ class AvaliacaoRequest {
             })
         })
         task.resume()
-        
     }
 }

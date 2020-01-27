@@ -195,8 +195,9 @@ class AvaliarCargoViewController: UITableViewController {
      A função verifica se o valor do campo de texto é válido para, então, disponibilizar o botão `proximoButton` para que o usuário avance para a próxima tela.
      */
     @IBAction func cargoTextFieldDidChange(_ sender: Any) {
-        if recuperaTextoTextField(textField: cargoTextField) != "" {
-            proximoButton.isEnabled = true
+        let texto = recuperaTextoTextField(textField: cargoTextField)
+        if texto != "" {
+            proximoButton.isEnabled = true  //VerificadorPalavras.shared.verificaPalavras(texto: texto)
         } else {
             proximoButton.isEnabled = false
         }
