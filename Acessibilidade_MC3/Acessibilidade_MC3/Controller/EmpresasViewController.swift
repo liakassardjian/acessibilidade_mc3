@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CloudKit
 import Foundation
 
 /**
@@ -15,6 +16,8 @@ import Foundation
  Herda de UIViewController.
  */
 class EmpresasViewController: UIViewController {
+    
+    
     
     /**
      Identificador do usuário que está utilizando o aplicativo no momento.
@@ -67,6 +70,12 @@ class EmpresasViewController: UIViewController {
      Inicializada como vazia até que as empresas sejam buscadas do servidor.
      */
     var empresas: [Empresa] = []
+    
+    
+    private let container: CKContainer
+   
+    fileprivate var usuarioID: CKRecord.ID?
+
     
     /**
      Controlador de refresh da página ao puxar para baixo.
@@ -423,4 +432,24 @@ class EmpresasViewController: UIViewController {
             }
         }
     }
+    
+    enum DataFetchAnswer {
+        case fail(error: CKError, description: String)
+        case successful(results:[CKRecord]?)
+    }
+    
+    func fetchUserID(completionHandler: @escaping (DataFetchAnswer) -> Void) {
+        container.fetchUserRecordID { (userID, error) in
+            self.usuarioID = userID
+            if let error = error as? CKError {
+                DispatchQueue.main.async {
+                    completionHandler(.fail(error: error, description:
+                        "Erro no Query da Cloud - Fetch: \(String(describing: error))"))
+                }
+                return
+            }
+            completionHandler(.successful(results: nil))
+        }
+    }
+    
 }
