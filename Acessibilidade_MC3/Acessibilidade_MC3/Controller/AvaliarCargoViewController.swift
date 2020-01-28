@@ -87,7 +87,7 @@ class AvaliarCargoViewController: UITableViewController {
         desligadoEmPickerView.dataSource = desligadoDelegateDataSource
         desligadoEmPickerView.delegate = desligadoDelegateDataSource
         
-        textFieldDelegate = TextFieldController(view: self.view)
+        textFieldDelegate = TextFieldController(view: self.view, telefone: false)
         cargoTextField.delegate = textFieldDelegate
         
         self.navigationController?.navigationBar.prefersLargeTitles = false

@@ -46,9 +46,14 @@ class NovaEmpresaTableViewController: UITableViewController {
     var pickerViewDelegateDataSource: PickerController?
     
     /**
-     Delegate dos campos de texto dessa tela.
+     Delegate dos campos de texto dessa tela, exceto o campo de texto de telefone.
      */
     var textFieldDelegate: TextFieldController?
+    
+    /**
+     Delegate do campo de texto de telefone.
+     */
+    var telefoneTextFieldDelegate: TextFieldController?
     
     /**
      View Controller da tela que lista todas as empresas do sistema.
@@ -91,11 +96,13 @@ class NovaEmpresaTableViewController: UITableViewController {
         
         salvarButton.isEnabled = false
         
-        textFieldDelegate = TextFieldController(view: self.view)
+        textFieldDelegate = TextFieldController(view: self.view, telefone: false)
         nomeTextField.delegate = textFieldDelegate
         siteTextField.delegate = textFieldDelegate
         cidadeTextField.delegate = textFieldDelegate
-        telefoneTextField.delegate = textFieldDelegate
+        
+        telefoneTextFieldDelegate = TextFieldController(view: self.view, telefone: true)
+        telefoneTextField.delegate = telefoneTextFieldDelegate
         
         tableView.tableFooterView = UIView()
     }

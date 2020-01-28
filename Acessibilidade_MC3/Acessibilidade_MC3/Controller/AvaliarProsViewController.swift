@@ -132,7 +132,7 @@ class AvaliarProsViewController: UITableViewController {
         contrasTextView.delegate = contrasTextViewDelegate
         sugestoesTextView.delegate = sugestoesTextViewDelegate
         
-        textFieldDelegate = TextFieldController(view: self.view)
+        textFieldDelegate = TextFieldController(view: self.view, telefone: false)
         tituloTextField.delegate = textFieldDelegate
         
         salvarButton.isEnabled = false
