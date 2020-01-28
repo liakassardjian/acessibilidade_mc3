@@ -87,6 +87,26 @@ class DetalhesEmpresaViewController: UIViewController {
             registraAvaliacao(avaliacao: avaliacao)
             empresa?.adicionaAvaliacao(avaliacao: avaliacao, usuario: usuario ?? "")
             self.avaliacao = nil
+            
+            let title = "Contribuição submetida"
+            let message = "A sua contribuição foi enviada e será analisada por nossa equipe de curadoria antes de ser publicada."
+            let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+                  switch action.style {
+                  case .default:
+                        print("default")
+
+                  case .cancel:
+                        print("cancel")
+
+                  case .destructive:
+                        print("destructive")
+                    
+                  @unknown default:
+                    fatalError()
+                }}))
+            self.present(alert, animated: true, completion: nil)
+            
         }
         detalhesTableView.reloadData()
     }

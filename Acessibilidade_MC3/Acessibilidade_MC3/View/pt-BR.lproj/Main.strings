@@ -17,8 +17,8 @@
 /* Class = "UILabel"; text = "/5"; ObjectID = "8fD-ue-gfQ"; */
 "8fD-ue-gfQ.text" = "/5";
 
-/* Class = "UILabel"; text = "dos funcionários recomendam"; ObjectID = "Axv-hK-wnk"; */
-"Axv-hK-wnk.text" = "dos funcionários recomendam";
+/* Class = "UILabel"; text = "recomendam"; ObjectID = "Axv-hK-wnk"; */
+"Axv-hK-wnk.text" = "recomendam";
 
 /* Class = "UILabel"; text = "Site"; ObjectID = "JVq-T5-HyN"; */
 "JVq-T5-HyN.text" = "Site";
