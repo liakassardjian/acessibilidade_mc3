@@ -66,6 +66,7 @@ class DetalhesEmpresaController: NSObject, UITableViewDelegate, UITableViewDataS
                 cell.recomendacaoLabel.text = String("\(empresa.recomendacao)%")
                 
                 if let site = empresa.site {
+                    cell.siteButton.setTitle(site, for: .normal)
                     cell.siteLabel.text = site
                     cell.siteLinha.isHidden = false
                     
@@ -77,6 +78,7 @@ class DetalhesEmpresaController: NSObject, UITableViewDelegate, UITableViewDataS
                 }
                 
                 if let telefone = empresa.telefone {
+                    cell.telefoneButton.setTitle(telefone, for: .normal)
                     cell.telefoneLabel.text = telefone
                     cell.telefoneLinha.isHidden = false
                     

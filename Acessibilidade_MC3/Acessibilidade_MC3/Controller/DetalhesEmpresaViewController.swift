@@ -82,6 +82,46 @@ class DetalhesEmpresaViewController: UIViewController {
         }
     }
     
+    /**
+    Ação executada ao tocar no endereço de web site da empresa.
+    
+    A função é conectada com um botão na tela que contém o endereço do web site da empresa.
+    
+    - parameters:
+       - sender: A transição executada ao sair da tela.
+    */
+    @IBAction func abrirSite(_ sender: Any) {
+        if let site = empresa?.site {
+            guard let site = URL(string: site) else { return }
+            UIApplication.shared.open(site)
+        }
+    }
+    
+    /**
+    Ação executada ao tocar no número de telefone da empresa.
+    
+    A função é conectada com um botão na tela que contém o número de telefone da empresa.
+    
+    - parameters:
+       - sender: A transição executada ao sair da tela.
+    */
+    @IBAction func abrirTelefone(_ sender: Any) {
+        if let telefone = empresa?.telefone {
+            var t = ""
+            for c in telefone {
+                if  c == "1" || c == "2" ||
+                    c == "3" || c == "4" ||
+                    c == "5" || c == "6" ||
+                    c == "7" || c == "8" ||
+                    c == "9" || c == "0" {
+                    t.append(c)
+                }
+            }
+            guard let numero = URL(string: "tel://" + t) else { return }
+            UIApplication.shared.open(numero)
+        }
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         if let avaliacao = avaliacao {
             registraAvaliacao(avaliacao: avaliacao)

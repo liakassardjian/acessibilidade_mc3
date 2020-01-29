@@ -26,9 +26,19 @@ class InformacoesTableViewCell: UITableViewCell {
     @IBOutlet weak var siteLabel: UILabel!
     
     /**
+     Conector do botão no qual é exibido o endereço do website da empresa.
+    */
+    @IBOutlet weak var siteButton: UIButton!
+    
+    /**
      Conector da Label na qual é exibido o número de telefone da empresa.
     */
     @IBOutlet weak var telefoneLabel: UILabel!
+    
+    /**
+     Conector do botão no qual é exibido o número de telefone da empresa.
+    */
+    @IBOutlet weak var telefoneButton: UIButton!
     
     /**
      View que contém a primeira imagem de acessibilidade.
