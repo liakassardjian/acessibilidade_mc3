@@ -127,6 +127,7 @@ extension EmpresasController: UISearchBarDelegate {
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.setShowsCancelButton(false, animated: true)
         buscando = false
         tableView?.reloadData()
     }

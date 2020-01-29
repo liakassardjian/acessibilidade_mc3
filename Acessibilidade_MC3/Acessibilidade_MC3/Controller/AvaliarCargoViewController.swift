@@ -68,6 +68,11 @@ class AvaliarCargoViewController: UITableViewController {
     */
     var desligadoDelegateDataSource: PickerController?
     
+    /**
+     Delegate dos campos de texto dessa tela.
+     */
+    var textFieldDelegate: TextFieldController?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -81,6 +86,9 @@ class AvaliarCargoViewController: UITableViewController {
         
         desligadoEmPickerView.dataSource = desligadoDelegateDataSource
         desligadoEmPickerView.delegate = desligadoDelegateDataSource
+        
+        textFieldDelegate = TextFieldController(view: self.view, telefone: false)
+        cargoTextField.delegate = textFieldDelegate
         
         self.navigationController?.navigationBar.prefersLargeTitles = false
         self.navigationController?.navigationItem.largeTitleDisplayMode = .never

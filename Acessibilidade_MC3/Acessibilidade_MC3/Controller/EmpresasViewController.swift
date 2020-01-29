@@ -42,28 +42,24 @@ class EmpresasViewController: UIViewController {
     
     /**
      Controlador da barra de busca.
-     
      Inicializado com nenhuma View Controller.
      */
     let searchController = UISearchController(searchResultsController: nil)
     
     /**
      Delegate e Data Source das empresas.
-     
      Representado por EmpresasController opcional.
      */
     var empresasDataSourceDelegate: EmpresasController?
     
     /**
      Indicador da adição de uma nova empresa.
-     
      Booleano inicializado com false.
     */
     var empresaAdicionada: Bool = false
     
     /**
      Lista de empresas existentes no sistema.
-     
      Inicializada como vazia até que as empresas sejam buscadas do servidor.
      */
     var empresas: [Empresa] = []
@@ -79,7 +75,6 @@ class EmpresasViewController: UIViewController {
     
     /**
      Função que atualiza os dados da página através de GET no servidor.
-     
      - parameters:
         - refreshControl: Instância de UIRefreshControl que recarrega a página.
      */
@@ -107,15 +102,12 @@ class EmpresasViewController: UIViewController {
         let defaults = UserDefaults()
         let primeiroAcesso = defaults.bool(forKey: "primeiroAcesso")
         if !primeiroAcesso {
-            let usuario = UsuarioCodable(uuid: UUID().uuidString,
-                                         administrador: false,
-                                         avaliacoesUsuario: [])
+            let usuario = UsuarioCodable(uuid: UUID().uuidString, administrador: false, avaliacoesUsuario: [])
             registraUsuario(uuid: usuario.uuid ?? UUID().uuidString, usuario: usuario)
             defaults.set(true, forKey: "primeiroAcesso")
         } else {
             usuario = UserDefaults.standard.string(forKey: "UserId")
         }
-    
         self.empresaTableView.addSubview(self.refreshControl)
 
     }
@@ -146,9 +138,7 @@ class EmpresasViewController: UIViewController {
     
     /**
      Ação executada ao salvar uma nova empresa no sistema.
-     
      A função é conectada com um botão na tela de adicionar uma empresa a fim de permitir o Exit daquela tela para esta. Permite que o indicador de atividade seja exibido.
-     
      - parameters:
         - sender: A transição executada ao sair da tela.
      */
@@ -177,13 +167,10 @@ class EmpresasViewController: UIViewController {
                         let estado = empresa.estado,
                         let id = empresa._id,
                         let status = empresa.estadoPendenteEmpresa {
-                        let novaEmpresa = Empresa(nome: nome,
-                                                  site: empresa.site,
+                        let novaEmpresa = Empresa(nome: nome, site: empresa.site,
                                                   telefone: empresa.telefone,
-                                                  cidade: cidade,
-                                                  estado: estado,
-                                                  id: id,
-                                                  status: status)
+                                                  cidade: cidade, estado: estado,
+                                                  id: id, status: status)
                         
                         novaEmpresa.nota = Float(media)
                         novaEmpresa.recomendacao = Int(porcentagem)
@@ -203,11 +190,9 @@ class EmpresasViewController: UIViewController {
                     self?.empresaTableView.reloadData()
                     self?.activ.stopAnimating()
                     self?.activ.isHidden = true
-                    if let empresasVC = self {
-                        if empresasVC.empresaAdicionada {
+                    if let empresasVC = self, empresasVC.empresaAdicionada {
                             empresasVC.performSegue(withIdentifier: "detalhesEmpresa", sender: empresasVC)
                             empresasVC.empresaAdicionada = false
-                        }
                     }
                 }
                 
@@ -220,50 +205,34 @@ class EmpresasViewController: UIViewController {
     
     /**
      Função que converte um vetor de `AvaliacaoCodable` opcional em um vetor de `Avaliacao`.
-     
      - parameters:
         - avaliacaoCodable: Vetor de `AvaliacaoCodable ` opcional que será convertido em um vetor de `Avaliacao`.
-     
      - returns: Vetor de `Avaliacao` já convertido.
      */
     func converteAvaliacoes(avaliacaoCodable: [AvaliacaoCodable?]) -> [Avaliacao] {
         var avaliacoes: [Avaliacao] = []
         
         for avaliacao in avaliacaoCodable {
-            if  let id = avaliacao?._id,
-                let titulo = avaliacao?.titulo,
-                let data = avaliacao?.data,
-                let cargo = avaliacao?.cargo,
-                let tempoServico = avaliacao?.tempoServico,
-                let pros = avaliacao?.pros,
-                let contras = avaliacao?.contras,
-                let ultimoAno = avaliacao?.ultimoAno,
-                let integracao = avaliacao?.integracaoEquipe,
-                let cultura = avaliacao?.culturaValores,
-                let remuneracao = avaliacao?.renumeracaoBeneficios,
-                let oportunidade = avaliacao?.oportunidadeCrescimento,
-                let sia = avaliacao?.deficienciaMotora,
-                let sidv = avaliacao?.deficienciaVisual,
-                let sida = avaliacao?.deficienciaAuditiva,
-                let sdi = avaliacao?.deficienciaIntelectual,
-                let spn = avaliacao?.nanismo,
-                let recomenda = avaliacao?.recomenda,
-                let status = avaliacao?.estadoPendenteAvaliacao {
+            if  let id = avaliacao?._id, let titulo = avaliacao?.titulo,
+                let data = avaliacao?.data, let cargo = avaliacao?.cargo,
+                let tempoServico = avaliacao?.tempoServico, let pros = avaliacao?.pros,
+                let contras = avaliacao?.contras, let ultimoAno = avaliacao?.ultimoAno,
+                let integracao = avaliacao?.integracaoEquipe, let cultura = avaliacao?.culturaValores,
+                let remuneracao = avaliacao?.renumeracaoBeneficios, let oportunidade = avaliacao?.oportunidadeCrescimento,
+                let sia = avaliacao?.deficienciaMotora, let sidv = avaliacao?.deficienciaVisual,
+                let sida = avaliacao?.deficienciaAuditiva, let sdi = avaliacao?.deficienciaIntelectual,
+                let spn = avaliacao?.nanismo, let recomenda = avaliacao?.recomenda, let status = avaliacao?.estadoPendenteAvaliacao {
                 
                 let novaAvaliacao = Avaliacao()
                 novaAvaliacao.titulo = titulo
                 novaAvaliacao.vantagens = pros
                 novaAvaliacao.desvantagens = contras
                 novaAvaliacao.sugestoes = avaliacao?.melhorias
-                novaAvaliacao.nota = media(valores: [integracao,
-                                                     cultura,
-                                                     remuneracao,
-                                                     oportunidade])
+                novaAvaliacao.nota = media(valores: [integracao, cultura, remuneracao, oportunidade])
                 novaAvaliacao.integracao = Int(integracao)
                 novaAvaliacao.cultura = Int(cultura)
                 novaAvaliacao.remuneracao = Int(remuneracao)
                 novaAvaliacao.oportunidade = Int(oportunidade)
-
                 novaAvaliacao.recomendacao = recomenda
                 novaAvaliacao.ultimoAno = Int(ultimoAno)
                 novaAvaliacao.posicao = cargo
@@ -294,38 +263,31 @@ class EmpresasViewController: UIViewController {
                 if Int(ultimoAno) != Calendar.current.component(.year, from: Date()) {
                     novaAvaliacao.cargo = .exFunc
                 }
-                
                 avaliacoes.append(novaAvaliacao)
             }
         }
-        
         return avaliacoes
     }
     
     /**
      Função que calcula a média das notas de uma avaliação.
-     
      - parameters:
         - valores: Vetor de double que contém as notas dadas na avaliação.
-     
      - returns: Float correspondente à média das notas.
      */
     func media(valores: [Double]) -> Float {
         var media: Float = 0
-        
         if valores.count > 0 {
             for valor in valores {
                 media += Float(valor)
             }
             media /= Float(valores.count)
         }
-        
         return media
     }
     
     /**
      Função que adiciona um caso de `Acessibilidade` a uma avaliação.
-     
      - parameters:
         - sia: Booleano que representa a existência de acessibilidade para deficiência motora.
         - sidv: Booleano que representa a existência de acessibilidade para deficiência visual.
@@ -357,7 +319,6 @@ class EmpresasViewController: UIViewController {
      
      - parameters:
         - tempoServico: Double que será convertido em uma descrição.
-     
      - returns: String que corresponde à descrição do double passado como parâmetro.
      */
     func converteTempoServico(tempoServico: Double) -> String {
@@ -379,7 +340,6 @@ class EmpresasViewController: UIViewController {
     
     /**
      Função que registra um novo usuário no servidor.
-     
      - parameters:
         - uuid: String que representa o identificador de um usuário no sistema.
      */
@@ -397,7 +357,6 @@ class EmpresasViewController: UIViewController {
     
     /**
      Função que registra uma nova empresa no servidor.
-     
      - parameters:
         - empresa: A empresa que está sendo criada.
      */
