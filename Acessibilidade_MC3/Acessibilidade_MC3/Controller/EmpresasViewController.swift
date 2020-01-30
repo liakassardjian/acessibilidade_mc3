@@ -17,15 +17,6 @@ import Foundation
  */
 class EmpresasViewController: UIViewController {
     
-    
-    
-    /**
-     Identificador do usuário que está utilizando o aplicativo no momento.
-     
-     Inicializado com o valor `standard` do `UserDefaults`
-     */
-    let usuarioUUID = UserDefaults.standard
-    
     /**
      Usuário que está utilizando o aplicativo no nomento.
      
@@ -71,12 +62,20 @@ class EmpresasViewController: UIViewController {
      */
     var empresas: [Empresa] = []
     
+    /**
+     Container do CloudKit do qual é buscado o ID do usuário.
     
-    private let container: CKContainer
+     Variável do tipo CKContainer opcional e é inicializada dentro da View Did Load.
+    */
+    private var container: CKContainer?
    
+    /**
+     Variável que recebe o ID do usuário quando este é encontrado no CloudKit.
+    
+     É do tipo CKRecord.ID opcional e é inicializada na função fetchUserId.
+    */
     fileprivate var usuarioID: CKRecord.ID?
 
-    
     /**
      Controlador de refresh da página ao puxar para baixo.
      */
@@ -113,20 +112,11 @@ class EmpresasViewController: UIViewController {
         self.definesPresentationContext = true
         self.navigationItem.searchController = searchController
         
-        let defaults = UserDefaults()
-        let primeiroAcesso = defaults.bool(forKey: "primeiroAcesso")
-        if !primeiroAcesso {
-            let usuario = UsuarioCodable(uuid: UUID().uuidString,
-                                         administrador: false,
-                                         avaliacoesUsuario: [])
-            registraUsuario(uuid: usuario.uuid ?? UUID().uuidString, usuario: usuario)
-            defaults.set(true, forKey: "primeiroAcesso")
-        } else {
-            usuario = UserDefaults.standard.string(forKey: "UserId")
+        container = CKContainer.default()
+        fetchUserID {_ in
+            self.usuario = self.usuarioID?.recordName
         }
-    
         self.empresaTableView.addSubview(self.refreshControl)
-
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -239,169 +229,14 @@ class EmpresasViewController: UIViewController {
         var avaliacoes: [Avaliacao] = []
         
         for avaliacao in avaliacaoCodable {
-            if  let id = avaliacao?._id,
-                let titulo = avaliacao?.titulo,
-                let data = avaliacao?.data,
-                let cargo = avaliacao?.cargo,
-                let tempoServico = avaliacao?.tempoServico,
-                let pros = avaliacao?.pros,
-                let contras = avaliacao?.contras,
-                let ultimoAno = avaliacao?.ultimoAno,
-                let integracao = avaliacao?.integracaoEquipe,
-                let cultura = avaliacao?.culturaValores,
-                let remuneracao = avaliacao?.renumeracaoBeneficios,
-                let oportunidade = avaliacao?.oportunidadeCrescimento,
-                let sia = avaliacao?.deficienciaMotora,
-                let sidv = avaliacao?.deficienciaVisual,
-                let sida = avaliacao?.deficienciaAuditiva,
-                let sdi = avaliacao?.deficienciaIntelectual,
-                let spn = avaliacao?.nanismo,
-                let recomenda = avaliacao?.recomenda,
-                let status = avaliacao?.estadoPendenteAvaliacao {
-                
+            if let avaliacao = avaliacao {
                 let novaAvaliacao = Avaliacao()
-                novaAvaliacao.titulo = titulo
-                novaAvaliacao.vantagens = pros
-                novaAvaliacao.desvantagens = contras
-                novaAvaliacao.sugestoes = avaliacao?.melhorias
-                novaAvaliacao.nota = media(valores: [integracao,
-                                                     cultura,
-                                                     remuneracao,
-                                                     oportunidade])
-                novaAvaliacao.integracao = Int(integracao)
-                novaAvaliacao.cultura = Int(cultura)
-                novaAvaliacao.remuneracao = Int(remuneracao)
-                novaAvaliacao.oportunidade = Int(oportunidade)
-
-                novaAvaliacao.recomendacao = recomenda
-                novaAvaliacao.ultimoAno = Int(ultimoAno)
-                novaAvaliacao.posicao = cargo
-                novaAvaliacao.id = id
-                
-                switch status {
-                case -1:
-                    novaAvaliacao.status = .reprovado
-                case 0:
-                    novaAvaliacao.status = .pendente
-                case 1:
-                    novaAvaliacao.status = .aprovado
-                default:
-                    break
-                }
-                
-                novaAvaliacao.tempoServico = converteTempoServico(tempoServico: tempoServico)
-                
-                let dateFormatter = DateFormatter()
-                dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
-                dateFormatter.locale = Locale(identifier: "pt_BR")
-                if let date = dateFormatter.date(from: data) {
-                    novaAvaliacao.data = date
-                }
-            
-                adicionaAcessibilidade(sia: sia, sidv: sidv, sida: sida, sdi: sdi, spn: spn, avaliacao: novaAvaliacao)
-                
-                if Int(ultimoAno) != Calendar.current.component(.year, from: Date()) {
-                    novaAvaliacao.cargo = .exFunc
-                }
-                
+                novaAvaliacao.converteAvaliacao(avaliacao: avaliacao)
                 avaliacoes.append(novaAvaliacao)
             }
         }
         
         return avaliacoes
-    }
-    
-    /**
-     Função que calcula a média das notas de uma avaliação.
-     
-     - parameters:
-        - valores: Vetor de double que contém as notas dadas na avaliação.
-     
-     - returns: Float correspondente à média das notas.
-     */
-    func media(valores: [Double]) -> Float {
-        var media: Float = 0
-        
-        if valores.count > 0 {
-            for valor in valores {
-                media += Float(valor)
-            }
-            media /= Float(valores.count)
-        }
-        
-        return media
-    }
-    
-    /**
-     Função que adiciona um caso de `Acessibilidade` a uma avaliação.
-     
-     - parameters:
-        - sia: Booleano que representa a existência de acessibilidade para deficiência motora.
-        - sidv: Booleano que representa a existência de acessibilidade para deficiência visual.
-        - sida: Booleano que representa a existência de acessibilidade para deficiência auditiva.
-        - sdi: Booleano que representa a existência de acessibilidade para deficiência intelectual.
-        - sia: Booleano que representa a existência de acessibilidade para pessoas com nanismo.
-        - avaliacao: A avaliação à qual serão atribuídas as classes de acessibilidade.
-     */
-    func adicionaAcessibilidade(sia: Bool, sidv: Bool, sida: Bool, sdi: Bool, spn: Bool, avaliacao: Avaliacao) {
-        if sia {
-            avaliacao.acessibilidade.append(.deficienciaMotora)
-        }
-        if sidv {
-            avaliacao.acessibilidade.append(.deficienciaVisual)
-        }
-        if sida {
-            avaliacao.acessibilidade.append(.deficienciaAuditiva)
-        }
-        if sdi {
-            avaliacao.acessibilidade.append(.deficienciaIntelectual)
-        }
-        if spn {
-            avaliacao.acessibilidade.append(.nanismo)
-        }
-    }
-    
-    /**
-     Função que converte um double em uma descrição de tempo de serviço em uma empresa.
-     
-     - parameters:
-        - tempoServico: Double que será convertido em uma descrição.
-     
-     - returns: String que corresponde à descrição do double passado como parâmetro.
-     */
-    func converteTempoServico(tempoServico: Double) -> String {
-        switch tempoServico {
-        case 0.25:
-            return TempoServico.menos3.descricao
-        case 1:
-            return TempoServico.menos1.descricao
-        case 5:
-            return TempoServico.menos5.descricao
-        case 10:
-            return TempoServico.menos10.descricao
-        case 11:
-            return TempoServico.mais10.descricao
-        default:
-            return ""
-        }
-    }
-    
-    /**
-     Função que registra um novo usuário no servidor.
-     
-     - parameters:
-        - uuid: String que representa o identificador de um usuário no sistema.
-     */
-    func registraUsuario(uuid: String, usuario: UsuarioCodable) {
-        UsuarioRequest().usuarioCreate(uuid: uuid, usuario: usuario, completion: { (response, error) in
-            if response != nil {
-                self.usuarioUUID.set(uuid, forKey: "UserId")
-                self.usuario = UserDefaults.standard.string(forKey: "UserId")
-                print("sucesso")
-            } else {
-                print("else")
-            }
-            })
     }
     
     /**
@@ -439,16 +274,19 @@ class EmpresasViewController: UIViewController {
     }
     
     func fetchUserID(completionHandler: @escaping (DataFetchAnswer) -> Void) {
-        container.fetchUserRecordID { (userID, error) in
-            self.usuarioID = userID
-            if let error = error as? CKError {
-                DispatchQueue.main.async {
-                    completionHandler(.fail(error: error, description:
-                        "Erro no Query da Cloud - Fetch: \(String(describing: error))"))
+        if let container = container {
+            container.fetchUserRecordID { (userID, error) in
+                self.usuarioID = userID
+
+                if let error = error as? CKError {
+                    DispatchQueue.main.async {
+                        completionHandler(.fail(error: error, description:
+                            "Erro no Query da Cloud - Fetch: \(String(describing: error))"))
+                    }
+                    return
                 }
-                return
+                completionHandler(.successful(results: nil))
             }
-            completionHandler(.successful(results: nil))
         }
     }
     

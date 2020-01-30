@@ -166,6 +166,150 @@ class Avaliacao {
     */
     var status: Estado
     
+    /**
+     Função que calcula a média das notas de uma avaliação.
+     
+     - parameters:
+        - valores: Vetor de double que contém as notas dadas na avaliação.
+     
+     - returns: Float correspondente à média das notas.
+     */
+    func media(valores: [Double]) -> Float {
+        var media: Float = 0
+        
+        if valores.count > 0 {
+            for valor in valores {
+                media += Float(valor)
+            }
+            media /= Float(valores.count)
+        }
+        
+        return media
+    }
+    
+    /**
+     Função que converte um double em uma descrição de tempo de serviço em uma empresa.
+     
+     - parameters:
+        - tempoServico: Double que será convertido em uma descrição.
+     
+     - returns: String que corresponde à descrição do double passado como parâmetro.
+     */
+    func converteTempoServico(tempoServico: Double) -> String {
+        switch tempoServico {
+        case 0.25:
+            return TempoServico.menos3.descricao
+        case 1:
+            return TempoServico.menos1.descricao
+        case 5:
+            return TempoServico.menos5.descricao
+        case 10:
+            return TempoServico.menos10.descricao
+        case 11:
+            return TempoServico.mais10.descricao
+        default:
+            return ""
+        }
+    }
+    
+    /**
+     Função que adiciona um caso de `Acessibilidade` a uma avaliação.
+     
+     - parameters:
+        - sia: Booleano que representa a existência de acessibilidade para deficiência motora.
+        - sidv: Booleano que representa a existência de acessibilidade para deficiência visual.
+        - sida: Booleano que representa a existência de acessibilidade para deficiência auditiva.
+        - sdi: Booleano que representa a existência de acessibilidade para deficiência intelectual.
+        - sia: Booleano que representa a existência de acessibilidade para pessoas com nanismo.
+        - avaliacao: A avaliação à qual serão atribuídas as classes de acessibilidade.
+     */
+    func adicionaAcessibilidade(sia: Bool, sidv: Bool, sida: Bool, sdi: Bool, spn: Bool) {
+        if sia {
+            acessibilidade.append(.deficienciaMotora)
+        }
+        if sidv {
+            acessibilidade.append(.deficienciaVisual)
+        }
+        if sida {
+            acessibilidade.append(.deficienciaAuditiva)
+        }
+        if sdi {
+            acessibilidade.append(.deficienciaIntelectual)
+        }
+        if spn {
+            acessibilidade.append(.nanismo)
+        }
+    }
+    
+    /**
+     Função que converte os valores de uma instância de `AvaliacaoCodable` para uma `Avaliacao`.
+     
+      - parameters:
+         - avaliacaoCodable: Instância de `AvaliacaoCodable ` cujos valores serão convertidos.
+     */
+    func converteAvaliacao(avaliacao: AvaliacaoCodable) {
+        if  let id = avaliacao._id,
+            let titulo = avaliacao.titulo,
+            let data = avaliacao.data,
+            let cargo = avaliacao.cargo,
+            let tempoServico = avaliacao.tempoServico,
+            let pros = avaliacao.pros,
+            let contras = avaliacao.contras,
+            let ultimoAno = avaliacao.ultimoAno,
+            let integracao = avaliacao.integracaoEquipe,
+            let cultura = avaliacao.culturaValores,
+            let remuneracao = avaliacao.renumeracaoBeneficios,
+            let oportunidade = avaliacao.oportunidadeCrescimento,
+            let sia = avaliacao.deficienciaMotora,
+            let sidv = avaliacao.deficienciaVisual,
+            let sida = avaliacao.deficienciaAuditiva,
+            let sdi = avaliacao.deficienciaIntelectual,
+            let spn = avaliacao.nanismo,
+            let recomenda = avaliacao.recomenda,
+            let status = avaliacao.estadoPendenteAvaliacao {
+            
+                self.titulo = titulo
+                self.vantagens = pros
+                self.desvantagens = contras
+                self.sugestoes = avaliacao.melhorias
+                self.nota = media(valores: [integracao, cultura, remuneracao, oportunidade])
+                self.integracao = Int(integracao)
+                self.cultura = Int(cultura)
+                self.remuneracao = Int(remuneracao)
+                self.oportunidade = Int(oportunidade)
+                self.recomendacao = recomenda
+                self.ultimoAno = Int(ultimoAno)
+                self.posicao = cargo
+                self.id = id
+                
+                switch status {
+                case -1:
+                    self.status = .reprovado
+                case 0:
+                    self.status = .pendente
+                case 1:
+                    self.status = .aprovado
+                default:
+                    break
+                }
+                
+                self.tempoServico = converteTempoServico(tempoServico: tempoServico)
+            
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+                dateFormatter.locale = Locale(identifier: "pt_BR")
+                if let date = dateFormatter.date(from: data) {
+                    self.data = date
+                }
+        
+                adicionaAcessibilidade(sia: sia, sidv: sidv, sida: sida, sdi: sdi, spn: spn)
+            
+                if Int(ultimoAno) != Calendar.current.component(.year, from: Date()) {
+                    self.cargo = .exFunc
+                }
+        }
+    }
+        
 }
 
 /**
