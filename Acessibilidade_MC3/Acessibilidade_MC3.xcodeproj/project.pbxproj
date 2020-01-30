@@ -21,8 +21,6 @@
 		E39DB32423D5943400160BC3 /* Perfil.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E39DB32323D5943400160BC3 /* Perfil.storyboard */; };
 		E3A5411C231C6C8A00F22DC8 /* UIColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A5411B231C6C8A00F22DC8 /* UIColors.swift */; };
 		E3CBA81B2316EB9F00403440 /* Avaliar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3CBA81A2316EB9F00403440 /* Avaliar.storyboard */; };
-		E3E905A523D06C2D00CC79FB /* Curadoria.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3E905A423D06C2D00CC79FB /* Curadoria.storyboard */; };
-		E3E905A723D07A4A00CC79FB /* CuradoriaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E905A623D07A4A00CC79FB /* CuradoriaViewController.swift */; };
 		E40E5EE823170DC100915B21 /* BarraProgressoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40E5EE723170DC100915B21 /* BarraProgressoView.swift */; };
 		E4200B72231EDB9100AFD3A2 /* NovaEmpresaTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4200B71231EDB9100AFD3A2 /* NovaEmpresaTableViewController.swift */; };
 		E4200B76231EE68500AFD3A2 /* TextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4200B75231EE68500AFD3A2 /* TextViewController.swift */; };
@@ -86,8 +84,6 @@
 		E39DB32323D5943400160BC3 /* Perfil.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Perfil.storyboard; sourceTree = "<group>"; };
 		E3A5411B231C6C8A00F22DC8 /* UIColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColors.swift; sourceTree = "<group>"; };
 		E3CBA81A2316EB9F00403440 /* Avaliar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Avaliar.storyboard; sourceTree = "<group>"; };
-		E3E905A423D06C2D00CC79FB /* Curadoria.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Curadoria.storyboard; sourceTree = "<group>"; };
-		E3E905A623D07A4A00CC79FB /* CuradoriaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CuradoriaViewController.swift; sourceTree = "<group>"; };
 		E40E5EE723170DC100915B21 /* BarraProgressoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarraProgressoView.swift; sourceTree = "<group>"; };
 		E4200B6F231EC6A900AFD3A2 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Main.strings"; sourceTree = "<group>"; };
 		E4200B70231EC6A900AFD3A2 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
@@ -192,7 +188,6 @@
 				E4F40F7E2319855900DF4143 /* InformacoesTableViewCell.swift */,
 				E4F40F802319ADCA00DF4143 /* AvaliacaoTableViewCell.swift */,
 				E4FA82B2231D89FB00BD6BFA /* AvaliacaoHeaderView.swift */,
-				E3E905A423D06C2D00CC79FB /* Curadoria.storyboard */,
 				E39DB32323D5943400160BC3 /* Perfil.storyboard */,
 			);
 			path = View;
@@ -216,7 +211,6 @@
 				E4FDA8BF23D8C0EF00F367CF /* CuradoriaDetalhesViewController.swift */,
 				E4FDA8C123D8C62700F367CF /* AvaliarEmpresaTableViewController.swift */,
 				E4FDA8C323D8D92F00F367CF /* AvaliarComentarioTableViewController.swift */,
-				E3E905A623D07A4A00CC79FB /* CuradoriaViewController.swift */,
 				E39D073E23DA75AA0030ED7D /* PerfilViewController.swift */,
 			);
 			path = Controller;
@@ -390,7 +384,6 @@
 				E42BD43B23D7D4970055D166 /* lista-palavroes-bloqueio.txt in Resources */,
 				E39DB32423D5943400160BC3 /* Perfil.storyboard in Resources */,
 				E3CBA81B2316EB9F00403440 /* Avaliar.storyboard in Resources */,
-				E3E905A523D06C2D00CC79FB /* Curadoria.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -452,7 +445,6 @@
 				E4F40F7F2319855900DF4143 /* InformacoesTableViewCell.swift in Sources */,
 				E40E5EE823170DC100915B21 /* BarraProgressoView.swift in Sources */,
 				E4F330ED2315C60D006106E2 /* EmpresaTableViewCell.swift in Sources */,
-				E3E905A723D07A4A00CC79FB /* CuradoriaViewController.swift in Sources */,
 				E4F330E92315C311006106E2 /* EmpresasViewController.swift in Sources */,
 				E4FDA8C023D8C0EF00F367CF /* CuradoriaDetalhesViewController.swift in Sources */,
 				E39891D023171937003F785B /* AvaliarNotasViewController.swift in Sources */,
