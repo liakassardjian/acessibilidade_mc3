@@ -14,6 +14,7 @@ class PerfilController: NSObject, UITableViewDelegate, UITableViewDataSource {
     var empresa: Empresa?
     
     
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return (empresa?.avaliacoes.count)!
     }
@@ -110,6 +111,5 @@ class PerfilController: NSObject, UITableViewDelegate, UITableViewDataSource {
             imagens[cont].image = nil
         }
     }
-    
     
 }

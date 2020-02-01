@@ -14,25 +14,17 @@ class PerfilViewController: UIViewController {
     
     var perfilController: PerfilController?
     
-
     override func viewDidLoad() {
         
         perfilController = PerfilController()
         perfilTableView.delegate = perfilController
         perfilTableView.dataSource = perfilController
         
-        
-        
-//        detalhesDataSourceDelegate = DetalhesEmpresaController()
-//        detalhesTableView.delegate = detalhesDataSourceDelegate
-//        detalhesTableView.dataSource = detalhesDataSourceDelegate
-        
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
     
-
     /*
     // MARK: - Navigation
 
