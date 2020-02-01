@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="HqO-VW-SgY">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="HqO-VW-SgY">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -11,7 +11,7 @@
         <!--Minhas Contribuições-->
         <scene sceneID="ONK-NC-0yZ">
             <objects>
-                <viewController id="nBX-hv-FCu" sceneMemberID="viewController">
+                <viewController id="nBX-hv-FCu" customClass="PerfilViewController" customModule="Acessibilidade_MC3" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eZo-zr-Btl">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -431,6 +431,9 @@
                         <viewLayoutGuide key="safeArea" id="Wlm-02-grt"/>
                     </view>
                     <navigationItem key="navigationItem" title="Minhas Contribuições" id="2LE-Tm-QqW"/>
+                    <connections>
+                        <outlet property="perfilTableView" destination="Hgw-Ck-Wgi" id="bur-sR-IpE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Imw-qU-dIF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -487,6 +490,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="zUQ-Eu-Tzy" kind="show" id="6KL-N6-PAI"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="CPF-z9-cEq">
                                         <rect key="frame" x="0.0" y="171" width="414" height="43.5"/>
@@ -504,6 +510,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="vWe-AM-UOh" kind="show" id="jaj-mR-XBD"/>
+                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -544,7 +553,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="wordWrap" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0ir-Ad-8Xh">
-                                <rect key="frame" x="40" y="-506" width="334" height="1358"/>
+                                <rect key="frame" x="40" y="-462" width="334" height="1314"/>
                                 <string key="text">Nós não coletamos quaisquer dados dos telefones de nossos usuários. Nós armazenamos apenas dados que nossos usuários inserem de livre e espontânea vontade, e todas as informações que exibimos são anônimas.</string>
                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -575,7 +584,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="50" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kxF-jK-Tsn">
-                                <rect key="frame" x="40" y="-506" width="334" height="1358"/>
+                                <rect key="frame" x="40" y="-462" width="334" height="1314"/>
                                 <string key="text">Nós não coletamos quaisquer dados dos telefones de nossos usuários. Nós armazenamos apenas dados que nossos usuários inserem de livre e espontânea vontade, e todas as informações que exibimos são anônimas. ISTO É UM PLACEHOLDER ISTO É UM PLACEHOLDER ISTO É UM PLACEHOLDER</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
