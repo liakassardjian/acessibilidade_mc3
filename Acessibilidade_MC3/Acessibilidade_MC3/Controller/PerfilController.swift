@@ -11,12 +11,22 @@ import UIKit
 
 class PerfilController: NSObject, UITableViewDelegate, UITableViewDataSource {
     
-    var empresa: Empresa?
+    var avaliacoes: [Avaliacao]
+    
+    init(idUsuario: String) {
+        
+        let avaliacaoCodable = InternEmpresaAcessivel.getAvaliacoesUsuario(uuid: idUsuario)
+        for elemento in avaliacaoCodable {
+            let novaAvaliacao = Avaliacao()
+            novaAvaliacao.converteAvaliacao(avaliacao: elemento)
+            avaliacoes.append(novaAvaliacao)
+        }
+    }
     
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return (empresa?.avaliacoes.count)!
+        return (avaliacoes.count)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
