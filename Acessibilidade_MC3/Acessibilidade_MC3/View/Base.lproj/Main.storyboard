@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Cwa-TM-w0s">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Cwa-TM-w0s">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -28,7 +29,7 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="217" estimatedRowHeight="217" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="L9m-gF-ijD">
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
-                                <color key="backgroundColor" red="0.96862745098039216" green="0.97647058823529409" blue="0.9882352941176471" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" name="BrancoAzulado"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="empresaCell" rowHeight="217" id="HIK-p5-GDn" customClass="EmpresaTableViewCell" customModule="Acessibilidade_MC3" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="217"/>
@@ -49,7 +50,7 @@
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="São Paulo, SP" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aQ4-w4-eu1">
                                                             <rect key="frame" x="20" y="50.5" width="334" height="36.5"/>
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
-                                                            <color key="textColor" red="0.53333333329999999" green="0.56078431370000004" blue="0.58823529409999997" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <color key="textColor" name="Cinzinha"/>
                                                             <nil key="highlightedColor"/>
                                                             <variation key="heightClass=regular-widthClass=regular">
                                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
@@ -92,17 +93,17 @@
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="3,6" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iUO-NZ-3QF">
                                                                                     <rect key="frame" x="5" y="26" width="54.5" height="33.5"/>
                                                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
-                                                                                    <nil key="textColor"/>
+                                                                                    <color key="textColor" name="EscuroAzulado"/>
                                                                                     <nil key="highlightedColor"/>
                                                                                 </label>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="/5" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KiM-YC-A1c">
                                                                                     <rect key="frame" x="59.5" y="39" width="15.5" height="20.5"/>
                                                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                                                                    <color key="textColor" red="0.53333333329999999" green="0.56078431370000004" blue="0.58823529409999997" alpha="1" colorSpace="calibratedRGB"/>
+                                                                                    <color key="textColor" name="Cinzinha"/>
                                                                                     <nil key="highlightedColor"/>
                                                                                 </label>
                                                                             </subviews>
-                                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                            <color key="backgroundColor" name="Branco"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="bottom" secondItem="wV1-Pc-Qgm" secondAttribute="bottom" constant="22" id="A6h-EZ-qx4">
                                                                                     <variation key="heightClass=compact-widthClass=compact" constant="11"/>
@@ -153,20 +154,20 @@
                                                                                         <constraint firstAttribute="height" relation="lessThanOrEqual" constant="36" id="mUz-lW-088"/>
                                                                                     </constraints>
                                                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
-                                                                                    <nil key="textColor"/>
+                                                                                    <color key="textColor" name="EscuroAzulado"/>
                                                                                     <nil key="highlightedColor"/>
                                                                                 </label>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="recomendam" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Axv-hK-wnk">
                                                                                     <rect key="frame" x="0.0" y="60.5" width="80" height="13.5"/>
                                                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleCaption2"/>
-                                                                                    <color key="textColor" red="0.53333333329999999" green="0.56078431370000004" blue="0.58823529409999997" alpha="1" colorSpace="calibratedRGB"/>
+                                                                                    <color key="textColor" name="Cinzinha"/>
                                                                                     <nil key="highlightedColor"/>
                                                                                     <variation key="heightClass=regular-widthClass=regular">
                                                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                                                                     </variation>
                                                                                 </label>
                                                                             </subviews>
-                                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                            <color key="backgroundColor" name="Branco"/>
                                                                             <constraints>
                                                                                 <constraint firstItem="Axv-hK-wnk" firstAttribute="leading" secondItem="KWl-bn-NYS" secondAttribute="leading" id="5GS-Vq-ot0"/>
                                                                                 <constraint firstAttribute="trailing" secondItem="WVH-zc-noI" secondAttribute="trailing" id="CIL-eW-d0F"/>
@@ -743,7 +744,7 @@
                                                     </constraints>
                                                 </view>
                                             </subviews>
-                                            <color key="backgroundColor" red="0.96862745098039216" green="0.97647058823529409" blue="0.9882352941176471" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <color key="backgroundColor" name="BrancoAzulado"/>
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="w5F-5N-IgT" secondAttribute="bottom" id="4GS-NJ-sXg"/>
                                                 <constraint firstAttribute="trailing" secondItem="w5F-5N-IgT" secondAttribute="trailing" id="h10-j3-BLR"/>
@@ -2286,7 +2287,10 @@
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.96862745100000003" green="0.97647058819999999" blue="0.98823529409999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                        <color key="barTintColor" red="0.96862745100000003" green="0.97647058819999999" blue="0.98823529409999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="barTintColor" name="BrancoAzulado"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" name="EscuroAzulado"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="Mw3-2I-Yv3" kind="relationship" relationship="rootViewController" id="X8g-OW-J75"/>
@@ -2307,6 +2311,21 @@
         <image name="SIDA" width="204" height="204"/>
         <image name="SIDV" width="204" height="204"/>
         <image name="SPN" width="204" height="204"/>
+        <namedColor name="Branco">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="BrancoAzulado">
+            <color red="0.96899998188018799" green="0.97600001096725464" blue="0.98799997568130493" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Cinzinha">
+            <color red="0.53299999237060547" green="0.56099998950958252" blue="0.58799999952316284" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="EscuroAzulado">
+            <color red="0.066666666666666666" green="0.12549019607843137" blue="0.1764705882352941" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="EscuroAzulado">
+            <color red="0.067000001668930054" green="0.125" blue="0.17599999904632568" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
-    <color key="tintColor" red="0.29019607843137252" green="0.53725490196078429" blue="0.76078431372549016" alpha="1" colorSpace="calibratedRGB"/>
+    <color key="tintColor" name="RioCristalino"/>
 </document>
